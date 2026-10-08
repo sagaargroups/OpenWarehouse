@@ -1,5 +1,11 @@
 # Changelog — Anthropic
 
+## [2026-10-08 13:03 UTC] Sync & Inventory Update
+
+- **Skills Tracked:** 252 (customer-escalation, kb-article, customer-research, ticket-triage, draft-response...)
+- **Plugins Tracked:** 46 (knowledge-work-plugins, customer-support, .claude-plugin, design, .claude-plugin...)
+- **MCPs Tracked:** 0
+
 ## [2026-10-08 12:42 UTC] Sync & Inventory Update
 
 - **Skills Tracked:** 252 (customer-escalation, kb-article, customer-research, ticket-triage, draft-response...)

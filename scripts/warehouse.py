@@ -254,130 +254,18 @@ def extract_plugin_description(plugin_path: Path) -> str:
         pass
     return f"Plugin bundle from {plugin_path.name}"
 
-def heal_contributor_internal_views():
-    """
-    Populates internal plugins/ and skills/ views inside each Contributors/<Org>/
-    using relative symlinks so that Finder / IDE browsing is never empty!
-    """
-    contrib_dir = REPO_ROOT / "Contributors"
-
-    # 1. Anthropic
-    anthropic_dir = contrib_dir / "Anthropic"
-    kw = anthropic_dir / "knowledge-work-plugins"
-    if kw.exists():
-        p_dir = anthropic_dir / "plugins"
-        s_dir = anthropic_dir / "skills"
-        p_dir.mkdir(parents=True, exist_ok=True)
-        s_dir.mkdir(parents=True, exist_ok=True)
-
-        for item in kw.iterdir():
-            if item.is_dir() and not item.name.startswith("."):
-                link = p_dir / item.name
-                rel = os.path.relpath(item, p_dir)
-                if link.is_symlink():
-                    link.unlink()
-                elif not link.exists():
-                    link.symlink_to(rel)
-
-                skills_sub = item / "skills"
-                if skills_sub.exists():
-                    for sk in skills_sub.iterdir():
-                        if sk.is_dir() and not sk.name.startswith("."):
-                            s_link = s_dir / sk.name
-                            s_rel = os.path.relpath(sk, s_dir)
-                            if s_link.is_symlink():
-                                s_link.unlink()
-                            elif not s_link.exists():
-                                s_link.symlink_to(s_rel)
-
-    # 2. Salesforce
-    sf_dir = contrib_dir / "Salesforce"
-    sf_pkg = sf_dir / "salesforce-skills" / "salesforce-for-sales"
-    if sf_pkg.exists():
-        p_dir = sf_dir / "plugins"
-        s_dir = sf_dir / "skills"
-        p_dir.mkdir(parents=True, exist_ok=True)
-        s_dir.mkdir(parents=True, exist_ok=True)
-
-        link = p_dir / "salesforce-for-sales"
-        rel = os.path.relpath(sf_pkg, p_dir)
-        if link.is_symlink():
-            link.unlink()
-        elif not link.exists():
-            link.symlink_to(rel)
-
-        sf_skills = sf_pkg / "skills"
-        if sf_skills.exists():
-            for sk in sf_skills.iterdir():
-                if sk.is_dir() and not sk.name.startswith("."):
-                    s_link = s_dir / sk.name
-                    s_rel = os.path.relpath(sk, s_dir)
-                    if s_link.is_symlink():
-                        s_link.unlink()
-                    elif not s_link.exists():
-                        s_link.symlink_to(s_rel)
-
-    # 3. OpenAI
-    openai_dir = contrib_dir / "OpenAI"
-    if openai_dir.exists():
-        p_dir = openai_dir / "plugins"
-        s_dir = openai_dir / "skills"
-        p_dir.mkdir(parents=True, exist_ok=True)
-        s_dir.mkdir(parents=True, exist_ok=True)
-
-        for item_name in ["openai-agents-python", "swarm"]:
-            item = openai_dir / item_name
-            if item.exists():
-                link = p_dir / item_name
-                rel = os.path.relpath(item, p_dir)
-                if link.is_symlink():
-                    link.unlink()
-                elif not link.exists():
-                    link.symlink_to(rel)
-
-        oai_skills = openai_dir / "openai-agents-python" / ".agents" / "skills"
-        if oai_skills.exists():
-            for sk in oai_skills.iterdir():
-                if sk.is_dir() and not sk.name.startswith("."):
-                    s_link = s_dir / sk.name
-                    s_rel = os.path.relpath(sk, s_dir)
-                    if s_link.is_symlink():
-                        s_link.unlink()
-                    elif not s_link.exists():
-                        s_link.symlink_to(s_rel)
-
-    # 4. Google
-    google_dir = contrib_dir / "Google"
-    if (google_dir / "plugins").exists():
-        s_dir = google_dir / "skills"
-        s_dir.mkdir(parents=True, exist_ok=True)
-        for p in (google_dir / "plugins").iterdir():
-            if p.is_dir():
-                sk_dir = p / "skills"
-                if sk_dir.exists():
-                    for sk in sk_dir.iterdir():
-                        if sk.is_dir() and not sk.name.startswith("."):
-                            s_link = s_dir / sk.name
-                            s_rel = os.path.relpath(sk, s_dir)
-                            if s_link.is_symlink():
-                                s_link.unlink()
-                            elif not s_link.exists():
-                                s_link.symlink_to(s_rel)
-
 # ==============================================================================
-# RELATIVE SYMLINK ENGINE (Zero Broken Links)
+# MODEL 1: 1-STEP CATEGORY PROJECTION SYMLINK ENGINE (Industry Standard)
 # ==============================================================================
 
 def build_symlinks(clean: bool = True) -> GroundTruthVerifier:
     """
     Establishes clean, relative symbolic links from category folders
-    (Skills/, MCPs/, Plugins/, Workflows/) into Contributors/.
+    (Skills/, MCPs/, Plugins/, Workflows/) directly into Contributors/.
+    1-Step reachable: e.g. Plugins/Anthropic/sales, Skills/Salesforce/call-prep
     """
     verifier = GroundTruthVerifier()
-    print(f"\n{Style.BOLD}{Style.CYAN}--- Dimension 1: Category Projection Symlink Engine ---{Style.RESET}")
-
-    # Heal contributor internal views first
-    heal_contributor_internal_views()
+    print(f"\n{Style.BOLD}{Style.CYAN}--- Model 1: 1-Step Category Projection Symlink Engine ---{Style.RESET}")
 
     inventory = discover_inventory()
     category_map = {
@@ -803,6 +691,39 @@ def cmd_audit():
     build_symlinks(clean=True)
     print(f"\n{Style.GREEN}{Style.BOLD}✓ Audit completed.{Style.RESET}\n")
 
+def cmd_hooks(args):
+    """Install or uninstall Git hooks for trigger-based automation."""
+    print_banner()
+    hooks_dir = REPO_ROOT / ".git" / "hooks"
+    hooks_dir.mkdir(parents=True, exist_ok=True)
+
+    post_merge = hooks_dir / "post-merge"
+    pre_push = hooks_dir / "pre-push"
+
+    post_merge_script = """#!/usr/bin/env bash
+# Trigger-based OpenWarehouse auto-healing on pull/merge
+echo "🔔 [Trigger Hook] Post-merge detected: Healing relative symlinks..."
+"$(git rev-parse --show-toplevel)/warehouse" link
+"""
+
+    pre_push_script = """#!/usr/bin/env bash
+# Trigger-based OpenWarehouse pre-push ground-truth gate
+echo "🛡️ [Trigger Hook] Pre-push verification: Asserting 3D ground truth..."
+"$(git rev-parse --show-toplevel)/warehouse" audit
+"""
+
+    with open(post_merge, "w", encoding="utf-8") as f:
+        f.write(post_merge_script)
+    os.chmod(post_merge, 0o755)
+
+    with open(pre_push, "w", encoding="utf-8") as f:
+        f.write(pre_push_script)
+    os.chmod(pre_push, 0o755)
+
+    print(f"  {Style.GREEN}✓ [PASS]{Style.RESET} Installed trigger-based git hooks (.git/hooks/post-merge & pre-push)")
+    print(f"  • {Style.BOLD}post-merge{Style.RESET}: Auto-syncs and heals symlinks whenever you pull")
+    print(f"  • {Style.BOLD}pre-push{Style.RESET}: Asserts 100% relative symlinks and ground-truth before pushing\n")
+
 # ==============================================================================
 # MAIN ENTRYPOINT
 # ==============================================================================
@@ -837,6 +758,9 @@ def main():
     # audit
     subparsers.add_parser("audit", help="Run 3D ground-truth security and schema audit")
 
+    # hook
+    subparsers.add_parser("hook", help="Install trigger-based Git hooks (post-merge & pre-push)")
+
     args = parser.parse_args()
     if not args.command:
         parser.print_help()
@@ -850,6 +774,10 @@ def main():
         cmd_sync(args)
     elif args.command == "add":
         cmd_add(args)
+    elif args.command == "audit":
+        cmd_audit()
+    elif args.command == "hook":
+        cmd_hooks(args)
     elif args.command == "audit":
         cmd_audit()
 

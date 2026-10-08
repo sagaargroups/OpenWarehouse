@@ -1,5 +1,15 @@
 # Changelog — OpenWarehouse
 
+## [2026-10-08 13:03 UTC] Automated Ecosystem Sync
+
+### 📊 Warehouse Metrics
+- **Total Skills:** 568
+- **Total Plugins:** 108
+- **Total MCP Servers:** 7
+- **Active Contributors:** 6
+
+### 🌟 Recent Changes
+- Updated upstream submodules to latest tracked commits.
 ## [2026-10-08 12:42 UTC] Automated Ecosystem Sync
 
 ### 📊 Warehouse Metrics

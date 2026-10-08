@@ -2,8 +2,14 @@ name: OpenWarehouse Daily Pulse Sync
 
 on:
   schedule:
-    - cron: '0 4 * * *' # Every day at 04:00 UTC
-  workflow_dispatch:
+    - cron: '0 4 * * *' # Time-based: Every day at 04:00 UTC
+  workflow_dispatch:      # Trigger-based: 1-click manual trigger from GitHub UI
+  repository_dispatch:    # Trigger-based: External webhook or API call
+    types: [trigger-sync]
+  push:                   # Trigger-based: On manifest or submodule changes
+    paths:
+      - '.gitmodules'
+      - 'warehouse.manifest.json'
 
 jobs:
   sync:
