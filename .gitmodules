@@ -13,3 +13,6 @@
 [submodule "Contributors/OpenAI/swarm"]
 	path = Contributors/OpenAI/swarm
 	url = https://github.com/openai/swarm.git
+[submodule "Contributors/Frappe/mcp"]
+	path = Contributors/Frappe/mcp
+	url = https://github.com/frappe/mcp.git

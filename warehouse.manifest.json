@@ -104,6 +104,14 @@
       "repository": "https://github.com/salesforce/salesforce-skills.git",
       "branch": "main",
       "active": true
+    },
+    "Frappe-mcp": {
+      "type": "submodule",
+      "description": "Upstream repository mcp from Frappe",
+      "path": "Contributors/Frappe/mcp",
+      "repository": "https://github.com/frappe/mcp.git",
+      "branch": "main",
+      "active": true
     }
   },
   "validation_protocol": {
