@@ -96,6 +96,14 @@
       "categories": {
         "skills": "skills"
       }
+    },
+    "Salesforce-salesforce-skills": {
+      "type": "submodule",
+      "description": "Upstream repository salesforce-skills from Salesforce",
+      "path": "Contributors/Salesforce/salesforce-skills",
+      "repository": "https://github.com/salesforce/salesforce-skills.git",
+      "branch": "main",
+      "active": true
     }
   },
   "validation_protocol": {

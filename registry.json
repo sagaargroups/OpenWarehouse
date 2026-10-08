@@ -1,9 +1,9 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-10-08 08:44 UTC",
+  "updated_at": "2026-10-08 12:26 UTC",
   "counts": {
-    "skills": 387,
-    "plugins": 47,
+    "skills": 421,
+    "plugins": 48,
     "mcps": 7,
     "workflows": 1
   },
@@ -818,6 +818,210 @@
         "contributor": "Ours",
         "path": "Contributors/Ours/skills/context-blueprint",
         "description": "Blueprint for the global system context and operational handbook."
+      },
+      {
+        "name": "rep-context",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/rep-context",
+        "description": "Catch a manager up on one of their sales reps before a 1:1: the rep's pipeline, recent activity, what they are working on, and where they need help, with suggested questions. Use when the person named is an internal rep, not a customer contact."
+      },
+      {
+        "name": "using-display-widget",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/using-display-widget",
+        "description": "Render assembled Salesforce data as a styled widget using either a hydrated dynamic definition or a registered widget with props. Use when a skill needs a composed visual presentation or guidance on rendering mode, structure and supported tiles."
+      },
+      {
+        "name": "calendar-events",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/calendar-events",
+        "description": "Show a schedule from Salesforce Event data with local times, subjects, locations, and linked contacts, accounts or deals. Use to review today's calendar, upcoming meetings, or a past or future schedule; for a broader morning rundown, use daily-briefing."
+      },
+      {
+        "name": "forecast-narrative",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/forecast-narrative",
+        "description": "Build a forecast-call brief from Salesforce opportunity aggregates, top-deal samples and field history, covering the number, bucket movement, risks and asks. Use to explain a rep or team's forecast; for a broader pipeline and coaching view, use team-pipeline."
+      },
+      {
+        "name": "deal-review",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/deal-review",
+        "description": "Build a scored deal-health assessment from Salesforce fields, contacts and activity plus email, documents and Slack, with evidence-backed risks. Use to judge whether one deal will close; for stage-exit gaps and a sequenced path, use deal-advance-gap."
+      },
+      {
+        "name": "team-pipeline",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/team-pipeline",
+        "description": "Build a team pipeline brief from Salesforce users and opportunities, showing closed revenue, forecast, swing deals and coaching needs by rep. Use to review a manager's team, prepare a pipeline meeting or find where reps need help. One rep: pipeline-review."
+      },
+      {
+        "name": "renewal-radar",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/renewal-radar",
+        "description": "Build a renewal risk brief from Salesforce opportunities, email, documents and Slack, covering timing, activity, uplift and next moves. Use to scan upcoming renewals or prepare one renewal motion; for overall account health or QBR prep, use customer-health."
+      },
+      {
+        "name": "update",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/update",
+        "description": "Version-aware maintenance for the Sales Cloud plugin \u2014 keeps the daily refresh schedule current at the installed plugin version so new versions, migrations, and features get picked up. This is the skill the daily schedule runs. Also use when the user says \"update\", \"run my plugin update\", or after installing a new plugin version."
+      },
+      {
+        "name": "draft-outreach",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/draft-outreach",
+        "description": "Create a personalized email draft from Salesforce contact, account, opportunity and activity data plus prior email, documents and Slack. Use when starting, following up with or re-engaging one prospect or customer. For batch inbox replies, use inbox-sweep."
+      },
+      {
+        "name": "configure",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/configure",
+        "description": "Set up the Sales Cloud plugin \u2014 create the daily refresh schedule, show the \"How I can help you sell\" overview and a \"Where do you want to start?\" chooser, and (on request) build Your Sales Intelligence, a live view of the user's book of business. Use when the user says \"configure\", \"configure salesforce\", \"set me up\", \"onboard me\", \"get me started\", or on first run of the plugin."
+      },
+      {
+        "name": "inbox-sweep",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/inbox-sweep",
+        "description": "Create a prioritized response queue and email drafts from unread threads, sent-mail voice patterns and Salesforce account and opportunity context. Use when sweeping or triaging an inbox, finding messages needing replies or drafting several customer responses."
+      },
+      {
+        "name": "daily-briefing",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/daily-briefing",
+        "description": "Create today's sales briefing from Salesforce events, near-term and overdue deals, account context, commitments, and unread customer email. Use for a morning rundown combining meetings, pipeline, and inbox priorities; schedule-only requests: calendar-events."
+      },
+      {
+        "name": "query-activity-history",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/query-activity-history",
+        "description": "Build an interaction timeline from closed Salesforce Tasks and Events on one Account, Contact, Lead or Opportunity, with dates, people and notes. Use when inspecting what happened on a record or reviewing its activity. To create an entry, use log-activity."
+      },
+      {
+        "name": "deal-signals",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/deal-signals",
+        "description": "Build a deal-risk digest from Salesforce close dates, activity, next steps and forecast fields plus email, documents and Slack. Use to find quiet or overdue deals, close-date danger, renewal windows, competitor mentions or other risks needing attention."
+      },
+      {
+        "name": "voice-profile",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/voice-profile",
+        "description": "Build a reusable voice profile from recent sent emails to capture a user's greetings, sign-offs, length, structure, tone and recurring phrases. Use during setup or when outreach drafts should sound more like the user; requires access to sent mail."
+      },
+      {
+        "name": "lead-triage",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/lead-triage",
+        "description": "Produce an inbound-lead priority and routing recommendation from Salesforce Lead and Account data, research and email engagement. Use when qualifying a new lead, assessing ICP fit and intent, choosing an owner or deciding the response speed and next step."
+      },
+      {
+        "name": "win-loss-review",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/win-loss-review",
+        "description": "Build a win-loss analysis from closed Salesforce opportunities, stage history, call transcripts and email, showing win rates, loss stages, objections and deal patterns. Use to explain wins and losses, compare segments or identify coaching and process changes."
+      },
+      {
+        "name": "stakeholder-map",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/stakeholder-map",
+        "description": "Build a stakeholder map from Salesforce contacts and roles plus email, calendar, calls and Slack, showing influence, stance, gaps and access paths. Use to identify decision makers, assess single-threading or plan introductions. Account brief: account-context."
+      },
+      {
+        "name": "find-internal-answer",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/find-internal-answer",
+        "description": "Find a concise answer with authoritative sources from internal documents, Slack, email and Salesforce, prioritizing the newest canonical material. Use when locating a policy, approver, deck, security asset, prior precedent or teammate with relevant experience."
+      },
+      {
+        "name": "close-plan",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/close-plan",
+        "description": "Build a customer-facing business case and dated mutual action plan from Salesforce opportunity data plus transcripts, email, documents, and Slack. Use to frame why buy and why now, quantify return, map the path to signature, or test the close date."
+      },
+      {
+        "name": "salesforce-hygiene-check",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/salesforce-hygiene-check",
+        "description": "Audit open Salesforce opportunities for missing fields, stale dates, weak next steps, stage mismatches and single-threading, producing prioritized fixes. Use to check pipeline data quality, find incomplete deals or plan CRM cleanup without changing records."
+      },
+      {
+        "name": "customer-voice",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/customer-voice",
+        "description": "Compile attributable customer quotes and themes from call transcripts and email threads across Salesforce-scoped accounts. Use to understand feedback on a feature, objection, competitor, or emerging issue, compare accounts, or surface recurring themes."
+      },
+      {
+        "name": "pipeline-review",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/pipeline-review",
+        "description": "Build one rep's current pipeline assessment from Salesforce stage aggregates, deal samples and closed-deal history, covering coverage, hygiene and risks. Use when reviewing pipeline health and stage distribution; for changes over time, use deal-signals."
+      },
+      {
+        "name": "account-tiering",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/account-tiering",
+        "description": "Rank an account list or full book into action tiers from Salesforce ICP fit, engagement, activity, contact, and opportunity data. Use to score accounts, prioritize coverage, decide where to focus, or identify accounts to activate, qualify, or deprioritize."
+      },
+      {
+        "name": "customer-health",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/customer-health",
+        "description": "Assess customer health from Salesforce account, renewal, case, task, and health data plus email, calendar, documents, and Slack. Use to judge risk, explain engagement or value trends, or prepare a business review; prospect meeting prep: call-prep."
+      },
+      {
+        "name": "research-prospect",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/research-prospect",
+        "description": "Build a prospect brief from web research and Salesforce, covering company facts, recent signals, likely priorities, contacts and ICP fit. Use to research a net-new company or person before outreach. Existing accounts: account-context."
+      },
+      {
+        "name": "deal-advance-gap",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/deal-advance-gap",
+        "description": "Map an opportunity's path to advance or close from Salesforce stage, stakeholder, activity, qualification, and risk data plus email, documents, and Slack. Use to diagnose a stuck deal, identify blockers and owners, or test whether its close date is credible."
+      },
+      {
+        "name": "account-context",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/account-context",
+        "description": "Build a 360-degree brief on a company already in Salesforce: CRM state, key contacts, recent email, documents and internal Slack. Use when asked to tell about, catch up on, or give the full picture on an existing account. Not in CRM: research-prospect."
+      },
+      {
+        "name": "expansion-whitespace",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/expansion-whitespace",
+        "description": "Identify ranked expansion plays for one customer from Salesforce contacts, owned products and opportunities plus recent email, documents and Slack. Use to find evidence-backed whitespace, upsell paths or adjacent teams and products ready for outreach."
+      },
+      {
+        "name": "deal-slip-scenario",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/deal-slip-scenario",
+        "description": "Model the impact of a deal slipping, shrinking or being lost from Salesforce pipeline and forecast data plus an available quota, including the gap and substitutes. Use to test downside scenarios, plan a backfill or judge whether the number still holds."
+      },
+      {
+        "name": "call-prep",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/call-prep",
+        "description": "Build a call brief from Salesforce meeting, account, opportunity, contact, and activity data plus email, documents, and Slack. Use before a customer meeting to understand attendees, deal history, open threads, and discovery needs; rep one-on-one: rep-context."
+      },
+      {
+        "name": "handle-objection",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/handle-objection",
+        "description": "Build a grounded response to a customer objection from the current deal, win-loss history, customer evidence and approved internal documents. Use when interpreting pricing, timing, trust or competitive pushback and preparing a talk track or written reply."
+      },
+      {
+        "name": "call-follow-up",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/call-follow-up",
+        "description": "Create a customer follow-up email and internal recap from a meeting transcript plus Salesforce account and opportunity history. Use after a customer call to capture decisions, commitments, objections, open questions, next steps, and proposed CRM updates."
+      },
+      {
+        "name": "weekly-wrap",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/skills/weekly-wrap",
+        "description": "Build a weekly sales recap from Salesforce opportunity and calendar activity plus email, documents and Slack, covering wins, losses, deal activity and next week's priorities. Use to review a rep's or team's week, prepare for Monday or draft an internal update."
       },
       {
         "name": "customer-escalation",
@@ -2482,6 +2686,12 @@
         "contributor": "Ours",
         "path": "Contributors/Ours/skills/agentic-skill-creator",
         "description": "Creates and updates production-grade agentic skills with MCP tool integration, agent workflows, approval gates, and folder structures."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/.claude-plugin",
+        "description": "Sales workflows for account executives and sales leaders, including account research, call prep, follow-up, pipeline review, forecasting, deal-slippage scenarios, lead triage, outreach drafting, approval-gated Salesforce updates and much more. Both the plugin and the Salesforce connector are Beta services, their use is governed by the [Beta terms](https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/legal/Agreements/beta-agreements/Beta-Services-Agreement.pdf)."
       },
       {
         "name": ".claude-plugin",
