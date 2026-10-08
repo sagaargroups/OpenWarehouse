@@ -129,7 +129,9 @@ def discover_inventory() -> Dict[str, Any]:
         for root, dirs, files in os.walk(contrib):
             if "SKILL.md" in files:
                 skill_dir = Path(root)
-                rel_to_contrib = skill_dir.relative_to(contrib)
+                # Ignore duplicate internal symlink hits
+                if skill_dir.is_symlink():
+                    continue
                 inventory["skills"].append({
                     "name": skill_dir.name,
                     "contributor": contrib_name,
@@ -138,17 +140,43 @@ def discover_inventory() -> Dict[str, Any]:
                     "description": extract_skill_description(skill_dir / "SKILL.md")
                 })
 
-        # 2. Discover Plugins (folders containing plugin.json)
+        # 2. Discover Plugins:
+        # - Any directory with plugin.json
+        # - Any directory with .claude-plugin (directory or file)
+        # - Official packages in knowledge-work-plugins or salesforce-skills
+        discovered_plugin_paths = set()
         for root, dirs, files in os.walk(contrib):
+            dir_path = Path(root)
+            if dir_path.is_symlink():
+                continue
+
+            is_plugin = False
+            plugin_target = dir_path
+
             if "plugin.json" in files:
-                plugin_dir = Path(root)
-                rel_to_contrib = plugin_dir.relative_to(contrib)
+                is_plugin = True
+                plugin_target = dir_path
+            elif ".claude-plugin" in dirs or ".claude-plugin" in files:
+                is_plugin = True
+                plugin_target = dir_path
+            elif dir_path.parent.name == "knowledge-work-plugins" and dir_path.is_dir() and not dir_path.name.startswith("."):
+                is_plugin = True
+                plugin_target = dir_path
+            elif dir_path.name == "salesforce-for-sales":
+                is_plugin = True
+                plugin_target = dir_path
+            elif contrib_name == "OpenAI" and dir_path.name in ["openai-agents-python", "swarm"]:
+                is_plugin = True
+                plugin_target = dir_path
+
+            if is_plugin and plugin_target.resolve() not in discovered_plugin_paths:
+                discovered_plugin_paths.add(plugin_target.resolve())
                 inventory["plugins"].append({
-                    "name": plugin_dir.name,
+                    "name": plugin_target.name,
                     "contributor": contrib_name,
-                    "relative_path": str(plugin_dir.relative_to(REPO_ROOT)),
-                    "path_obj": plugin_dir,
-                    "description": extract_plugin_description(plugin_dir / "plugin.json")
+                    "relative_path": str(plugin_target.relative_to(REPO_ROOT)),
+                    "path_obj": plugin_target,
+                    "description": extract_plugin_description(plugin_target)
                 })
 
         # 3. Discover MCPs (under mcps/ folder or modelcontextprotocol-servers/src or packages with mcp.json)
@@ -207,11 +235,134 @@ def extract_skill_description(skill_path: Path) -> str:
 
 def extract_plugin_description(plugin_path: Path) -> str:
     try:
-        with open(plugin_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            return data.get("description", "Plugin bundle")
+        p_json = plugin_path / "plugin.json" if plugin_path.is_dir() else plugin_path
+        if p_json.exists():
+            with open(p_json, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                desc = data.get("description")
+                if desc:
+                    return desc
+
+        readme = plugin_path / "README.md"
+        if readme.exists():
+            with open(readme, "r", encoding="utf-8") as f:
+                for line in f.readlines()[:15]:
+                    line_s = line.strip()
+                    if line_s and not line_s.startswith("#") and not line_s.startswith("[!") and not line_s.startswith("<"):
+                        return line_s[:120]
     except Exception:
-        return "Plugin bundle"
+        pass
+    return f"Plugin bundle from {plugin_path.name}"
+
+def heal_contributor_internal_views():
+    """
+    Populates internal plugins/ and skills/ views inside each Contributors/<Org>/
+    using relative symlinks so that Finder / IDE browsing is never empty!
+    """
+    contrib_dir = REPO_ROOT / "Contributors"
+
+    # 1. Anthropic
+    anthropic_dir = contrib_dir / "Anthropic"
+    kw = anthropic_dir / "knowledge-work-plugins"
+    if kw.exists():
+        p_dir = anthropic_dir / "plugins"
+        s_dir = anthropic_dir / "skills"
+        p_dir.mkdir(parents=True, exist_ok=True)
+        s_dir.mkdir(parents=True, exist_ok=True)
+
+        for item in kw.iterdir():
+            if item.is_dir() and not item.name.startswith("."):
+                link = p_dir / item.name
+                rel = os.path.relpath(item, p_dir)
+                if link.is_symlink():
+                    link.unlink()
+                elif not link.exists():
+                    link.symlink_to(rel)
+
+                skills_sub = item / "skills"
+                if skills_sub.exists():
+                    for sk in skills_sub.iterdir():
+                        if sk.is_dir() and not sk.name.startswith("."):
+                            s_link = s_dir / sk.name
+                            s_rel = os.path.relpath(sk, s_dir)
+                            if s_link.is_symlink():
+                                s_link.unlink()
+                            elif not s_link.exists():
+                                s_link.symlink_to(s_rel)
+
+    # 2. Salesforce
+    sf_dir = contrib_dir / "Salesforce"
+    sf_pkg = sf_dir / "salesforce-skills" / "salesforce-for-sales"
+    if sf_pkg.exists():
+        p_dir = sf_dir / "plugins"
+        s_dir = sf_dir / "skills"
+        p_dir.mkdir(parents=True, exist_ok=True)
+        s_dir.mkdir(parents=True, exist_ok=True)
+
+        link = p_dir / "salesforce-for-sales"
+        rel = os.path.relpath(sf_pkg, p_dir)
+        if link.is_symlink():
+            link.unlink()
+        elif not link.exists():
+            link.symlink_to(rel)
+
+        sf_skills = sf_pkg / "skills"
+        if sf_skills.exists():
+            for sk in sf_skills.iterdir():
+                if sk.is_dir() and not sk.name.startswith("."):
+                    s_link = s_dir / sk.name
+                    s_rel = os.path.relpath(sk, s_dir)
+                    if s_link.is_symlink():
+                        s_link.unlink()
+                    elif not s_link.exists():
+                        s_link.symlink_to(s_rel)
+
+    # 3. OpenAI
+    openai_dir = contrib_dir / "OpenAI"
+    if openai_dir.exists():
+        p_dir = openai_dir / "plugins"
+        s_dir = openai_dir / "skills"
+        p_dir.mkdir(parents=True, exist_ok=True)
+        s_dir.mkdir(parents=True, exist_ok=True)
+
+        for item_name in ["openai-agents-python", "swarm"]:
+            item = openai_dir / item_name
+            if item.exists():
+                link = p_dir / item_name
+                rel = os.path.relpath(item, p_dir)
+                if link.is_symlink():
+                    link.unlink()
+                elif not link.exists():
+                    link.symlink_to(rel)
+
+        oai_skills = openai_dir / "openai-agents-python" / ".agents" / "skills"
+        if oai_skills.exists():
+            for sk in oai_skills.iterdir():
+                if sk.is_dir() and not sk.name.startswith("."):
+                    s_link = s_dir / sk.name
+                    s_rel = os.path.relpath(sk, s_dir)
+                    if s_link.is_symlink():
+                        s_link.unlink()
+                    elif not s_link.exists():
+                        s_link.symlink_to(s_rel)
+
+    # 4. Google
+    google_dir = contrib_dir / "Google"
+    if (google_dir / "plugins").exists():
+        s_dir = google_dir / "skills"
+        s_dir.mkdir(parents=True, exist_ok=True)
+        for p in (google_dir / "plugins").iterdir():
+            if p.is_dir():
+                sk_dir = p / "skills"
+                if sk_dir.exists():
+                    for sk in sk_dir.iterdir():
+                        if sk.is_dir() and not sk.name.startswith("."):
+                            s_link = s_dir / sk.name
+                            s_rel = os.path.relpath(sk, s_dir)
+                            if s_link.is_symlink():
+                                s_link.unlink()
+                            elif not s_link.exists():
+                                s_link.symlink_to(s_rel)
 
 # ==============================================================================
 # RELATIVE SYMLINK ENGINE (Zero Broken Links)
@@ -224,6 +375,9 @@ def build_symlinks(clean: bool = True) -> GroundTruthVerifier:
     """
     verifier = GroundTruthVerifier()
     print(f"\n{Style.BOLD}{Style.CYAN}--- Dimension 1: Category Projection Symlink Engine ---{Style.RESET}")
+
+    # Heal contributor internal views first
+    heal_contributor_internal_views()
 
     inventory = discover_inventory()
     category_map = {

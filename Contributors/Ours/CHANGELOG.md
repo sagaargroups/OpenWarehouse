@@ -1,5 +1,11 @@
 # Changelog — Ours
 
+## [2026-10-08 12:42 UTC] Sync & Inventory Update
+
+- **Skills Tracked:** 135 (knowledge-management, customer-research, escalation, response-drafting, ticket-triage...)
+- **Plugins Tracked:** 45 (customer-support, .claude-plugin, design, .claude-plugin, enterprise-search...)
+- **MCPs Tracked:** 0
+
 ## [2026-10-08 12:26 UTC] Sync & Inventory Update
 
 - **Skills Tracked:** 135 (knowledge-management, customer-research, escalation, response-drafting, ticket-triage...)

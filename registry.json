@@ -1,14 +1,788 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-10-08 12:26 UTC",
+  "updated_at": "2026-10-08 12:42 UTC",
   "counts": {
-    "skills": 421,
-    "plugins": 48,
+    "skills": 568,
+    "plugins": 108,
     "mcps": 7,
     "workflows": 1
   },
   "inventory": {
     "skills": [
+      {
+        "name": "gemini-api-dev",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/gemini-api/skills/gemini-api-dev",
+        "description": "Use this skill when writing code that calls the Gemini API for text generation, multi-turn chat, multimodal understanding, image generation, video generation, speech generation (TTS), voice design, voice replication, streaming responses, background research tasks, function calling, structured output, or migrating from the old generateContent API. Covers SDK usage and best practices for Gemini models and agents in Python and TypeScript."
+      },
+      {
+        "name": "gemini-omni-flash-api",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/gemini-api/skills/gemini-omni-flash-api",
+        "description": "Use this skill for generative video editing, text-to-video, image-referenced video generation, first-frame-to-video, first-and-last-frame transitions, and video extensions using Gemini Omni 1.1 Flash (gemini-omni-1.1-flash) via the official google-genai SDK. Includes workflows for pre-processing/optimizing high-resolution or long source videos with ffmpeg, stripping audio for full sound regeneration, and handling turn-by-turn video editing and parallel execution."
+      },
+      {
+        "name": "gemini-live-api-dev",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/gemini-api/skills/gemini-live-api-dev",
+        "description": "Use this skill when building real-time, bidirectional streaming applications with the Gemini Live API, or migrating legacy Live models (2.0/2.5/3.1) to Gemini 3.8 Live. Covers WebSocket-based audio/video/text streaming, voice activity detection (VAD), background reasoning (extended thinking), asynchronous function calling, session management, ephemeral tokens, live transcription, and live translation. SDKs covered - google-genai (Python), @google/genai (JavaScript/TypeScript)."
+      },
+      {
+        "name": "google-antigravity-sdk",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/google-antigravity-sdk",
+        "description": "Design, implement, and debug autonomous AI agents and multi-agent systems using the Google Antigravity (AGY) SDK. ACTIVATE this skill when the user wants to create, configure, or orchestrate Google Antigravity agents."
+      },
+      {
+        "name": "google-antigravity-sdk",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/google-antigravity-sdk/skills/google-antigravity-sdk",
+        "description": "Design, implement, and debug autonomous AI agents and multi-agent systems using the Google Antigravity (AGY) SDK. ACTIVATE this skill when the user wants to create, configure, or orchestrate Google Antigravity agents."
+      },
+      {
+        "name": "debug-optimize-lcp",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/chrome-devtools-plugin/skills/debug-optimize-lcp",
+        "description": "Guides debugging and optimizing Largest Contentful Paint (LCP) using Chrome DevTools MCP tools. Use this skill whenever the user asks about LCP performance, slow page loads, Core Web Vitals optimization, or wants to understand why their page's main content takes too long to appear. Also use when the user mentions \"largest contentful paint\", \"page load speed\", \"CWV\", or wants to improve how fast their hero image or main content renders."
+      },
+      {
+        "name": "troubleshooting",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/chrome-devtools-plugin/skills/troubleshooting",
+        "description": "Uses Chrome DevTools MCP and documentation to troubleshoot connection and target issues. Trigger this skill when list_pages, new_page, or navigate_page fail, or when the server initialization fails."
+      },
+      {
+        "name": "chrome-devtools",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/chrome-devtools-plugin/skills/chrome-devtools",
+        "description": "Uses Chrome DevTools via MCP for efficient debugging, troubleshooting and browser automation. Use when debugging web pages, automating browser interactions, analyzing performance, or inspecting network requests. This skill does not apply to `--slim` mode (MCP configuration)."
+      },
+      {
+        "name": "memory-leak-debugging",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/chrome-devtools-plugin/skills/memory-leak-debugging",
+        "description": "Diagnoses and resolves memory leaks in JavaScript/Node.js applications. Use when a user reports high memory usage, OOM errors, or wants to analyze heapsnapshots or run memory leak detection tools like memlab."
+      },
+      {
+        "name": "a11y-debugging",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/chrome-devtools-plugin/skills/a11y-debugging",
+        "description": "Uses Chrome DevTools MCP for accessibility (a11y) debugging and auditing based on web.dev guidelines. Use when testing semantic HTML, ARIA labels, focus states, keyboard navigation, tap targets, and color contrast."
+      },
+      {
+        "name": "ucsc_conservation_and_tfbs",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/ucsc_conservation_and_tfbs",
+        "description": ">"
+      },
+      {
+        "name": "string_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/string_database",
+        "description": ">"
+      },
+      {
+        "name": "protein_sequence_similarity_search",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/protein_sequence_similarity_search",
+        "description": ">"
+      },
+      {
+        "name": "unibind_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/unibind_database",
+        "description": ">-"
+      },
+      {
+        "name": "predictingthepast",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/predictingthepast",
+        "description": ">"
+      },
+      {
+        "name": "uniprot_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/uniprot_database",
+        "description": ">-"
+      },
+      {
+        "name": "reactome_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/reactome_database",
+        "description": ">"
+      },
+      {
+        "name": "alphagenome_atlas_website_links",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/alphagenome_atlas_website_links",
+        "description": ">-"
+      },
+      {
+        "name": "science_skills_common",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/science_skills_common",
+        "description": ">-"
+      },
+      {
+        "name": "quickgo_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/quickgo_database",
+        "description": ">"
+      },
+      {
+        "name": "gtex_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/gtex_database",
+        "description": ">"
+      },
+      {
+        "name": "pubmed_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/pubmed_database",
+        "description": ">-"
+      },
+      {
+        "name": "chembl_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/chembl_database",
+        "description": ">"
+      },
+      {
+        "name": "embl_ebi_ols",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/embl_ebi_ols",
+        "description": ">"
+      },
+      {
+        "name": "literature_search_arxiv",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/literature_search_arxiv",
+        "description": ">"
+      },
+      {
+        "name": "opentargets_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/opentargets_database",
+        "description": ">"
+      },
+      {
+        "name": "ncbi_sequence_fetch",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/ncbi_sequence_fetch",
+        "description": ">"
+      },
+      {
+        "name": "pymol",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/pymol",
+        "description": ">"
+      },
+      {
+        "name": "gnomad_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/gnomad_database",
+        "description": ">"
+      },
+      {
+        "name": "literature_search_europepmc",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/literature_search_europepmc",
+        "description": ">"
+      },
+      {
+        "name": "alphafold_database_fetch_and_analyze",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/alphafold_database_fetch_and_analyze",
+        "description": ">"
+      },
+      {
+        "name": "pdb_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/pdb_database",
+        "description": ">"
+      },
+      {
+        "name": "literature_search_openalex",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/literature_search_openalex",
+        "description": ">"
+      },
+      {
+        "name": "dbsnp_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/dbsnp_database",
+        "description": ">"
+      },
+      {
+        "name": "alphagenome_variant_impact_score",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/alphagenome_variant_impact_score",
+        "description": ">-"
+      },
+      {
+        "name": "uv",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/uv",
+        "description": ">-"
+      },
+      {
+        "name": "foldseek_structural_search",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/foldseek_structural_search",
+        "description": ">"
+      },
+      {
+        "name": "workflow_skill_creator",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/workflow_skill_creator",
+        "description": ">"
+      },
+      {
+        "name": "literature_search_biorxiv",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/literature_search_biorxiv",
+        "description": ">"
+      },
+      {
+        "name": "alphagenome_single_variant_analysis",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/alphagenome_single_variant_analysis",
+        "description": ">"
+      },
+      {
+        "name": "interpro_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/interpro_database",
+        "description": ">"
+      },
+      {
+        "name": "scienceskillscommon",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/scienceskillscommon",
+        "description": ">-"
+      },
+      {
+        "name": "jaspar_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/jaspar_database",
+        "description": ">"
+      },
+      {
+        "name": "encode_ccres_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/encode_ccres_database",
+        "description": ">"
+      },
+      {
+        "name": "protein_sequence_msa",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/protein_sequence_msa",
+        "description": ">"
+      },
+      {
+        "name": "clinical_trials_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/clinical_trials_database",
+        "description": ">"
+      },
+      {
+        "name": "ensembl_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/ensembl_database",
+        "description": ">"
+      },
+      {
+        "name": "clinvar_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/clinvar_database",
+        "description": ">"
+      },
+      {
+        "name": "pubchem_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/pubchem_database",
+        "description": ">"
+      },
+      {
+        "name": "openfda_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/openfda_database",
+        "description": ">"
+      },
+      {
+        "name": "credentials",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/credentials",
+        "description": ">-"
+      },
+      {
+        "name": "human_protein_atlas_database",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science/skills/human_protein_atlas_database",
+        "description": ">"
+      },
+      {
+        "name": "skills",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/google_maps_platform/skills",
+        "description": "A collection of skills for architecting and implementing production-ready code using Google Maps Platform APIs and SDKs for any map, place, address, geocoding, routing/ETA (including eco-friendly routing), nearby search, 3D / Street View / static map, marker clustering, custom styling, drawing, geofencing, heatmap, or environmental (air-quality / pollen / solar / weather) feature \u2014 across Web, Android, iOS, and Web Services APIs. For prototyping, use the public Maps Demo Key \u2014 no billing setup and no Cloud project required, covering a growing set of the most popular Google Maps Platform APIs. For production, the skill prompts you to create and restrict your own key. All non-trivial code is grounded in freshly retrieved docs via the Google Maps Platform Code Assist service (no reliance on training-data memory)."
+      },
+      {
+        "name": "skills",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/android-cli-plugin/skills",
+        "description": "Provides instructions for installing and using the `android` CLI. The `android` command-line tool is a critical tool for Android development and helps you create new Android projects, run Android apps on devices, manage and interact with Android virtual devices (including screenshots and UI inspection), manage Android SDK components, look up official Android documentation, and discover and install official Android skills."
+      },
+      {
+        "name": "flutter-implement-json-serialization",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/flutter-implement-json-serialization",
+        "description": "Create model classes with `fromJson` and `toJson` methods using `dart:convert`. Use when manually mapping JSON keys to class properties for simple data structures."
+      },
+      {
+        "name": "dart-use-pattern-matching",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/dart-use-pattern-matching",
+        "description": "Use switch expressions and pattern matching where appropriate"
+      },
+      {
+        "name": "flutter-add-widget-test",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/flutter-add-widget-test",
+        "description": "Implement a component-level test using `WidgetTester` to verify UI rendering and user interactions (tapping, scrolling, entering text). Use when validating that a specific widget displays correct data and responds to events as expected."
+      },
+      {
+        "name": "flutter-use-http-package",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/flutter-use-http-package",
+        "description": "Use the `http` package to execute GET, POST, PUT, or DELETE requests. Use when you need to fetch from or send data to a REST API."
+      },
+      {
+        "name": "flutter-build-responsive-layout",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/flutter-build-responsive-layout",
+        "description": "Use `LayoutBuilder`, `MediaQuery`, or `Expanded/Flexible` to create a layout that adapts to different screen sizes. Use when you need the UI to look good on both mobile and tablet/desktop form factors."
+      },
+      {
+        "name": "flutter-apply-architecture-best-practices",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/flutter-apply-architecture-best-practices",
+        "description": "Architects a Flutter application using the recommended layered approach (UI, Logic, Data). Use when structuring a new project or refactoring for scalability."
+      },
+      {
+        "name": "dart-write-documentation",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/dart-write-documentation",
+        "description": "Rules and formatting guidelines for writing Dart /// API documentation and doc comments. Use when documenting Dart code, writing doc comments for any Dart declaration (libraries, classes, methods, variables, etc.), or when instructed to follow the Effective Dart documentation guidelines."
+      },
+      {
+        "name": "dart-generate-test-mocks",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/dart-generate-test-mocks",
+        "description": "Define and generate mock objects for external dependencies using `package:mockito` and `build_runner`. Use when unit testing classes that depend on complex external services like APIs or databases."
+      },
+      {
+        "name": "dart-use-ffigen",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/dart-use-ffigen",
+        "description": "Guide agents to use `package:ffigen` to automatically generate FFI bindings instead of writing them manually. Use this skill when a task involves writing new FFI bindings, extending C/Objective-C/Swift integrations, or replacing hand-crafted `dart:ffi` setups."
+      },
+      {
+        "name": "flutter-add-widget-preview",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/flutter-add-widget-preview",
+        "description": "Adds interactive widget previews to the project using the previews.dart system. Use when creating new UI components or updating existing screens to ensure consistent design and interactive testing."
+      },
+      {
+        "name": "flutter-setup-declarative-routing",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/flutter-setup-declarative-routing",
+        "description": "Configure `MaterialApp.router` using a package like `go_router` for advanced URL-based navigation. Use when developing web applications or mobile apps that require specific deep linking and browser history support."
+      },
+      {
+        "name": "dart-resolve-package-conflicts",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/dart-resolve-package-conflicts",
+        "description": "Workflow for fixing package version conflicts. Use this when `pub get` fails due to incompatible package versions."
+      },
+      {
+        "name": "dart-collect-coverage",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/dart-collect-coverage",
+        "description": "Collect coverage using the coverage packge and create an LCOV report"
+      },
+      {
+        "name": "dart-use-primary-constructors",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/dart-use-primary-constructors",
+        "description": ">"
+      },
+      {
+        "name": "dart-setup-ffi-assets",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/dart-setup-ffi-assets",
+        "description": "Guides agents in compiling and packaging C/C++ source code into dynamic or static libraries (Code Assets) using Dart's Native Assets hook system (via hook/build.dart and hook/link.dart utilizing package:hooks and package:native_toolchain_c). Use when a user asks to: 'setup native assets', 'compile C/C++ source code', 'bundle dynamic libraries', 'build native C code', 'link native assets', 'implement build.dart or link.dart hooks', or 'integrate C/C++ interop in Dart/Flutter'. Helps agents avoid manual toolchain orchestration and configures secure hash-validated binary downloads or advanced linker tree-shaking with package:record_use mapping."
+      },
+      {
+        "name": "flutter-fix-layout-issues",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/flutter-fix-layout-issues",
+        "description": "Fixes Flutter layout errors (overflows, unbounded constraints) using Dart and Flutter MCP tools. Use when addressing \"RenderFlex overflowed\", \"Vertical viewport was given unbounded height\", or similar layout issues."
+      },
+      {
+        "name": "dart-migrate-to-checks-package",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/dart-migrate-to-checks-package",
+        "description": "|-"
+      },
+      {
+        "name": "dart-fix-runtime-errors",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/dart-fix-runtime-errors",
+        "description": "Uses get_runtime_errors and lsp to fetch an active stack trace, locate the failing line, apply a fix, and verify resolution via hot_reload."
+      },
+      {
+        "name": "dart-add-unit-test",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/dart-add-unit-test",
+        "description": "Write and organize unit tests for functions, methods, and classes using `package:test`. Use when creating new logic or fixing bugs to ensure code remains correct and regression-free."
+      },
+      {
+        "name": "flutter-add-integration-test",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/flutter-add-integration-test",
+        "description": "Configures Flutter Driver for app interaction and converts MCP actions into permanent integration tests. Use when adding integration testing to a project, exploring UI components via MCP, or automating user flows with the integration_test package."
+      },
+      {
+        "name": "dart-run-static-analysis",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/dart-run-static-analysis",
+        "description": "Execute `dart analyze` to identify warnings and errors, and use `dart fix --apply` to automatically resolve mechanical lint issues. Use during development to ensure code quality and before committing changes."
+      },
+      {
+        "name": "flutter-setup-localization",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/flutter-setup-localization",
+        "description": "Add `flutter_localizations` and `intl` dependencies, enable \"generate true\" in `pubspec.yaml`, and create an `l10n.yaml` configuration file. Use when initializing localization support for a new Flutter project."
+      },
+      {
+        "name": "dart-build-cli-app",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter/skills/dart-build-cli-app",
+        "description": "Entrypoint structure, exit codes, cross-platform scripts. Use when building command line utilities, scripts, or applications."
+      },
+      {
+        "name": "firebase_basics",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/firebase/skills/firebase_basics",
+        "description": ">-"
+      },
+      {
+        "name": "firebase_crashlytics",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/firebase/skills/firebase_crashlytics",
+        "description": "Comprehensive guide for Firebase Crashlytics, including provisioning and SDK usage. Use this skill when the user needs help setting up Crashlytics, adding crash reporting, or using the Crashlytics SDK in their application."
+      },
+      {
+        "name": "xcode_project_setup",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/firebase/skills/xcode_project_setup",
+        "description": "Safely modifies Xcode projects (.pbxproj) to add Swift Packages and link files. Use this skill whenever an iOS project needs dependencies installed (e.g. Firebase, Alamofire)."
+      },
+      {
+        "name": "firebase_data_connect_basics",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/firebase/skills/firebase_data_connect_basics",
+        "description": "Builds and deploys Firebase SQL Connect (aka Firebase Data Connect) backends with PostgreSQL securely. Use when designing schemas with tables and relations, writing authorized queries and mutations, configuring real-time data updates, or generating type-safe SDKs. Use when you need a relational database with Firebase, or when the user mentions SQL Connect or Data Connect."
+      },
+      {
+        "name": "extension_to_functions_codebase",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/firebase/skills/extension_to_functions_codebase",
+        "description": "Skill for converting an installed Firebase Extension (or extension source) into a standalone Cloud Functions for Firebase codebase or publishable npm package, including V1 to V2 trigger upgrades, lifecycle hooks, and declarative security"
+      },
+      {
+        "name": "firebase_hosting_basics",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/firebase/skills/firebase_hosting_basics",
+        "description": ">-"
+      },
+      {
+        "name": "firebase_auth_basics",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/firebase/skills/firebase_auth_basics",
+        "description": "Guide for setting up and using Firebase Authentication. Use this skill when the user's app requires user sign-in, user management, or secure data access using auth rules."
+      },
+      {
+        "name": "firebase_remote_config_basics",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/firebase/skills/firebase_remote_config_basics",
+        "description": ">-"
+      },
+      {
+        "name": "firebase_app_hosting_basics",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/firebase/skills/firebase_app_hosting_basics",
+        "description": ">-"
+      },
+      {
+        "name": "firebase_firestore",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/firebase/skills/firebase_firestore",
+        "description": ">-"
+      },
+      {
+        "name": "firestore_rules_creation",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/firebase/skills/firestore_rules_creation",
+        "description": ">-"
+      },
+      {
+        "name": "firebase_ai_logic_basics",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/firebase/skills/firebase_ai_logic_basics",
+        "description": "Official skill for integrating Firebase AI Logic (Gemini API) into web applications. Covers setup, multimodal inference, structured output, and security."
+      },
+      {
+        "name": "firebase_security_rules_auditor",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/firebase/skills/firebase_security_rules_auditor",
+        "description": ">-"
+      },
+      {
+        "name": "gcp-data-pipelines",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/gcp-data-pipelines",
+        "description": "Primary entry point for building, managing, and orchestrating data pipelines"
+      },
+      {
+        "name": "discovering-gcp-data-assets",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/discovering-gcp-data-assets",
+        "description": "|"
+      },
+      {
+        "name": "gcp-spark",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/gcp-spark",
+        "description": "|"
+      },
+      {
+        "name": "managing-python-dependencies",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/managing-python-dependencies",
+        "description": "|"
+      },
+      {
+        "name": "gcp-managed-spark-upgrades",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/gcp-managed-spark-upgrades",
+        "description": "|"
+      },
+      {
+        "name": "resolving-mcp-region-configs",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/resolving-mcp-region-configs",
+        "description": ">-"
+      },
+      {
+        "name": "schema-mapping",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/schema-mapping",
+        "description": ">-"
+      },
+      {
+        "name": "data-autocleaning",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/data-autocleaning",
+        "description": "Automated data quality and transformation capabilities for Dataform/dbt/BigQuery"
+      },
+      {
+        "name": "gcp-dataflow",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/gcp-dataflow",
+        "description": ">"
+      },
+      {
+        "name": "bigquery-data-transfer-service",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/bigquery-data-transfer-service",
+        "description": "Discovers and inspects BigQuery Data Transfer Service (DTS) configurations."
+      },
+      {
+        "name": "enforcing-resource-attribution",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/enforcing-resource-attribution",
+        "description": "|"
+      },
+      {
+        "name": "bigquery-bigframes",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/bigquery-bigframes",
+        "description": ">-"
+      },
+      {
+        "name": "dbt-bigquery",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/dbt-bigquery",
+        "description": "Expert guidance for creating, modifying, and optimizing dbt pipelines"
+      },
+      {
+        "name": "gcp-composer-troubleshooting",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/gcp-composer-troubleshooting",
+        "description": "Provides expert guidance for troubleshooting Cloud Composer (Apache"
+      },
+      {
+        "name": "federate-lakehouse-catalog",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/federate-lakehouse-catalog",
+        "description": ">-"
+      },
+      {
+        "name": "accidental-data-loss-prevention",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/accidental-data-loss-prevention",
+        "description": "|"
+      },
+      {
+        "name": "building-data-apps",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/building-data-apps",
+        "description": "|"
+      },
+      {
+        "name": "dataform-bigquery",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/dataform-bigquery",
+        "description": "Expertise in generating clean, correct, and efficient Dataform pipeline"
+      },
+      {
+        "name": "gcp-managed-airflow-recommendations",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/gcp-managed-airflow-recommendations",
+        "description": "Provides recommendations and best practices for creating, configuring, tuning and optimizing Managed Service for Apache Airflow (MSAA, Cloud Composer) environments. Use when the user asks for guidance, recommendations, or best practices on configuring Cloud Composer, scaling Airflow environments, preventing workload restarts, or analyzing system health."
+      },
+      {
+        "name": "bigquery-graph-author",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/bigquery-graph-author",
+        "description": ">-"
+      },
+      {
+        "name": "gcp-managed-airflow-dag-authoring",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/gcp-managed-airflow-dag-authoring",
+        "description": "Guides the authoring and validation of Apache Airflow DAGs for Managed Service for Apache Airflow (MSAA; formerly Cloud Composer). Covers environment context discovery, Airflow 2 vs 3 compatibility, authoring best practices, and local/remote validation processes. Use when creating or extending an Airflow DAG. Don't use when authoring Python code unrelated to Airflow DAGs."
+      },
+      {
+        "name": "google-cloud-storage-fuse",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/google-cloud-storage-fuse",
+        "description": ">-"
+      },
+      {
+        "name": "google-cloud-storage-basics",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/google-cloud-storage-basics",
+        "description": ">-"
+      },
+      {
+        "name": "bigquery-ai-ml",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/bigquery-ai-ml",
+        "description": ">-"
+      },
+      {
+        "name": "gcp-pipeline-orchestration",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/gcp-pipeline-orchestration",
+        "description": "This skill helps the agent generate or update orchestration pipeline"
+      },
+      {
+        "name": "google-cloud-auth-verification",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/google-cloud-auth-verification",
+        "description": ">-"
+      },
+      {
+        "name": "bigquery-graph-query",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/bigquery-graph-query",
+        "description": ">-"
+      },
+      {
+        "name": "gcp-spark-troubleshooting",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/gcp-spark-troubleshooting",
+        "description": "Provides expert guidance for troubleshooting Google Cloud Spark and Dataproc workloads (Dataproc Serverless batches and standard Dataproc clusters), and inspecting, streaming, searching, tailing, or summarizing Spark driver outputs and event logs in Cloud Storage. Use when the user asks to debug, troubleshoot, diagnose, or perform Root Cause Analysis (RCA) on failed Spark jobs, PySpark batches, or Spark event logs."
+      },
+      {
+        "name": "notebook-guidance",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/notebook-guidance",
+        "description": "|-"
+      },
+      {
+        "name": "gcs-security-assessment",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/gcs-security-assessment",
+        "description": ">-"
+      },
+      {
+        "name": "bigtable-basics",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/bigtable-basics",
+        "description": ">-"
+      },
+      {
+        "name": "gcp-managed-airflow-migrations",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/gcp-managed-airflow-migrations",
+        "description": "Provides guidance for migrating Apache Airflow DAGs in Managed Service for Apache Airflow (MSAA; formerly Cloud Composer). Covers migration to Airflow 2.11.1 (MSAA Gen 2 and 3) and Airflow 3 (MSAA Gen 3), including environment inspection, GCS download/upload and scanning patterns for breaking changes."
+      },
+      {
+        "name": "ml-best-practices",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/ml-best-practices",
+        "description": "|"
+      },
+      {
+        "name": "bigquery-sql",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/bigquery-sql",
+        "description": ">-"
+      },
+      {
+        "name": "dak-setup",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/dak-setup",
+        "description": "Configures (or reconfigures) the Google Cloud Data Agent Kit (DAK) plugin by checking gcloud and ADC credentials, collecting the GCP project ID, region, and services, and running its bundled `dak-setup` script. Use this proactively and without waiting to be asked whenever a SessionStart hook or any other system/context message reports that the Data Agent Kit plugin is not configured, is missing configuration, or needs to be reconfigured. Also use it whenever the user mentions setting up, configuring, reconfiguring, or changing the project, region, or service integrations for the Data Agent Kit or DAK plugin \u2014 even if they phrase it casually, like \"dak isn't working\" or \"I want to enable more GCP service integrations\"."
+      },
+      {
+        "name": "gcp-pipeline-resource-provisioning",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/gcp-pipeline-resource-provisioning",
+        "description": "|"
+      },
+      {
+        "name": "google-cloud-storage-bucket-architect",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin/skills/google-cloud-storage-bucket-architect",
+        "description": ">-"
+      },
+      {
+        "name": "chrome-extensions",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/modern-web-guidance-plugin/skills/chrome-extensions",
+        "description": ">"
+      },
+      {
+        "name": "modern-web-guidance",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/modern-web-guidance-plugin/skills/modern-web-guidance",
+        "description": "|"
+      },
       {
         "name": "knowledge-management",
         "contributor": "Ours",
@@ -2534,14 +3308,194 @@
         "contributor": "Anthropic",
         "path": "Contributors/Anthropic/knowledge-work-plugins/productivity/skills/memory-management",
         "description": "Two-tier memory system that makes Claude a true workplace collaborator. Decodes shorthand, acronyms, nicknames, and internal language so Claude understands requests like a colleague would. CLAUDE.md for working memory, memory/ directory for the full knowledge base."
+      },
+      {
+        "name": "code-change-verification",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/.agents/skills/code-change-verification",
+        "description": "Run the required final formatting, lint, type, and test checks after eligible SDK changes pass review."
+      },
+      {
+        "name": "final-release-review",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/.agents/skills/final-release-review",
+        "description": "Assess a Python SDK release candidate or release plan against the previous release and recommend ship or block."
+      },
+      {
+        "name": "test-coverage-improver",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/.agents/skills/test-coverage-improver",
+        "description": "Measure Python SDK coverage or address measured coverage gaps. Use for coverage audits and metric regressions, not routine test additions."
+      },
+      {
+        "name": "release-candidate-prep",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/.agents/skills/release-candidate-prep",
+        "description": "Prepare a local Python SDK release candidate in a dedicated worktree. Use only when explicitly invoked with a version."
+      },
+      {
+        "name": "implementation-kickoff",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/.agents/skills/implementation-kickoff",
+        "description": "Carry implementation through an isolated worktree and local handoff. Use only when this skill is explicitly invoked."
+      },
+      {
+        "name": "openai-knowledge",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/.agents/skills/openai-knowledge",
+        "description": "Retrieve authoritative OpenAI API and platform documentation when an integration or claim needs current external evidence."
+      },
+      {
+        "name": "implementation-final-review",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/.agents/skills/implementation-final-review",
+        "description": "Review completed implementation changes before final verification. Use when repository policy requires independent review or the user explicitly requests it."
+      },
+      {
+        "name": "sensitive-logging-audit",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/.agents/skills/sensitive-logging-audit",
+        "description": "Audit or fix sensitive-data exposure in Python SDK diagnostics, exceptions, logging, and telemetry."
+      },
+      {
+        "name": "implementation-strategy",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/.agents/skills/implementation-strategy",
+        "description": "Choose supported scope and compatibility boundaries for SDK behavior changes; revisit when feedback changes the design."
+      },
+      {
+        "name": "docs-sync",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/.agents/skills/docs-sync",
+        "description": "Audit or update English SDK documentation against the requested implementation scope."
+      },
+      {
+        "name": "pr-draft-summary",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/.agents/skills/pr-draft-summary",
+        "description": "Prepare the required local PR title, description, and branch suggestion after eligible implementation work is complete."
+      },
+      {
+        "name": "maintainer-review",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/.agents/skills/maintainer-review",
+        "description": "Assess a GitHub issue or PR for demonstrated need, supported alternatives, correctness, and maintainer action. Desk review only."
+      },
+      {
+        "name": "runtime-behavior-probe",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/.agents/skills/runtime-behavior-probe",
+        "description": "Plan controlled runtime probes when explicitly invoked; execute only after the required probe approval."
+      },
+      {
+        "name": "examples-run-analysis",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/.agents/skills/examples-run-analysis",
+        "description": "Analyze logs and source from a completed manual examples run. Never execute or control examples."
+      },
+      {
+        "name": "csv-workbench",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/examples/tools/skills/csv-workbench",
+        "description": "Analyze CSV files in /mnt/data and return concise numeric summaries."
+      },
+      {
+        "name": "credit-note-fixer",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/examples/sandbox/docs/skills/credit-note-fixer",
+        "description": "Fix the tiny credit-note formatting bug and rerun the exact targeted test command."
+      },
+      {
+        "name": "prior-auth-packet-builder",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/examples/sandbox/healthcare_support/skills/prior-auth-packet-builder",
+        "description": "Build a concise prior authorization packet from local case files and payer policy docs."
+      },
+      {
+        "name": "playwright",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python/examples/sandbox/tutorials/vision_website_clone/skills/playwright",
+        "description": "Use when the task requires capturing or automating a real browser from the terminal."
       }
     ],
     "plugins": [
+      {
+        "name": "gemini-api",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/gemini-api",
+        "description": "Build applications with the Gemini Interactions API and Live API, including text, image, video, and speech generation, managed agents, and real-time multimodal streaming."
+      },
+      {
+        "name": "google-antigravity-sdk",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/google-antigravity-sdk",
+        "description": "Using the Google Antigravity Python SDK to build AI agents"
+      },
+      {
+        "name": "chrome-devtools-plugin",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/chrome-devtools-plugin",
+        "description": "Reliable automation, in-depth debugging, and performance analysis in Chrome using Chrome DevTools and Puppeteer"
+      },
+      {
+        "name": "science",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/science",
+        "description": "Curated collection of agent skills for science tasks."
+      },
+      {
+        "name": "google_maps_platform",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/google_maps_platform",
+        "description": "Integration skill and tools for Google Maps Platform APIs"
+      },
+      {
+        "name": "android-cli-plugin",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/android-cli-plugin",
+        "description": "Core tools and knowledge required to develop for Android"
+      },
+      {
+        "name": "flutter",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/flutter",
+        "description": "Official plugin for Dart and Flutter that installs Flutter/Dart Skills, Rules, Custom Agents, and Dart MCP server for building natively compiled, visually stunning applications for mobile, web, desktop, and embedded devices from a single codebase"
+      },
+      {
+        "name": "firebase",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/firebase",
+        "description": "Prototype, build & run modern apps that users love with Firebase's backend, AI, and operational infrastructure."
+      },
+      {
+        "name": "data-agent-kit-plugin",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/data-agent-kit-plugin",
+        "description": "This plugin provides a specialized suite of skills for data engineers and database practitioners working on Google Cloud. It acts as an expert assistant, allowing you to use natural language prompts in your preferred coding agent to architect complex data pipelines, transform data with dbt, write Spark and BigQuery SQL notebooks, and orchestrate end-to-end workflows across GCP's data ecosystem."
+      },
+      {
+        "name": "modern-web-guidance-plugin",
+        "contributor": "Google",
+        "path": "Contributors/Google/plugins/modern-web-guidance-plugin",
+        "description": "Keep your coding agent up to date with the latest web best practices."
+      },
+      {
+        "name": "customer-support",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/customer-support",
+        "description": "A customer support plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic deskto"
+      },
       {
         "name": ".claude-plugin",
         "contributor": "Ours",
         "path": "Contributors/Ours/plugins/customer-support/.claude-plugin",
         "description": "Triage tickets, draft responses, escalate issues, and build your knowledge base. Research customer context and turn resolved issues into self-service content."
+      },
+      {
+        "name": "design",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/design",
+        "description": "A design productivity plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic des"
       },
       {
         "name": ".claude-plugin",
@@ -2550,10 +3504,22 @@
         "description": "Accelerate design workflows \u2014 critique, design system management, UX writing, accessibility audits, research synthesis, and dev handoff. From exploration to pixel-perfect specs."
       },
       {
+        "name": "enterprise-search",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/enterprise-search",
+        "description": "An enterprise search plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desk"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Ours",
         "path": "Contributors/Ours/plugins/enterprise-search/.claude-plugin",
         "description": "Search across all of your company's tools in one place. Find anything across email, chat, documents, and wikis without switching between apps."
+      },
+      {
+        "name": "cowork-plugin-management",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/cowork-plugin-management",
+        "description": "Plugin bundle from cowork-plugin-management"
       },
       {
         "name": ".claude-plugin",
@@ -2562,10 +3528,22 @@
         "description": "Create, customize, and manage plugins tailored to your organization's tools and workflows. Configure MCP servers, adjust plugin behavior, and adapt templates to match how your team works."
       },
       {
+        "name": "sales",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/sales",
+        "description": "A sales productivity plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desk"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Ours",
         "path": "Contributors/Ours/plugins/sales/.claude-plugin",
         "description": "Prospect, craft outreach, and build deal strategy faster. Prep for calls, manage your pipeline, and write personalized messaging that moves deals forward."
+      },
+      {
+        "name": "bio-research",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/bio-research",
+        "description": "Connect to preclinical research tools and databases (literature search, genomics analysis, target prioritization) to acc"
       },
       {
         "name": ".claude-plugin",
@@ -2574,10 +3552,22 @@
         "description": "Connect to preclinical research tools and databases (literature search, genomics analysis, target prioritization) to accelerate early-stage life sciences R&D"
       },
       {
+        "name": "brand-voice",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/brand-voice",
+        "description": "A [Tribe AI](https://tribe.ai) plugin for Claude Cowork. Built as a Cowork launch partner."
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Ours",
         "path": "Contributors/Ours/plugins/partner-built/brand-voice/.claude-plugin",
         "description": "Brand Voice transforms scattered brand materials into enforceable AI guardrails \u2014 automatically. It searches across Notion, Google Drive, Confluence, Gong, Slack, and meeting transcripts to distill your strongest brand signals into a single source of truth, then applies them to every piece of AI-generated content. The more your team creates with Claude, the more consistent your brand becomes."
+      },
+      {
+        "name": "apollo",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/apollo",
+        "description": "Prospect, enrich leads, and load outreach sequences with [Apollo.io](https://www.apollo.io/) \u2014 powered by the Apollo MCP"
       },
       {
         "name": ".claude-plugin",
@@ -2586,10 +3576,22 @@
         "description": "3 pre-built skills that chain multiple Apollo APIs into complete sales workflows \u2014 no manual steps, no tab switching. Enrich any contact from a name, email, or LinkedIn URL. Prospect by describing your ICP in plain English and get ranked leads. Find, enrich, and load contacts into a sequence in one shot."
       },
       {
+        "name": "slack",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/slack",
+        "description": "This repository contains the configuration needed to integrate Slack with Cursor IDE and Claude Code. The plugin enables"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Ours",
         "path": "Contributors/Ours/plugins/partner-built/slack/.claude-plugin",
         "description": "Official Slack MCP server for interactive and collaborative workflows. Surface insights, draft messages, and engage teams directly within Slack from Claude Cowork."
+      },
+      {
+        "name": "common-room",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/common-room",
+        "description": "GTM workflows powered by Common Room \u2014 account research, contact research, call prep, personalized outreach, prospecting"
       },
       {
         "name": ".claude-plugin",
@@ -2598,10 +3600,22 @@
         "description": "Turn Common Room into your GTM copilot. Research accounts and contacts, prep for calls with attendee profiles and talking points, and draft personalized outreach across email, LinkedIn, and phone. Build targeted prospect lists, generate weekly briefings for every upcoming call, and create strategic account plans \u2014 all grounded in real signal data from product usage, engagement and intent signals, so every output reflects what's actually happening in your accounts."
       },
       {
+        "name": "human-resources",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/human-resources",
+        "description": "A people operations plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic deskt"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Ours",
         "path": "Contributors/Ours/plugins/human-resources/.claude-plugin",
         "description": "Streamline people operations \u2014 recruiting, onboarding, performance reviews, compensation analysis, and policy guidance. Maintain compliance and keep your team running smoothly."
+      },
+      {
+        "name": "operations",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/operations",
+        "description": "A business operations plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic des"
       },
       {
         "name": ".claude-plugin",
@@ -2610,10 +3624,22 @@
         "description": "Optimize business operations \u2014 vendor management, process documentation, change management, capacity planning, and compliance tracking. Keep your organization running efficiently."
       },
       {
+        "name": "product-management",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/product-management",
+        "description": "A product management plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desk"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Ours",
         "path": "Contributors/Ours/plugins/product-management/.claude-plugin",
         "description": "Write feature specs, plan roadmaps, and synthesize user research faster. Keep stakeholders updated and stay ahead of the competitive landscape."
+      },
+      {
+        "name": "marketing",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/marketing",
+        "description": "A marketing plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop appli"
       },
       {
         "name": ".claude-plugin",
@@ -2622,16 +3648,34 @@
         "description": "Create content, plan campaigns, and analyze performance across marketing channels. Maintain brand voice consistency, track competitors, and report on what's working."
       },
       {
+        "name": "finance",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/finance",
+        "description": "A finance and accounting plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic "
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Ours",
         "path": "Contributors/Ours/plugins/finance/.claude-plugin",
         "description": "Streamline finance and accounting workflows, from journal entries and reconciliation to financial statements and variance analysis. Speed up audit prep, month-end close, and keeping your books clean."
       },
       {
+        "name": "legal",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/legal",
+        "description": "An AI-powered productivity plugin for in-house legal teams, primarily designed for [Cowork](https://claude.com/product/c"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Ours",
         "path": "Contributors/Ours/plugins/legal/.claude-plugin",
         "description": "Speed up contract review, NDA triage, and compliance workflows for in-house legal teams. Draft legal briefs, organize precedent research, and manage institutional knowledge."
+      },
+      {
+        "name": "data",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/data",
+        "description": "A data analyst plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop ap"
       },
       {
         "name": ".claude-plugin",
@@ -2646,6 +3690,18 @@
         "description": "Collection of third-party Claude Skills and advanced agent capabilities cloned from Anthropic and community sources."
       },
       {
+        "name": "skills-main",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main",
+        "description": "> **Note:** This repository contains Anthropic's implementation of skills for Claude. For information about the Agent Sk"
+      },
+      {
+        "name": "engineering",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/engineering",
+        "description": "A software engineering plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic de"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Ours",
         "path": "Contributors/Ours/plugins/engineering/.claude-plugin",
@@ -2656,6 +3712,12 @@
         "contributor": "Ours",
         "path": "Contributors/Ours/plugins/brand-establishment",
         "description": "Day-1 brand setup, identity system, voice guidelines, and IP protection. Everything needed to establish a professional brand from scratch."
+      },
+      {
+        "name": "productivity",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/productivity",
+        "description": "A productivity plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop ap"
       },
       {
         "name": ".claude-plugin",
@@ -2688,10 +3750,34 @@
         "description": "Creates and updates production-grade agentic skills with MCP tool integration, agent workflows, approval gates, and folder structures."
       },
       {
+        "name": "salesforce-skills",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills",
+        "description": "Salesforce plugins that turn Claude into a Salesforce specialist for your role, team, and company. Built for [Claude Cow"
+      },
+      {
+        "name": "salesforce-for-sales",
+        "contributor": "Salesforce",
+        "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales",
+        "description": "A general-purpose Claude plugin for sales teams. Ask Claude for account context, call prep, pipeline reviews, drafted ou"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Salesforce",
         "path": "Contributors/Salesforce/salesforce-skills/salesforce-for-sales/.claude-plugin",
         "description": "Sales workflows for account executives and sales leaders, including account research, call prep, follow-up, pipeline review, forecasting, deal-slippage scenarios, lead triage, outreach drafting, approval-gated Salesforce updates and much more. Both the plugin and the Salesforce connector are Beta services, their use is governed by the [Beta terms](https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/legal/Agreements/beta-agreements/Beta-Services-Agreement.pdf)."
+      },
+      {
+        "name": "knowledge-work-plugins",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins",
+        "description": "Plugins that turn Claude into a specialist for your role, team, and company. Built for [Claude Cowork](https://claude.co"
+      },
+      {
+        "name": "customer-support",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/customer-support",
+        "description": "A customer support plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic deskto"
       },
       {
         "name": ".claude-plugin",
@@ -2700,10 +3786,22 @@
         "description": "Triage tickets, draft responses, escalate issues, and build your knowledge base. Research customer context and turn resolved issues into self-service content."
       },
       {
+        "name": "design",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/design",
+        "description": "A design productivity plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic des"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Anthropic",
         "path": "Contributors/Anthropic/knowledge-work-plugins/design/.claude-plugin",
         "description": "Accelerate design workflows \u2014 critique, design system management, UX writing, accessibility audits, research synthesis, and dev handoff. From exploration to pixel-perfect specs."
+      },
+      {
+        "name": "enterprise-search",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/enterprise-search",
+        "description": "An enterprise search plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desk"
       },
       {
         "name": ".claude-plugin",
@@ -2712,10 +3810,22 @@
         "description": "Search across all of your company's tools in one place. Find anything across email, chat, documents, and wikis without switching between apps."
       },
       {
+        "name": "small-business",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business",
+        "description": "**By Anthropic**"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Anthropic",
         "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/.claude-plugin",
         "description": "Pre-built small business workflows to help you run and grow your business. Supports a majority of the tools you already use. You approve every step that touches money or customers. Install and then ask Claude to help you get onboarded."
+      },
+      {
+        "name": "cowork-plugin-management",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/cowork-plugin-management",
+        "description": "Plugin bundle from cowork-plugin-management"
       },
       {
         "name": ".claude-plugin",
@@ -2724,10 +3834,22 @@
         "description": "Create, customize, and manage plugins tailored to your organization's tools and workflows. Configure MCP servers, adjust plugin behavior, and adapt templates to match how your team works."
       },
       {
+        "name": "sales",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales",
+        "description": "A sales plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop applicati"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Anthropic",
         "path": "Contributors/Anthropic/knowledge-work-plugins/sales/.claude-plugin",
         "description": "Sales skills that work with the tools your team already uses - your CRM, email, calendar, chat and call recorder - or with uploaded files. Prep calls, summarize and follow up, research accounts, review deals and pipeline, and write the forecast. When you ask, it can update CRM records, create email drafts or send email, post to chat and book meetings through your connected tools."
+      },
+      {
+        "name": "bio-research",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/bio-research",
+        "description": "Connect to preclinical research tools and databases (literature search, genomics analysis, target prioritization) to acc"
       },
       {
         "name": ".claude-plugin",
@@ -2736,10 +3858,28 @@
         "description": "Connect to preclinical research tools and databases (literature search, genomics analysis, target prioritization) to accelerate early-stage life sciences R&D"
       },
       {
+        "name": "partner-built",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built",
+        "description": "Plugin bundle from partner-built"
+      },
+      {
+        "name": "brand-voice",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/brand-voice",
+        "description": "A [Tribe AI](https://tribe.ai) plugin for Claude Cowork. Built as a Cowork launch partner."
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Anthropic",
         "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/brand-voice/.claude-plugin",
         "description": "Brand Voice transforms scattered brand materials into enforceable AI guardrails \u2014 automatically. It searches across Notion, Google Drive, Confluence, Gong, Slack, and meeting transcripts to distill your strongest brand signals into a single source of truth, then applies them to every piece of AI-generated content. The more your team creates with Claude, the more consistent your brand becomes."
+      },
+      {
+        "name": "apollo",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/apollo",
+        "description": "Prospect, enrich leads, and load outreach sequences with [Apollo.io](https://www.apollo.io/) \u2014 powered by the Apollo MCP"
       },
       {
         "name": ".claude-plugin",
@@ -2748,10 +3888,22 @@
         "description": "3 pre-built skills that chain multiple Apollo APIs into complete sales workflows \u2014 no manual steps, no tab switching. Enrich any contact from a name, email, or LinkedIn URL. Prospect by describing your ICP in plain English and get ranked leads. Find, enrich, and load contacts into a sequence in one shot."
       },
       {
+        "name": "slack",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/slack",
+        "description": "This repository contains the configuration needed to integrate Slack with Cursor IDE and Claude Code. The plugin enables"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Anthropic",
         "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/slack/.claude-plugin",
         "description": "Official Slack MCP server for interactive and collaborative workflows. Surface insights, draft messages, and engage teams directly within Slack from Claude Cowork."
+      },
+      {
+        "name": "zoom-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin",
+        "description": "A Claude plugin for planning, building, and debugging Zoom integrations. It helps choose the right Zoom surface, shape i"
       },
       {
         "name": ".claude-plugin",
@@ -2760,10 +3912,22 @@
         "description": "Claude plugin for planning, building, and debugging Zoom integrations across REST APIs, SDKs, webhooks, bots, and MCP workflows"
       },
       {
+        "name": "common-room",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/common-room",
+        "description": "GTM workflows powered by Common Room \u2014 account research, contact research, call prep, personalized outreach, prospecting"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Anthropic",
         "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/common-room/.claude-plugin",
         "description": "Turn Common Room into your GTM copilot. Research accounts and contacts, prep for calls with attendee profiles and talking points, and draft personalized outreach across email, LinkedIn, and phone. Build targeted prospect lists, generate weekly briefings for every upcoming call, and create strategic account plans \u2014 all grounded in real signal data from product usage, engagement and intent signals, so every output reflects what's actually happening in your accounts."
+      },
+      {
+        "name": "human-resources",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/human-resources",
+        "description": "A people operations plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic deskt"
       },
       {
         "name": ".claude-plugin",
@@ -2772,10 +3936,22 @@
         "description": "Streamline people operations \u2014 recruiting, onboarding, performance reviews, compensation analysis, and policy guidance. Maintain compliance and keep your team running smoothly."
       },
       {
+        "name": "operations",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/operations",
+        "description": "A business operations plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic des"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Anthropic",
         "path": "Contributors/Anthropic/knowledge-work-plugins/operations/.claude-plugin",
         "description": "Optimize business operations \u2014 vendor management, process documentation, change management, capacity planning, and compliance tracking. Keep your organization running efficiently."
+      },
+      {
+        "name": "pdf-viewer",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/pdf-viewer",
+        "description": "View, annotate, and sign PDFs in a live interactive viewer. Mark up"
       },
       {
         "name": ".claude-plugin",
@@ -2784,10 +3960,22 @@
         "description": "View, annotate, and sign PDFs in a live interactive viewer. Mark up contracts, fill forms with visual feedback, stamp approvals, and place signatures \u2014 then download the annotated copy."
       },
       {
+        "name": "product-management",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/product-management",
+        "description": "A product management plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desk"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Anthropic",
         "path": "Contributors/Anthropic/knowledge-work-plugins/product-management/.claude-plugin",
         "description": "Write feature specs, plan roadmaps, and synthesize user research faster. Keep stakeholders updated and stay ahead of the competitive landscape."
+      },
+      {
+        "name": "marketing",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/marketing",
+        "description": "A marketing plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop appli"
       },
       {
         "name": ".claude-plugin",
@@ -2796,10 +3984,22 @@
         "description": "Create content, plan campaigns, and analyze performance across marketing channels. Maintain brand voice consistency, track competitors, and report on what's working."
       },
       {
+        "name": "finance",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/finance",
+        "description": "A finance and accounting plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic "
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Anthropic",
         "path": "Contributors/Anthropic/knowledge-work-plugins/finance/.claude-plugin",
         "description": "Streamline finance and accounting workflows, from journal entries and reconciliation to financial statements and variance analysis. Speed up audit prep, month-end close, and keeping your books clean."
+      },
+      {
+        "name": "legal",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/legal",
+        "description": "An AI-powered productivity plugin for in-house legal teams, primarily designed for [Cowork](https://claude.com/product/c"
       },
       {
         "name": ".claude-plugin",
@@ -2808,10 +4008,22 @@
         "description": "Speed up contract review, NDA triage, and compliance workflows for in-house legal teams. Draft legal briefs, organize precedent research, and manage institutional knowledge."
       },
       {
+        "name": "data",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/data",
+        "description": "A data analyst plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop ap"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Anthropic",
         "path": "Contributors/Anthropic/knowledge-work-plugins/data/.claude-plugin",
         "description": "Write SQL, explore datasets, and generate insights faster. Build visualizations and dashboards, and turn raw data into clear stories for stakeholders."
+      },
+      {
+        "name": "engineering",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/engineering",
+        "description": "A software engineering plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic de"
       },
       {
         "name": ".claude-plugin",
@@ -2820,10 +4032,40 @@
         "description": "Streamline engineering workflows \u2014 standups, code review, architecture decisions, incident response, and technical documentation. Works with your existing tools or standalone."
       },
       {
+        "name": "productivity",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/productivity",
+        "description": "A productivity plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop ap"
+      },
+      {
         "name": ".claude-plugin",
         "contributor": "Anthropic",
         "path": "Contributors/Anthropic/knowledge-work-plugins/productivity/.claude-plugin",
         "description": "Manage tasks, plan your day, and build up memory of important context about your work. Syncs with your calendar, email, and chat to keep everything organized and on track."
+      },
+      {
+        "name": "swarm",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/swarm",
+        "description": "![Swarm Logo](assets/logo.png)"
+      },
+      {
+        "name": "swarm",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/swarm/swarm",
+        "description": "Plugin bundle from swarm"
+      },
+      {
+        "name": "swarm",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/swarm/examples/customer_service_streaming/src/swarm",
+        "description": "Plugin bundle from swarm"
+      },
+      {
+        "name": "openai-agents-python",
+        "contributor": "OpenAI",
+        "path": "Contributors/OpenAI/openai-agents-python",
+        "description": "The OpenAI Agents SDK is a lightweight yet powerful framework for building multi-agent workflows. It is provider-agnosti"
       }
     ],
     "mcps": [

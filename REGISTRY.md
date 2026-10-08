@@ -1,10 +1,10 @@
 # 📋 OpenWarehouse Master Registry
 
-> *Auto-generated catalog of all verified agent materials. Updated: 2026-10-08 12:26 UTC*
+> *Auto-generated catalog of all verified agent materials. Updated: 2026-10-08 12:42 UTC*
 
 ## 🌟 Ecosystem Overview
-- **Skills:** `421`
-- **Plugins:** `48`
+- **Skills:** `568`
+- **Plugins:** `108`
 - **MCP Servers:** `7`
 - **Workflows:** `1`
 
@@ -266,6 +266,153 @@
 | `write-spec` | **Anthropic** | Write a feature spec or PRD from a problem statement or feature idea. Use when turning a vague idea or user request into a structured document, scoping a feature with goals and non-goals, defining success metrics and acceptance criteria, or breaking a big ask into a phased spec. | [View](Skills/Anthropic/write-spec) |
 | `zoom-apps-sdk` | **Anthropic** | Reference skill for Zoom Apps SDK. Use after routing to an in-client app workflow when building web apps that run inside Zoom meetings, webinars, the main client, or Zoom Phone. | [View](Skills/Anthropic/zoom-apps-sdk) |
 | `zoom-mcp` | **Anthropic** | Guidance for the bundled Zoom MCP connectors. Use after routing to an MCP workflow when planning or troubleshooting tool-based access to meetings, recordings, meeting assets, or transcripts. Route Zoom Docs requests to the dedicated Docs MCP server and Whiteboard-specific requests to `zoom-mcp/whiteboard`. | [View](Skills/Anthropic/zoom-mcp) |
+| `a11y-debugging` | **Google** | Uses Chrome DevTools MCP for accessibility (a11y) debugging and auditing based on web.dev guidelines. Use when testing semantic HTML, ARIA labels, focus states, keyboard navigation, tap targets, and color contrast. | [View](Skills/Google/a11y-debugging) |
+| `accidental-data-loss-prevention` | **Google** | | | [View](Skills/Google/accidental-data-loss-prevention) |
+| `alphafold_database_fetch_and_analyze` | **Google** | > | [View](Skills/Google/alphafold_database_fetch_and_analyze) |
+| `alphagenome_atlas_website_links` | **Google** | >- | [View](Skills/Google/alphagenome_atlas_website_links) |
+| `alphagenome_single_variant_analysis` | **Google** | > | [View](Skills/Google/alphagenome_single_variant_analysis) |
+| `alphagenome_variant_impact_score` | **Google** | >- | [View](Skills/Google/alphagenome_variant_impact_score) |
+| `bigquery-ai-ml` | **Google** | >- | [View](Skills/Google/bigquery-ai-ml) |
+| `bigquery-bigframes` | **Google** | >- | [View](Skills/Google/bigquery-bigframes) |
+| `bigquery-data-transfer-service` | **Google** | Discovers and inspects BigQuery Data Transfer Service (DTS) configurations. | [View](Skills/Google/bigquery-data-transfer-service) |
+| `bigquery-graph-author` | **Google** | >- | [View](Skills/Google/bigquery-graph-author) |
+| `bigquery-graph-query` | **Google** | >- | [View](Skills/Google/bigquery-graph-query) |
+| `bigquery-sql` | **Google** | >- | [View](Skills/Google/bigquery-sql) |
+| `bigtable-basics` | **Google** | >- | [View](Skills/Google/bigtable-basics) |
+| `building-data-apps` | **Google** | | | [View](Skills/Google/building-data-apps) |
+| `chembl_database` | **Google** | > | [View](Skills/Google/chembl_database) |
+| `chrome-devtools` | **Google** | Uses Chrome DevTools via MCP for efficient debugging, troubleshooting and browser automation. Use when debugging web pages, automating browser interactions, analyzing performance, or inspecting network requests. This skill does not apply to `--slim` mode (MCP configuration). | [View](Skills/Google/chrome-devtools) |
+| `chrome-extensions` | **Google** | > | [View](Skills/Google/chrome-extensions) |
+| `clinical_trials_database` | **Google** | > | [View](Skills/Google/clinical_trials_database) |
+| `clinvar_database` | **Google** | > | [View](Skills/Google/clinvar_database) |
+| `credentials` | **Google** | >- | [View](Skills/Google/credentials) |
+| `dak-setup` | **Google** | Configures (or reconfigures) the Google Cloud Data Agent Kit (DAK) plugin by checking gcloud and ADC credentials, collecting the GCP project ID, region, and services, and running its bundled `dak-setup` script. Use this proactively and without waiting to be asked whenever a SessionStart hook or any other system/context message reports that the Data Agent Kit plugin is not configured, is missing configuration, or needs to be reconfigured. Also use it whenever the user mentions setting up, configuring, reconfiguring, or changing the project, region, or service integrations for the Data Agent Kit or DAK plugin — even if they phrase it casually, like "dak isn't working" or "I want to enable more GCP service integrations". | [View](Skills/Google/dak-setup) |
+| `dart-add-unit-test` | **Google** | Write and organize unit tests for functions, methods, and classes using `package:test`. Use when creating new logic or fixing bugs to ensure code remains correct and regression-free. | [View](Skills/Google/dart-add-unit-test) |
+| `dart-build-cli-app` | **Google** | Entrypoint structure, exit codes, cross-platform scripts. Use when building command line utilities, scripts, or applications. | [View](Skills/Google/dart-build-cli-app) |
+| `dart-collect-coverage` | **Google** | Collect coverage using the coverage packge and create an LCOV report | [View](Skills/Google/dart-collect-coverage) |
+| `dart-fix-runtime-errors` | **Google** | Uses get_runtime_errors and lsp to fetch an active stack trace, locate the failing line, apply a fix, and verify resolution via hot_reload. | [View](Skills/Google/dart-fix-runtime-errors) |
+| `dart-generate-test-mocks` | **Google** | Define and generate mock objects for external dependencies using `package:mockito` and `build_runner`. Use when unit testing classes that depend on complex external services like APIs or databases. | [View](Skills/Google/dart-generate-test-mocks) |
+| `dart-migrate-to-checks-package` | **Google** | |- | [View](Skills/Google/dart-migrate-to-checks-package) |
+| `dart-resolve-package-conflicts` | **Google** | Workflow for fixing package version conflicts. Use this when `pub get` fails due to incompatible package versions. | [View](Skills/Google/dart-resolve-package-conflicts) |
+| `dart-run-static-analysis` | **Google** | Execute `dart analyze` to identify warnings and errors, and use `dart fix --apply` to automatically resolve mechanical lint issues. Use during development to ensure code quality and before committing changes. | [View](Skills/Google/dart-run-static-analysis) |
+| `dart-setup-ffi-assets` | **Google** | Guides agents in compiling and packaging C/C++ source code into dynamic or static libraries (Code Assets) using Dart's Native Assets hook system (via hook/build.dart and hook/link.dart utilizing package:hooks and package:native_toolchain_c). Use when a user asks to: 'setup native assets', 'compile C/C++ source code', 'bundle dynamic libraries', 'build native C code', 'link native assets', 'implement build.dart or link.dart hooks', or 'integrate C/C++ interop in Dart/Flutter'. Helps agents avoid manual toolchain orchestration and configures secure hash-validated binary downloads or advanced linker tree-shaking with package:record_use mapping. | [View](Skills/Google/dart-setup-ffi-assets) |
+| `dart-use-ffigen` | **Google** | Guide agents to use `package:ffigen` to automatically generate FFI bindings instead of writing them manually. Use this skill when a task involves writing new FFI bindings, extending C/Objective-C/Swift integrations, or replacing hand-crafted `dart:ffi` setups. | [View](Skills/Google/dart-use-ffigen) |
+| `dart-use-pattern-matching` | **Google** | Use switch expressions and pattern matching where appropriate | [View](Skills/Google/dart-use-pattern-matching) |
+| `dart-use-primary-constructors` | **Google** | > | [View](Skills/Google/dart-use-primary-constructors) |
+| `dart-write-documentation` | **Google** | Rules and formatting guidelines for writing Dart /// API documentation and doc comments. Use when documenting Dart code, writing doc comments for any Dart declaration (libraries, classes, methods, variables, etc.), or when instructed to follow the Effective Dart documentation guidelines. | [View](Skills/Google/dart-write-documentation) |
+| `data-autocleaning` | **Google** | Automated data quality and transformation capabilities for Dataform/dbt/BigQuery | [View](Skills/Google/data-autocleaning) |
+| `dataform-bigquery` | **Google** | Expertise in generating clean, correct, and efficient Dataform pipeline | [View](Skills/Google/dataform-bigquery) |
+| `dbsnp_database` | **Google** | > | [View](Skills/Google/dbsnp_database) |
+| `dbt-bigquery` | **Google** | Expert guidance for creating, modifying, and optimizing dbt pipelines | [View](Skills/Google/dbt-bigquery) |
+| `debug-optimize-lcp` | **Google** | Guides debugging and optimizing Largest Contentful Paint (LCP) using Chrome DevTools MCP tools. Use this skill whenever the user asks about LCP performance, slow page loads, Core Web Vitals optimization, or wants to understand why their page's main content takes too long to appear. Also use when the user mentions "largest contentful paint", "page load speed", "CWV", or wants to improve how fast their hero image or main content renders. | [View](Skills/Google/debug-optimize-lcp) |
+| `discovering-gcp-data-assets` | **Google** | | | [View](Skills/Google/discovering-gcp-data-assets) |
+| `embl_ebi_ols` | **Google** | > | [View](Skills/Google/embl_ebi_ols) |
+| `encode_ccres_database` | **Google** | > | [View](Skills/Google/encode_ccres_database) |
+| `enforcing-resource-attribution` | **Google** | | | [View](Skills/Google/enforcing-resource-attribution) |
+| `ensembl_database` | **Google** | > | [View](Skills/Google/ensembl_database) |
+| `extension_to_functions_codebase` | **Google** | Skill for converting an installed Firebase Extension (or extension source) into a standalone Cloud Functions for Firebase codebase or publishable npm package, including V1 to V2 trigger upgrades, lifecycle hooks, and declarative security | [View](Skills/Google/extension_to_functions_codebase) |
+| `federate-lakehouse-catalog` | **Google** | >- | [View](Skills/Google/federate-lakehouse-catalog) |
+| `firebase_ai_logic_basics` | **Google** | Official skill for integrating Firebase AI Logic (Gemini API) into web applications. Covers setup, multimodal inference, structured output, and security. | [View](Skills/Google/firebase_ai_logic_basics) |
+| `firebase_app_hosting_basics` | **Google** | >- | [View](Skills/Google/firebase_app_hosting_basics) |
+| `firebase_auth_basics` | **Google** | Guide for setting up and using Firebase Authentication. Use this skill when the user's app requires user sign-in, user management, or secure data access using auth rules. | [View](Skills/Google/firebase_auth_basics) |
+| `firebase_basics` | **Google** | >- | [View](Skills/Google/firebase_basics) |
+| `firebase_crashlytics` | **Google** | Comprehensive guide for Firebase Crashlytics, including provisioning and SDK usage. Use this skill when the user needs help setting up Crashlytics, adding crash reporting, or using the Crashlytics SDK in their application. | [View](Skills/Google/firebase_crashlytics) |
+| `firebase_data_connect_basics` | **Google** | Builds and deploys Firebase SQL Connect (aka Firebase Data Connect) backends with PostgreSQL securely. Use when designing schemas with tables and relations, writing authorized queries and mutations, configuring real-time data updates, or generating type-safe SDKs. Use when you need a relational database with Firebase, or when the user mentions SQL Connect or Data Connect. | [View](Skills/Google/firebase_data_connect_basics) |
+| `firebase_firestore` | **Google** | >- | [View](Skills/Google/firebase_firestore) |
+| `firebase_hosting_basics` | **Google** | >- | [View](Skills/Google/firebase_hosting_basics) |
+| `firebase_remote_config_basics` | **Google** | >- | [View](Skills/Google/firebase_remote_config_basics) |
+| `firebase_security_rules_auditor` | **Google** | >- | [View](Skills/Google/firebase_security_rules_auditor) |
+| `firestore_rules_creation` | **Google** | >- | [View](Skills/Google/firestore_rules_creation) |
+| `flutter-add-integration-test` | **Google** | Configures Flutter Driver for app interaction and converts MCP actions into permanent integration tests. Use when adding integration testing to a project, exploring UI components via MCP, or automating user flows with the integration_test package. | [View](Skills/Google/flutter-add-integration-test) |
+| `flutter-add-widget-preview` | **Google** | Adds interactive widget previews to the project using the previews.dart system. Use when creating new UI components or updating existing screens to ensure consistent design and interactive testing. | [View](Skills/Google/flutter-add-widget-preview) |
+| `flutter-add-widget-test` | **Google** | Implement a component-level test using `WidgetTester` to verify UI rendering and user interactions (tapping, scrolling, entering text). Use when validating that a specific widget displays correct data and responds to events as expected. | [View](Skills/Google/flutter-add-widget-test) |
+| `flutter-apply-architecture-best-practices` | **Google** | Architects a Flutter application using the recommended layered approach (UI, Logic, Data). Use when structuring a new project or refactoring for scalability. | [View](Skills/Google/flutter-apply-architecture-best-practices) |
+| `flutter-build-responsive-layout` | **Google** | Use `LayoutBuilder`, `MediaQuery`, or `Expanded/Flexible` to create a layout that adapts to different screen sizes. Use when you need the UI to look good on both mobile and tablet/desktop form factors. | [View](Skills/Google/flutter-build-responsive-layout) |
+| `flutter-fix-layout-issues` | **Google** | Fixes Flutter layout errors (overflows, unbounded constraints) using Dart and Flutter MCP tools. Use when addressing "RenderFlex overflowed", "Vertical viewport was given unbounded height", or similar layout issues. | [View](Skills/Google/flutter-fix-layout-issues) |
+| `flutter-implement-json-serialization` | **Google** | Create model classes with `fromJson` and `toJson` methods using `dart:convert`. Use when manually mapping JSON keys to class properties for simple data structures. | [View](Skills/Google/flutter-implement-json-serialization) |
+| `flutter-setup-declarative-routing` | **Google** | Configure `MaterialApp.router` using a package like `go_router` for advanced URL-based navigation. Use when developing web applications or mobile apps that require specific deep linking and browser history support. | [View](Skills/Google/flutter-setup-declarative-routing) |
+| `flutter-setup-localization` | **Google** | Add `flutter_localizations` and `intl` dependencies, enable "generate true" in `pubspec.yaml`, and create an `l10n.yaml` configuration file. Use when initializing localization support for a new Flutter project. | [View](Skills/Google/flutter-setup-localization) |
+| `flutter-use-http-package` | **Google** | Use the `http` package to execute GET, POST, PUT, or DELETE requests. Use when you need to fetch from or send data to a REST API. | [View](Skills/Google/flutter-use-http-package) |
+| `foldseek_structural_search` | **Google** | > | [View](Skills/Google/foldseek_structural_search) |
+| `gcp-composer-troubleshooting` | **Google** | Provides expert guidance for troubleshooting Cloud Composer (Apache | [View](Skills/Google/gcp-composer-troubleshooting) |
+| `gcp-data-pipelines` | **Google** | Primary entry point for building, managing, and orchestrating data pipelines | [View](Skills/Google/gcp-data-pipelines) |
+| `gcp-dataflow` | **Google** | > | [View](Skills/Google/gcp-dataflow) |
+| `gcp-managed-airflow-dag-authoring` | **Google** | Guides the authoring and validation of Apache Airflow DAGs for Managed Service for Apache Airflow (MSAA; formerly Cloud Composer). Covers environment context discovery, Airflow 2 vs 3 compatibility, authoring best practices, and local/remote validation processes. Use when creating or extending an Airflow DAG. Don't use when authoring Python code unrelated to Airflow DAGs. | [View](Skills/Google/gcp-managed-airflow-dag-authoring) |
+| `gcp-managed-airflow-migrations` | **Google** | Provides guidance for migrating Apache Airflow DAGs in Managed Service for Apache Airflow (MSAA; formerly Cloud Composer). Covers migration to Airflow 2.11.1 (MSAA Gen 2 and 3) and Airflow 3 (MSAA Gen 3), including environment inspection, GCS download/upload and scanning patterns for breaking changes. | [View](Skills/Google/gcp-managed-airflow-migrations) |
+| `gcp-managed-airflow-recommendations` | **Google** | Provides recommendations and best practices for creating, configuring, tuning and optimizing Managed Service for Apache Airflow (MSAA, Cloud Composer) environments. Use when the user asks for guidance, recommendations, or best practices on configuring Cloud Composer, scaling Airflow environments, preventing workload restarts, or analyzing system health. | [View](Skills/Google/gcp-managed-airflow-recommendations) |
+| `gcp-managed-spark-upgrades` | **Google** | | | [View](Skills/Google/gcp-managed-spark-upgrades) |
+| `gcp-pipeline-orchestration` | **Google** | This skill helps the agent generate or update orchestration pipeline | [View](Skills/Google/gcp-pipeline-orchestration) |
+| `gcp-pipeline-resource-provisioning` | **Google** | | | [View](Skills/Google/gcp-pipeline-resource-provisioning) |
+| `gcp-spark` | **Google** | | | [View](Skills/Google/gcp-spark) |
+| `gcp-spark-troubleshooting` | **Google** | Provides expert guidance for troubleshooting Google Cloud Spark and Dataproc workloads (Dataproc Serverless batches and standard Dataproc clusters), and inspecting, streaming, searching, tailing, or summarizing Spark driver outputs and event logs in Cloud Storage. Use when the user asks to debug, troubleshoot, diagnose, or perform Root Cause Analysis (RCA) on failed Spark jobs, PySpark batches, or Spark event logs. | [View](Skills/Google/gcp-spark-troubleshooting) |
+| `gcs-security-assessment` | **Google** | >- | [View](Skills/Google/gcs-security-assessment) |
+| `gemini-api-dev` | **Google** | Use this skill when writing code that calls the Gemini API for text generation, multi-turn chat, multimodal understanding, image generation, video generation, speech generation (TTS), voice design, voice replication, streaming responses, background research tasks, function calling, structured output, or migrating from the old generateContent API. Covers SDK usage and best practices for Gemini models and agents in Python and TypeScript. | [View](Skills/Google/gemini-api-dev) |
+| `gemini-live-api-dev` | **Google** | Use this skill when building real-time, bidirectional streaming applications with the Gemini Live API, or migrating legacy Live models (2.0/2.5/3.1) to Gemini 3.8 Live. Covers WebSocket-based audio/video/text streaming, voice activity detection (VAD), background reasoning (extended thinking), asynchronous function calling, session management, ephemeral tokens, live transcription, and live translation. SDKs covered - google-genai (Python), @google/genai (JavaScript/TypeScript). | [View](Skills/Google/gemini-live-api-dev) |
+| `gemini-omni-flash-api` | **Google** | Use this skill for generative video editing, text-to-video, image-referenced video generation, first-frame-to-video, first-and-last-frame transitions, and video extensions using Gemini Omni 1.1 Flash (gemini-omni-1.1-flash) via the official google-genai SDK. Includes workflows for pre-processing/optimizing high-resolution or long source videos with ffmpeg, stripping audio for full sound regeneration, and handling turn-by-turn video editing and parallel execution. | [View](Skills/Google/gemini-omni-flash-api) |
+| `gnomad_database` | **Google** | > | [View](Skills/Google/gnomad_database) |
+| `google-antigravity-sdk` | **Google** | Design, implement, and debug autonomous AI agents and multi-agent systems using the Google Antigravity (AGY) SDK. ACTIVATE this skill when the user wants to create, configure, or orchestrate Google Antigravity agents. | [View](Skills/Google/google-antigravity-sdk) |
+| `google-antigravity-sdk` | **Google** | Design, implement, and debug autonomous AI agents and multi-agent systems using the Google Antigravity (AGY) SDK. ACTIVATE this skill when the user wants to create, configure, or orchestrate Google Antigravity agents. | [View](Skills/Google/google-antigravity-sdk) |
+| `google-cloud-auth-verification` | **Google** | >- | [View](Skills/Google/google-cloud-auth-verification) |
+| `google-cloud-storage-basics` | **Google** | >- | [View](Skills/Google/google-cloud-storage-basics) |
+| `google-cloud-storage-bucket-architect` | **Google** | >- | [View](Skills/Google/google-cloud-storage-bucket-architect) |
+| `google-cloud-storage-fuse` | **Google** | >- | [View](Skills/Google/google-cloud-storage-fuse) |
+| `gtex_database` | **Google** | > | [View](Skills/Google/gtex_database) |
+| `human_protein_atlas_database` | **Google** | > | [View](Skills/Google/human_protein_atlas_database) |
+| `interpro_database` | **Google** | > | [View](Skills/Google/interpro_database) |
+| `jaspar_database` | **Google** | > | [View](Skills/Google/jaspar_database) |
+| `literature_search_arxiv` | **Google** | > | [View](Skills/Google/literature_search_arxiv) |
+| `literature_search_biorxiv` | **Google** | > | [View](Skills/Google/literature_search_biorxiv) |
+| `literature_search_europepmc` | **Google** | > | [View](Skills/Google/literature_search_europepmc) |
+| `literature_search_openalex` | **Google** | > | [View](Skills/Google/literature_search_openalex) |
+| `managing-python-dependencies` | **Google** | | | [View](Skills/Google/managing-python-dependencies) |
+| `memory-leak-debugging` | **Google** | Diagnoses and resolves memory leaks in JavaScript/Node.js applications. Use when a user reports high memory usage, OOM errors, or wants to analyze heapsnapshots or run memory leak detection tools like memlab. | [View](Skills/Google/memory-leak-debugging) |
+| `ml-best-practices` | **Google** | | | [View](Skills/Google/ml-best-practices) |
+| `modern-web-guidance` | **Google** | | | [View](Skills/Google/modern-web-guidance) |
+| `ncbi_sequence_fetch` | **Google** | > | [View](Skills/Google/ncbi_sequence_fetch) |
+| `notebook-guidance` | **Google** | |- | [View](Skills/Google/notebook-guidance) |
+| `openfda_database` | **Google** | > | [View](Skills/Google/openfda_database) |
+| `opentargets_database` | **Google** | > | [View](Skills/Google/opentargets_database) |
+| `pdb_database` | **Google** | > | [View](Skills/Google/pdb_database) |
+| `predictingthepast` | **Google** | > | [View](Skills/Google/predictingthepast) |
+| `protein_sequence_msa` | **Google** | > | [View](Skills/Google/protein_sequence_msa) |
+| `protein_sequence_similarity_search` | **Google** | > | [View](Skills/Google/protein_sequence_similarity_search) |
+| `pubchem_database` | **Google** | > | [View](Skills/Google/pubchem_database) |
+| `pubmed_database` | **Google** | >- | [View](Skills/Google/pubmed_database) |
+| `pymol` | **Google** | > | [View](Skills/Google/pymol) |
+| `quickgo_database` | **Google** | > | [View](Skills/Google/quickgo_database) |
+| `reactome_database` | **Google** | > | [View](Skills/Google/reactome_database) |
+| `resolving-mcp-region-configs` | **Google** | >- | [View](Skills/Google/resolving-mcp-region-configs) |
+| `schema-mapping` | **Google** | >- | [View](Skills/Google/schema-mapping) |
+| `science_skills_common` | **Google** | >- | [View](Skills/Google/science_skills_common) |
+| `scienceskillscommon` | **Google** | >- | [View](Skills/Google/scienceskillscommon) |
+| `skills` | **Google** | A collection of skills for architecting and implementing production-ready code using Google Maps Platform APIs and SDKs for any map, place, address, geocoding, routing/ETA (including eco-friendly routing), nearby search, 3D / Street View / static map, marker clustering, custom styling, drawing, geofencing, heatmap, or environmental (air-quality / pollen / solar / weather) feature — across Web, Android, iOS, and Web Services APIs. For prototyping, use the public Maps Demo Key — no billing setup and no Cloud project required, covering a growing set of the most popular Google Maps Platform APIs. For production, the skill prompts you to create and restrict your own key. All non-trivial code is grounded in freshly retrieved docs via the Google Maps Platform Code Assist service (no reliance on training-data memory). | [View](Skills/Google/skills) |
+| `skills` | **Google** | Provides instructions for installing and using the `android` CLI. The `android` command-line tool is a critical tool for Android development and helps you create new Android projects, run Android apps on devices, manage and interact with Android virtual devices (including screenshots and UI inspection), manage Android SDK components, look up official Android documentation, and discover and install official Android skills. | [View](Skills/Google/skills) |
+| `string_database` | **Google** | > | [View](Skills/Google/string_database) |
+| `troubleshooting` | **Google** | Uses Chrome DevTools MCP and documentation to troubleshoot connection and target issues. Trigger this skill when list_pages, new_page, or navigate_page fail, or when the server initialization fails. | [View](Skills/Google/troubleshooting) |
+| `ucsc_conservation_and_tfbs` | **Google** | > | [View](Skills/Google/ucsc_conservation_and_tfbs) |
+| `unibind_database` | **Google** | >- | [View](Skills/Google/unibind_database) |
+| `uniprot_database` | **Google** | >- | [View](Skills/Google/uniprot_database) |
+| `uv` | **Google** | >- | [View](Skills/Google/uv) |
+| `workflow_skill_creator` | **Google** | > | [View](Skills/Google/workflow_skill_creator) |
+| `xcode_project_setup` | **Google** | Safely modifies Xcode projects (.pbxproj) to add Swift Packages and link files. Use this skill whenever an iOS project needs dependencies installed (e.g. Firebase, Alamofire). | [View](Skills/Google/xcode_project_setup) |
+| `code-change-verification` | **OpenAI** | Run the required final formatting, lint, type, and test checks after eligible SDK changes pass review. | [View](Skills/OpenAI/code-change-verification) |
+| `credit-note-fixer` | **OpenAI** | Fix the tiny credit-note formatting bug and rerun the exact targeted test command. | [View](Skills/OpenAI/credit-note-fixer) |
+| `csv-workbench` | **OpenAI** | Analyze CSV files in /mnt/data and return concise numeric summaries. | [View](Skills/OpenAI/csv-workbench) |
+| `docs-sync` | **OpenAI** | Audit or update English SDK documentation against the requested implementation scope. | [View](Skills/OpenAI/docs-sync) |
+| `examples-run-analysis` | **OpenAI** | Analyze logs and source from a completed manual examples run. Never execute or control examples. | [View](Skills/OpenAI/examples-run-analysis) |
+| `final-release-review` | **OpenAI** | Assess a Python SDK release candidate or release plan against the previous release and recommend ship or block. | [View](Skills/OpenAI/final-release-review) |
+| `implementation-final-review` | **OpenAI** | Review completed implementation changes before final verification. Use when repository policy requires independent review or the user explicitly requests it. | [View](Skills/OpenAI/implementation-final-review) |
+| `implementation-kickoff` | **OpenAI** | Carry implementation through an isolated worktree and local handoff. Use only when this skill is explicitly invoked. | [View](Skills/OpenAI/implementation-kickoff) |
+| `implementation-strategy` | **OpenAI** | Choose supported scope and compatibility boundaries for SDK behavior changes; revisit when feedback changes the design. | [View](Skills/OpenAI/implementation-strategy) |
+| `maintainer-review` | **OpenAI** | Assess a GitHub issue or PR for demonstrated need, supported alternatives, correctness, and maintainer action. Desk review only. | [View](Skills/OpenAI/maintainer-review) |
+| `openai-knowledge` | **OpenAI** | Retrieve authoritative OpenAI API and platform documentation when an integration or claim needs current external evidence. | [View](Skills/OpenAI/openai-knowledge) |
+| `playwright` | **OpenAI** | Use when the task requires capturing or automating a real browser from the terminal. | [View](Skills/OpenAI/playwright) |
+| `pr-draft-summary` | **OpenAI** | Prepare the required local PR title, description, and branch suggestion after eligible implementation work is complete. | [View](Skills/OpenAI/pr-draft-summary) |
+| `prior-auth-packet-builder` | **OpenAI** | Build a concise prior authorization packet from local case files and payer policy docs. | [View](Skills/OpenAI/prior-auth-packet-builder) |
+| `release-candidate-prep` | **OpenAI** | Prepare a local Python SDK release candidate in a dedicated worktree. Use only when explicitly invoked with a version. | [View](Skills/OpenAI/release-candidate-prep) |
+| `runtime-behavior-probe` | **OpenAI** | Plan controlled runtime probes when explicitly invoked; execute only after the required probe approval. | [View](Skills/OpenAI/runtime-behavior-probe) |
+| `sensitive-logging-audit` | **OpenAI** | Audit or fix sensitive-data exposure in Python SDK diagnostics, exceptions, logging, and telemetry. | [View](Skills/OpenAI/sensitive-logging-audit) |
+| `test-coverage-improver` | **OpenAI** | Measure Python SDK coverage or address measured coverage gaps. Use for coverage audits and metric regressions, not routine test additions. | [View](Skills/OpenAI/test-coverage-improver) |
 | `accessibility-review` | **Ours** | Audit designs and code for WCAG 2.1 AA compliance. Trigger with "is this accessible", "accessibility check", "WCAG audit", "can screen readers use this", "color contrast", or when the user asks about making designs or code accessible to all users. | [View](Skills/Ours/accessibility-review) |
 | `account-research` | **Ours** | Research a company or person and get actionable sales intel. Works standalone with web search, supercharged when you connect enrichment tools or your CRM. Trigger with "research [company]", "look up [person]", "intel on [prospect]", "who is [name] at [company]", or "tell me about [company]". | [View](Skills/Ours/account-research) |
 | `account-research` | **Ours** | Research a company using Common Room data. Triggers on 'research [company]', 'tell me about [domain]', 'pull up signals for [account]', 'what's going on with [company]', or any account-level question. | [View](Skills/Ours/account-research) |
@@ -464,6 +611,44 @@
 | `.claude-plugin` | **Anthropic** | Write SQL, explore datasets, and generate insights faster. Build visualizations and dashboards, and turn raw data into clear stories for stakeholders. | [View](Plugins/Anthropic/.claude-plugin) |
 | `.claude-plugin` | **Anthropic** | Streamline engineering workflows — standups, code review, architecture decisions, incident response, and technical documentation. Works with your existing tools or standalone. | [View](Plugins/Anthropic/.claude-plugin) |
 | `.claude-plugin` | **Anthropic** | Manage tasks, plan your day, and build up memory of important context about your work. Syncs with your calendar, email, and chat to keep everything organized and on track. | [View](Plugins/Anthropic/.claude-plugin) |
+| `apollo` | **Anthropic** | Prospect, enrich leads, and load outreach sequences with [Apollo.io](https://www.apollo.io/) — powered by the Apollo MCP | [View](Plugins/Anthropic/apollo) |
+| `bio-research` | **Anthropic** | Connect to preclinical research tools and databases (literature search, genomics analysis, target prioritization) to acc | [View](Plugins/Anthropic/bio-research) |
+| `brand-voice` | **Anthropic** | A [Tribe AI](https://tribe.ai) plugin for Claude Cowork. Built as a Cowork launch partner. | [View](Plugins/Anthropic/brand-voice) |
+| `common-room` | **Anthropic** | GTM workflows powered by Common Room — account research, contact research, call prep, personalized outreach, prospecting | [View](Plugins/Anthropic/common-room) |
+| `cowork-plugin-management` | **Anthropic** | Plugin bundle from cowork-plugin-management | [View](Plugins/Anthropic/cowork-plugin-management) |
+| `customer-support` | **Anthropic** | A customer support plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic deskto | [View](Plugins/Anthropic/customer-support) |
+| `data` | **Anthropic** | A data analyst plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop ap | [View](Plugins/Anthropic/data) |
+| `design` | **Anthropic** | A design productivity plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic des | [View](Plugins/Anthropic/design) |
+| `engineering` | **Anthropic** | A software engineering plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic de | [View](Plugins/Anthropic/engineering) |
+| `enterprise-search` | **Anthropic** | An enterprise search plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desk | [View](Plugins/Anthropic/enterprise-search) |
+| `finance` | **Anthropic** | A finance and accounting plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic  | [View](Plugins/Anthropic/finance) |
+| `human-resources` | **Anthropic** | A people operations plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic deskt | [View](Plugins/Anthropic/human-resources) |
+| `knowledge-work-plugins` | **Anthropic** | Plugins that turn Claude into a specialist for your role, team, and company. Built for [Claude Cowork](https://claude.co | [View](Plugins/Anthropic/knowledge-work-plugins) |
+| `legal` | **Anthropic** | An AI-powered productivity plugin for in-house legal teams, primarily designed for [Cowork](https://claude.com/product/c | [View](Plugins/Anthropic/legal) |
+| `marketing` | **Anthropic** | A marketing plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop appli | [View](Plugins/Anthropic/marketing) |
+| `operations` | **Anthropic** | A business operations plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic des | [View](Plugins/Anthropic/operations) |
+| `partner-built` | **Anthropic** | Plugin bundle from partner-built | [View](Plugins/Anthropic/partner-built) |
+| `pdf-viewer` | **Anthropic** | View, annotate, and sign PDFs in a live interactive viewer. Mark up | [View](Plugins/Anthropic/pdf-viewer) |
+| `product-management` | **Anthropic** | A product management plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desk | [View](Plugins/Anthropic/product-management) |
+| `productivity` | **Anthropic** | A productivity plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop ap | [View](Plugins/Anthropic/productivity) |
+| `sales` | **Anthropic** | A sales plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop applicati | [View](Plugins/Anthropic/sales) |
+| `slack` | **Anthropic** | This repository contains the configuration needed to integrate Slack with Cursor IDE and Claude Code. The plugin enables | [View](Plugins/Anthropic/slack) |
+| `small-business` | **Anthropic** | **By Anthropic** | [View](Plugins/Anthropic/small-business) |
+| `zoom-plugin` | **Anthropic** | A Claude plugin for planning, building, and debugging Zoom integrations. It helps choose the right Zoom surface, shape i | [View](Plugins/Anthropic/zoom-plugin) |
+| `android-cli-plugin` | **Google** | Core tools and knowledge required to develop for Android | [View](Plugins/Google/android-cli-plugin) |
+| `chrome-devtools-plugin` | **Google** | Reliable automation, in-depth debugging, and performance analysis in Chrome using Chrome DevTools and Puppeteer | [View](Plugins/Google/chrome-devtools-plugin) |
+| `data-agent-kit-plugin` | **Google** | This plugin provides a specialized suite of skills for data engineers and database practitioners working on Google Cloud. It acts as an expert assistant, allowing you to use natural language prompts in your preferred coding agent to architect complex data pipelines, transform data with dbt, write Spark and BigQuery SQL notebooks, and orchestrate end-to-end workflows across GCP's data ecosystem. | [View](Plugins/Google/data-agent-kit-plugin) |
+| `firebase` | **Google** | Prototype, build & run modern apps that users love with Firebase's backend, AI, and operational infrastructure. | [View](Plugins/Google/firebase) |
+| `flutter` | **Google** | Official plugin for Dart and Flutter that installs Flutter/Dart Skills, Rules, Custom Agents, and Dart MCP server for building natively compiled, visually stunning applications for mobile, web, desktop, and embedded devices from a single codebase | [View](Plugins/Google/flutter) |
+| `gemini-api` | **Google** | Build applications with the Gemini Interactions API and Live API, including text, image, video, and speech generation, managed agents, and real-time multimodal streaming. | [View](Plugins/Google/gemini-api) |
+| `google-antigravity-sdk` | **Google** | Using the Google Antigravity Python SDK to build AI agents | [View](Plugins/Google/google-antigravity-sdk) |
+| `google_maps_platform` | **Google** | Integration skill and tools for Google Maps Platform APIs | [View](Plugins/Google/google_maps_platform) |
+| `modern-web-guidance-plugin` | **Google** | Keep your coding agent up to date with the latest web best practices. | [View](Plugins/Google/modern-web-guidance-plugin) |
+| `science` | **Google** | Curated collection of agent skills for science tasks. | [View](Plugins/Google/science) |
+| `openai-agents-python` | **OpenAI** | The OpenAI Agents SDK is a lightweight yet powerful framework for building multi-agent workflows. It is provider-agnosti | [View](Plugins/OpenAI/openai-agents-python) |
+| `swarm` | **OpenAI** | ![Swarm Logo](assets/logo.png) | [View](Plugins/OpenAI/swarm) |
+| `swarm` | **OpenAI** | Plugin bundle from swarm | [View](Plugins/OpenAI/swarm) |
+| `swarm` | **OpenAI** | Plugin bundle from swarm | [View](Plugins/OpenAI/swarm) |
 | `.claude-plugin` | **Ours** | Triage tickets, draft responses, escalate issues, and build your knowledge base. Research customer context and turn resolved issues into self-service content. | [View](Plugins/Ours/.claude-plugin) |
 | `.claude-plugin` | **Ours** | Accelerate design workflows — critique, design system management, UX writing, accessibility audits, research synthesis, and dev handoff. From exploration to pixel-perfect specs. | [View](Plugins/Ours/.claude-plugin) |
 | `.claude-plugin` | **Ours** | Search across all of your company's tools in one place. Find anything across email, chat, documents, and wikis without switching between apps. | [View](Plugins/Ours/.claude-plugin) |
@@ -484,12 +669,34 @@
 | `.claude-plugin` | **Ours** | Streamline engineering workflows — standups, code review, architecture decisions, incident response, and technical documentation. Works with your existing tools or standalone. | [View](Plugins/Ours/.claude-plugin) |
 | `.claude-plugin` | **Ours** | Manage tasks, plan your day, and build up memory of important context about your work. Syncs with your calendar, email, and chat to keep everything organized and on track. | [View](Plugins/Ours/.claude-plugin) |
 | `agentic-skill-creator` | **Ours** | Creates and updates production-grade agentic skills with MCP tool integration, agent workflows, approval gates, and folder structures. | [View](Plugins/Ours/agentic-skill-creator) |
+| `apollo` | **Ours** | Prospect, enrich leads, and load outreach sequences with [Apollo.io](https://www.apollo.io/) — powered by the Apollo MCP | [View](Plugins/Ours/apollo) |
+| `bio-research` | **Ours** | Connect to preclinical research tools and databases (literature search, genomics analysis, target prioritization) to acc | [View](Plugins/Ours/bio-research) |
 | `brand-establishment` | **Ours** | Day-1 brand setup, identity system, voice guidelines, and IP protection. Everything needed to establish a professional brand from scratch. | [View](Plugins/Ours/brand-establishment) |
+| `brand-voice` | **Ours** | A [Tribe AI](https://tribe.ai) plugin for Claude Cowork. Built as a Cowork launch partner. | [View](Plugins/Ours/brand-voice) |
+| `common-room` | **Ours** | GTM workflows powered by Common Room — account research, contact research, call prep, personalized outreach, prospecting | [View](Plugins/Ours/common-room) |
+| `cowork-plugin-management` | **Ours** | Plugin bundle from cowork-plugin-management | [View](Plugins/Ours/cowork-plugin-management) |
+| `customer-support` | **Ours** | A customer support plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic deskto | [View](Plugins/Ours/customer-support) |
+| `data` | **Ours** | A data analyst plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop ap | [View](Plugins/Ours/data) |
+| `design` | **Ours** | A design productivity plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic des | [View](Plugins/Ours/design) |
+| `engineering` | **Ours** | A software engineering plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic de | [View](Plugins/Ours/engineering) |
+| `enterprise-search` | **Ours** | An enterprise search plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desk | [View](Plugins/Ours/enterprise-search) |
+| `finance` | **Ours** | A finance and accounting plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic  | [View](Plugins/Ours/finance) |
+| `human-resources` | **Ours** | A people operations plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic deskt | [View](Plugins/Ours/human-resources) |
+| `legal` | **Ours** | An AI-powered productivity plugin for in-house legal teams, primarily designed for [Cowork](https://claude.com/product/c | [View](Plugins/Ours/legal) |
+| `marketing` | **Ours** | A marketing plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop appli | [View](Plugins/Ours/marketing) |
+| `operations` | **Ours** | A business operations plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic des | [View](Plugins/Ours/operations) |
+| `product-management` | **Ours** | A product management plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desk | [View](Plugins/Ours/product-management) |
 | `production-standards` | **Ours** | Production-grade code standards, checklists, project-type templates, and state management for shipping reliable software. | [View](Plugins/Ours/production-standards) |
+| `productivity` | **Ours** | A productivity plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desktop ap | [View](Plugins/Ours/productivity) |
+| `sales` | **Ours** | A sales productivity plugin primarily designed for [Cowork](https://claude.com/product/cowork), Anthropic's agentic desk | [View](Plugins/Ours/sales) |
 | `skill-creator` | **Ours** | Third-party skill creator with templates, references, and scripts for building standard skills. | [View](Plugins/Ours/skill-creator) |
+| `skills-main` | **Ours** | > **Note:** This repository contains Anthropic's implementation of skills for Claude. For information about the Agent Sk | [View](Plugins/Ours/skills-main) |
+| `slack` | **Ours** | This repository contains the configuration needed to integrate Slack with Cursor IDE and Claude Code. The plugin enables | [View](Plugins/Ours/slack) |
 | `super-intelligence` | **Ours** | Collection of third-party Claude Skills and advanced agent capabilities cloned from Anthropic and community sources. | [View](Plugins/Ours/super-intelligence) |
 | `ui-system` | **Ours** | Universal UI/UX design system with aesthetic guidelines, component standards, and frontend best practices. | [View](Plugins/Ours/ui-system) |
 | `.claude-plugin` | **Salesforce** | Sales workflows for account executives and sales leaders, including account research, call prep, follow-up, pipeline review, forecasting, deal-slippage scenarios, lead triage, outreach drafting, approval-gated Salesforce updates and much more. Both the plugin and the Salesforce connector are Beta services, their use is governed by the [Beta terms](https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/legal/Agreements/beta-agreements/Beta-Services-Agreement.pdf). | [View](Plugins/Salesforce/.claude-plugin) |
+| `salesforce-for-sales` | **Salesforce** | A general-purpose Claude plugin for sales teams. Ask Claude for account context, call prep, pipeline reviews, drafted ou | [View](Plugins/Salesforce/salesforce-for-sales) |
+| `salesforce-skills` | **Salesforce** | Salesforce plugins that turn Claude into a Salesforce specialist for your role, team, and company. Built for [Claude Cow | [View](Plugins/Salesforce/salesforce-skills) |
 
 ---
 

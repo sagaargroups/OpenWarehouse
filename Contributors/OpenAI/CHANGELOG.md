@@ -1,5 +1,11 @@
 # Changelog — OpenAI
 
+## [2026-10-08 12:42 UTC] Sync & Inventory Update
+
+- **Skills Tracked:** 18 (code-change-verification, final-release-review, test-coverage-improver, release-candidate-prep, implementation-kickoff...)
+- **Plugins Tracked:** 4 (swarm, swarm, swarm, openai-agents-python)
+- **MCPs Tracked:** 0
+
 ## [2026-10-08 12:26 UTC] Sync & Inventory Update
 
 - **Skills Tracked:** 0 ()

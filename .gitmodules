@@ -7,3 +7,9 @@
 [submodule "Contributors/Salesforce/salesforce-skills"]
 	path = Contributors/Salesforce/salesforce-skills
 	url = https://github.com/salesforce/salesforce-skills.git
+[submodule "Contributors/OpenAI/openai-agents-python"]
+	path = Contributors/OpenAI/openai-agents-python
+	url = https://github.com/openai/openai-agents-python.git
+[submodule "Contributors/OpenAI/swarm"]
+	path = Contributors/OpenAI/swarm
+	url = https://github.com/openai/swarm.git
