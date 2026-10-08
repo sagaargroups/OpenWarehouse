@@ -1,0 +1,37 @@
+# React + Vite Framework Configuration
+
+framework: react-vite
+version: "18+"
+
+# Folder Structure
+folders:
+  src: src
+  components: src/components
+  pages: src/pages
+  lib: src/lib
+  hooks: src/hooks
+  styles: src/styles
+
+# File Patterns
+patterns:
+  component: "${ComponentName}.tsx"
+  page: "${PageName}Page.tsx"
+  hook: "use${HookName}.ts"
+  test: "${name}.test.tsx"
+
+# Imports
+imports:
+  order:
+    - "react"
+    - "@/lib"
+    - "@/hooks"
+    - "@/components"
+    - "./relative"
+  alias: "@/"
+  aliasPath: "src/"
+
+# Features
+features:
+  router: "react-router"      # react-router | tanstack-router
+  stateManagement: "zustand"  # zustand | redux | jotai
+  forms: "react-hook-form"

@@ -1,0 +1,53 @@
+# Project Configuration
+
+# Architecture (Agent will help you decide)
+architecture: ""              # modular-monolith | microservices | simple
+
+# Framework - LEAVE BLANK FOR AUTO-DETECTION
+# Agent will detect from package.json or ask you
+framework: ""                 # nextjs | react | vue | svelte | express | blank
+frameworkVersion: ""
+
+# Folder Structure (Agent will set based on framework)
+folders:
+  src: ""                     # Source folder
+  components: ""              # Components folder
+  pages: ""                   # Pages/routes folder
+  api: ""                     # API routes folder
+  styles: ""                  # Styles folder
+
+# API Configuration
+api:
+  style: ""                   # restful | graphql | trpc
+  version: ""                 # v1, v2, etc.
+  basePath: ""                # /api
+  responseFormat: "unified"   # Always use unified response format
+  authentication: ""          # cookie | jwt | session
+
+# Database (Agent will detect or ask)
+database:
+  orm: ""                     # drizzle | prisma | mongoose | none
+  provider: ""                # postgres | mysql | mongodb | sqlite
+  connectionPoolSize: 10
+  migrations: "auto"
+
+# Authentication
+auth:
+  provider: ""                # custom | auth-js | clerk | supabase
+  sessionDuration: "7d"
+  mfa: "optional"
+
+# Deployment
+deployment:
+  platform: ""                # vercel | netlify | aws | railway | docker
+  regions: []
+
+# Package Manager
+packageManager: ""            # npm | yarn | pnpm | bun
+
+# ---
+# INSTRUCTIONS:
+# 1. Leave blank fields for agent to auto-detect
+# 2. Or fill in if you know your preferences
+# 3. Agent will ask for required values
+# ---

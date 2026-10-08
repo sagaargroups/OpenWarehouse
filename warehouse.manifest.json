@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project": {
+    "name": "OpenWarehouse",
+    "description": "The Universal Open-Source Warehouse for AI Agents, Skills, MCP Servers & Plugins",
+    "version": "1.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/sagaargroups/OpenWarehouse.git",
+    "branding": {
+      "tagline": "The Universal Open-Source Warehouse for AI Agents, Skills, MCP Servers & Plugins",
+      "topics": [
+        "ai-agents",
+        "mcp-servers",
+        "claude-skills",
+        "gemini-api",
+        "model-context-protocol",
+        "agentic-workflows",
+        "prompt-engineering",
+        "cursor-rules",
+        "antigravity",
+        "open-source"
+      ]
+    }
+  },
+  "architecture": {
+    "master_source": "Contributors",
+    "excluded_dirs": [
+      "other",
+      ".git",
+      ".github",
+      "scripts",
+      ".agents"
+    ],
+    "projection_views": [
+      "Skills",
+      "MCPs",
+      "Plugins",
+      "APIs",
+      "Apps",
+      "Workflows",
+      "System"
+    ],
+    "link_style": "relative"
+  },
+  "contributors": {
+    "Ours": {
+      "type": "internal",
+      "description": "Internal proprietary & custom-built skills, plugins, and frameworks",
+      "path": "Contributors/Ours",
+      "active": true,
+      "categories": {
+        "skills": "skills",
+        "plugins": "plugins",
+        "mcps": "mcps",
+        "workflows": "workflows"
+      }
+    },
+    "Anthropic": {
+      "type": "submodule",
+      "description": "Anthropic official knowledge work plugins and skills",
+      "path": "Contributors/Anthropic/knowledge-work-plugins",
+      "repository": "https://github.com/anthropics/knowledge-work-plugins.git",
+      "branch": "main",
+      "active": true,
+      "categories": {
+        "plugins": "",
+        "skills": "*/skills"
+      }
+    },
+    "Community": {
+      "type": "submodule",
+      "description": "Official Model Context Protocol reference servers",
+      "path": "Contributors/Community/modelcontextprotocol-servers",
+      "repository": "https://github.com/modelcontextprotocol/servers.git",
+      "branch": "main",
+      "active": true,
+      "categories": {
+        "mcps": "src"
+      }
+    },
+    "Google": {
+      "type": "directory",
+      "description": "Google DeepMind, Gemini API, and Antigravity SDK agent assets",
+      "path": "Contributors/Google",
+      "active": true,
+      "categories": {
+        "skills": "skills",
+        "plugins": "plugins"
+      }
+    },
+    "OpenAI": {
+      "type": "directory",
+      "description": "OpenAI agent frameworks, Swarm, and tool specs",
+      "path": "Contributors/OpenAI",
+      "active": true,
+      "categories": {
+        "skills": "skills"
+      }
+    }
+  },
+  "validation_protocol": {
+    "levels": {
+      "level_0_objective": "Validate overall state invariant before running",
+      "level_1_subsystem": "Verify upstream reachable, git tree clean, manifest synchronized",
+      "level_2_atomic": "Assert zero broken symlinks, exact git commit SHAs, frontmatter validity"
+    },
+    "ground_truth_assertions": [
+      "all_symlinks_resolve_relatively",
+      "no_dangling_broken_links",
+      "manifest_contributors_exist_on_disk",
+      "changelog_reflects_actual_git_diff",
+      "all_skills_have_valid_frontmatter"
+    ]
+  }
+}

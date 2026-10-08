@@ -1,0 +1,39 @@
+# ==============================================================================
+# MONOREPO CODEOWNERS GOVERNANCE MATRIX
+# Organization: <ORGANIZATION-NAME>
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# GLOBAL / DEFAULT OWNERSHIP
+# ------------------------------------------------------------------------------
+# Central IT & Security leads own global configuration, CI/CD, and root files
+* @<org-handle>/corporate-admins @<org-handle>/platform-eng
+
+# Global GitHub Workflows & Configurations
+/.github/ @<org-handle>/platform-eng
+/.github/workflows/ @<org-handle>/platform-eng
+/.github/CODEOWNERS @<org-handle>/corporate-admins
+
+# Shared Packages & Configs (Requires Central IT + Division Leads)
+/packages/ @<org-handle>/platform-eng @<org-handle>/agency-lead @<org-handle>/tech-lead
+
+# ------------------------------------------------------------------------------
+# AGENCY DIVISION
+# ------------------------------------------------------------------------------
+/apps/agency/ @<org-handle>/agency-lead
+/apps/agency/studio-app/ @<org-handle>/team-studio-app @<org-handle>/agency-lead
+/apps/agency/marketing-app/ @<org-handle>/team-marketing-app @<org-handle>/agency-lead
+
+# ------------------------------------------------------------------------------
+# CONSUMER D2C DIVISION
+# ------------------------------------------------------------------------------
+/apps/d2c/ @<org-handle>/d2c-lead
+/apps/d2c/brand-one/ @<org-handle>/team-brand-one
+/apps/d2c/brand-two/ @<org-handle>/team-brand-two
+
+# ------------------------------------------------------------------------------
+# TECH & SAAS DIVISION
+# ------------------------------------------------------------------------------
+/apps/tech/ @<org-handle>/tech-lead
+/apps/tech/saas-platform/ @<org-handle>/team-saas-platform @<org-handle>/tech-lead
+/apps/tech/dev-services/ @<org-handle>/team-dev-services @<org-handle>/tech-lead

@@ -1,0 +1,71 @@
+# Testing Configuration
+
+# Test Framework
+framework: vitest
+runner: vitest
+coverage: v8
+
+# Test Types
+types:
+  unit:
+    enabled: true
+    location: colocated          # colocated | __tests__
+    pattern: "*.test.ts"
+  integration:
+    enabled: true
+    location: colocated
+    pattern: "*.integration.test.ts"
+  e2e:
+    enabled: true
+    framework: playwright
+    location: e2e/
+    pattern: "*.spec.ts"
+  component:
+    enabled: true
+    framework: testing-library
+    pattern: "*.test.tsx"
+
+# Coverage Thresholds
+coverage:
+  enabled: true
+  thresholds:
+    global:
+      branches: 70
+      functions: 70
+      lines: 70
+      statements: 70
+    critical:                    # Higher threshold for critical paths
+      branches: 90
+      functions: 90
+      lines: 90
+      statements: 90
+
+# Mocking
+mocking:
+  httpCalls: msw                 # msw | nock | fetch-mock
+  database: in-memory
+  time: vi.useFakeTimers
+
+# Test Database
+testDatabase:
+  provider: postgres
+  strategy: transaction          # transaction | truncate | recreate
+  seed: true
+
+# CI Configuration
+ci:
+  runOnPush: true
+  runOnPr: true
+  parallelization: true
+  maxWorkers: 4
+
+# Assertions
+assertions:
+  preferExpect: true
+  customMatchers: true
+
+# Timeouts
+timeouts:
+  unit: 5000
+  integration: 10000
+  e2e: 30000

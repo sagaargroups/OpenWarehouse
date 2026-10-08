@@ -1,0 +1,55 @@
+# Testing Configuration
+
+# Test Framework (Agent will detect or use defaults)
+framework: ""                 # vitest | jest | mocha | none
+runner: ""
+coverage: ""                  # v8 | istanbul
+
+# Test Types
+types:
+  unit:
+    enabled: true
+    location: "colocated"     # colocated | __tests__
+    pattern: "*.test.ts"
+  integration:
+    enabled: false
+    location: "colocated"
+    pattern: "*.integration.test.ts"
+  e2e:
+    enabled: false
+    framework: ""             # playwright | cypress
+    location: "e2e/"
+    pattern: "*.spec.ts"
+  component:
+    enabled: false
+    framework: ""             # testing-library | enzyme
+    pattern: "*.test.tsx"
+
+# Coverage Thresholds
+coverage:
+  enabled: true
+  thresholds:
+    global:
+      branches: 70
+      functions: 70
+      lines: 70
+      statements: 70
+
+# Mocking
+mocking:
+  httpCalls: ""               # msw | nock | fetch-mock
+  database: ""                # in-memory | mock
+  time: ""                    # vi.useFakeTimers | jest.useFakeTimers
+
+# Timeouts (ms)
+timeouts:
+  unit: 5000
+  integration: 10000
+  e2e: 30000
+
+# ---
+# INSTRUCTIONS:
+# 1. Agent will detect test framework from package.json
+# 2. Enable test types as you add them
+# 3. Adjust coverage thresholds based on your needs
+# ---

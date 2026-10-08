@@ -1,0 +1,74 @@
+# Coding Standards Preferences
+
+# Language & Framework
+language: typescript
+framework: nextjs
+frameworkVersion: "15"
+runtime: nodejs
+
+# Package Manager
+packageManager: pnpm
+
+# Naming Conventions
+naming:
+  components: PascalCase       # MyComponent.tsx
+  functions: camelCase         # getUserById()
+  constants: UPPER_SNAKE_CASE  # MAX_RETRIES
+  files: kebab-case            # my-component.tsx
+  cssClasses: kebab-case       # my-class-name
+  database:
+    tables: snake_case         # user_profiles
+    columns: camelCase         # userId (Drizzle converts)
+
+# Import Order
+imports:
+  order:
+    - "react"
+    - "next"
+    - "@/lib"
+    - "@/platform"
+    - "@/products"
+    - "@/domains"
+    - "@/components"
+    - "./relative"
+  grouping: true
+  newlineBetweenGroups: true
+
+# TypeScript
+typescript:
+  strict: true
+  noImplicitAny: true
+  useTypeInference: true       # Prefer inference over explicit types
+  preferConst: true
+  noUnusedLocals: true
+  noUnusedParameters: true
+
+# Code Style
+style:
+  semicolons: true
+  quotes: single
+  trailingComma: es5
+  tabWidth: 2
+  printWidth: 80
+  arrowParens: always
+
+# Comments
+comments:
+  requireForPublicApi: true
+  requireForComplexLogic: true
+  avoidObvious: true           # No "// increment i"
+  todoFormat: "// TODO: description"
+  fixmeFormat: "// FIXME: description"
+
+# Error Handling
+errorHandling:
+  alwaysUseTryCatch: true
+  logErrors: true
+  rethrowUnknown: false
+  customErrorClass: true
+
+# Console
+console:
+  allowInDev: true
+  removeInProd: true
+  preferLogger: true           # Use custom logger over console

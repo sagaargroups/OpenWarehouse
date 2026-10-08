@@ -1,0 +1,41 @@
+# Express Framework Configuration
+
+framework: express
+version: "4+"
+language: typescript
+
+# Folder Structure
+folders:
+  src: src
+  routes: src/routes
+  controllers: src/controllers
+  services: src/services
+  middleware: src/middleware
+  models: src/models
+  utils: src/utils
+
+# File Patterns
+patterns:
+  route: "${name}.routes.ts"
+  controller: "${name}.controller.ts"
+  service: "${name}.service.ts"
+  middleware: "${name}.middleware.ts"
+  test: "${name}.test.ts"
+
+# Imports
+imports:
+  order:
+    - "express"
+    - "@/middleware"
+    - "@/services"
+    - "@/controllers"
+    - "@/utils"
+    - "./relative"
+  alias: "@/"
+  aliasPath: "src/"
+
+# Features
+features:
+  validation: "zod"           # zod | joi | yup
+  orm: "drizzle"              # drizzle | prisma | mongoose
+  auth: "jwt"                 # jwt | session

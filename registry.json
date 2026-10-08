@@ -1,0 +1,2664 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-10-08 08:44 UTC",
+  "counts": {
+    "skills": 387,
+    "plugins": 47,
+    "mcps": 7,
+    "workflows": 1
+  },
+  "inventory": {
+    "skills": [
+      {
+        "name": "knowledge-management",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/customer-support/skills/knowledge-management",
+        "description": "Write and maintain knowledge base articles from resolved support issues. Use when a ticket has been resolved and the solution should be documented, when updating existing KB articles, or when creating how-to guides, troubleshooting docs, or FAQ entries."
+      },
+      {
+        "name": "customer-research",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/customer-support/skills/customer-research",
+        "description": "Research customer questions by searching across documentation, knowledge bases, and connected sources, then synthesize a confidence-scored answer. Use when a customer asks a question you need to investigate, when building background on a customer situation, or when you need account context."
+      },
+      {
+        "name": "escalation",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/customer-support/skills/escalation",
+        "description": "Structure and package support escalations for engineering, product, or leadership with full context, reproduction steps, and business impact. Use when an issue needs to go beyond support, when writing an escalation brief, or when assessing whether an issue warrants escalation."
+      },
+      {
+        "name": "response-drafting",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/customer-support/skills/response-drafting",
+        "description": "Draft professional, empathetic customer-facing responses adapted to the situation, urgency, and channel. Use when responding to customer tickets, escalations, outage notifications, bug reports, feature requests, or any customer-facing communication."
+      },
+      {
+        "name": "ticket-triage",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/customer-support/skills/ticket-triage",
+        "description": "Triage incoming support tickets by categorizing issues, assigning priority (P1-P4), and recommending routing. Use when a new ticket or customer issue comes in, when assessing severity, or when deciding which team should handle an issue."
+      },
+      {
+        "name": "user-research",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/design/skills/user-research",
+        "description": "Plan, conduct, and synthesize user research. Trigger with \"user research plan\", \"interview guide\", \"usability test\", \"survey design\", \"research questions\", or when the user needs help with any aspect of understanding their users through research."
+      },
+      {
+        "name": "design-handoff",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/design/skills/design-handoff",
+        "description": "Create comprehensive developer handoff documentation from designs. Trigger with \"handoff to engineering\", \"developer specs\", \"implementation notes\", \"design specs for developers\", or when a design needs to be translated into detailed implementation guidance."
+      },
+      {
+        "name": "design-critique",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/design/skills/design-critique",
+        "description": "Evaluate designs for usability, visual hierarchy, consistency, and adherence to design principles. Trigger with \"what do you think of this design\", \"give me feedback on\", \"critique this\", \"review this mockup\", or when the user shares a design and asks for opinions."
+      },
+      {
+        "name": "design-system-management",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/design/skills/design-system-management",
+        "description": "Manage design tokens, component libraries, and pattern documentation. Trigger with \"design system\", \"component library\", \"design tokens\", \"style guide\", or when the user asks about maintaining consistency across designs."
+      },
+      {
+        "name": "accessibility-review",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/design/skills/accessibility-review",
+        "description": "Audit designs and code for WCAG 2.1 AA compliance. Trigger with \"is this accessible\", \"accessibility check\", \"WCAG audit\", \"can screen readers use this\", \"color contrast\", or when the user asks about making designs or code accessible to all users."
+      },
+      {
+        "name": "ux-writing",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/design/skills/ux-writing",
+        "description": "Write effective microcopy for user interfaces. Trigger with \"write copy for\", \"help with UX copy\", \"what should this button say\", \"error message for\", \"empty state copy\", or when the user needs help with any interface text."
+      },
+      {
+        "name": "search-strategy",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/enterprise-search/skills/search-strategy",
+        "description": "Query decomposition and multi-source search orchestration. Breaks natural language questions into targeted searches per source, translates queries into source-specific syntax, ranks results by relevance, and handles ambiguity and fallback strategies."
+      },
+      {
+        "name": "knowledge-synthesis",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/enterprise-search/skills/knowledge-synthesis",
+        "description": "Combines search results from multiple sources into coherent, deduplicated answers with source attribution. Handles confidence scoring based on freshness and authority, and summarizes large result sets effectively."
+      },
+      {
+        "name": "source-management",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/enterprise-search/skills/source-management",
+        "description": "Manages connected MCP sources for enterprise search. Detects available sources, guides users to connect new ones, handles source priority ordering, and manages rate limiting awareness."
+      },
+      {
+        "name": "cowork-plugin-customizer",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/cowork-plugin-management/skills/cowork-plugin-customizer",
+        "description": ">"
+      },
+      {
+        "name": "create-cowork-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/cowork-plugin-management/skills/create-cowork-plugin",
+        "description": ">"
+      },
+      {
+        "name": "draft-outreach",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/sales/skills/draft-outreach",
+        "description": "Research a prospect then draft personalized outreach. Uses web research by default, supercharged with enrichment and CRM. Trigger with \"draft outreach to [person/company]\", \"write cold email to [prospect]\", \"reach out to [name]\"."
+      },
+      {
+        "name": "create-an-asset",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/sales/skills/create-an-asset",
+        "description": "Generate tailored sales assets (landing pages, decks, one-pagers, workflow demos) from your deal context. Describe your prospect, audience, and goal \u2014 get a polished, branded asset ready to share with customers."
+      },
+      {
+        "name": "daily-briefing",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/sales/skills/daily-briefing",
+        "description": "Start your day with a prioritized sales briefing. Works standalone when you tell me your meetings and priorities, supercharged when you connect your calendar, CRM, and email. Trigger with \"morning briefing\", \"daily brief\", \"what's on my plate today\", \"prep my day\", or \"start my day\"."
+      },
+      {
+        "name": "account-research",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/sales/skills/account-research",
+        "description": "Research a company or person and get actionable sales intel. Works standalone with web search, supercharged when you connect enrichment tools or your CRM. Trigger with \"research [company]\", \"look up [person]\", \"intel on [prospect]\", \"who is [name] at [company]\", or \"tell me about [company]\"."
+      },
+      {
+        "name": "competitive-intelligence",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/sales/skills/competitive-intelligence",
+        "description": "Research your competitors and build an interactive battlecard. Outputs an HTML artifact with clickable competitor cards and a comparison matrix. Trigger with \"competitive intel\", \"research competitors\", \"how do we compare to [competitor]\", \"battlecard for [competitor]\", or \"what's new with [competitor]\"."
+      },
+      {
+        "name": "call-prep",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/sales/skills/call-prep",
+        "description": "Prepare for a sales call with account context, attendee research, and suggested agenda. Works standalone with user input and web research, supercharged when you connect your CRM, email, chat, or transcripts. Trigger with \"prep me for my call with [company]\", \"I'm meeting with [company] prep me\", \"call prep [company]\", or \"get me ready for [meeting]\"."
+      },
+      {
+        "name": "scientific-problem-selection",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/bio-research/skills/scientific-problem-selection",
+        "description": "This skill should be used when scientists need help with research problem selection, project ideation, troubleshooting stuck projects, or strategic scientific decisions. Use this skill when users ask to pitch a new research idea, work through a project problem, evaluate project risks, plan research strategy, navigate decision trees, or get help choosing what scientific problem to work on. Typical requests include \"I have an idea for a project\", \"I'm stuck on my research\", \"help me evaluate this project\", \"what should I work on\", or \"I need strategic advice about my research\"."
+      },
+      {
+        "name": "single-cell-rna-qc",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/bio-research/skills/single-cell-rna-qc",
+        "description": "Performs quality control on single-cell RNA-seq data (.h5ad or .h5 files) using scverse best practices with MAD-based filtering and comprehensive visualizations. Use when users request QC analysis, filtering low-quality cells, assessing data quality, or following scverse/scanpy best practices for single-cell analysis."
+      },
+      {
+        "name": "scvi-tools",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/bio-research/skills/scvi-tools",
+        "description": "Deep learning for single-cell analysis using scvi-tools. This skill should be used when users need (1) data integration and batch correction with scVI/scANVI, (2) ATAC-seq analysis with PeakVI, (3) CITE-seq multi-modal analysis with totalVI, (4) multiome RNA+ATAC analysis with MultiVI, (5) spatial transcriptomics deconvolution with DestVI, (6) label transfer and reference mapping with scANVI/scArches, (7) RNA velocity with veloVI, or (8) any deep learning-based single-cell method. Triggers include mentions of scVI, scANVI, totalVI, PeakVI, MultiVI, DestVI, veloVI, sysVI, scArches, variational autoencoder, VAE, batch correction, data integration, multi-modal, CITE-seq, multiome, reference mapping, latent space."
+      },
+      {
+        "name": "nextflow-development",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/bio-research/skills/nextflow-development",
+        "description": "Run nf-core bioinformatics pipelines (rnaseq, sarek, atacseq) on sequencing data. Use when analyzing RNA-seq, WGS/WES, or ATAC-seq data\u2014either local FASTQs or public datasets from GEO/SRA. Triggers on nf-core, Nextflow, FASTQ analysis, variant calling, gene expression, differential expression, GEO reanalysis, GSE/GSM/SRR accessions, or samplesheet creation."
+      },
+      {
+        "name": "instrument-data-to-allotrope",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/bio-research/skills/instrument-data-to-allotrope",
+        "description": "Convert laboratory instrument output files (PDF, CSV, Excel, TXT) to Allotrope Simple Model (ASM) JSON format or flattened 2D CSV. Use this skill when scientists need to standardize instrument data for LIMS systems, data lakes, or downstream analysis. Supports auto-detection of instrument types. Outputs include full ASM JSON, flattened CSV for easy import, and exportable Python code for data engineers. Common triggers include converting instrument files, standardizing lab data, preparing data for upload to LIMS/ELN systems, or generating parser code for production pipelines."
+      },
+      {
+        "name": "brand-voice-enforcement",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/brand-voice/skills/brand-voice-enforcement",
+        "description": ">"
+      },
+      {
+        "name": "discover-brand",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/brand-voice/skills/discover-brand",
+        "description": ">"
+      },
+      {
+        "name": "guideline-generation",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/brand-voice/skills/guideline-generation",
+        "description": ">"
+      },
+      {
+        "name": "prospect",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/apollo/skills/prospect",
+        "description": "Full ICP-to-leads pipeline. Describe your ideal customer in plain English and get a ranked table of enriched decision-maker leads with emails and phone numbers."
+      },
+      {
+        "name": "enrich-lead",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/apollo/skills/enrich-lead",
+        "description": "Instant lead enrichment. Drop a name, company, LinkedIn URL, or email and get the full contact card with email, phone, title, company intel, and next actions."
+      },
+      {
+        "name": "sequence-load",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/apollo/skills/sequence-load",
+        "description": "Find leads matching criteria and bulk-add them to an Apollo outreach sequence. Handles enrichment, contact creation, deduplication, and enrollment in one flow."
+      },
+      {
+        "name": "slack-messaging",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/slack/skills/slack-messaging",
+        "description": "Guidance for composing well-formatted, effective Slack messages using mrkdwn syntax"
+      },
+      {
+        "name": "slack-search",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/slack/skills/slack-search",
+        "description": "Guidance for effectively searching Slack to find messages, files, channels, and people"
+      },
+      {
+        "name": "contact-research",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/common-room/skills/contact-research",
+        "description": "Research a specific person using Common Room data. Triggers on 'who is [name]', 'look up [email]', 'research [contact]', 'is [name] a warm lead', or any contact-level question."
+      },
+      {
+        "name": "prospect",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/common-room/skills/prospect",
+        "description": "Build targeted account or contact lists using Common Room's Prospector. Triggers on 'find companies that match [criteria]', 'build a prospect list', 'find contacts at [type of company]', 'show me companies hiring [role]', or any list-building request."
+      },
+      {
+        "name": "compose-outreach",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/common-room/skills/compose-outreach",
+        "description": "Generate personalized outreach messages using Common Room signals. Triggers on 'draft outreach to [person]', 'write an email to [name]', 'compose a message for [contact]', or any outreach drafting request."
+      },
+      {
+        "name": "account-research",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/common-room/skills/account-research",
+        "description": "Research a company using Common Room data. Triggers on 'research [company]', 'tell me about [domain]', 'pull up signals for [account]', 'what's going on with [company]', or any account-level question."
+      },
+      {
+        "name": "weekly-prep-brief",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/common-room/skills/weekly-prep-brief",
+        "description": "Generate a comprehensive weekly briefing for all external calls in the next 7 days. Triggers on 'weekly prep brief', 'prepare my week', 'what calls do I have this week', 'Monday prep', or any weekly planning request."
+      },
+      {
+        "name": "call-prep",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/common-room/skills/call-prep",
+        "description": "Prepare for a customer or prospect call using Common Room signals. Triggers on 'prep me for my call with [company]', 'prepare for a meeting with [company]', 'what should I know before talking to [company]', or any call preparation request."
+      },
+      {
+        "name": "recruiting-pipeline",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/human-resources/skills/recruiting-pipeline",
+        "description": "Track and manage recruiting pipeline stages. Trigger with \"recruiting update\", \"candidate pipeline\", \"how many candidates\", \"hiring status\", or when the user discusses sourcing, screening, interviewing, or extending offers."
+      },
+      {
+        "name": "employee-handbook",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/human-resources/skills/employee-handbook",
+        "description": "Answer questions about company policies, benefits, and procedures. Trigger with \"what's our policy on\", \"how does PTO work\", \"benefits question\", \"expense policy\", \"remote work policy\", or any question about company rules, perks, or procedures."
+      },
+      {
+        "name": "org-planning",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/human-resources/skills/org-planning",
+        "description": "Headcount planning, org design, and team structure optimization. Trigger with \"org planning\", \"headcount plan\", \"team structure\", \"reorg\", \"who should we hire next\", or when the user is thinking about team size, reporting structure, or organizational design."
+      },
+      {
+        "name": "compensation-benchmarking",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/human-resources/skills/compensation-benchmarking",
+        "description": "Benchmark compensation against market data. Trigger with \"what should we pay\", \"comp benchmark\", \"market rate for\", \"salary range for\", \"is this offer competitive\", or when the user needs help evaluating or setting compensation levels."
+      },
+      {
+        "name": "people-analytics",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/human-resources/skills/people-analytics",
+        "description": "Analyze workforce data \u2014 attrition, engagement, diversity, and productivity. Trigger with \"attrition rate\", \"turnover analysis\", \"diversity metrics\", \"engagement data\", \"retention risk\", or when the user wants to understand workforce trends from HR data."
+      },
+      {
+        "name": "interview-prep",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/human-resources/skills/interview-prep",
+        "description": "Create structured interview plans with competency-based questions and scorecards. Trigger with \"interview plan for\", \"interview questions for\", \"how should we interview\", \"scorecard for\", or when the user is preparing to interview candidates."
+      },
+      {
+        "name": "process-optimization",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/operations/skills/process-optimization",
+        "description": "Analyze and improve business processes. Trigger with \"this process is slow\", \"how can we improve\", \"streamline this workflow\", \"too many steps\", \"bottleneck\", or when the user describes an inefficient process they want to fix."
+      },
+      {
+        "name": "change-management",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/operations/skills/change-management",
+        "description": "Plan and execute organizational or technical changes. Trigger with \"we're changing\", \"rolling out\", \"migration plan\", \"how do we communicate this change\", \"change management plan\", or when the user is planning a change that affects people, processes, or systems."
+      },
+      {
+        "name": "resource-planning",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/operations/skills/resource-planning",
+        "description": "Plan and optimize resource allocation. Trigger with \"resource planning\", \"capacity\", \"utilization\", \"staffing plan\", \"who should work on what\", \"we're stretched thin\", or when the user needs help allocating people, budget, or time across projects and teams."
+      },
+      {
+        "name": "compliance-tracking",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/operations/skills/compliance-tracking",
+        "description": "Track compliance requirements and audit readiness. Trigger with \"compliance\", \"audit prep\", \"SOC 2\", \"ISO 27001\", \"GDPR\", \"regulatory requirement\", or when the user needs help tracking, preparing for, or documenting compliance activities."
+      },
+      {
+        "name": "risk-assessment",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/operations/skills/risk-assessment",
+        "description": "Identify, assess, and mitigate operational risks. Trigger with \"what are the risks\", \"risk assessment\", \"risk register\", \"what could go wrong\", or when the user is evaluating risks associated with a project, vendor, process, or decision."
+      },
+      {
+        "name": "vendor-management",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/operations/skills/vendor-management",
+        "description": "Evaluate, compare, and manage vendor relationships. Trigger with \"evaluate this vendor\", \"compare vendors\", \"vendor review\", \"should we renew\", \"RFP\", or when the user is making procurement or vendor decisions."
+      },
+      {
+        "name": "metrics-tracking",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/product-management/skills/metrics-tracking",
+        "description": "Define, track, and analyze product metrics with frameworks for goal setting and dashboard design. Use when setting up OKRs, building metrics dashboards, running weekly metrics reviews, identifying trends, or choosing the right metrics for a product area."
+      },
+      {
+        "name": "stakeholder-comms",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/product-management/skills/stakeholder-comms",
+        "description": "Draft stakeholder updates tailored to audience \u2014 executives, engineering, customers, or cross-functional partners. Use when writing weekly status updates, monthly reports, launch announcements, risk communications, or decision documentation."
+      },
+      {
+        "name": "roadmap-management",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/product-management/skills/roadmap-management",
+        "description": "Plan and prioritize product roadmaps using frameworks like RICE, MoSCoW, and ICE. Use when creating a roadmap, reprioritizing features, mapping dependencies, choosing between Now/Next/Later or quarterly formats, or presenting roadmap tradeoffs to stakeholders."
+      },
+      {
+        "name": "competitive-analysis",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/product-management/skills/competitive-analysis",
+        "description": "Analyze competitors with feature comparison matrices, positioning analysis, and strategic implications. Use when researching a competitor, comparing product capabilities, assessing competitive positioning, or preparing a competitive brief for product strategy."
+      },
+      {
+        "name": "user-research-synthesis",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/product-management/skills/user-research-synthesis",
+        "description": "Synthesize qualitative and quantitative user research into structured insights and opportunity areas. Use when analyzing interview notes, survey responses, support tickets, or behavioral data to identify themes, build personas, or prioritize opportunities."
+      },
+      {
+        "name": "feature-spec",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/product-management/skills/feature-spec",
+        "description": "Write structured product requirements documents (PRDs) with problem statements, user stories, requirements, and success metrics. Use when speccing a new feature, writing a PRD, defining acceptance criteria, prioritizing requirements, or documenting product decisions."
+      },
+      {
+        "name": "brand-voice",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/marketing/skills/brand-voice",
+        "description": "Apply and enforce brand voice, style guide, and messaging pillars across content. Use when reviewing content for brand consistency, documenting a brand voice, adapting tone for different audiences, or checking terminology and style guide compliance."
+      },
+      {
+        "name": "content-creation",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/marketing/skills/content-creation",
+        "description": "Draft marketing content across channels \u2014 blog posts, social media, email newsletters, landing pages, press releases, and case studies. Use when writing any marketing content, when you need channel-specific formatting, SEO-optimized copy, headline options, or calls to action."
+      },
+      {
+        "name": "campaign-planning",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/marketing/skills/campaign-planning",
+        "description": "Plan marketing campaigns with objectives, audience segmentation, channel strategy, content calendars, and success metrics. Use when launching a campaign, planning a product launch, building a content calendar, allocating budget across channels, or defining campaign KPIs."
+      },
+      {
+        "name": "competitive-analysis",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/marketing/skills/competitive-analysis",
+        "description": "Research competitors and compare positioning, messaging, content strategy, and market presence. Use when analyzing a competitor, building battlecards, identifying content gaps, comparing feature messaging, or preparing competitive positioning recommendations."
+      },
+      {
+        "name": "performance-analytics",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/marketing/skills/performance-analytics",
+        "description": "Analyze marketing performance with key metrics, trend analysis, and optimization recommendations. Use when building performance reports, reviewing campaign results, analyzing channel metrics (email, social, paid, SEO), or identifying what's working and what needs improvement."
+      },
+      {
+        "name": "reconciliation",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/finance/skills/reconciliation",
+        "description": "Reconcile accounts by comparing GL balances to subledgers, bank statements, or third-party data. Use when performing bank reconciliations, GL-to-subledger recs, intercompany reconciliations, or identifying and categorizing reconciling items."
+      },
+      {
+        "name": "journal-entry-prep",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/finance/skills/journal-entry-prep",
+        "description": "Prepare journal entries with proper debits, credits, and supporting documentation for month-end close. Use when booking accruals, prepaid amortization, fixed asset depreciation, payroll entries, revenue recognition, or any manual journal entry."
+      },
+      {
+        "name": "close-management",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/finance/skills/close-management",
+        "description": "Manage the month-end close process with task sequencing, dependencies, and status tracking. Use when planning the close calendar, tracking close progress, identifying blockers, or sequencing close activities by day."
+      },
+      {
+        "name": "financial-statements",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/finance/skills/financial-statements",
+        "description": "Generate income statements, balance sheets, and cash flow statements with GAAP presentation and period-over-period comparison. Use when preparing financial statements, running flux analysis, or creating P&L reports with variance commentary."
+      },
+      {
+        "name": "audit-support",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/finance/skills/audit-support",
+        "description": "Support SOX 404 compliance with control testing methodology, sample selection, and documentation standards. Use when generating testing workpapers, selecting audit samples, classifying control deficiencies, or preparing for internal or external audits."
+      },
+      {
+        "name": "variance-analysis",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/finance/skills/variance-analysis",
+        "description": "Decompose financial variances into drivers with narrative explanations and waterfall analysis. Use when analyzing budget vs. actual, period-over-period changes, revenue or expense variances, or preparing variance commentary for leadership."
+      },
+      {
+        "name": "contract-review",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/legal/skills/contract-review",
+        "description": "Review contracts against your organization's negotiation playbook, flagging deviations and generating redline suggestions. Use when reviewing vendor contracts, customer agreements, or any commercial agreement where you need clause-by-clause analysis against standard positions."
+      },
+      {
+        "name": "canned-responses",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/legal/skills/canned-responses",
+        "description": "Generate templated responses for common legal inquiries and identify when situations require individualized attention. Use when responding to routine legal questions \u2014 data subject requests, vendor inquiries, NDA requests, discovery holds \u2014 or when managing response templates."
+      },
+      {
+        "name": "compliance",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/legal/skills/compliance",
+        "description": "Navigate privacy regulations (GDPR, CCPA), review DPAs, and handle data subject requests. Use when reviewing data processing agreements, responding to data subject access or deletion requests, assessing cross-border data transfer requirements, or evaluating privacy compliance."
+      },
+      {
+        "name": "nda-triage",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/legal/skills/nda-triage",
+        "description": "Screen incoming NDAs and classify them as GREEN (standard), YELLOW (needs review), or RED (significant issues). Use when a new NDA comes in from sales or business development, when assessing NDA risk level, or when deciding whether an NDA needs full counsel review."
+      },
+      {
+        "name": "legal-risk-assessment",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/legal/skills/legal-risk-assessment",
+        "description": "Assess and classify legal risks using a severity-by-likelihood framework with escalation criteria. Use when evaluating contract risk, assessing deal exposure, classifying issues by severity, or determining whether a matter needs senior counsel or outside legal review."
+      },
+      {
+        "name": "meeting-briefing",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/legal/skills/meeting-briefing",
+        "description": "Prepare structured briefings for meetings with legal relevance and track resulting action items. Use when preparing for contract negotiations, board meetings, compliance reviews, or any meeting where legal context, background research, or action tracking is needed."
+      },
+      {
+        "name": "data-exploration",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/data/skills/data-exploration",
+        "description": "Profile and explore datasets to understand their shape, quality, and patterns before analysis. Use when encountering a new dataset, assessing data quality, discovering column distributions, identifying nulls and outliers, or deciding which dimensions to analyze."
+      },
+      {
+        "name": "data-context-extractor",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/data/skills/data-context-extractor",
+        "description": ">"
+      },
+      {
+        "name": "sql-queries",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/data/skills/sql-queries",
+        "description": "Write correct, performant SQL across all major data warehouse dialects (Snowflake, BigQuery, Databricks, PostgreSQL, etc.). Use when writing queries, optimizing slow SQL, translating between dialects, or building complex analytical queries with CTEs, window functions, or aggregations."
+      },
+      {
+        "name": "data-visualization",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/data/skills/data-visualization",
+        "description": "Create effective data visualizations with Python (matplotlib, seaborn, plotly). Use when building charts, choosing the right chart type for a dataset, creating publication-quality figures, or applying design principles like accessibility and color theory."
+      },
+      {
+        "name": "interactive-dashboard-builder",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/data/skills/interactive-dashboard-builder",
+        "description": "Build self-contained interactive HTML dashboards with Chart.js, dropdown filters, and professional styling. Use when creating dashboards, building interactive reports, or generating shareable HTML files with charts and filters that work without a server."
+      },
+      {
+        "name": "statistical-analysis",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/data/skills/statistical-analysis",
+        "description": "Apply statistical methods including descriptive stats, trend analysis, outlier detection, and hypothesis testing. Use when analyzing distributions, testing for significance, detecting anomalies, computing correlations, or interpreting statistical results."
+      },
+      {
+        "name": "data-validation",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/data/skills/data-validation",
+        "description": "QA an analysis before sharing with stakeholders \u2014 methodology checks, accuracy verification, and bias detection. Use when reviewing an analysis for errors, checking for survivorship bias, validating aggregation logic, or preparing documentation for reproducibility."
+      },
+      {
+        "name": "universal-production",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/other-unorganized/The Universal Autonomous Agent Skill Cascade/agent/skills/universal-production",
+        "description": "Intelligent, self-healing skill for production-ready, enterprise-grade code with zero user friction. Covers UI, API, architecture, testing, security, and deployment."
+      },
+      {
+        "name": "cloudplatform-ui",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/other-unorganized/The Universal Autonomous Agent Skill Cascade/agent/skills/cloudplatform-ui",
+        "description": "Design system standards for CloudFetch SaaS platform. Dark theme with orange accent, mobile-first responsive design, and component patterns."
+      },
+      {
+        "name": "modular_architecture",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/other-unorganized/The Universal Autonomous Agent Skill Cascade/agent/skills/modular_architecture",
+        "description": "Complete project knowledge base and architecture rules for CloudFetch SaaS Platform. This skill is the definitive guide for any AI agent to understand, maintain, and extend this codebase following industry best practices."
+      },
+      {
+        "name": "qa-reliability-guide",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/other-unorganized/The Universal Autonomous Agent Skill Cascade/agent/skills/qa-reliability-guide",
+        "description": "Comprehensive guide on testing strategies, release management, and maintaining zero-bug reliability at scale."
+      },
+      {
+        "name": "next-ai-branding-guide",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/other-unorganized/The Universal Autonomous Agent Skill Cascade/agent/skills/next-ai-branding-guide",
+        "description": "Comprehensive guide for AI prompts, branding consistency, platform automation, and production deployment to Vercel with fallback to VPC/containers."
+      },
+      {
+        "name": "universal-production",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/other-unorganized/The Universal Autonomous Agent Skill Cascade/random/.agent/skills/universal-production",
+        "description": "Intelligent, self-healing skill for production-ready, enterprise-grade code with zero user friction. Covers UI, API, architecture, testing, security, and deployment."
+      },
+      {
+        "name": "universal-production",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/other-unorganized/sell-agent-skill-framework/.agent/skills/universal-production",
+        "description": "Intelligent, self-healing skill for production-ready, enterprise-grade code with zero user friction. Covers UI, API, architecture, testing, security, and deployment."
+      },
+      {
+        "name": "video-creator",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/universal-automation/tools-skills/video-creator",
+        "description": "Create short-form and long-form video content with AI tools"
+      },
+      {
+        "name": "analytics-reporter",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/universal-automation/tools-skills/analytics-reporter",
+        "description": "Generate performance reports and analytics digests"
+      },
+      {
+        "name": "image-creator",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/universal-automation/tools-skills/image-creator",
+        "description": "Generate visual content - social graphics, thumbnails, infographics"
+      },
+      {
+        "name": "audio-creator",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/universal-automation/tools-skills/audio-creator",
+        "description": "Generate voiceovers, podcasts, background music, and audio content"
+      },
+      {
+        "name": "doc-generator",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/universal-automation/tools-skills/doc-generator",
+        "description": "Generate technical documentation, guides, and knowledge articles"
+      },
+      {
+        "name": "content-writer",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/universal-automation/tools-skills/content-writer",
+        "description": "Generate platform-optimized text content from a single prompt"
+      },
+      {
+        "name": "community-manager",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/universal-automation/tools-skills/community-manager",
+        "description": "Set up and manage GitHub and Discord community presence"
+      },
+      {
+        "name": "seo-optimizer",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/universal-automation/tools-skills/seo-optimizer",
+        "description": "Optimize content for search engines \u2014 keywords, meta tags, structure"
+      },
+      {
+        "name": "template",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/template",
+        "description": "Replace with description of the skill and when Claude should use it."
+      },
+      {
+        "name": "theme-factory",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/theme-factory",
+        "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly."
+      },
+      {
+        "name": "doc-coauthoring",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/doc-coauthoring",
+        "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks."
+      },
+      {
+        "name": "xlsx",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/xlsx",
+        "description": "Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especially when the user references a spreadsheet file by name or path \u2014 even casually (like \\\"the xlsx in my downloads\\\") \u2014 and wants something done to it or produced from it. Also trigger for cleaning or restructuring messy tabular data files (malformed rows, misplaced headers, junk data) into proper spreadsheets. The deliverable must be a spreadsheet file. Do NOT trigger when the primary deliverable is a Word document, HTML report, standalone Python script, database pipeline, or Google Sheets API integration, even if tabular data is involved."
+      },
+      {
+        "name": "pdf",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/pdf",
+        "description": "Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce one, use this skill."
+      },
+      {
+        "name": "algorithmic-art",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/algorithmic-art",
+        "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations."
+      },
+      {
+        "name": "internal-comms",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/internal-comms",
+        "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.)."
+      },
+      {
+        "name": "skill-creator",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/skill-creator",
+        "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations."
+      },
+      {
+        "name": "canvas-design",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/canvas-design",
+        "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations."
+      },
+      {
+        "name": "pptx",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/pptx",
+        "description": "Use this skill any time a .pptx file is involved in any way \u2014 as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates, layouts, speaker notes, or comments. Trigger whenever the user mentions \\\"deck,\\\" \\\"slides,\\\" \\\"presentation,\\\" or references a .pptx filename, regardless of what they plan to do with the content afterward. If a .pptx file needs to be opened, created, or touched, use this skill."
+      },
+      {
+        "name": "slack-gif-creator",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/slack-gif-creator",
+        "description": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for Slack."
+      },
+      {
+        "name": "webapp-testing",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/webapp-testing",
+        "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs."
+      },
+      {
+        "name": "frontend-design",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/frontend-design",
+        "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics."
+      },
+      {
+        "name": "mcp-builder",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/mcp-builder",
+        "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK)."
+      },
+      {
+        "name": "brand-guidelines",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/brand-guidelines",
+        "description": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply."
+      },
+      {
+        "name": "docx",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/docx",
+        "description": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of \\\"Word doc\\\", \\\"word document\\\", \\\".docx\\\", or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a \\\"report\\\", \\\"memo\\\", \\\"letter\\\", \\\"template\\\", or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation."
+      },
+      {
+        "name": "web-artifacts-builder",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence/Claude-Skills/skills-main/skills/web-artifacts-builder",
+        "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts."
+      },
+      {
+        "name": "documentation",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/engineering/skills/documentation",
+        "description": "Write and maintain technical documentation. Trigger with \"write docs for\", \"document this\", \"create a README\", \"write a runbook\", \"onboarding guide\", or when the user needs help with any form of technical writing \u2014 API docs, architecture docs, or operational runbooks."
+      },
+      {
+        "name": "incident-response",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/engineering/skills/incident-response",
+        "description": "Triage and manage production incidents. Trigger with \"we have an incident\", \"production is down\", \"something is broken\", \"there's an outage\", \"SEV1\", or when the user describes a production issue needing immediate response."
+      },
+      {
+        "name": "code-review",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/engineering/skills/code-review",
+        "description": "Review code for bugs, security vulnerabilities, performance issues, and maintainability. Trigger with \"review this code\", \"check this PR\", \"look at this diff\", \"is this code safe?\", or when the user shares code and asks for feedback."
+      },
+      {
+        "name": "tech-debt",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/engineering/skills/tech-debt",
+        "description": "Identify, categorize, and prioritize technical debt. Trigger with \"tech debt\", \"technical debt audit\", \"what should we refactor\", \"code health\", or when the user asks about code quality, refactoring priorities, or maintenance backlog."
+      },
+      {
+        "name": "testing-strategy",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/engineering/skills/testing-strategy",
+        "description": "Design test strategies and test plans. Trigger with \"how should we test\", \"test strategy for\", \"write tests for\", \"test plan\", \"what tests do we need\", or when the user needs help with testing approaches, coverage, or test architecture."
+      },
+      {
+        "name": "system-design",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/engineering/skills/system-design",
+        "description": "Design systems, services, and architectures. Trigger with \"design a system for\", \"how should we architect\", \"system design for\", \"what's the right architecture for\", or when the user needs help with API design, data modeling, or service boundaries."
+      },
+      {
+        "name": "task-management",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/productivity/skills/task-management",
+        "description": "Simple task management using a shared TASKS.md file. Reference this when the user asks about their tasks, wants to add/complete tasks, or needs help tracking commitments."
+      },
+      {
+        "name": "memory-management",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/productivity/skills/memory-management",
+        "description": "Two-tier memory system that makes Claude a true workplace collaborator. Decodes shorthand, acronyms, nicknames, and internal language so Claude understands requests like a colleague would. CLAUDE.md for working memory, memory/ directory for the full knowledge base."
+      },
+      {
+        "name": "leader-follower",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/leader-follower",
+        "description": "Cost-optimized two-tier AI development pattern. Leader model (expensive) architects, scaffolds, and validates. Follower model (cheap) executes mechanically from structured instructions. Eliminates decision-making from the cheap model to minimize token waste."
+      },
+      {
+        "name": "project-baseline",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/project-baseline",
+        "description": "Standard crucial files that must be maintained in the project."
+      },
+      {
+        "name": "warehouse-ecosystem",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/warehouse-ecosystem",
+        "description": "Defines the complete architecture for the warehouse skill ecosystem \u2014 how skills are organized, named, contributed, and selected during setup. Use when creating new skills, classifying contributions, restructuring warehouse folders, or onboarding new users via setup.md. Triggers on: 'add a skill', 'contribute', 'where does this skill go', 'restructure warehouse', 'naming standard'."
+      },
+      {
+        "name": "contribution-router",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/contribution-router",
+        "description": "Auto-classifies and routes new skills to the correct warehouse location. Use when a user creates a skill and wants to contribute it, or when organizing existing skills into the correct plugin category. Triggers on: 'contribute this skill', 'where does this go', 'submit to repo', 'organize skills'."
+      },
+      {
+        "name": "ui-system",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/ui-system",
+        "description": "\ud83c\udfa8 Universal UI System \u2014 Agent Skill"
+      },
+      {
+        "name": "project-setup",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/project-setup",
+        "description": "AI Agent Setup Directive for scaffolding a new project."
+      },
+      {
+        "name": "production-standards",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/production-standards",
+        "description": "Intelligent, self-healing skill for production-ready, enterprise-grade code with zero user friction. Covers UI, API, architecture, testing, security, and deployment."
+      },
+      {
+        "name": "skill-creator",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/skill-creator",
+        "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations."
+      },
+      {
+        "name": "org-level-deployment-cicd",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/org-level-deployment-cicd",
+        "description": "Architect, generate, and maintain enterprise monorepo CI/CD pipelines, path-filtered GitHub Actions, root CODEOWNERS RBAC policies, and multi-target deployments (VPS/Docker, Vercel, Netlify, Cloudflare). Use when: (1) Setting up CI/CD for a new app or division inside an enterprise monorepo, (2) Mapping organizational teams to folder permissions via CODEOWNERS, (3) Configuring multi-target deployment pipelines (VPS/Vercel/Netlify) with path filtering, (4) Implementing Trunk-Based Development with Git Tag environment promotions (Dev -> Staging -> Prod)."
+      },
+      {
+        "name": "agentic-skill-creator",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/agentic-skill-creator",
+        "description": "Creates and updates production-grade agentic skills with MCP tool integration, agent workflows, approval gates, and folder structures. Use when building skills that agents execute autonomously \u2014 with tool calling, decision trees, resource files, and failure handling. Also use when iterating on or updating an existing skill. Requires \"Skill Platform\" MCP to be attached for writing skills directly to the Nexus platform. Triggers on: \"create a skill\", \"build me a skill for X\", \"update skill Y\", \"make an agent that can Z\", or any request to design agent workflows with tool integrations."
+      },
+      {
+        "name": "readme-blueprint",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/readme-blueprint",
+        "description": "Blueprint for the project README.md file."
+      },
+      {
+        "name": "context-blueprint",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/context-blueprint",
+        "description": "Blueprint for the global system context and operational handbook."
+      },
+      {
+        "name": "customer-escalation",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/customer-support/skills/customer-escalation",
+        "description": "Package an escalation for engineering, product, or leadership with full context. Use when a bug needs engineering attention beyond normal support, multiple customers report the same issue, a customer is threatening to churn, or an issue has sat unresolved past its SLA."
+      },
+      {
+        "name": "kb-article",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/customer-support/skills/kb-article",
+        "description": "Draft a knowledge base article from a resolved issue or common question. Use when a ticket resolution is worth documenting for self-service, the same question keeps coming up, a workaround needs to be published, or a known issue should be communicated to customers."
+      },
+      {
+        "name": "customer-research",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/customer-support/skills/customer-research",
+        "description": "Multi-source research on a customer question or topic with source attribution. Use when a customer asks something you need to look up, investigating whether a bug has been reported before, checking what was previously told to a specific account, or gathering background before drafting a response."
+      },
+      {
+        "name": "ticket-triage",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/customer-support/skills/ticket-triage",
+        "description": "Triage and prioritize a support ticket or customer issue. Use when a new ticket comes in and needs categorization, assigning P1-P4 priority, deciding which team should handle it, or checking whether it's a duplicate or known issue before routing."
+      },
+      {
+        "name": "draft-response",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/customer-support/skills/draft-response",
+        "description": "Draft a professional customer-facing response tailored to the situation and relationship. Use when answering a product question, responding to an escalation or outage, delivering bad news like a delay or won't-fix, declining a feature request, or replying to a billing issue."
+      },
+      {
+        "name": "user-research",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/design/skills/user-research",
+        "description": "Plan, conduct, and synthesize user research. Trigger with \"user research plan\", \"interview guide\", \"usability test\", \"survey design\", \"research questions\", or when the user needs help with any aspect of understanding their users through research."
+      },
+      {
+        "name": "research-synthesis",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/design/skills/research-synthesis",
+        "description": "Synthesize user research into themes, insights, and recommendations. Use when you have interview transcripts, survey results, usability test notes, support tickets, or NPS responses that need to be distilled into patterns, user segments, and prioritized next steps."
+      },
+      {
+        "name": "ux-copy",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/design/skills/ux-copy",
+        "description": "Write or review UX copy \u2014 microcopy, error messages, empty states, CTAs. Trigger with \"write copy for\", \"what should this button say?\", \"review this error message\", or when naming a CTA, wording a confirmation dialog, filling an empty state, or writing onboarding text."
+      },
+      {
+        "name": "design-handoff",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/design/skills/design-handoff",
+        "description": "Generate developer handoff specs from a design. Use when a design is ready for engineering and needs a spec sheet covering layout, design tokens, component props, interaction states, responsive breakpoints, edge cases, and animation details."
+      },
+      {
+        "name": "design-critique",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/design/skills/design-critique",
+        "description": "Get structured design feedback on usability, hierarchy, and consistency. Trigger with \"review this design\", \"critique this mockup\", \"what do you think of this screen?\", or when sharing a Figma link or screenshot for feedback at any stage from exploration to final polish."
+      },
+      {
+        "name": "accessibility-review",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/design/skills/accessibility-review",
+        "description": "Run a WCAG 2.1 AA accessibility audit on a design or page. Trigger with \"audit accessibility\", \"check a11y\", \"is this accessible?\", or when reviewing a design for color contrast, keyboard navigation, touch target size, or screen reader behavior before handoff."
+      },
+      {
+        "name": "design-system",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/design/skills/design-system",
+        "description": "Audit, document, or extend your design system. Use when checking for naming inconsistencies or hardcoded values across components, writing documentation for a component's variants, states, and accessibility notes, or designing a new pattern that fits the existing system."
+      },
+      {
+        "name": "search-strategy",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/enterprise-search/skills/search-strategy",
+        "description": "Query decomposition and multi-source search orchestration. Breaks natural language questions into targeted searches per source, translates queries into source-specific syntax, ranks results by relevance, and handles ambiguity and fallback strategies."
+      },
+      {
+        "name": "knowledge-synthesis",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/enterprise-search/skills/knowledge-synthesis",
+        "description": "Combines search results from multiple sources into coherent, deduplicated answers with source attribution. Handles confidence scoring based on freshness and authority, and summarizes large result sets effectively."
+      },
+      {
+        "name": "digest",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/enterprise-search/skills/digest",
+        "description": "Generate a daily or weekly digest of activity across all connected sources. Use when catching up after time away, starting the day and wanting a summary of mentions and action items, or reviewing a week's decisions and document updates grouped by project."
+      },
+      {
+        "name": "source-management",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/enterprise-search/skills/source-management",
+        "description": "Manages connected MCP sources for enterprise search. Detects available sources, guides users to connect new ones, handles source priority ordering, and manages rate limiting awareness."
+      },
+      {
+        "name": "search",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/enterprise-search/skills/search",
+        "description": "Search across all connected sources in one query. Trigger with \"find that doc about...\", \"what did we decide on...\", \"where was the conversation about...\", or when looking for a decision, document, or discussion that could live in chat, email, cloud storage, or a project tracker."
+      },
+      {
+        "name": "payroll-prep",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/payroll-prep",
+        "description": ">"
+      },
+      {
+        "name": "pay-the-bills",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/pay-the-bills",
+        "description": "Works the bill pile from the AP inbox all the way to a staged payment run \u2014 reads and codes every bill, then checks the cash position before a dollar is committed, then stages the run for one-click approval and keeps the books tidy for close. Coding and paying are two separate decisions with two separate approvals, and the cash check sits between them on purpose. Runs on the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) and a mail connector (Gmail or M365), deepens with Expensify and Ramp, and works from uploaded PDFs or phone photos with the run sheet exported for manual entry. Use it when the owner says \"pay the bills,\" \"the bills are piling up,\" \"what do I owe,\" \"who needs to get paid this week,\" \"can I afford to pay these,\" or forwards a stack of vendor invoices."
+      },
+      {
+        "name": "build-connector",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/build-connector",
+        "description": ">"
+      },
+      {
+        "name": "contract-review",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/contract-review",
+        "description": ">"
+      },
+      {
+        "name": "monday-brief",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/monday-brief",
+        "description": "Runs the owner's Monday morning briefing as a two-link chain \u2014 business-pulse for the cross-connector snapshot of cash, sales, and pipeline, and report-builder for any saved KPI reports the owner has already defined \u2014 then reads the week ahead straight from Calendar and mail and merges all three parts into a single one-page Monday document, delivered per the owner's stored output preference. Requires no connectors and degrades gracefully, building from whatever of the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books), Calendar, DocuSign, Expensify, Gmail or M365, HubSpot, PayPal, Ramp, RingEx Chat, Shopify, Slack, Stripe, and TikTok Ads is connected, or from pasted and uploaded data when none are. Trigger on \"Monday brief,\" \"start my week,\" \"what do I need to know this week,\" \"weekly briefing,\" \"catch me up before Monday,\" or when the owner schedules a recurring start-of-week update."
+      },
+      {
+        "name": "report-builder",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/report-builder",
+        "description": ">"
+      },
+      {
+        "name": "smb-onboard",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/smb-onboard",
+        "description": ">"
+      },
+      {
+        "name": "smb-router",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/smb-router",
+        "description": ">"
+      },
+      {
+        "name": "reactivate",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/reactivate",
+        "description": "Wins back customers who have quietly stopped buying \u2014 finds the ones whose gap has stretched past their own normal rhythm or who are showing churn signals, ranks them by what the relationship was worth, drafts a win-back message per customer in the owner's voice, and sends and logs only what the owner approves. Chains review-reputation, outreach-composer, and crm-autopilot, and keeps the rule that the first touch acknowledges the gap without pitching. Use this whenever the owner is worried about customers drifting away, including phrasings like \"who hasn't ordered in a while,\" \"win back my old customers,\" \"which customers have gone quiet,\" \"we lost some regulars,\" \"reach out to the people who stopped calling,\" or \"how do I get them back.\" Reach for it when the owner names a customer they have not heard from, as readily as for a full win-back campaign."
+      },
+      {
+        "name": "hiring-screener",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/hiring-screener",
+        "description": ">"
+      },
+      {
+        "name": "social-content-engine",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/social-content-engine",
+        "description": ">"
+      },
+      {
+        "name": "marketing-monday",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/marketing-monday",
+        "description": "Delivers the weekly growth briefing as one merged read \u2014 whether the growth engine is working, what customers are saying in public and private, what competitors actually changed, and the three growth actions worth taking this week. The growth twin of the Monday brief, chaining growth-pulse and review-reputation and adding a web-native competitor scan, merged into a single page rather than three reports. Offers to run on a weekly cadence once, and sets it up on a yes. Use this whenever the owner wants a recurring or one-off growth check, including phrasings like \"how's marketing doing,\" \"growth check for the week,\" \"give me my Monday growth brief,\" \"what should I be doing about growth this week,\" \"are we winning or losing out there,\" or \"set up a weekly marketing update.\" Reach for it when the owner asks how the business is growing rather than how it is paying its bills."
+      },
+      {
+        "name": "tax-season-organizer",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/tax-season-organizer",
+        "description": ">"
+      },
+      {
+        "name": "invoice-chase",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/invoice-chase",
+        "description": ">"
+      },
+      {
+        "name": "plan-payroll",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/plan-payroll",
+        "description": "Runs the payroll-confidence chain end to end \u2014 forecasts cash across the payroll window with cash-flow-snapshot, ranks and drafts overdue-invoice reminders with invoice-chase to close any gap, then assembles timesheets, flags every anomaly, and stages the run with payroll-prep. On Gusto the run is staged for the owner to submit; on QuickBooks Payroll, or with no payroll system, the last step is a validated run sheet the owner keys in. This chain never presses the payroll button. Builds on the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books), with Gmail or M365, PayPal, Square, Stripe, and either Gusto or QuickBooks Payroll adding detail, and falls back to CSV and timesheet uploads. Use it whenever payroll is the worry, including \"can I make payroll,\" \"payroll is due Friday,\" \"plan payroll,\" \"will I have enough to pay the crew,\" or \"I need to run payroll but money is tight.\" Accepts optional horizon and payroll-date arguments."
+      },
+      {
+        "name": "call-list",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/call-list",
+        "description": "Builds today's call list. Runs lead-triage to rank the top-5 leads most worth calling, supplies talking points from email history, blocks time on the calendar, and drafts follow-up messages. Trigger on \"call list,\" \"who am I calling today,\" \"top five to call today,\" or \"block time for calls.\" An owner who wants leads scored or ranked with no calendar blocks routes to lead-triage directly. Accepts optional count and date arguments."
+      },
+      {
+        "name": "proposal-builder",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/proposal-builder",
+        "description": ">"
+      },
+      {
+        "name": "crm-autopilot",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/crm-autopilot",
+        "description": ">"
+      },
+      {
+        "name": "tax-prep",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/tax-prep",
+        "description": "Prepares tax materials as a two-link chain \u2014 month-end-prep confirms the books are closed and reconciled first, then tax-season-organizer calculates the quarterly estimated payment or builds the year-end 1099-NEC list and accountant packet from those closed numbers. Requires a ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books); uses Gusto, PayPal, and Stripe when connected, else CSV upload. US federal tax math; a non-US business gets the closed-books packet. Prep material for a CPA, never tax advice, nothing filed. Trigger on \"quarterly taxes,\" \"estimated tax payment,\" \"how much should I set aside,\" \"1099s,\" \"1099-NEC,\" \"W-9s,\" \"year-end tax prep,\" \"get my books ready for my accountant,\" any phrasing that suggests a tax deadline is coming, or a question about net profit or YTD income that sounds like worry about a tax bill. An owner who says the period's books are already closed routes to tax-season-organizer directly."
+      },
+      {
+        "name": "inventory-planner",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/inventory-planner",
+        "description": ">"
+      },
+      {
+        "name": "seo-ai-visibility",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/seo-ai-visibility",
+        "description": ">"
+      },
+      {
+        "name": "review-reputation",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/review-reputation",
+        "description": ">"
+      },
+      {
+        "name": "lead-triage",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/lead-triage",
+        "description": ">"
+      },
+      {
+        "name": "outreach-composer",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/outreach-composer",
+        "description": ">"
+      },
+      {
+        "name": "content-strategy",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/content-strategy",
+        "description": ">"
+      },
+      {
+        "name": "month-end-prep",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/month-end-prep",
+        "description": ">"
+      },
+      {
+        "name": "build-agent",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/build-agent",
+        "description": ">"
+      },
+      {
+        "name": "ad-manager",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/ad-manager",
+        "description": ">"
+      },
+      {
+        "name": "inbox-manager",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/inbox-manager",
+        "description": ">"
+      },
+      {
+        "name": "ap-processor",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/ap-processor",
+        "description": ">"
+      },
+      {
+        "name": "lead-finder",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/lead-finder",
+        "description": ">"
+      },
+      {
+        "name": "growth-pulse",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/growth-pulse",
+        "description": ">"
+      },
+      {
+        "name": "grow-pipeline",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/grow-pipeline",
+        "description": "Fills the funnel end to end without the owner babysitting it \u2014 reads the market and the competition for context, builds a ranked list of named prospects with a reason attached to each, writes personalized outreach in the owner's own voice, and logs every touch to the CRM. Chains lead-finder, outreach-composer, and crm-autopilot behind a web-native market read, with an owner approval at every handoff. Use this whenever the owner wants more pipeline rather than one specific piece of it, including phrasings like \"I need more leads,\" \"fill my funnel,\" \"who should I be calling and what do I say,\" \"find me customers like my best ones and reach out,\" \"build me a prospect list and write the emails,\" or \"sales has gone quiet, get something moving.\" Reach for it when the owner describes wanting new business generally rather than asking for a list or a single email."
+      },
+      {
+        "name": "report-pack",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/report-pack",
+        "description": "Delivers the owner's custom recurring report pack on a set cadence \u2014 runs the saved report definition from report-builder, wraps it in a business-pulse snapshot so the numbers have context, and hands over one chat summary plus the workbook. Defined once, then delivered on schedule without being asked again. Runs on any single connected data source, or entirely from an uploaded CSV or XLSX. Use it when the owner asks for their report pack, their weekly or monthly numbers, \"send me the usual report,\" \"run my report pack,\" \"set this up to come every Monday,\" or \"I want these numbers on a schedule."
+      },
+      {
+        "name": "close-month",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/close-month",
+        "description": "Closes the books and turns them into a decision as a three-link chain \u2014 month-end-prep reconciles the ledger against every connected payment processor and writes the P&L narrative, cash-flow-snapshot then refreshes the 30/60/90-day forecast off the newly closed numbers rather than raw ones, and report-builder publishes and distributes the close packet. Requires a ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) and uses Gusto, PayPal, Ramp, Shopify, Square, and Stripe when connected, falling back to statement or CSV uploads. Trigger on \"close the month,\" \"month-end,\" \"close the books,\" \"reconcile,\" \"send the close packet to my accountant,\" or when the owner asks why revenue or margin moved last month. An owner who wants only the reconciliation and its flags, with no forecast refresh and no packet distribution, routes to month-end-prep directly."
+      },
+      {
+        "name": "restock",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/restock",
+        "description": "Turns what is actually selling into a reorder decision and gets it all the way into the books \u2014 computes sales velocity and conservative stockout dates per item, sizes the reorder, drafts the purchase order and the vendor email, and then stages the matching entry so the bill matches against the PO when it arrives. Flags the money sitting still too, so dead stock gets cleared instead of reordered. Runs on Shopify, Square, or an uploaded sales and stock CSV, and deepens with QuickBooks, Gmail or M365, Calendar, and NetSuite. No PO is sent and no vendor is emailed without approval. Use it when the owner says \"what do I need to reorder,\" \"am I going to run out,\" \"restock,\" \"we keep running out of filters,\" \"draft a PO for my supplier,\" or \"how much cash is sitting in the warehouse."
+      },
+      {
+        "name": "grant-rfp-writer",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/grant-rfp-writer",
+        "description": ">"
+      },
+      {
+        "name": "cash-flow-snapshot",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/cash-flow-snapshot",
+        "description": ">"
+      },
+      {
+        "name": "speed-to-lead",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/speed-to-lead",
+        "description": ">"
+      },
+      {
+        "name": "brand-style",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/brand-style",
+        "description": ">"
+      },
+      {
+        "name": "job-post-builder",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/job-post-builder",
+        "description": ">"
+      },
+      {
+        "name": "ticket-deflector",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/ticket-deflector",
+        "description": ">"
+      },
+      {
+        "name": "canva-creator",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/canva-creator",
+        "description": ">"
+      },
+      {
+        "name": "business-pulse",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/skills/business-pulse",
+        "description": ">"
+      },
+      {
+        "name": "cowork-plugin-customizer",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/cowork-plugin-management/skills/cowork-plugin-customizer",
+        "description": ">"
+      },
+      {
+        "name": "create-cowork-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/cowork-plugin-management/skills/create-cowork-plugin",
+        "description": ">"
+      },
+      {
+        "name": "forecast",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/forecast",
+        "description": "Generate the commit / best-case / pipeline narrative for a forecast call or a 1:1 with your manager - what's closing, what's at risk, what changed since last time. Use when the user asks \"write my forecast\", \"forecast narrative\", \"prep for forecast call\", \"prep for my quarterly forecast call\", \"which deals should I commit vs. call upside\", \"forecast from this pipeline export\", or \"prep for my 1:1 with my manager\"."
+      },
+      {
+        "name": "log-activity",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/log-activity",
+        "description": "Log a call, meeting, or email exchange to the CRM after the fact as a completed activity on the right account, opportunity, and contact - drafted from your description or a transcript, shown with its sources and saved when you ask. Use when the user says \"log this call\", \"log my meeting with [account]\", \"log that I emailed [contact]\", \"track this conversation in the CRM\", or \"what activities are logged on [account]\"."
+      },
+      {
+        "name": "rep-context",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/rep-context",
+        "description": "Leader's prep on a single rep before a 1:1 - their pipeline, recent activity, what they've been working on per chat and calendar, and where they might need help. Use when the user asks \"prep for my 1:1 with [rep]\" (a rep you manage), \"how is [rep] doing\", or \"what's [rep] working on\"."
+      },
+      {
+        "name": "deal-review",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/deal-review",
+        "description": "Deep-dive on a single opportunity - signal-adjusted health score, risks, gaps in qualification, and recommended next actions. Use when the user asks \"review the [account] deal\", \"deal review on [opp]\", \"is [opp] going to close\", or \"what's the risk on [deal]\"."
+      },
+      {
+        "name": "team-pipeline",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/team-pipeline",
+        "description": "Leader view - roll up a team's pipeline by rep and stage, flag at-risk deals, and surface coaching moments. Use when the user asks \"show my team's pipeline\", \"team forecast\", \"prep for my team's pipeline review\", or \"where does my team need help\"."
+      },
+      {
+        "name": "renewal-radar",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/renewal-radar",
+        "description": "Upcoming renewals with timing, risk, and uplift potential - and the renewal opportunity records to keep them honest. Use when the user asks \"what renewals are coming up\", \"renewal radar\", \"is [account] going to renew\", \"prep the [account] renewal\", or \"which renewals are at risk\"."
+      },
+      {
+        "name": "draft-outreach",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/draft-outreach",
+        "description": "Draft a personalized outreach email or multi-touch sequence to a prospect, create it as an email draft for review, and add the contact to a sequence in your sales engagement tool when asked. Use when the user asks to \"draft outreach to [person/company]\", \"write a cold email to [prospect]\", \"re-engage [prospect]\", \"draft a 3-touch sequence\", or \"reach out to [person]\"."
+      },
+      {
+        "name": "create-an-asset",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/create-an-asset",
+        "description": "Build a customer deck, one-pager or leave-behind from your account data, call notes and approved materials, with no made-up numbers. Use when the user asks for a sales asset, one-pager, deck, leave-behind, \"create an asset for [prospect]\", or \"make something for [account]\"."
+      },
+      {
+        "name": "inbox-sweep",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/inbox-sweep",
+        "description": "Batch-process unread customer emails - classify, prioritize, and draft replies. Use when the user asks \"sweep my inbox\", \"what customer emails need a reply\", \"draft replies to my customer emails\", or \"what needs a response\"."
+      },
+      {
+        "name": "account-plan",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/account-plan",
+        "description": "Build or refresh a strategic account plan - current state, goals, stakeholder coverage, opportunity map, risks, and the action plan - written to a doc and key fields synced to the CRM. Use when the user says \"build an account plan for [account]\", \"update the [account] plan\", \"account planning for [account]\", or before a planning cycle / QBR."
+      },
+      {
+        "name": "daily-briefing",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/daily-briefing",
+        "description": "Morning rundown - today's meetings with account context, opps closing soon with stale flags, waiting customer emails, and the day's top actions. Use when the user says \"daily briefing\", \"daily brief\", \"morning briefing\", \"what's my day\", \"what's on my plate today\", \"prep my day\", \"start my day\", \"morning rundown\", or on a schedule."
+      },
+      {
+        "name": "account-research",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/account-research",
+        "description": "Research a target company and optionally a specific contact - company overview, recent news, likely priorities, and fit against your ICP. Cross-references existing CRM records. Use when the user asks to \"research [company]\", \"look into [company]\", \"prospect research on [company]\", \"look up [person]\", \"intel on [prospect]\", \"who is [person] at [company]\", or \"tell me about [company]\" when the company is a prospect rather than an existing account."
+      },
+      {
+        "name": "setup",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/setup",
+        "description": "First-run setup - checks which tools are connected, shows what's connected and what each one unlocks, learns how you write from your sent email, and renders a starter dashboard right away with no upfront interview. When tools are missing it walks through connecting the CRM, then email, then calendar, showing something useful after each. Use on first open, or when the user says \"set me up\", \"get started\", \"what's connected\", \"learn my voice\", \"match my writing style\", or \"onboard me\"."
+      },
+      {
+        "name": "deal-signals",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/deal-signals",
+        "description": "Proactive watch over your book - deals gone quiet, close dates slipping into view, champion changes, renewal windows opening, competitor mentions - surfaced as a short alert digest you can act on. Use when the user asks \"what changed in my book\", \"any deals gone quiet\", \"what should I be worried about today\", \"run my deal signals\", or sets it up as a recurring scheduled task."
+      },
+      {
+        "name": "call-summary",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/call-summary",
+        "description": "Turn a call transcript or call notes into a customer follow-up email draft, an internal chat summary, and proposed CRM updates. Use when the user says \"call summary\", \"follow up on my [company] call\", \"summarize my call with [account]\", \"write the recap\", \"process this transcript\", \"process my call notes\", \"capture the objections and next steps\", or pastes rough notes or a transcript after a discovery, demo, or negotiation call."
+      },
+      {
+        "name": "lead-triage",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/lead-triage",
+        "description": "Score and route an inbound lead, or rank a backlog of leads, against your ICP and qualification framework, then recommend a priority and next action. Use when the user asks \"triage this lead\", \"triage my leads\", \"rank my lead backlog\", \"is [company] a good lead\", \"qualify [lead]\", or pastes or uploads lead info."
+      },
+      {
+        "name": "win-loss-review",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/win-loss-review",
+        "description": "Analyze recently closed opportunities to find patterns in what wins and what loses - stage of loss, common objections from transcripts, deal characteristics. Leader-focused. Use when the user asks \"win loss review\", \"why are we losing deals\", \"what's working\", or \"analyze closed opps\"."
+      },
+      {
+        "name": "competitive-intelligence",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/competitive-intelligence",
+        "description": "Competitive analysis two ways - the in-deal play against a named competitor, and win/loss patterns, competitor mentions, and battlecards across the book. Use when the user asks \"competitive intel\", \"research competitors\", \"how do we compare to [competitor]\", \"what's new with [competitor]\", \"battlecard for [competitor]\", \"how do we beat [competitor]\", \"what's the play against [competitor] in [deal]\", \"where are we losing to [competitor]\", \"win/loss patterns\", \"competitive analysis\", \"refresh the battlecards\", or on a weekly schedule."
+      },
+      {
+        "name": "stakeholder-map",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/stakeholder-map",
+        "description": "Map the people in a deal or account - roles, influence, sentiment, who's missing, and your best access path to the people you haven't reached. Use when the user asks \"who are the players at [account]\", \"who's my way in\", \"am I single-threaded on [deal]\", \"map the stakeholders\", or \"who else should I be talking to\"."
+      },
+      {
+        "name": "close-plan",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/close-plan",
+        "description": "Build the business case and mutual action plan for a deal - the why-buy/why-now story, the ROI framing, and the dated step-by-step path to signature shared with the customer. Use when the user says \"build a close plan for [deal]\", \"mutual action plan for [account]\", \"business case for [opp]\", or \"what's the path to signature\"."
+      },
+      {
+        "name": "customer-voice",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/customer-voice",
+        "description": "Surface what customers are actually saying - direct attributed quotes on a topic across call transcripts and email, across your accounts. Use when the user asks \"what are customers saying about [topic]\", \"pull quotes on [objection/feature/competitor]\", \"voice of customer on [X]\", or \"what's coming up in calls\"."
+      },
+      {
+        "name": "pipeline-review",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/pipeline-review",
+        "description": "Stage-by-stage pipeline health check - coverage, aging, conversion, and at-risk deals - from CRM opportunity data. Use when the user asks \"review my pipeline\", \"pipeline health\", \"where's my pipeline stuck\", \"weekly pipeline review\", \"which deals should I focus on this week\", \"any stale or stuck deals\", \"which deals have past close dates\", \"which deals are single-threaded\", or \"check my pipeline coverage against my number\"."
+      },
+      {
+        "name": "schedule-meeting",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/schedule-meeting",
+        "description": "Find a time, draft the invite, and book the meeting on Google Calendar or Outlook - then log it to the CRM as an event on the right account and opportunity. Use when the user says \"schedule a follow-up with [contact]\", \"book the demo with [account]\", \"find time with [name] next week\", \"send my Calendly link\", or \"get the QBR on the calendar\"."
+      },
+      {
+        "name": "account-tiering",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/account-tiering",
+        "description": "Score and tier a list of accounts (or your full book) against ICP fit and engagement signals to prioritize where to spend time. Use when the user asks to \"tier my accounts\", \"prioritize my book\", \"which accounts should I focus on\", or \"score these accounts\"."
+      },
+      {
+        "name": "customer-health",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/customer-health",
+        "description": "Health check on a customer account and QBR-ready prep - relationship strength, engagement trend, risk signals, value delivered, and the agenda that makes the review worth their time. Use when the user asks \"how healthy is [account]\", \"customer health check\", \"prep the [account] QBR\", \"business review prep\", or \"are we at risk with [customer]\"."
+      },
+      {
+        "name": "deal-advance-gap",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/deal-advance-gap",
+        "description": "Forward-looking gap check on one opportunity - exactly what is missing to advance it to the next stage and to close, with who does what by when. Use when the user asks \"what's missing to advance [deal]\", \"what do I need to move [opp] forward\", \"why is [deal] stuck\", or \"what's between [account] and a close\"."
+      },
+      {
+        "name": "route-lead",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/route-lead",
+        "description": "Decide who owns an unrouted lead or opportunity and manage the handoff - deterministic routing by the org's own rules, a routing card the human router accepts or overrides, and drafted handoff notes. Use when the user says \"route this lead\", \"who should own [lead/opp]\", \"work the routing queue\", \"assign [company] to a rep\", or on a scheduled intake sweep."
+      },
+      {
+        "name": "account-context",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/account-context",
+        "description": "360-degree view of an account - CRM data, recent email threads, docs, transcripts, and internal chat chatter, synthesized into one brief. Use when the user asks \"tell me about [account]\" (an existing customer; for a prospect, account-research), \"account context for [name]\", \"what's going on with [account]\", or \"catch me up on [account]\"."
+      },
+      {
+        "name": "update-opportunity",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/update-opportunity",
+        "description": "Guided updates to an opportunity - push the stage, move the close date, set next steps, fix amount or forecast category. Shows the before/after, writes what you ask for or accept, and verifies with a record link. Use when the user says \"push [deal] to [stage]\", \"move the close date on [opp]\", \"update next steps on [account]\", \"mark [deal] commit\", or accepts a suggested update from another skill."
+      },
+      {
+        "name": "crm-hygiene-check",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/crm-hygiene-check",
+        "description": "Read-only audit of your CRM opportunities for missing fields, stale dates, and stage mismatches - outputs a fix checklist to apply by hand or through update-opportunity. Use when the user asks \"check my CRM hygiene\", \"check my Salesforce or HubSpot data\", \"clean up my CRM\", \"audit my opps\", \"what's missing in the CRM\", or \"clean up my pipeline\"."
+      },
+      {
+        "name": "end-of-day",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/end-of-day",
+        "description": "The closing beat of the day - every call processed or explicitly skipped, the CRM brought current, commitments captured, and tomorrow's top three teed up. Use when the user says \"end of day\", \"close out my day\", \"process today's calls\", \"EOD\", or on an evening schedule. Companion bookend to daily-briefing."
+      },
+      {
+        "name": "expansion-whitespace",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/expansion-whitespace",
+        "description": "Find the expansion whitespace in an account or a book - what they own vs. what they could own, the evidence for each play, and the open opps to create. Use when the user asks \"what's the whitespace at [account]\", \"where can I expand [account]\", \"upsell opportunities in my book\", or \"which customers should I be growing\"."
+      },
+      {
+        "name": "deal-slip-scenario",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/deal-slip-scenario",
+        "description": "Model what happens to your number if a deal slips, shrinks, or dies - quota impact, coverage ratio change, and the substitute pipeline needed to stay on plan. Use when the user asks \"what if [deal] slips\", \"what happens if [account] pushes to next quarter\", \"can I still hit my number without [deal]\", or \"model losing [deal]\"."
+      },
+      {
+        "name": "call-prep",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/call-prep",
+        "description": "Pre-call brief for an upcoming meeting - attendees, account history, prior call context from transcripts, open opportunity status, and suggested discovery questions. Use when the user asks \"prep me for [meeting/company]\", \"call prep [company]\", \"I'm meeting with [company], prep me\", \"get me ready for [meeting]\", or \"what do I need to know before my [time] call\"."
+      },
+      {
+        "name": "handle-objection",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/handle-objection",
+        "description": "Work through a live objection or competitive threat - what's really being said, the response that has worked before, and the proof points to use, grounded in your own win/loss history and customer quotes. Use when the user says \"they said we're too expensive\", \"how do I respond to [objection]\", \"[competitor] is in the deal\", \"help me handle this pushback\", or pastes an objection from an email or call."
+      },
+      {
+        "name": "weekly-wrap",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/skills/weekly-wrap",
+        "description": "End-of-week summary for a rep or leader - what closed, what moved, what slipped, and what's on deck Monday. Optionally drafts a chat post to the team channel. Use when the user says \"weekly wrap\", \"week in review\", \"what happened this week\", or \"Friday summary\"."
+      },
+      {
+        "name": "scientific-problem-selection",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/bio-research/skills/scientific-problem-selection",
+        "description": "This skill should be used when scientists need help with research problem selection, project ideation, troubleshooting stuck projects, or strategic scientific decisions. Use this skill when users ask to pitch a new research idea, work through a project problem, evaluate project risks, plan research strategy, navigate decision trees, or get help choosing what scientific problem to work on. Typical requests include \"I have an idea for a project\", \"I'm stuck on my research\", \"help me evaluate this project\", \"what should I work on\", or \"I need strategic advice about my research\"."
+      },
+      {
+        "name": "start",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/bio-research/skills/start",
+        "description": "Set up your bio-research environment and explore available tools. Use when first getting oriented with the plugin, checking which literature, drug-discovery, or visualization MCP servers are connected, or surveying available analysis skills before starting a new project."
+      },
+      {
+        "name": "single-cell-rna-qc",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/bio-research/skills/single-cell-rna-qc",
+        "description": "Performs quality control on single-cell RNA-seq data (.h5ad or .h5 files) using scverse best practices with MAD-based filtering and comprehensive visualizations. Use when users request QC analysis, filtering low-quality cells, assessing data quality, or following scverse/scanpy best practices for single-cell analysis."
+      },
+      {
+        "name": "scvi-tools",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/bio-research/skills/scvi-tools",
+        "description": "Deep learning for single-cell analysis using scvi-tools. This skill should be used when users need (1) data integration and batch correction with scVI/scANVI, (2) ATAC-seq analysis with PeakVI, (3) CITE-seq multi-modal analysis with totalVI, (4) multiome RNA+ATAC analysis with MultiVI, (5) spatial transcriptomics deconvolution with DestVI, (6) label transfer and reference mapping with scANVI/scArches, (7) RNA velocity with veloVI, or (8) any deep learning-based single-cell method. Triggers include mentions of scVI, scANVI, totalVI, PeakVI, MultiVI, DestVI, veloVI, sysVI, scArches, variational autoencoder, VAE, batch correction, data integration, multi-modal, CITE-seq, multiome, reference mapping, latent space."
+      },
+      {
+        "name": "nextflow-development",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/bio-research/skills/nextflow-development",
+        "description": "Run nf-core bioinformatics pipelines (rnaseq, sarek, atacseq) on sequencing data. Use when analyzing RNA-seq, WGS/WES, or ATAC-seq data\u2014either local FASTQs or public datasets from GEO/SRA. Triggers on nf-core, Nextflow, FASTQ analysis, variant calling, gene expression, differential expression, GEO reanalysis, GSE/GSM/SRR accessions, or samplesheet creation."
+      },
+      {
+        "name": "instrument-data-to-allotrope",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/bio-research/skills/instrument-data-to-allotrope",
+        "description": "Convert laboratory instrument output files (PDF, CSV, Excel, TXT) to Allotrope Simple Model (ASM) JSON format or flattened 2D CSV. Use this skill when scientists need to standardize instrument data for LIMS systems, data lakes, or downstream analysis. Supports auto-detection of instrument types. Outputs include full ASM JSON, flattened CSV for easy import, and exportable Python code for data engineers. Common triggers include converting instrument files, standardizing lab data, preparing data for upload to LIMS/ELN systems, or generating parser code for production pipelines."
+      },
+      {
+        "name": "brand-voice-enforcement",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/brand-voice/skills/brand-voice-enforcement",
+        "description": ">"
+      },
+      {
+        "name": "discover-brand",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/brand-voice/skills/discover-brand",
+        "description": ">"
+      },
+      {
+        "name": "guideline-generation",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/brand-voice/skills/guideline-generation",
+        "description": ">"
+      },
+      {
+        "name": "prospect",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/apollo/skills/prospect",
+        "description": "Full ICP-to-leads pipeline. Describe your ideal customer in plain English and get a ranked table of enriched decision-maker leads with emails and phone numbers."
+      },
+      {
+        "name": "enrich-lead",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/apollo/skills/enrich-lead",
+        "description": "Instant lead enrichment. Drop a name, company, LinkedIn URL, or email and get the full contact card with email, phone, title, company intel, and next actions."
+      },
+      {
+        "name": "sequence-load",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/apollo/skills/sequence-load",
+        "description": "Find leads matching criteria and bulk-add them to an Apollo outreach sequence. Handles enrichment, contact creation, deduplication, and enrollment in one flow."
+      },
+      {
+        "name": "slack-messaging",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/slack/skills/slack-messaging",
+        "description": "Guidance for composing well-formatted, effective Slack messages using mrkdwn syntax"
+      },
+      {
+        "name": "slack-search",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/slack/skills/slack-search",
+        "description": "Guidance for effectively searching Slack to find messages, files, channels, and people"
+      },
+      {
+        "name": "contact-center",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center",
+        "description": "Reference skill for Zoom Contact Center. Use after routing to a contact-center workflow when implementing app, web, or native integrations; engagement context and state handling; campaigns; callbacks; or version-drift troubleshooting."
+      },
+      {
+        "name": "web",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/web",
+        "description": "Zoom Contact Center SDK for Web. Use for web chat/video/campaign embeds, engagement event handling, app-context integrations, and Smart Embed postMessage workflows."
+      },
+      {
+        "name": "ios",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/ios",
+        "description": "Zoom Contact Center SDK for iOS. Use for native iOS chat/video/ZVA/scheduled callback integrations, app lifecycle bridging, rejoin flow, and callback handling."
+      },
+      {
+        "name": "android",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/contact-center/android",
+        "description": "Zoom Contact Center SDK for Android. Use for native Android chat/video/ZVA/scheduled callback integrations, campaign mode, service lifecycle, and rejoin handling."
+      },
+      {
+        "name": "ui-toolkit",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/ui-toolkit",
+        "description": "Reference skill for Zoom Video SDK UI Toolkit. Use after routing to a web video workflow when you want prebuilt React UI instead of building a fully custom Video SDK interface."
+      },
+      {
+        "name": "setup-zoom-mcp",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/setup-zoom-mcp",
+        "description": "Decide when Zoom MCP is the right fit and produce a safe setup plan for Claude. Use when planning AI workflows over Zoom data, deciding between MCP and REST, or defining a hybrid MCP architecture."
+      },
+      {
+        "name": "oauth",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/oauth",
+        "description": "Reference skill for Zoom authentication. Use after routing to an auth workflow when choosing app credentials, grant types, scopes, token refresh behavior, or debugging Zoom OAuth failures."
+      },
+      {
+        "name": "meeting-sdk",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk",
+        "description": "Reference skill for Zoom Meeting SDK. Use after routing to a meeting-embed workflow when implementing real Zoom meeting joins, platform-specific SDK behavior, auth and join flows, waiting room issues, or meeting bot patterns."
+      },
+      {
+        "name": "macos",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/macos",
+        "description": "|"
+      },
+      {
+        "name": "react-native",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/react-native",
+        "description": "Zoom Meeting SDK for React Native. Use when embedding Zoom meetings in React Native iOS/Android apps with @zoom/meetingsdk-react-native, JWT auth, join/start flows, platform setup, and native bridge troubleshooting."
+      },
+      {
+        "name": "web",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web",
+        "description": "|"
+      },
+      {
+        "name": "component-view",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/component-view",
+        "description": "|"
+      },
+      {
+        "name": "client-view",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/web/client-view",
+        "description": "|"
+      },
+      {
+        "name": "ios",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/ios",
+        "description": "|"
+      },
+      {
+        "name": "linux",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/linux",
+        "description": "Zoom Meeting SDK for Linux - C++ headless meeting bots with raw audio/video access, transcription, recording, and AI integration for server-side automation"
+      },
+      {
+        "name": "android",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/android",
+        "description": "|"
+      },
+      {
+        "name": "windows",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/windows",
+        "description": "|"
+      },
+      {
+        "name": "electron",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/electron",
+        "description": "|"
+      },
+      {
+        "name": "unreal",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/meeting-sdk/unreal",
+        "description": "|"
+      },
+      {
+        "name": "rtms",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/rtms",
+        "description": "Reference skill for Zoom RTMS. Use after routing to a live-media workflow when processing real-time audio, video, chat, transcripts, screen share, or contact-center voice streams."
+      },
+      {
+        "name": "rivet-sdk",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/rivet-sdk",
+        "description": "Reference skill for Zoom Rivet SDK. Use after routing to a Rivet-based server workflow when implementing auth handling, webhook consumers, API wrappers, multi-module composition, or Lambda receiver patterns."
+      },
+      {
+        "name": "general",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/general",
+        "description": "Cross-product Zoom reference skill. Use after the workflow is clear when you need shared platform guidance, app-model comparisons, authentication context, scopes, marketplace considerations, or API-vs-MCP routing."
+      },
+      {
+        "name": "setup-zoom-oauth",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/setup-zoom-oauth",
+        "description": "Implement Zoom authentication correctly. Use when setting up app credentials, choosing an OAuth grant, requesting scopes, handling token refresh, or debugging auth failures."
+      },
+      {
+        "name": "team-chat",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/team-chat",
+        "description": "Reference skill for Zoom Team Chat. Use after routing to a chat workflow when building user-scoped messaging integrations, chatbot experiences, rich cards, buttons, slash commands, or chat webhooks."
+      },
+      {
+        "name": "plan-zoom-integration",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/plan-zoom-integration",
+        "description": "Turn a Zoom integration idea into an implementation plan with architecture, auth, and delivery milestones. Use when you need a practical build plan, phased delivery sequence, risk list, and next-step recommendation."
+      },
+      {
+        "name": "start",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/start",
+        "description": "Start here for any Zoom integration or app idea. Use when you need to choose the right Zoom surface, shape the architecture, or route into the correct implementation skill without reading the whole Zoom doc set first."
+      },
+      {
+        "name": "debug-zoom-integration",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/debug-zoom-integration",
+        "description": "Debug broken Zoom implementations quickly. Use when auth, webhooks, SDK joins, MCP transport, or real-time media workflows are failing and you need to isolate the layer before proposing a fix."
+      },
+      {
+        "name": "zoom-apps-sdk",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/zoom-apps-sdk",
+        "description": "Reference skill for Zoom Apps SDK. Use after routing to an in-client app workflow when building web apps that run inside Zoom meetings, webinars, the main client, or Zoom Phone."
+      },
+      {
+        "name": "websockets",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/websockets",
+        "description": "Reference skill for Zoom WebSockets. Use after routing to a low-latency event workflow when persistent connections, faster event delivery, or security constraints make WebSockets preferable to webhooks."
+      },
+      {
+        "name": "debug-zoom",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/debug-zoom",
+        "description": "Debug a broken Zoom integration by isolating the failure point and routing into the right Zoom references. Use when auth, API, webhook, SDK, or MCP behavior is failing and you need a ranked hypothesis list plus verification steps."
+      },
+      {
+        "name": "choose-zoom-approach",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/choose-zoom-approach",
+        "description": "Choose the right Zoom architecture for a use case. Use when deciding between REST API, Webhooks, WebSockets, Meeting SDK, Video SDK, Zoom Apps SDK, Zoom MCP, Phone, Contact Center, or a hybrid approach."
+      },
+      {
+        "name": "build-zoom-meeting-app",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/build-zoom-meeting-app",
+        "description": "Build or embed a Zoom meeting flow. Use when implementing Meeting SDK joins, web or mobile meeting embeds, meeting lifecycle flows, or when deciding between Meeting SDK and Video SDK."
+      },
+      {
+        "name": "video-sdk",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk",
+        "description": "Reference skill for Zoom Video SDK. Use after routing to a custom-session workflow when the user needs full control over the video experience rather than an actual Zoom meeting."
+      },
+      {
+        "name": "unity",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/unity",
+        "description": "|"
+      },
+      {
+        "name": "macos",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/macos",
+        "description": "|"
+      },
+      {
+        "name": "react-native",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/react-native",
+        "description": "|"
+      },
+      {
+        "name": "web",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/web",
+        "description": "Zoom Video SDK for Web - JavaScript/TypeScript integration for browser-based video sessions, real-time communication, screen sharing, recording, and live transcription"
+      },
+      {
+        "name": "ios",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/ios",
+        "description": "|"
+      },
+      {
+        "name": "flutter",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/flutter",
+        "description": "|"
+      },
+      {
+        "name": "linux",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/linux",
+        "description": "Zoom Video SDK for Linux - C++ headless bots, raw audio/video capture/injection, Qt/GTK integration, Docker support"
+      },
+      {
+        "name": "android",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/android",
+        "description": "|"
+      },
+      {
+        "name": "windows",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/video-sdk/windows",
+        "description": "Zoom Video SDK for Windows - C++ integration for video sessions, raw audio/video capture, screen sharing, recording, and real-time communication"
+      },
+      {
+        "name": "virtual-agent",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent",
+        "description": "Reference skill for Zoom Virtual Agent. Use after routing to a virtual-agent workflow when implementing web embeds, Android or iOS wrapper integrations, knowledge-base sync, lifecycle handling, or troubleshooting."
+      },
+      {
+        "name": "web",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/web",
+        "description": "Zoom Virtual Agent SDK for web embeds. Use for campaign or entry ID chat launch, event-driven controls, user context updates, and CSP-safe deployment."
+      },
+      {
+        "name": "ios",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/ios",
+        "description": "Zoom Virtual Agent iOS integration via WKWebView. Use for Swift/Objective-C script injection, message handlers, support_handoff relay, and URL routing policies."
+      },
+      {
+        "name": "android",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/virtual-agent/android",
+        "description": "Zoom Virtual Agent Android integration via WebView. Use for Java/Kotlin bridge callbacks, native URL handling, support_handoff relay, and lifecycle-safe embedding."
+      },
+      {
+        "name": "probe-sdk",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/probe-sdk",
+        "description": "Reference skill for Zoom Probe SDK. Use after routing to a preflight workflow when testing browser compatibility, media permissions, audio or video diagnostics, and network readiness before users join."
+      },
+      {
+        "name": "phone",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/phone",
+        "description": "Reference skill for Zoom Phone. Use after routing to a phone workflow when implementing OAuth, Phone APIs, webhooks, Smart Embed events, URI schemes, CRM or CTI dialers, or call handling automation."
+      },
+      {
+        "name": "build-zoom-bot",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/build-zoom-bot",
+        "description": "Build a Zoom meeting bot, recorder, or real-time media workflow. Use when joining meetings programmatically, processing live media or transcripts, or combining Meeting SDK, RTMS, and backend services."
+      },
+      {
+        "name": "scribe",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/scribe",
+        "description": "Reference skill for Zoom AI Services Scribe. Use after routing to a transcription workflow when handling uploaded or stored media, Build-platform JWT auth, fast mode transcription, batch jobs, or transcript pipeline design."
+      },
+      {
+        "name": "plan-zoom-product",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/plan-zoom-product",
+        "description": "Choose the right Zoom building surface for a use case and explain the tradeoffs clearly. Use when deciding between REST API, Webhooks, WebSockets, Meeting SDK, Video SDK, Zoom Apps SDK, Phone, Contact Center, or MCP for a specific product idea or integration goal."
+      },
+      {
+        "name": "cobrowse-sdk",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/cobrowse-sdk",
+        "description": "Reference skill for Zoom Cobrowse SDK. Use after routing to a collaborative-support workflow when implementing browser co-browsing, annotation tools, privacy masking, remote assist, or PIN-based session sharing."
+      },
+      {
+        "name": "webhooks",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/webhooks",
+        "description": "Reference skill for Zoom webhooks. Use after routing to an event-driven workflow when implementing subscriptions, signature verification, delivery handling, retries, or event-type selection."
+      },
+      {
+        "name": "zoom-mcp",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/zoom-mcp",
+        "description": "Guidance for the bundled Zoom MCP connectors. Use after routing to an MCP workflow when planning or troubleshooting tool-based access to meetings, recordings, meeting assets, or transcripts. Route Zoom Docs requests to the dedicated Docs MCP server and Whiteboard-specific requests to `zoom-mcp/whiteboard`."
+      },
+      {
+        "name": "whiteboard",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/zoom-mcp/whiteboard",
+        "description": "|"
+      },
+      {
+        "name": "rest-api",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/rest-api",
+        "description": "Reference skill for Zoom REST API. Use after choosing an API-based workflow when you need endpoint selection, resource-management patterns, OAuth requirements, rate-limit awareness, or API error debugging."
+      },
+      {
+        "name": "design-mcp-workflow",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/skills/design-mcp-workflow",
+        "description": "Design a Zoom MCP workflow for Claude. Use when deciding whether Zoom MCP fits a task, when planning tool-based AI workflows, or when separating MCP responsibilities from REST API responsibilities."
+      },
+      {
+        "name": "contact-research",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/common-room/skills/contact-research",
+        "description": "Research a specific person using Common Room data. Triggers on 'who is [name]', 'look up [email]', 'research [contact]', 'is [name] a warm lead', or any contact-level question."
+      },
+      {
+        "name": "prospect",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/common-room/skills/prospect",
+        "description": "Build targeted account or contact lists using Common Room's Prospector. Triggers on 'find companies that match [criteria]', 'build a prospect list', 'find contacts at [type of company]', 'show me companies hiring [role]', or any list-building request."
+      },
+      {
+        "name": "compose-outreach",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/common-room/skills/compose-outreach",
+        "description": "Generate personalized outreach messages using Common Room signals. Triggers on 'draft outreach to [person]', 'write an email to [name]', 'compose a message for [contact]', or any outreach drafting request."
+      },
+      {
+        "name": "account-research",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/common-room/skills/account-research",
+        "description": "Research a company using Common Room data. Triggers on 'research [company]', 'tell me about [domain]', 'pull up signals for [account]', 'what's going on with [company]', or any account-level question."
+      },
+      {
+        "name": "weekly-prep-brief",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/common-room/skills/weekly-prep-brief",
+        "description": "Generate a comprehensive weekly briefing for all external calls in the next 7 days. Triggers on 'weekly prep brief', 'prepare my week', 'what calls do I have this week', 'Monday prep', or any weekly planning request."
+      },
+      {
+        "name": "call-prep",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/common-room/skills/call-prep",
+        "description": "Prepare for a customer or prospect call using Common Room signals. Triggers on 'prep me for my call with [company]', 'prepare for a meeting with [company]', 'what should I know before talking to [company]', or any call preparation request."
+      },
+      {
+        "name": "recruiting-pipeline",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/human-resources/skills/recruiting-pipeline",
+        "description": "Track and manage recruiting pipeline stages. Trigger with \"recruiting update\", \"candidate pipeline\", \"how many candidates\", \"hiring status\", or when the user discusses sourcing, screening, interviewing, or extending offers."
+      },
+      {
+        "name": "comp-analysis",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/human-resources/skills/comp-analysis",
+        "description": "Analyze compensation \u2014 benchmarking, band placement, and equity modeling. Trigger with \"what should we pay a [role]\", \"is this offer competitive\", \"model this equity grant\", or when uploading comp data to find outliers and retention risks."
+      },
+      {
+        "name": "people-report",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/human-resources/skills/people-report",
+        "description": "Generate headcount, attrition, diversity, or org health reports. Use when pulling a headcount snapshot for leadership, analyzing turnover trends by team, preparing diversity representation metrics, or assessing span of control and flight risk across the org."
+      },
+      {
+        "name": "performance-review",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/human-resources/skills/performance-review",
+        "description": "Structure a performance review with self-assessment, manager template, and calibration prep. Use when review season kicks off and you need a self-assessment template, writing a manager review for a direct report, prepping rating distributions and promotion cases for calibration, or turning vague feedback into specific behavioral examples."
+      },
+      {
+        "name": "org-planning",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/human-resources/skills/org-planning",
+        "description": "Headcount planning, org design, and team structure optimization. Trigger with \"org planning\", \"headcount plan\", \"team structure\", \"reorg\", \"who should we hire next\", or when the user is thinking about team size, reporting structure, or organizational design."
+      },
+      {
+        "name": "draft-offer",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/human-resources/skills/draft-offer",
+        "description": "Draft an offer letter with comp details and terms. Use when a candidate is ready for an offer, assembling a total comp package (base, equity, signing bonus), writing the offer letter text itself, or prepping negotiation guidance for the hiring manager."
+      },
+      {
+        "name": "interview-prep",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/human-resources/skills/interview-prep",
+        "description": "Create structured interview plans with competency-based questions and scorecards. Trigger with \"interview plan for\", \"interview questions for\", \"how should we interview\", \"scorecard for\", or when the user is preparing to interview candidates."
+      },
+      {
+        "name": "policy-lookup",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/human-resources/skills/policy-lookup",
+        "description": "Find and explain company policies in plain language. Trigger with \"what's our PTO policy\", \"can I work remotely from another country\", \"how do expenses work\", or any plain-language question about benefits, travel, leave, or handbook rules."
+      },
+      {
+        "name": "onboarding",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/human-resources/skills/onboarding",
+        "description": "Generate an onboarding checklist and first-week plan for a new hire. Use when someone has a start date coming up, building the pre-start task list (accounts, equipment, buddy), scheduling Day 1 and Week 1, or setting 30/60/90-day goals for a new team member."
+      },
+      {
+        "name": "process-optimization",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/operations/skills/process-optimization",
+        "description": "Analyze and improve business processes. Trigger with \"this process is slow\", \"how can we improve\", \"streamline this workflow\", \"too many steps\", \"bottleneck\", or when the user describes an inefficient process they want to fix."
+      },
+      {
+        "name": "runbook",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/operations/skills/runbook",
+        "description": "Create or update an operational runbook for a recurring task or procedure. Use when documenting a task that on-call or ops needs to run repeatably, turning tribal knowledge into exact step-by-step commands, adding troubleshooting and rollback steps to an existing procedure, or writing escalation paths for when things go wrong."
+      },
+      {
+        "name": "compliance-tracking",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/operations/skills/compliance-tracking",
+        "description": "Track compliance requirements and audit readiness. Trigger with \"compliance\", \"audit prep\", \"SOC 2\", \"ISO 27001\", \"GDPR\", \"regulatory requirement\", or when the user needs help tracking, preparing for, or documenting compliance activities."
+      },
+      {
+        "name": "risk-assessment",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/operations/skills/risk-assessment",
+        "description": "Identify, assess, and mitigate operational risks. Trigger with \"what are the risks\", \"risk assessment\", \"risk register\", \"what could go wrong\", or when the user is evaluating risks associated with a project, vendor, process, or decision."
+      },
+      {
+        "name": "vendor-review",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/operations/skills/vendor-review",
+        "description": "Evaluate a vendor \u2014 cost analysis, risk assessment, and recommendation. Use when reviewing a new vendor proposal, deciding whether to renew or replace a contract, comparing two vendors side-by-side, or building a TCO breakdown and negotiation points before procurement sign-off."
+      },
+      {
+        "name": "capacity-plan",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/operations/skills/capacity-plan",
+        "description": "Plan resource capacity \u2014 workload analysis and utilization forecasting. Use when heading into quarterly planning, the team feels overallocated and you need the numbers, deciding whether to hire or deprioritize, or stress-testing whether upcoming projects fit the people you have."
+      },
+      {
+        "name": "change-request",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/operations/skills/change-request",
+        "description": "Create a change management request with impact analysis and rollback plan. Use when proposing a system or process change that needs approval, preparing a change record for CAB review, documenting risk and rollback steps before a deployment, or planning stakeholder communications for a rollout."
+      },
+      {
+        "name": "status-report",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/operations/skills/status-report",
+        "description": "Generate a status report with KPIs, risks, and action items. Use when writing a weekly or monthly update for leadership, summarizing project health with green/yellow/red status, surfacing risks and decisions that need stakeholder attention, or turning a pile of project tracker activity into a readable narrative."
+      },
+      {
+        "name": "process-doc",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/operations/skills/process-doc",
+        "description": "Document a business process \u2014 flowcharts, RACI, and SOPs. Use when formalizing a process that lives in someone's head, building a RACI to clarify who owns what, writing an SOP for a handoff or audit, or capturing the exceptions and edge cases of how work actually gets done."
+      },
+      {
+        "name": "view-pdf",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/pdf-viewer/skills/view-pdf",
+        "description": "Interactive PDF viewer. Use when the user wants to open, show, or view a PDF and collaborate on it visually \u2014 annotate, highlight, stamp, fill form fields, place signature/initials, or review markup together. Not for summarization or text extraction (use native Read instead)."
+      },
+      {
+        "name": "roadmap-update",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/product-management/skills/roadmap-update",
+        "description": "Update, create, or reprioritize your product roadmap. Use when adding a new initiative and deciding what moves to make room, shifting priorities after new information comes in, moving timelines due to a dependency slip, or building a Now/Next/Later view from scratch."
+      },
+      {
+        "name": "stakeholder-update",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/product-management/skills/stakeholder-update",
+        "description": "Generate a stakeholder update tailored to audience and cadence. Use when writing a weekly or monthly status for leadership, announcing a launch, escalating a risk or blocker, or translating the same progress into exec-brief, engineering-detail, or customer-facing versions."
+      },
+      {
+        "name": "product-brainstorming",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/product-management/skills/product-brainstorming",
+        "description": "Brainstorm product ideas, explore problem spaces, and challenge assumptions as a thinking partner. Use when exploring a new opportunity, generating solutions to a product problem, stress-testing an idea, or when a PM needs to think out loud with a sharp sparring partner before converging on a direction."
+      },
+      {
+        "name": "sprint-planning",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/product-management/skills/sprint-planning",
+        "description": "Plan a sprint \u2014 scope work, estimate capacity, set goals, and draft a sprint plan. Use when kicking off a new sprint, sizing a backlog against team availability (accounting for PTO and meetings), deciding what's P0 vs. stretch, or handling carryover from the last sprint."
+      },
+      {
+        "name": "competitive-brief",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/product-management/skills/competitive-brief",
+        "description": "Create a competitive analysis brief for one or more competitors or a feature area. Use when informing product strategy or feature prioritization, building sales battle cards, prepping board or investor materials, or deciding where to differentiate vs. achieve parity."
+      },
+      {
+        "name": "write-spec",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/product-management/skills/write-spec",
+        "description": "Write a feature spec or PRD from a problem statement or feature idea. Use when turning a vague idea or user request into a structured document, scoping a feature with goals and non-goals, defining success metrics and acceptance criteria, or breaking a big ask into a phased spec."
+      },
+      {
+        "name": "synthesize-research",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/product-management/skills/synthesize-research",
+        "description": "Synthesize user research from interviews, surveys, and feedback into structured insights. Use when you have a pile of interview notes, survey responses, or support tickets to make sense of, need to extract themes and rank findings by frequency and impact, or want to turn raw feedback into roadmap recommendations."
+      },
+      {
+        "name": "metrics-review",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/product-management/skills/metrics-review",
+        "description": "Review and analyze product metrics with trend analysis and actionable insights. Use when running a weekly, monthly, or quarterly metrics review, investigating a sudden spike or drop, comparing performance against targets, or turning raw numbers into a scorecard with recommended actions."
+      },
+      {
+        "name": "content-creation",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/marketing/skills/content-creation",
+        "description": "Draft marketing content across channels \u2014 blog posts, social media, email newsletters, landing pages, press releases, and case studies. Use when writing any marketing content, when you need channel-specific formatting, SEO-optimized copy, headline options, or calls to action."
+      },
+      {
+        "name": "draft-content",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/marketing/skills/draft-content",
+        "description": "Draft blog posts, social media, email newsletters, landing pages, press releases, and case studies with channel-specific formatting and SEO recommendations. Use when writing any marketing content, when you need headline or subject line options, or when adapting a message for a specific platform, audience, and brand voice."
+      },
+      {
+        "name": "seo-audit",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/marketing/skills/seo-audit",
+        "description": "Run a comprehensive SEO audit \u2014 keyword research, on-page analysis, content gaps, technical checks, and competitor comparison. Use when assessing a site's SEO health, when finding keyword opportunities and content gaps competitors own, or when you need a prioritized action plan split into quick wins and strategic investments."
+      },
+      {
+        "name": "performance-report",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/marketing/skills/performance-report",
+        "description": "Build a marketing performance report with key metrics, trend analysis, wins and misses, and prioritized optimization recommendations. Use when wrapping a campaign, when preparing weekly, monthly, or quarterly channel summaries for stakeholders, or when you need data translated into an executive summary with next-period priorities."
+      },
+      {
+        "name": "brand-review",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/marketing/skills/brand-review",
+        "description": "Review content against your brand voice, style guide, and messaging pillars, flagging deviations by severity with specific before/after fixes. Use when checking a draft before it ships, when auditing copy for voice consistency and terminology, or when screening for unsubstantiated claims, missing disclaimers, and other legal flags."
+      },
+      {
+        "name": "competitive-brief",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/marketing/skills/competitive-brief",
+        "description": "Research competitors and generate a positioning and messaging comparison with content gaps, opportunities, and threats. Use when building sales battlecards, when finding positioning gaps and messaging angles competitors haven't claimed, or when a competitor makes a move and you need to assess the impact."
+      },
+      {
+        "name": "campaign-plan",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/marketing/skills/campaign-plan",
+        "description": "Generate a full campaign brief with objectives, audience, messaging, channel strategy, content calendar, and success metrics. Use when planning a product launch, lead-gen push, or awareness campaign, when you need a week-by-week content calendar with dependencies, or when translating a marketing goal into a structured, executable plan."
+      },
+      {
+        "name": "email-sequence",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/marketing/skills/email-sequence",
+        "description": "Design and draft multi-email sequences with full copy, timing, branching logic, exit conditions, and performance benchmarks. Use when building onboarding, lead nurture, re-engagement, win-back, or product launch flows, when you need a complete drip campaign with A/B test suggestions, or when mapping a sequence end-to-end with a flow diagram."
+      },
+      {
+        "name": "reconciliation",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/finance/skills/reconciliation",
+        "description": "Reconcile accounts by comparing GL balances to subledgers, bank statements, or third-party data. Use when performing bank reconciliations, GL-to-subledger recs, intercompany reconciliations, or identifying and categorizing reconciling items."
+      },
+      {
+        "name": "journal-entry-prep",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/finance/skills/journal-entry-prep",
+        "description": "Prepare journal entries with proper debits, credits, and supporting documentation for month-end close. Use when booking accruals, prepaid amortization, fixed asset depreciation, payroll entries, revenue recognition, or any manual journal entry."
+      },
+      {
+        "name": "close-management",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/finance/skills/close-management",
+        "description": "Manage the month-end close process with task sequencing, dependencies, and status tracking. Use when planning the close calendar, tracking close progress, identifying blockers, or sequencing close activities by day."
+      },
+      {
+        "name": "financial-statements",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/finance/skills/financial-statements",
+        "description": "Generate financial statements (income statement, balance sheet, cash flow) with period-over-period comparison and variance analysis. Use when preparing a monthly or quarterly P&L, closing the books and need to flag material variances, comparing actuals to budget, building a financial summary for leadership review, or looking up GAAP presentation requirements and period-end adjustments."
+      },
+      {
+        "name": "audit-support",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/finance/skills/audit-support",
+        "description": "Support SOX 404 compliance with control testing methodology, sample selection, and documentation standards. Use when generating testing workpapers, selecting audit samples, classifying control deficiencies, or preparing for internal or external audits."
+      },
+      {
+        "name": "journal-entry",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/finance/skills/journal-entry",
+        "description": "Prepare journal entries with proper debits, credits, and supporting detail. Use when booking month-end accruals (AP, payroll, prepaid), recording depreciation or amortization, posting revenue recognition or deferred revenue adjustments, or documenting an entry for audit review."
+      },
+      {
+        "name": "sox-testing",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/finance/skills/sox-testing",
+        "description": "Generate SOX sample selections, testing workpapers, and control assessments. Use when planning quarterly or annual SOX 404 testing, pulling a sample for a control (revenue, P2P, ITGC, close), building a testing workpaper template, or evaluating and classifying a control deficiency."
+      },
+      {
+        "name": "variance-analysis",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/finance/skills/variance-analysis",
+        "description": "Decompose financial variances into drivers with narrative explanations and waterfall analysis. Use when analyzing budget vs. actual, period-over-period changes, revenue or expense variances, or preparing variance commentary for leadership."
+      },
+      {
+        "name": "signature-request",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/legal/skills/signature-request",
+        "description": "Prepare and route a document for e-signature \u2014 run a pre-signature checklist, configure signing order, and send for execution. Use when a contract is finalized and ready to sign, when verifying entity names, exhibits, and signature blocks before sending, or when setting up an envelope with sequential or parallel signers."
+      },
+      {
+        "name": "compliance-check",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/legal/skills/compliance-check",
+        "description": "Run a compliance check on a proposed action, product feature, or business initiative, surfacing applicable regulations, required approvals, and risk areas. Use when launching a feature that touches personal data, when marketing or product proposes something with regulatory implications, or when you need to know which approvals and jurisdictional requirements apply before proceeding."
+      },
+      {
+        "name": "legal-response",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/legal/skills/legal-response",
+        "description": "Generate a response to a common legal inquiry using configured templates, with built-in escalation checks for situations that shouldn't use a templated reply. Use when responding to data subject requests, litigation hold notices, vendor legal questions, NDA requests from business teams, or subpoenas."
+      },
+      {
+        "name": "review-contract",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/legal/skills/review-contract",
+        "description": "Review a contract against your organization's negotiation playbook \u2014 flag deviations, generate redlines, provide business impact analysis. Use when reviewing vendor or customer agreements, when you need clause-by-clause analysis against standard positions, or when preparing a negotiation strategy with prioritized redlines and fallback positions."
+      },
+      {
+        "name": "vendor-check",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/legal/skills/vendor-check",
+        "description": "Check the status of existing agreements with a vendor across all connected systems \u2014 CLM, CRM, email, and document storage \u2014 with gap analysis and upcoming deadlines. Use when onboarding or renewing a vendor, when you need a consolidated view of what's signed and what's missing (MSA, DPA, SOW), or when checking for approaching expirations and surviving obligations."
+      },
+      {
+        "name": "brief",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/legal/skills/brief",
+        "description": "Generate contextual briefings for legal work \u2014 daily summary, topic research, or incident response. Use when starting your day and need a scan of legal-relevant items across email, calendar, and contracts, when researching a specific legal question across internal sources, or when a developing situation (data breach, litigation threat, regulatory inquiry) needs rapid context."
+      },
+      {
+        "name": "legal-risk-assessment",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/legal/skills/legal-risk-assessment",
+        "description": "Assess and classify legal risks using a severity-by-likelihood framework with escalation criteria. Use when evaluating contract risk, assessing deal exposure, classifying issues by severity, or determining whether a matter needs senior counsel or outside legal review."
+      },
+      {
+        "name": "meeting-briefing",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/legal/skills/meeting-briefing",
+        "description": "Prepare structured briefings for meetings with legal relevance and track resulting action items. Use when preparing for contract negotiations, board meetings, compliance reviews, or any meeting where legal context, background research, or action tracking is needed."
+      },
+      {
+        "name": "triage-nda",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/legal/skills/triage-nda",
+        "description": "Rapidly triage an incoming NDA and classify it as GREEN (standard approval), YELLOW (counsel review), or RED (full legal review). Use when a new NDA arrives from sales or business development, when screening for embedded non-solicits, non-competes, or missing carveouts, or when deciding whether an NDA can be signed under standard delegation."
+      },
+      {
+        "name": "write-query",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/data/skills/write-query",
+        "description": "Write optimized SQL for your dialect with best practices. Use when translating a natural-language data need into SQL, building a multi-CTE query with joins and aggregations, optimizing a query against a large partitioned table, or getting dialect-specific syntax for Snowflake, BigQuery, Postgres, etc."
+      },
+      {
+        "name": "validate-data",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/data/skills/validate-data",
+        "description": "QA an analysis before sharing -- methodology, accuracy, and bias checks. Use when reviewing an analysis before a stakeholder presentation, spot-checking calculations and aggregation logic, verifying a SQL query's results look right, or assessing whether conclusions are actually supported by the data."
+      },
+      {
+        "name": "data-context-extractor",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/data/skills/data-context-extractor",
+        "description": ">"
+      },
+      {
+        "name": "sql-queries",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/data/skills/sql-queries",
+        "description": "Write correct, performant SQL across all major data warehouse dialects (Snowflake, BigQuery, Databricks, PostgreSQL, etc.). Use when writing queries, optimizing slow SQL, translating between dialects, or building complex analytical queries with CTEs, window functions, or aggregations."
+      },
+      {
+        "name": "build-dashboard",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/data/skills/build-dashboard",
+        "description": "Build an interactive HTML dashboard with charts, filters, and tables. Use when creating an executive overview with KPI cards, turning query results into a shareable self-contained report, building a team monitoring snapshot, or needing multiple charts with filters in one browser-openable file."
+      },
+      {
+        "name": "data-visualization",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/data/skills/data-visualization",
+        "description": "Create effective data visualizations with Python (matplotlib, seaborn, plotly). Use when building charts, choosing the right chart type for a dataset, creating publication-quality figures, or applying design principles like accessibility and color theory."
+      },
+      {
+        "name": "explore-data",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/data/skills/explore-data",
+        "description": "Profile and explore a dataset to understand its shape, quality, and patterns. Use when encountering a new table or file, checking null rates and column distributions, spotting data quality issues like duplicates or suspicious values, or deciding which dimensions and metrics to analyze."
+      },
+      {
+        "name": "create-viz",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/data/skills/create-viz",
+        "description": "Create publication-quality visualizations with Python. Use when turning query results or a DataFrame into a chart, selecting the right chart type for a trend or comparison, generating a plot for a report or presentation, or needing an interactive chart with hover and zoom."
+      },
+      {
+        "name": "statistical-analysis",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/data/skills/statistical-analysis",
+        "description": "Apply statistical methods including descriptive stats, trend analysis, outlier detection, and hypothesis testing. Use when analyzing distributions, testing for significance, detecting anomalies, computing correlations, or interpreting statistical results."
+      },
+      {
+        "name": "analyze",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/data/skills/analyze",
+        "description": "Answer data questions -- from quick lookups to full analyses. Use when looking up a single metric, investigating what's driving a trend or drop, comparing segments over time, or preparing a formal data report for stakeholders."
+      },
+      {
+        "name": "documentation",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/engineering/skills/documentation",
+        "description": "Write and maintain technical documentation. Trigger with \"write docs for\", \"document this\", \"create a README\", \"write a runbook\", \"onboarding guide\", or when the user needs help with any form of technical writing \u2014 API docs, architecture docs, or operational runbooks."
+      },
+      {
+        "name": "incident-response",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/engineering/skills/incident-response",
+        "description": "Run an incident response workflow \u2014 triage, communicate, and write postmortem. Trigger with \"we have an incident\", \"production is down\", an alert that needs severity assessment, a status update mid-incident, or when writing a blameless postmortem after resolution."
+      },
+      {
+        "name": "code-review",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/engineering/skills/code-review",
+        "description": "Review code changes for security, performance, and correctness. Trigger with a PR URL or diff, \"review this before I merge\", \"is this code safe?\", or when checking a change for N+1 queries, injection risks, missing edge cases, or error handling gaps."
+      },
+      {
+        "name": "tech-debt",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/engineering/skills/tech-debt",
+        "description": "Identify, categorize, and prioritize technical debt. Trigger with \"tech debt\", \"technical debt audit\", \"what should we refactor\", \"code health\", or when the user asks about code quality, refactoring priorities, or maintenance backlog."
+      },
+      {
+        "name": "standup",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/engineering/skills/standup",
+        "description": "Generate a standup update from recent activity. Use when preparing for daily standup, summarizing yesterday's commits and PRs and ticket moves, formatting work into yesterday/today/blockers, or structuring a few rough notes into a shareable update."
+      },
+      {
+        "name": "architecture",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/engineering/skills/architecture",
+        "description": "Create or evaluate an architecture decision record (ADR). Use when choosing between technologies (e.g., Kafka vs SQS), documenting a design decision with trade-offs and consequences, reviewing a system design proposal, or designing a new component from requirements and constraints."
+      },
+      {
+        "name": "testing-strategy",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/engineering/skills/testing-strategy",
+        "description": "Design test strategies and test plans. Trigger with \"how should we test\", \"test strategy for\", \"write tests for\", \"test plan\", \"what tests do we need\", or when the user needs help with testing approaches, coverage, or test architecture."
+      },
+      {
+        "name": "deploy-checklist",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/engineering/skills/deploy-checklist",
+        "description": "Pre-deployment verification checklist. Use when about to ship a release, deploying a change with database migrations or feature flags, verifying CI status and approvals before going to production, or documenting rollback triggers ahead of time."
+      },
+      {
+        "name": "system-design",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/engineering/skills/system-design",
+        "description": "Design systems, services, and architectures. Trigger with \"design a system for\", \"how should we architect\", \"system design for\", \"what's the right architecture for\", or when the user needs help with API design, data modeling, or service boundaries."
+      },
+      {
+        "name": "debug",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/engineering/skills/debug",
+        "description": "Structured debugging session \u2014 reproduce, isolate, diagnose, and fix. Trigger with an error message or stack trace, \"this works in staging but not prod\", \"something broke after the deploy\", or when behavior diverges from expected and the cause isn't obvious."
+      },
+      {
+        "name": "task-management",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/productivity/skills/task-management",
+        "description": "Simple task management using a shared TASKS.md file. Reference this when the user asks about their tasks, wants to add/complete tasks, or needs help tracking commitments."
+      },
+      {
+        "name": "update",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/productivity/skills/update",
+        "description": "Sync tasks and refresh memory from your current activity. Use when pulling new assignments from your project tracker into TASKS.md, triaging stale or overdue tasks, filling memory gaps for unknown people or projects, or running a comprehensive scan to catch todos buried in chat and email."
+      },
+      {
+        "name": "start",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/productivity/skills/start",
+        "description": "Initialize the productivity system and open the dashboard. Use when setting up the plugin for the first time, bootstrapping working memory from your existing task list, or decoding the shorthand (nicknames, acronyms, project codenames) you use in your todos."
+      },
+      {
+        "name": "memory-management",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/productivity/skills/memory-management",
+        "description": "Two-tier memory system that makes Claude a true workplace collaborator. Decodes shorthand, acronyms, nicknames, and internal language so Claude understands requests like a colleague would. CLAUDE.md for working memory, memory/ directory for the full knowledge base."
+      }
+    ],
+    "plugins": [
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/customer-support/.claude-plugin",
+        "description": "Triage tickets, draft responses, escalate issues, and build your knowledge base. Research customer context and turn resolved issues into self-service content."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/design/.claude-plugin",
+        "description": "Accelerate design workflows \u2014 critique, design system management, UX writing, accessibility audits, research synthesis, and dev handoff. From exploration to pixel-perfect specs."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/enterprise-search/.claude-plugin",
+        "description": "Search across all of your company's tools in one place. Find anything across email, chat, documents, and wikis without switching between apps."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/cowork-plugin-management/.claude-plugin",
+        "description": "Create, customize, and manage plugins tailored to your organization's tools and workflows. Configure MCP servers, adjust plugin behavior, and adapt templates to match how your team works."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/sales/.claude-plugin",
+        "description": "Prospect, craft outreach, and build deal strategy faster. Prep for calls, manage your pipeline, and write personalized messaging that moves deals forward."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/bio-research/.claude-plugin",
+        "description": "Connect to preclinical research tools and databases (literature search, genomics analysis, target prioritization) to accelerate early-stage life sciences R&D"
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/brand-voice/.claude-plugin",
+        "description": "Brand Voice transforms scattered brand materials into enforceable AI guardrails \u2014 automatically. It searches across Notion, Google Drive, Confluence, Gong, Slack, and meeting transcripts to distill your strongest brand signals into a single source of truth, then applies them to every piece of AI-generated content. The more your team creates with Claude, the more consistent your brand becomes."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/apollo/.claude-plugin",
+        "description": "3 pre-built skills that chain multiple Apollo APIs into complete sales workflows \u2014 no manual steps, no tab switching. Enrich any contact from a name, email, or LinkedIn URL. Prospect by describing your ICP in plain English and get ranked leads. Find, enrich, and load contacts into a sequence in one shot."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/slack/.claude-plugin",
+        "description": "Official Slack MCP server for interactive and collaborative workflows. Surface insights, draft messages, and engage teams directly within Slack from Claude Cowork."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/partner-built/common-room/.claude-plugin",
+        "description": "Turn Common Room into your GTM copilot. Research accounts and contacts, prep for calls with attendee profiles and talking points, and draft personalized outreach across email, LinkedIn, and phone. Build targeted prospect lists, generate weekly briefings for every upcoming call, and create strategic account plans \u2014 all grounded in real signal data from product usage, engagement and intent signals, so every output reflects what's actually happening in your accounts."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/human-resources/.claude-plugin",
+        "description": "Streamline people operations \u2014 recruiting, onboarding, performance reviews, compensation analysis, and policy guidance. Maintain compliance and keep your team running smoothly."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/operations/.claude-plugin",
+        "description": "Optimize business operations \u2014 vendor management, process documentation, change management, capacity planning, and compliance tracking. Keep your organization running efficiently."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/product-management/.claude-plugin",
+        "description": "Write feature specs, plan roadmaps, and synthesize user research faster. Keep stakeholders updated and stay ahead of the competitive landscape."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/marketing/.claude-plugin",
+        "description": "Create content, plan campaigns, and analyze performance across marketing channels. Maintain brand voice consistency, track competitors, and report on what's working."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/finance/.claude-plugin",
+        "description": "Streamline finance and accounting workflows, from journal entries and reconciliation to financial statements and variance analysis. Speed up audit prep, month-end close, and keeping your books clean."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/legal/.claude-plugin",
+        "description": "Speed up contract review, NDA triage, and compliance workflows for in-house legal teams. Draft legal briefs, organize precedent research, and manage institutional knowledge."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/data/.claude-plugin",
+        "description": "Write SQL, explore datasets, and generate insights faster. Build visualizations and dashboards, and turn raw data into clear stories for stakeholders."
+      },
+      {
+        "name": "super-intelligence",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/super-intelligence",
+        "description": "Collection of third-party Claude Skills and advanced agent capabilities cloned from Anthropic and community sources."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/engineering/.claude-plugin",
+        "description": "Streamline engineering workflows \u2014 standups, code review, architecture decisions, incident response, and technical documentation. Works with your existing tools or standalone."
+      },
+      {
+        "name": "brand-establishment",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/brand-establishment",
+        "description": "Day-1 brand setup, identity system, voice guidelines, and IP protection. Everything needed to establish a professional brand from scratch."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/plugins/productivity/.claude-plugin",
+        "description": "Manage tasks, plan your day, and build up memory of important context about your work. Syncs with your calendar, email, and chat to keep everything organized and on track."
+      },
+      {
+        "name": "ui-system",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/ui-system",
+        "description": "Universal UI/UX design system with aesthetic guidelines, component standards, and frontend best practices."
+      },
+      {
+        "name": "production-standards",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/production-standards",
+        "description": "Production-grade code standards, checklists, project-type templates, and state management for shipping reliable software."
+      },
+      {
+        "name": "skill-creator",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/skill-creator",
+        "description": "Third-party skill creator with templates, references, and scripts for building standard skills."
+      },
+      {
+        "name": "agentic-skill-creator",
+        "contributor": "Ours",
+        "path": "Contributors/Ours/skills/agentic-skill-creator",
+        "description": "Creates and updates production-grade agentic skills with MCP tool integration, agent workflows, approval gates, and folder structures."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/customer-support/.claude-plugin",
+        "description": "Triage tickets, draft responses, escalate issues, and build your knowledge base. Research customer context and turn resolved issues into self-service content."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/design/.claude-plugin",
+        "description": "Accelerate design workflows \u2014 critique, design system management, UX writing, accessibility audits, research synthesis, and dev handoff. From exploration to pixel-perfect specs."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/enterprise-search/.claude-plugin",
+        "description": "Search across all of your company's tools in one place. Find anything across email, chat, documents, and wikis without switching between apps."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/small-business/.claude-plugin",
+        "description": "Pre-built small business workflows to help you run and grow your business. Supports a majority of the tools you already use. You approve every step that touches money or customers. Install and then ask Claude to help you get onboarded."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/cowork-plugin-management/.claude-plugin",
+        "description": "Create, customize, and manage plugins tailored to your organization's tools and workflows. Configure MCP servers, adjust plugin behavior, and adapt templates to match how your team works."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/sales/.claude-plugin",
+        "description": "Sales skills that work with the tools your team already uses - your CRM, email, calendar, chat and call recorder - or with uploaded files. Prep calls, summarize and follow up, research accounts, review deals and pipeline, and write the forecast. When you ask, it can update CRM records, create email drafts or send email, post to chat and book meetings through your connected tools."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/bio-research/.claude-plugin",
+        "description": "Connect to preclinical research tools and databases (literature search, genomics analysis, target prioritization) to accelerate early-stage life sciences R&D"
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/brand-voice/.claude-plugin",
+        "description": "Brand Voice transforms scattered brand materials into enforceable AI guardrails \u2014 automatically. It searches across Notion, Google Drive, Confluence, Gong, Slack, and meeting transcripts to distill your strongest brand signals into a single source of truth, then applies them to every piece of AI-generated content. The more your team creates with Claude, the more consistent your brand becomes."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/apollo/.claude-plugin",
+        "description": "3 pre-built skills that chain multiple Apollo APIs into complete sales workflows \u2014 no manual steps, no tab switching. Enrich any contact from a name, email, or LinkedIn URL. Prospect by describing your ICP in plain English and get ranked leads. Find, enrich, and load contacts into a sequence in one shot."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/slack/.claude-plugin",
+        "description": "Official Slack MCP server for interactive and collaborative workflows. Surface insights, draft messages, and engage teams directly within Slack from Claude Cowork."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/zoom-plugin/.claude-plugin",
+        "description": "Claude plugin for planning, building, and debugging Zoom integrations across REST APIs, SDKs, webhooks, bots, and MCP workflows"
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/partner-built/common-room/.claude-plugin",
+        "description": "Turn Common Room into your GTM copilot. Research accounts and contacts, prep for calls with attendee profiles and talking points, and draft personalized outreach across email, LinkedIn, and phone. Build targeted prospect lists, generate weekly briefings for every upcoming call, and create strategic account plans \u2014 all grounded in real signal data from product usage, engagement and intent signals, so every output reflects what's actually happening in your accounts."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/human-resources/.claude-plugin",
+        "description": "Streamline people operations \u2014 recruiting, onboarding, performance reviews, compensation analysis, and policy guidance. Maintain compliance and keep your team running smoothly."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/operations/.claude-plugin",
+        "description": "Optimize business operations \u2014 vendor management, process documentation, change management, capacity planning, and compliance tracking. Keep your organization running efficiently."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/pdf-viewer/.claude-plugin",
+        "description": "View, annotate, and sign PDFs in a live interactive viewer. Mark up contracts, fill forms with visual feedback, stamp approvals, and place signatures \u2014 then download the annotated copy."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/product-management/.claude-plugin",
+        "description": "Write feature specs, plan roadmaps, and synthesize user research faster. Keep stakeholders updated and stay ahead of the competitive landscape."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/marketing/.claude-plugin",
+        "description": "Create content, plan campaigns, and analyze performance across marketing channels. Maintain brand voice consistency, track competitors, and report on what's working."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/finance/.claude-plugin",
+        "description": "Streamline finance and accounting workflows, from journal entries and reconciliation to financial statements and variance analysis. Speed up audit prep, month-end close, and keeping your books clean."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/legal/.claude-plugin",
+        "description": "Speed up contract review, NDA triage, and compliance workflows for in-house legal teams. Draft legal briefs, organize precedent research, and manage institutional knowledge."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/data/.claude-plugin",
+        "description": "Write SQL, explore datasets, and generate insights faster. Build visualizations and dashboards, and turn raw data into clear stories for stakeholders."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/engineering/.claude-plugin",
+        "description": "Streamline engineering workflows \u2014 standups, code review, architecture decisions, incident response, and technical documentation. Works with your existing tools or standalone."
+      },
+      {
+        "name": ".claude-plugin",
+        "contributor": "Anthropic",
+        "path": "Contributors/Anthropic/knowledge-work-plugins/productivity/.claude-plugin",
+        "description": "Manage tasks, plan your day, and build up memory of important context about your work. Syncs with your calendar, email, and chat to keep everything organized and on track."
+      }
+    ],
+    "mcps": [
+      {
+        "name": "mcp-memory",
+        "contributor": "Community",
+        "path": "Contributors/Community/modelcontextprotocol-servers/src/memory",
+        "description": "Official Model Context Protocol reference server: memory"
+      },
+      {
+        "name": "mcp-everything",
+        "contributor": "Community",
+        "path": "Contributors/Community/modelcontextprotocol-servers/src/everything",
+        "description": "Official Model Context Protocol reference server: everything"
+      },
+      {
+        "name": "mcp-sequentialthinking",
+        "contributor": "Community",
+        "path": "Contributors/Community/modelcontextprotocol-servers/src/sequentialthinking",
+        "description": "Official Model Context Protocol reference server: sequentialthinking"
+      },
+      {
+        "name": "mcp-filesystem",
+        "contributor": "Community",
+        "path": "Contributors/Community/modelcontextprotocol-servers/src/filesystem",
+        "description": "Official Model Context Protocol reference server: filesystem"
+      },
+      {
+        "name": "mcp-time",
+        "contributor": "Community",
+        "path": "Contributors/Community/modelcontextprotocol-servers/src/time",
+        "description": "Official Model Context Protocol reference server: time"
+      },
+      {
+        "name": "mcp-fetch",
+        "contributor": "Community",
+        "path": "Contributors/Community/modelcontextprotocol-servers/src/fetch",
+        "description": "Official Model Context Protocol reference server: fetch"
+      },
+      {
+        "name": "mcp-git",
+        "contributor": "Community",
+        "path": "Contributors/Community/modelcontextprotocol-servers/src/git",
+        "description": "Official Model Context Protocol reference server: git"
+      }
+    ]
+  }
+}

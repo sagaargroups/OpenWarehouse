@@ -1,0 +1,53 @@
+# UI Design Preferences
+
+# Brand Colors - CUSTOMIZE THESE
+brand:
+  primary: ""          # e.g., "#F97316" (your main brand color)
+  secondary: ""        # e.g., "#1F2937"
+  accent: ""           # e.g., "#3B82F6"
+  success: "#10B981"   # Green (usually keep default)
+  warning: "#F59E0B"   # Amber (usually keep default)
+  error: "#EF4444"     # Red (usually keep default)
+  info: "#06B6D4"      # Cyan (usually keep default)
+
+# Theme Settings
+theme:
+  default: "system"         # light | dark | system
+  darkBackground: "#121212"
+  lightBackground: "#FAFAFA"
+  darkSurface: "#1E1E1E"
+  lightSurface: "#FFFFFF"
+
+# Typography - CUSTOMIZE THESE
+fonts:
+  heading: ""          # e.g., "Inter", "Poppins", "Roboto"
+  body: ""             # e.g., "Inter"
+  mono: "JetBrains Mono"
+  sizes:
+    xs: "0.75rem"
+    sm: "0.875rem"
+    base: "1rem"
+    lg: "1.125rem"
+    xl: "1.25rem"
+    "2xl": "1.5rem"
+    "3xl": "1.875rem"
+
+# Border Radius
+borderRadius:
+  sm: "0.25rem"
+  md: "0.375rem"
+  lg: "0.5rem"
+  xl: "0.75rem"
+  full: "9999px"
+
+# Animation
+animation:
+  duration: "200ms"
+  easing: "ease-in-out"
+
+# ---
+# INSTRUCTIONS:
+# 1. Fill in brand colors (primary, secondary, accent)
+# 2. Choose your fonts (heading, body)
+# 3. Agent will use defaults for empty values
+# ---

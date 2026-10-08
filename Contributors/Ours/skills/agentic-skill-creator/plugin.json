@@ -1,0 +1,5 @@
+{
+  "name": "agentic-skill-creator",
+  "description": "Creates and updates production-grade agentic skills with MCP tool integration, agent workflows, approval gates, and folder structures.",
+  "skills": ["agentic-skill-creator"]
+}

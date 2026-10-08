@@ -1,0 +1,3686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRAND OS — Complete System</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --red: #E8281E;
+      --red-dim: #8B1610;
+      --white: #F2F0EB;
+      --gray: #888888;
+      --light-gray: #AAAAAA;
+      --bg: #0A0A0A;
+      --card: #111111;
+      --border: #1E1E1E;
+      --border-light: #2A2A2A;
+      --yellow: #F5C842;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+      color: var(--white);
+    }
+
+    .nav-logo span {
+      color: var(--red);
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .nav-tabs::-webkit-scrollbar {
+      display: none
+    }
+
+    .nav-tab {
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      border: 1px solid transparent;
+      color: var(--gray);
+      transition: all 0.2s;
+      white-space: nowrap;
+      background: none;
+    }
+
+    .nav-tab:hover {
+      color: var(--white);
+      border-color: var(--border-light);
+    }
+
+    .nav-tab.active {
+      background: var(--red);
+      color: var(--white);
+      border-color: var(--red);
+    }
+
+    /* PAGES */
+    .page {
+      display: none;
+      padding-top: 60px;
+      min-height: 100vh;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 80px 64px 60px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(232, 40, 30, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .layer-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .layer-tag::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      max-width: 800px;
+      margin-bottom: 24px;
+    }
+
+    .hero-title span {
+      color: var(--red);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--light-gray);
+      max-width: 640px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .law-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      padding: 20px 28px;
+      max-width: 720px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .law-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .law-text {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--white);
+      font-style: italic;
+    }
+
+    /* CONTENT */
+    .content {
+      padding: 48px 64px 80px;
+    }
+
+    /* SECTION */
+    .section {
+      margin-bottom: 56px;
+    }
+
+    .section-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-num::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      max-width: 60px;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-desc {
+      font-size: 14px;
+      color: var(--light-gray);
+      line-height: 1.65;
+      margin-bottom: 28px;
+      max-width: 600px;
+    }
+
+    /* META ROW */
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .meta-cell {
+      background: var(--card);
+      padding: 16px 20px;
+    }
+
+    .meta-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .meta-val {
+      font-size: 13px;
+      color: var(--white);
+      line-height: 1.5;
+    }
+
+    /* TABLE */
+    .table-wrap {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead tr {
+      background: var(--card);
+    }
+
+    th {
+      padding: 12px 20px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray);
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 14px 20px;
+      font-size: 13px;
+      color: var(--white);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-red {
+      background: rgba(232, 40, 30, 0.15);
+      color: var(--red);
+    }
+
+    .badge-green {
+      background: rgba(80, 200, 120, 0.12);
+      color: #50C878;
+    }
+
+    .badge-yellow {
+      background: rgba(245, 200, 66, 0.12);
+      color: var(--yellow);
+    }
+
+    .badge-gray {
+      background: rgba(136, 136, 136, 0.15);
+      color: var(--gray);
+    }
+
+    /* GRID CARDS */
+    .cards {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .cards-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--border-light);
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(232, 40, 30, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--light-gray);
+      line-height: 1.65;
+    }
+
+    .card-list {
+      list-style: none;
+      margin-top: 12px;
+    }
+
+    .card-list li {
+      font-size: 13px;
+      color: var(--light-gray);
+      padding: 4px 0;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .card-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--red);
+      font-size: 11px;
+      top: 5px;
+    }
+
+    /* FLOW */
+    .flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .flow-step {
+      flex: 1;
+      min-width: 120px;
+      padding: 20px 16px;
+      text-align: center;
+      position: relative;
+    }
+
+    .flow-step::after {
+      content: '→';
+      position: absolute;
+      right: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--red);
+      font-size: 16px;
+      z-index: 1;
+    }
+
+    .flow-step:last-child::after {
+      display: none;
+    }
+
+    .flow-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .flow-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    /* CHECKLIST */
+    .checklist {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--white);
+      line-height: 1.5;
+    }
+
+    .check-item:last-child {
+      border-bottom: none;
+    }
+
+    .check-box {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      border: 2px solid var(--border-light);
+      border-radius: 4px;
+      margin-top: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .check-item:hover .check-box {
+      border-color: var(--red);
+    }
+
+    .check-item.done .check-box {
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    .check-item.done .check-box::after {
+      content: '✓';
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .check-item.done .check-text {
+      text-decoration: line-through;
+      color: var(--gray);
+    }
+
+    /* HIGHLIGHT BOX */
+    .highlight {
+      background: rgba(232, 40, 30, 0.06);
+      border: 1px solid rgba(232, 40, 30, 0.2);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+    }
+
+    .highlight-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+
+    .highlight-text {
+      font-size: 14px;
+      color: var(--white);
+      line-height: 1.7;
+    }
+
+    /* BIG QUOTE */
+    .big-quote {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .big-quote-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(18px, 3vw, 28px);
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--white);
+      max-width: 800px;
+    }
+
+    .big-quote-text span {
+      color: var(--red);
+    }
+
+    /* FOOTER */
+    .page-footer {
+      padding: 40px 64px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-btn {
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid var(--border);
+      color: var(--white);
+      background: none;
+    }
+
+    .footer-btn:hover {
+      border-color: var(--border-light);
+      background: var(--card);
+    }
+
+    .footer-btn.primary {
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    .footer-btn.primary:hover {
+      background: #c41f17;
+    }
+
+    .footer-layer {
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    /* SPECIAL: HOME PAGE */
+    .home-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 48px 64px 80px;
+    }
+
+    .home-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .home-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--red);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .home-card:hover {
+      border-color: var(--border-light);
+    }
+
+    .home-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .home-card-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .home-card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .home-card-desc {
+      font-size: 13px;
+      color: var(--light-gray);
+      line-height: 1.6;
+    }
+
+    /* CODE BLOCK */
+    .code-block {
+      background: #0D0D0D;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: var(--light-gray);
+      line-height: 2;
+      margin-bottom: 28px;
+      overflow-x: auto;
+    }
+
+    .code-block .c-red {
+      color: var(--red);
+    }
+
+    .code-block .c-white {
+      color: var(--white);
+    }
+
+    .code-block .c-yellow {
+      color: var(--yellow);
+    }
+
+    @media(max-width:900px) {
+      .hero {
+        padding: 60px 24px 40px;
+      }
+
+      .content {
+        padding: 32px 24px 60px;
+      }
+
+      .home-grid {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+
+      .meta-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cards-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .cards-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        padding: 0 16px;
+      }
+
+      .nav-logo {
+        font-size: 14px;
+      }
+
+      .page-footer {
+        padding: 32px 24px;
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo">BRAND<span>OS</span></div>
+    <div class="nav-tabs" id="navTabs">
+      <button class="nav-tab active" onclick="showPage('home')">Overview</button>
+      <button class="nav-tab" onclick="showPage('l1')">01 Identity</button>
+      <button class="nav-tab" onclick="showPage('l2')">02 Content</button>
+      <button class="nav-tab" onclick="showPage('l3')">03 Sales</button>
+      <button class="nav-tab" onclick="showPage('l4')">04 Client</button>
+      <button class="nav-tab" onclick="showPage('l5')">05 Operations</button>
+      <button class="nav-tab" onclick="showPage('l6')">06 Finance</button>
+      <button class="nav-tab" onclick="showPage('l7')">07 Intelligence</button>
+      <button class="nav-tab" onclick="showPage('presence')">Presence</button>
+      <button class="nav-tab" onclick="showPage('perception')">Perception</button>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <div class="page active" id="home">
+    <div class="hero">
+      <div class="layer-tag">Complete System</div>
+      <h1 class="hero-title">Brand <span>Operating</span><br>System</h1>
+      <p class="hero-sub">Every layer a brand needs to exist, speak, convert, serve, scale, track and compound — built
+        once, runs forever with AI automation.</p>
+      <div class="law-box">
+        <div class="law-label">The First Principle</div>
+        <div class="law-text">A brand fills a human gap. It lives in the mind, not the logo. Build the signal once. Let
+          the system carry it everywhere. Consistently. Forever.</div>
+      </div>
+    </div>
+    <div class="home-grid">
+      <div class="home-card" onclick="showPage('l1')">
+        <div class="home-card-num">Layer 01</div>
+        <div class="home-card-title">Identity</div>
+        <div class="home-card-desc">Who you are. Logo, color, type, voice, registration. Built once. Never changes.
+          Everything else plugs into it.</div>
+      </div>
+      <div class="home-card" onclick="showPage('l2')">
+        <div class="home-card-num">Layer 02</div>
+        <div class="home-card-title">Content Engine</div>
+        <div class="home-card-desc">One idea → 12 formats → all channels → scheduled. The engine that never lets the
+          brand go silent.</div>
+      </div>
+      <div class="home-card" onclick="showPage('l3')">
+        <div class="home-card-num">Layer 03</div>
+        <div class="home-card-title">Sales Engine</div>
+        <div class="home-card-desc">Lead → qualify → propose → contract → payment → onboard. Fully automated revenue
+          pipeline.</div>
+      </div>
+      <div class="home-card" onclick="showPage('l4')">
+        <div class="home-card-num">Layer 04</div>
+        <div class="home-card-title">Client & Relationship</div>
+        <div class="home-card-desc">Onboard → update → review → nurture → retain. Client experience on autopilot.</div>
+      </div>
+      <div class="home-card" onclick="showPage('l5')">
+        <div class="home-card-num">Layer 05</div>
+        <div class="home-card-title">Operations</div>
+        <div class="home-card-desc">Tasks, delivery, QA, reporting. Everything that repeats becomes a system that runs
+          itself.</div>
+      </div>
+      <div class="home-card" onclick="showPage('l6')">
+        <div class="home-card-num">Layer 06</div>
+        <div class="home-card-title">Finance & Admin</div>
+        <div class="home-card-desc">Invoice, track, report, pay. Zero manual entry. Money moves and records itself.
+        </div>
+      </div>
+      <div class="home-card" onclick="showPage('l7')">
+        <div class="home-card-num">Layer 07</div>
+        <div class="home-card-title">Intelligence</div>
+        <div class="home-card-desc">All data. One view. Automatic insights. The system that makes every other system
+          smarter.</div>
+      </div>
+      <div class="home-card" onclick="showPage('presence')">
+        <div class="home-card-num">Guide 01</div>
+        <div class="home-card-title">Presence Guide</div>
+        <div class="home-card-desc">Every channel — free and paid — where the brand must exist. Offline and online.
+          Costed and prioritised.</div>
+      </div>
+      <div class="home-card" onclick="showPage('perception')">
+        <div class="home-card-num">Guide 02</div>
+        <div class="home-card-title">Perception Guide</div>
+        <div class="home-card-desc">How all layers cascade into one unified perception in the mind of the audience. The
+          final layer.</div>
+      </div>
+    </div>
+    <div style="padding:0 64px 40px;">
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-num">01</div>
+          <div class="flow-label">Be Clear</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">02</div>
+          <div class="flow-label">Speak</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">03</div>
+          <div class="flow-label">Convert</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">04</div>
+          <div class="flow-label">Serve</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">05</div>
+          <div class="flow-label">Scale</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">06</div>
+          <div class="flow-label">Track</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">07</div>
+          <div class="flow-label">Improve</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAYER 1: IDENTITY -->
+  <div class="page" id="l1">
+    <div class="hero">
+      <div class="layer-tag">Layer 01 — Foundation</div>
+      <h1 class="hero-title">Identity<br><span>Templates</span></h1>
+      <p class="hero-sub">Who you are. Built once. Never changes. Every piece of content, every channel, every
+        touchpoint pulls from this. Without it — everything weakens. With it — everything compounds.</p>
+      <div class="law-box">
+        <div class="law-label">The Identity Law</div>
+        <div class="law-text">Identity is the signal. A brand only exists when a clear, consistent signal enters a human
+          mind repeatedly. Build it once. Use it forever.</div>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="section">
+        <div class="section-num">Part 01</div>
+        <div class="section-title">Visual Identity</div>
+        <div class="section-desc">What / How / Where / Why — every visual asset the brand needs to exist consistently on
+          every surface.</div>
+        <div class="meta-row">
+          <div class="meta-cell">
+            <div class="meta-label">What</div>
+            <div class="meta-val">All logo, color, type, and imagery assets</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">How</div>
+            <div class="meta-val">Design once, export in all required formats</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Where</div>
+            <div class="meta-val">Every channel — digital, print, motion, merch</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Outcome</div>
+            <div class="meta-val">Instant recognition. No confusion. No inconsistency.</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Asset</th>
+                <th>Versions Needed</th>
+                <th>File Formats</th>
+                <th>Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Primary Logo</td>
+                <td>Full lockup</td>
+                <td>SVG, PNG, PDF</td>
+                <td>Main usage everywhere</td>
+              </tr>
+              <tr>
+                <td>Secondary Logo</td>
+                <td>Horizontal</td>
+                <td>SVG, PNG</td>
+                <td>Headers, banners</td>
+              </tr>
+              <tr>
+                <td>Icon / Mark</td>
+                <td>Icon only</td>
+                <td>SVG, PNG, ICO</td>
+                <td>Favicon, app icon, profile pic</td>
+              </tr>
+              <tr>
+                <td>Dark Version</td>
+                <td>For light bg</td>
+                <td>SVG, PNG</td>
+                <td>Light backgrounds</td>
+              </tr>
+              <tr>
+                <td>Light Version</td>
+                <td>For dark bg</td>
+                <td>SVG, PNG</td>
+                <td>Dark backgrounds</td>
+              </tr>
+              <tr>
+                <td>Monochrome</td>
+                <td>1 color</td>
+                <td>SVG, PNG</td>
+                <td>Legal, print, stamp, emboss</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="cards cards-3">
+          <div class="card">
+            <div class="card-icon">🎨</div>
+            <div class="card-title">Color System</div>
+            <ul class="card-list">
+              <li>Primary color × 1</li>
+              <li>Secondary color × 1–2</li>
+              <li>Neutral colors × 3–4</li>
+              <li>Semantic: success / warning / error</li>
+              <li>Every color in HEX / RGB / CMYK / HSL</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">✏️</div>
+            <div class="card-title">Typography System</div>
+            <ul class="card-list">
+              <li>Display / Headline font</li>
+              <li>Body font</li>
+              <li>Mono font (optional)</li>
+              <li>Size scale: H1 → Caption</li>
+              <li>Files: OTF, TTF, WOFF, WOFF2</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">📸</div>
+            <div class="card-title">Imagery Style</div>
+            <ul class="card-list">
+              <li>Photography style rules</li>
+              <li>Illustration style</li>
+              <li>Icon style</li>
+              <li>Pattern & texture guide</li>
+              <li>Image filter / treatment rules</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 02</div>
+        <div class="section-title">Brand Voice Identity</div>
+        <div class="section-desc">How the brand speaks. Every word is either building or breaking perception.</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Channel</th>
+                <th>Tone</th>
+                <th>Example Energy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Website</td>
+                <td>Professional + Clear</td>
+                <td>Authoritative, confident, no fluff</td>
+              </tr>
+              <tr>
+                <td>Social Media</td>
+                <td>Human + Direct</td>
+                <td>Conversational, relatable, sharp</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>Personal + Warm</td>
+                <td>One-to-one feeling, genuine</td>
+              </tr>
+              <tr>
+                <td>Ads</td>
+                <td>Bold + Urgent</td>
+                <td>Direct, action-oriented, punchy</td>
+              </tr>
+              <tr>
+                <td>Legal / Docs</td>
+                <td>Formal + Precise</td>
+                <td>Clear, no ambiguity</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="cards cards-2">
+          <div class="card">
+            <div class="card-title">Core Message Stack</div>
+            <ul class="card-list">
+              <li>Tagline — the brand in one line</li>
+              <li>Mission — what we do and for who</li>
+              <li>Vision — what we're building toward</li>
+              <li>Value Proposition — why choose us</li>
+              <li>Elevator Pitch — 2 sentences max</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">Voice Rules</div>
+            <ul class="card-list">
+              <li>3 personality words (brand as a person)</li>
+              <li>Words we always use</li>
+              <li>Words we never use</li>
+              <li>Sentence length rules</li>
+              <li>Humor level / slang rules</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 03</div>
+        <div class="section-title">Free Registration — Claim Everything Now</div>
+        <div class="section-desc">Before building anything — own every handle. The brand must exist on every platform
+          before someone else takes it.</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th>Priority</th>
+                <th>Why</th>
+                <th>Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Instagram</td>
+                <td><span class="badge badge-red">CRITICAL</span></td>
+                <td>Visual brand — highest engagement</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>Facebook Page</td>
+                <td><span class="badge badge-red">CRITICAL</span></td>
+                <td>Largest user base, ads platform</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>LinkedIn Company</td>
+                <td><span class="badge badge-red">CRITICAL</span></td>
+                <td>B2B trust, professional presence</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>Twitter / X</td>
+                <td><span class="badge badge-red">CRITICAL</span></td>
+                <td>Real-time presence, thought leadership</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>YouTube Channel</td>
+                <td><span class="badge badge-red">CRITICAL</span></td>
+                <td>2nd largest search engine</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>WhatsApp Business</td>
+                <td><span class="badge badge-red">CRITICAL</span></td>
+                <td>Direct audience, highest open rate</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>Google Business Profile</td>
+                <td><span class="badge badge-red">CRITICAL</span></td>
+                <td>Appear in Google Search + Maps</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>TikTok</td>
+                <td><span class="badge badge-yellow">HIGH</span></td>
+                <td>Fastest organic reach</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>Pinterest</td>
+                <td><span class="badge badge-yellow">HIGH</span></td>
+                <td>Visual SEO, long shelf life</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>Telegram Channel</td>
+                <td><span class="badge badge-yellow">HIGH</span></td>
+                <td>Direct community ownership</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>Threads</td>
+                <td><span class="badge badge-gray">MEDIUM</span></td>
+                <td>Growing text-based platform</td>
+                <td>Free</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="cards cards-2">
+          <div class="card">
+            <div class="card-title">Free Directory Listings</div>
+            <div class="card-body">High SEO value — brand appears across the web without any spend.</div>
+            <ul class="card-list">
+              <li>Justdial / IndiaMART / Sulekha</li>
+              <li>Clutch.co / G2 / Trustpilot</li>
+              <li>Crunchbase (startups)</li>
+              <li>Medium / Substack (content platforms)</li>
+              <li>Quora / Reddit (community authority)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">Legal Registration (India)</div>
+            <div class="card-body">Protect the brand legally. Most is free.</div>
+            <ul class="card-list">
+              <li>MSME / Udyam → udyamregistration.gov.in → Free</li>
+              <li>GST → gst.gov.in → Free</li>
+              <li>Trademark Search → ipindia.gov.in → Free</li>
+              <li>Business Name → mca.gov.in → Low cost</li>
+              <li>Domain → ~₹500–800/year</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 04</div>
+        <div class="section-title">Asset Folder Structure</div>
+        <div class="code-block">
+          <span class="c-red">/BRAND-NAME-IDENTITY/</span><br>
+          ├── <span class="c-white">/LOGO/</span> <span class="c-yellow">← all 6 versions, all formats</span><br>
+          ├── <span class="c-white">/COLORS/</span> <span class="c-yellow">← swatches PDF + all codes</span><br>
+          ├── <span class="c-white">/TYPOGRAPHY/</span> <span class="c-yellow">← font files + scale guide</span><br>
+          ├── <span class="c-white">/TEMPLATES/</span> <span class="c-yellow">← social, email, deck, letterhead,
+            invoice</span><br>
+          ├── <span class="c-white">/BRAND-VOICE/</span> <span class="c-yellow">← voice guide document</span><br>
+          └── <span class="c-white">/GUIDELINES/</span> <span class="c-yellow">← master brand PDF</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Checklist</div>
+        <div class="section-title">Identity Launch Checklist</div>
+        <div class="checklist">
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Logo — all 6 versions in all formats</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Color system — all codes HEX/RGB/CMYK/HSL</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Typography — fonts in all formats + scale defined</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Imagery style guide written</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Brand voice document complete</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Tagline + mission + vision locked</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Domain registered</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">All social handles claimed</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Google Business Profile live</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">WhatsApp Business active</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Directory listings submitted</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Folder organized + backed up</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Brand guidelines PDF ready</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Legal registration done</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="big-quote">
+        <div class="big-quote-text">Identity locked → Content is consistent →<br>Consistency = Perception →
+          <span>Perception = Brand.</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="page-footer">
+      <div class="footer-layer">Layer 01 of 07 — Identity</div>
+      <div class="footer-nav">
+        <button class="footer-btn" onclick="showPage('home')">← Overview</button>
+        <button class="footer-btn primary" onclick="showPage('l2')">Layer 02 — Content →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAYER 2: CONTENT ENGINE -->
+  <div class="page" id="l2">
+    <div class="hero">
+      <div class="layer-tag">Layer 02 — Signal</div>
+      <h1 class="hero-title">Content<br><span>Engine</span></h1>
+      <p class="hero-sub">Identity tells you who you are. Content tells the world. One idea → 12+ formats → all channels
+        → distributed over 5 days → feedback loop → repeat forever.</p>
+      <div class="law-box">
+        <div class="law-label">The Content Law</div>
+        <div class="law-text">The brand that never goes silent wins. One input. Maximum output. Every cycle the system
+          gets smarter. Every piece of content compounds the one before it.</div>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="section">
+        <div class="section-num">The Flow</div>
+        <div class="section-title">One Idea → Full System</div>
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-num">Input</div>
+            <div class="flow-label">Brief</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">Create</div>
+            <div class="flow-label">Long Form</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">Extract</div>
+            <div class="flow-label">12 Formats</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">Enrich</div>
+            <div class="flow-label">Metadata</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">Schedule</div>
+            <div class="flow-label">5 Days</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">Measure</div>
+            <div class="flow-label">Results</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">Repeat</div>
+            <div class="flow-label">Smarter</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 01</div>
+        <div class="section-title">Input Layer — The Brief</div>
+        <div class="section-desc">Garbage in = garbage out. A clean, structured brief powers the entire engine.</div>
+        <div class="meta-row">
+          <div class="meta-cell">
+            <div class="meta-label">What</div>
+            <div class="meta-val">Topic, audience, goal, keywords</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">How</div>
+            <div class="meta-val">Fill a standard brief template</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Where</div>
+            <div class="meta-val">Content system or simple doc</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Outcome</div>
+            <div class="meta-val">Every piece has clear purpose and direction</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Brief Field</th>
+                <th>Example</th>
+                <th>Why It Matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Core Idea</td>
+                <td>"Why most brands fail in year 1"</td>
+                <td>Everything extracts from this</td>
+              </tr>
+              <tr>
+                <td>Brand Voice Doc</td>
+                <td>Tone, words, personality</td>
+                <td>AI writes in correct voice</td>
+              </tr>
+              <tr>
+                <td>Target Audience</td>
+                <td>Founders, age 25–40, India</td>
+                <td>Format & tone adjusted per audience</td>
+              </tr>
+              <tr>
+                <td>Goal</td>
+                <td>Awareness / Trust / Sales</td>
+                <td>CTA and depth changes per goal</td>
+              </tr>
+              <tr>
+                <td>SEO Keywords</td>
+                <td>"brand building tips 2025"</td>
+                <td>Long-form ranks on Google</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 02</div>
+        <div class="section-title">Creation Layer — All Formats</div>
+        <div class="section-desc">Long form is the foundation. Everything else is extracted and reformatted. One
+          creation effort, maximum output.</div>
+        <div class="cards cards-2">
+          <div class="card">
+            <div class="card-title">Long Form (Foundation)</div>
+            <div class="card-body">The full deep piece. All short form extracts from this. Builds SEO authority over
+              time.</div>
+            <ul class="card-list">
+              <li>Blog article — Website / Medium (800–2000 words)</li>
+              <li>LinkedIn article (600–1200 words)</li>
+              <li>Email newsletter (400–800 words)</li>
+              <li>Substack post (500–1000 words)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">Short Form (Distribution)</div>
+            <div class="card-body">Key points extracted and reformatted per platform's native format and algorithm.
+            </div>
+            <ul class="card-list">
+              <li>Feed post — Instagram / Facebook</li>
+              <li>Carousel (10 slides) — Instagram / LinkedIn</li>
+              <li>Thread (10 tweets) — Twitter / X</li>
+              <li>Story (3–5 frames) — Instagram / Facebook</li>
+              <li>Reels / TikTok script</li>
+              <li>YouTube script (5–15 min)</li>
+              <li>YouTube Short (60 sec)</li>
+              <li>Pinterest description</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 03</div>
+        <div class="section-title">Self-Discovery Layer — Maximum Value</div>
+        <div class="section-desc">After creating all formats, the engine thinks — what else can this become? This is the
+          compound layer.</div>
+        <div class="highlight">
+          <div class="highlight-title">What the Engine Asks Itself</div>
+          <div class="highlight-text">
+            → What keywords make this rank on Google?<br>
+            → What hashtags maximize reach per platform?<br>
+            → What is the best posting time per platform for this audience?<br>
+            → What CTA fits each format and goal?<br>
+            → Can this become a lead magnet or downloadable?<br>
+            → Can this become a paid ad if it performs?<br>
+            → What follow-up content does this naturally create next?
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 04</div>
+        <div class="section-title">Distribution Layer — 5-Day Sequence</div>
+        <div class="section-desc">One piece of content distributed over 5 days across 13+ touchpoints. Spacing prevents
+          fatigue. Sequence maximises each platform's algorithm.</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Channels</th>
+                <th>Content Type</th>
+                <th>Traffic Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Day 1</strong></td>
+                <td>Website Blog + LinkedIn + Email</td>
+                <td>Long form article + newsletter</td>
+                <td>SEO + Direct</td>
+              </tr>
+              <tr>
+                <td><strong>Day 2</strong></td>
+                <td>Instagram + Twitter/X + Facebook</td>
+                <td>Carousel + thread + feed post</td>
+                <td>Social organic</td>
+              </tr>
+              <tr>
+                <td><strong>Day 3</strong></td>
+                <td>YouTube + TikTok/Reels + Pinterest</td>
+                <td>Video + short video + pin</td>
+                <td>Search + discovery</td>
+              </tr>
+              <tr>
+                <td><strong>Day 4</strong></td>
+                <td>WhatsApp + Telegram</td>
+                <td>Short direct message + link</td>
+                <td>Direct community</td>
+              </tr>
+              <tr>
+                <td><strong>Day 5</strong></td>
+                <td>Quora + Reddit + Medium</td>
+                <td>Answer + post + cross-publish</td>
+                <td>Long-tail SEO</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 05</div>
+        <div class="section-title">Presence Layer — Free vs Paid Traffic</div>
+        <div class="meta-row">
+          <div class="meta-cell">
+            <div class="meta-label">What</div>
+            <div class="meta-val">Organic channels that compound over time</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">How</div>
+            <div class="meta-val">Optimize for each platform's algorithm + search</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Rule</div>
+            <div class="meta-val">Organic first. Paid only amplifies what already works.</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Outcome</div>
+            <div class="meta-val">Traffic arriving 24/7 from multiple directions</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th>Traffic Type</th>
+                <th>Compounds In</th>
+                <th>Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Google SEO (blog)</td>
+                <td>Search intent</td>
+                <td>3–6 months</td>
+                <td><span class="badge badge-green">Free</span></td>
+              </tr>
+              <tr>
+                <td>YouTube Search</td>
+                <td>Video discovery</td>
+                <td>1–3 months</td>
+                <td><span class="badge badge-green">Free</span></td>
+              </tr>
+              <tr>
+                <td>Social Organic</td>
+                <td>Feed discovery</td>
+                <td>Immediate</td>
+                <td><span class="badge badge-green">Free</span></td>
+              </tr>
+              <tr>
+                <td>Quora / Reddit</td>
+                <td>Long-tail SEO</td>
+                <td>Weeks to months</td>
+                <td><span class="badge badge-green">Free</span></td>
+              </tr>
+              <tr>
+                <td>Pinterest</td>
+                <td>Visual search</td>
+                <td>Weeks to years</td>
+                <td><span class="badge badge-green">Free</span></td>
+              </tr>
+              <tr>
+                <td>Meta Ads</td>
+                <td>Paid reach</td>
+                <td>Immediate</td>
+                <td><span class="badge badge-red">Paid</span></td>
+              </tr>
+              <tr>
+                <td>Google Ads</td>
+                <td>Paid search</td>
+                <td>Immediate</td>
+                <td><span class="badge badge-red">Paid</span></td>
+              </tr>
+              <tr>
+                <td>YouTube Ads</td>
+                <td>Paid video</td>
+                <td>Immediate</td>
+                <td><span class="badge badge-red">Paid</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 06</div>
+        <div class="section-title">Content Templates to Build</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Template</th>
+                <th>Structure</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Blog Post</td>
+                <td>Title + Hook + 3 sections + CTA + SEO meta</td>
+              </tr>
+              <tr>
+                <td>Instagram Post</td>
+                <td>Hook line + Value body + CTA + Hashtags (3 blocks)</td>
+              </tr>
+              <tr>
+                <td>Carousel</td>
+                <td>Cover slide + 8 value slides + CTA slide</td>
+              </tr>
+              <tr>
+                <td>Email Newsletter</td>
+                <td>Subject line + Opening hook + Body + CTA + P.S.</td>
+              </tr>
+              <tr>
+                <td>Twitter Thread</td>
+                <td>Hook tweet + 8 insight tweets + CTA tweet</td>
+              </tr>
+              <tr>
+                <td>YouTube Script</td>
+                <td>Hook (0–30s) + Intro + 3 main points + CTA + Outro</td>
+              </tr>
+              <tr>
+                <td>WhatsApp Broadcast</td>
+                <td>Opening + Short value + Link + 1 emoji max</td>
+              </tr>
+              <tr>
+                <td>LinkedIn Post</td>
+                <td>Bold opener + Story / Insight + Question CTA</td>
+              </tr>
+              <tr>
+                <td>Quora Answer</td>
+                <td>Direct answer + Story + Insight + Brand mention</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Checklist</div>
+        <div class="section-title">Content Engine Checklist</div>
+        <div class="checklist">
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Brand voice doc connected to all content creation</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Content brief template built</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Long form templates built (blog, email, LinkedIn)</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Short form templates built per platform</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Hashtag bank built per niche and platform</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Posting schedule defined per platform</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Scheduler connected to all channels</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Analytics dashboard connected</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Feedback loop process defined</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Content calendar running 2 weeks ahead minimum</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="big-quote">
+        <div class="big-quote-text">One idea → Many formats → All channels →<br>Consistent signal → <span>Compounding
+            perception.</span></div>
+      </div>
+
+    </div>
+    <div class="page-footer">
+      <div class="footer-layer">Layer 02 of 07 — Content Engine</div>
+      <div class="footer-nav">
+        <button class="footer-btn" onclick="showPage('l1')">← Layer 01</button>
+        <button class="footer-btn primary" onclick="showPage('l3')">Layer 03 — Sales →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAYER 3: SALES ENGINE -->
+  <div class="page" id="l3">
+    <div class="hero">
+      <div class="layer-tag">Layer 03 — Revenue</div>
+      <h1 class="hero-title">Sales<br><span>Engine</span></h1>
+      <p class="hero-sub">Content builds trust. Sales converts it. Every step from first lead to first payment — fully
+        automated. No manual chasing. No lost deals from slow follow-up.</p>
+      <div class="law-box">
+        <div class="law-label">The Sales Law</div>
+        <div class="law-text">Build sales before content = no trust. Build it after = conversion on warm audience. The
+          pipeline runs automatically. The human stays in strategy only.</div>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="section">
+        <div class="section-num">The Flow</div>
+        <div class="section-title">Lead → Payment → Auto</div>
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-num">01</div>
+            <div class="flow-label">Lead In</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">02</div>
+            <div class="flow-label">Qualify</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">03</div>
+            <div class="flow-label">Propose</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">04</div>
+            <div class="flow-label">Contract</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">05</div>
+            <div class="flow-label">Payment</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">06</div>
+            <div class="flow-label">Onboard</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 01</div>
+        <div class="section-title">Lead Capture Layer</div>
+        <div class="meta-row">
+          <div class="meta-cell">
+            <div class="meta-label">What</div>
+            <div class="meta-val">Every inquiry captured automatically</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">How</div>
+            <div class="meta-val">Forms on website + social + chatbot</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Where</div>
+            <div class="meta-val">Website, landing page, social bios, ads</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Outcome</div>
+            <div class="meta-val">Zero leads lost. Every inquiry logged in CRM.</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th>Capture Method</th>
+                <th>Goes Into</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Website visitors</td>
+                <td>Contact form + chatbot</td>
+                <td>CRM automatically</td>
+              </tr>
+              <tr>
+                <td>Instagram / Facebook DMs</td>
+                <td>Auto-reply with form link</td>
+                <td>CRM via integration</td>
+              </tr>
+              <tr>
+                <td>WhatsApp inquiries</td>
+                <td>WhatsApp Business auto-response</td>
+                <td>CRM via Zapier</td>
+              </tr>
+              <tr>
+                <td>Google Ads</td>
+                <td>Lead capture landing page</td>
+                <td>CRM directly</td>
+              </tr>
+              <tr>
+                <td>Referrals</td>
+                <td>Dedicated referral form</td>
+                <td>CRM + tagged source</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 02</div>
+        <div class="section-title">Qualification Layer</div>
+        <div class="section-desc">Not every lead is the right fit. AI qualifies before a human ever speaks to them.
+        </div>
+        <div class="cards cards-3">
+          <div class="card">
+            <div class="card-icon">❓</div>
+            <div class="card-title">Qualification Questions</div>
+            <ul class="card-list">
+              <li>What service are you looking for?</li>
+              <li>What is your timeline?</li>
+              <li>What is your budget range?</li>
+              <li>What is the goal?</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">🤖</div>
+            <div class="card-title">AI Qualifier</div>
+            <ul class="card-list">
+              <li>Chatbot asks questions automatically</li>
+              <li>Scores lead on fit criteria</li>
+              <li>Routes: Hot / Warm / Not a fit</li>
+              <li>Human only sees Hot leads</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">📊</div>
+            <div class="card-title">Lead Score Tags</div>
+            <ul class="card-list">
+              <li>Hot — ready to buy, right fit</li>
+              <li>Warm — interested, needs nurture</li>
+              <li>Cold — early stage, drip sequence</li>
+              <li>Disqualified — wrong fit, archived</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 03</div>
+        <div class="section-title">Proposal Layer</div>
+        <div class="section-desc">No more writing proposals from scratch. Smart template + client data = professional
+          proposal in minutes.</div>
+        <div class="meta-row">
+          <div class="meta-cell">
+            <div class="meta-label">What</div>
+            <div class="meta-val">Auto-generated proposal from template</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">How</div>
+            <div class="meta-val">AI fills template with lead data + service selected</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Where</div>
+            <div class="meta-val">Sent via email with tracking (see if opened)</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Outcome</div>
+            <div class="meta-val">Proposal in minutes. Follow-up auto-triggered after 48h.</div>
+          </div>
+        </div>
+        <div class="cards cards-2">
+          <div class="card">
+            <div class="card-title">Proposal Template Structure</div>
+            <ul class="card-list">
+              <li>Cover page (brand + client name)</li>
+              <li>Problem we solve for them</li>
+              <li>Our solution + approach</li>
+              <li>Deliverables + timeline</li>
+              <li>Investment (pricing tiers)</li>
+              <li>Why us (social proof)</li>
+              <li>Next steps + CTA</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">Follow-Up Automation</div>
+            <ul class="card-list">
+              <li>Proposal sent → auto-tracked</li>
+              <li>48h no open → reminder email</li>
+              <li>Opened, no reply → follow-up email day 3</li>
+              <li>Replied → human notified immediately</li>
+              <li>No reply 7 days → nurture sequence</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 04</div>
+        <div class="section-title">Contract + Payment Layer</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Step</th>
+                <th>What Happens</th>
+                <th>Tool Direction</th>
+                <th>Manual?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Contract generation</td>
+                <td>Auto-filled from proposal data</td>
+                <td>Contract template engine</td>
+                <td><span class="badge badge-green">Zero</span></td>
+              </tr>
+              <tr>
+                <td>E-signature</td>
+                <td>Sent for digital sign</td>
+                <td>DocuSign / Zoho Sign</td>
+                <td><span class="badge badge-green">Zero</span></td>
+              </tr>
+              <tr>
+                <td>Invoice generation</td>
+                <td>Auto-created on signing</td>
+                <td>Finance layer integration</td>
+                <td><span class="badge badge-green">Zero</span></td>
+              </tr>
+              <tr>
+                <td>Payment collection</td>
+                <td>Payment link sent automatically</td>
+                <td>Razorpay / Stripe</td>
+                <td><span class="badge badge-green">Zero</span></td>
+              </tr>
+              <tr>
+                <td>Payment confirmation</td>
+                <td>Receipt + onboarding triggered</td>
+                <td>Automation trigger</td>
+                <td><span class="badge badge-green">Zero</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 05</div>
+        <div class="section-title">Revenue Trigger System</div>
+        <div class="section-desc">Upsell and cross-sell at the right moment — triggered automatically based on client
+          behaviour.</div>
+        <div class="cards cards-3">
+          <div class="card">
+            <div class="card-icon">⬆️</div>
+            <div class="card-title">Upsell Triggers</div>
+            <ul class="card-list">
+              <li>Client near end of project → offer next phase</li>
+              <li>High usage → offer upgrade tier</li>
+              <li>Positive review received → offer referral deal</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">🔀</div>
+            <div class="card-title">Cross-Sell Triggers</div>
+            <ul class="card-list">
+              <li>Using service A → offer service B</li>
+              <li>Asked question about related service → send info</li>
+              <li>Result milestone hit → introduce next solution</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">🔄</div>
+            <div class="card-title">Retention Triggers</div>
+            <ul class="card-list">
+              <li>Contract ending in 30 days → renewal offer</li>
+              <li>Inactive 14 days → re-engagement message</li>
+              <li>Anniversary → appreciation + offer</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Checklist</div>
+        <div class="section-title">Sales Engine Checklist</div>
+        <div class="checklist">
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">CRM set up and connected to all lead sources</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Lead capture forms live on website + social</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">AI qualifier chatbot live</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Proposal template built</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Follow-up sequence automated</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Contract template ready</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">E-signature tool connected</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Payment gateway active</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Upsell triggers configured</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Revenue dashboard live</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="big-quote">
+        <div class="big-quote-text">Lead comes in → Qualified → Proposed →<br>Signed → Paid → <span>Zero manual
+            steps.</span></div>
+      </div>
+
+    </div>
+    <div class="page-footer">
+      <div class="footer-layer">Layer 03 of 07 — Sales Engine</div>
+      <div class="footer-nav">
+        <button class="footer-btn" onclick="showPage('l2')">← Layer 02</button>
+        <button class="footer-btn primary" onclick="showPage('l4')">Layer 04 — Client →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAYER 4: CLIENT -->
+  <div class="page" id="l4">
+    <div class="hero">
+      <div class="layer-tag">Layer 04 — Trust</div>
+      <h1 class="hero-title">Client &<br><span>Relationship</span></h1>
+      <p class="hero-sub">They bought. Now serve them so well they never leave — and bring others. Every client
+        touchpoint automated. Experience consistent. Relationship genuine.</p>
+      <div class="law-box">
+        <div class="law-label">The Client Law</div>
+        <div class="law-text">Retention costs 5x less than acquisition. A client who stays and refers is worth 10 new
+          clients. Build the system that makes leaving feel like a downgrade.</div>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="section">
+        <div class="section-num">The Flow</div>
+        <div class="section-title">Sign → Serve → Retain → Refer</div>
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-num">01</div>
+            <div class="flow-label">Onboard</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">02</div>
+            <div class="flow-label">Update</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">03</div>
+            <div class="flow-label">Deliver</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">04</div>
+            <div class="flow-label">Review</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">05</div>
+            <div class="flow-label">Nurture</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">06</div>
+            <div class="flow-label">Retain</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 01</div>
+        <div class="section-title">Onboarding Automation</div>
+        <div class="meta-row">
+          <div class="meta-cell">
+            <div class="meta-label">What</div>
+            <div class="meta-val">Automated welcome + setup sequence</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">How</div>
+            <div class="meta-val">Payment triggers onboarding flow automatically</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Where</div>
+            <div class="meta-val">Email + WhatsApp + Client portal</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Outcome</div>
+            <div class="meta-val">Client feels confident from day one. No confusion.</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Trigger</th>
+                <th>Automated Action</th>
+                <th>Timing</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Payment confirmed</td>
+                <td>Welcome email + next steps sent</td>
+                <td>Immediate</td>
+              </tr>
+              <tr>
+                <td>Welcome email sent</td>
+                <td>Onboarding questionnaire sent</td>
+                <td>+1 hour</td>
+              </tr>
+              <tr>
+                <td>Questionnaire filled</td>
+                <td>Kick-off meeting calendar link sent</td>
+                <td>Immediate</td>
+              </tr>
+              <tr>
+                <td>Kick-off meeting booked</td>
+                <td>Prep doc + agenda sent to client</td>
+                <td>-24 hours</td>
+              </tr>
+              <tr>
+                <td>Kick-off complete</td>
+                <td>Project workspace created + access sent</td>
+                <td>+2 hours</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 02</div>
+        <div class="section-title">Communication Automation</div>
+        <div class="cards cards-2">
+          <div class="card">
+            <div class="card-title">Auto Progress Updates</div>
+            <div class="card-body">Client never wonders what's happening. System tells them automatically.</div>
+            <ul class="card-list">
+              <li>Weekly progress report auto-sent</li>
+              <li>Milestone reached → auto-celebration message</li>
+              <li>Delay detected → auto-notification + reason</li>
+              <li>Deliverable ready → auto-notification + link</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">Inbox Automation</div>
+            <div class="card-body">No inquiry goes unanswered. Response within seconds, not hours.</div>
+            <ul class="card-list">
+              <li>DM auto-responder (Instagram, Facebook)</li>
+              <li>WhatsApp Business quick replies</li>
+              <li>Email auto-acknowledgement in 2 min</li>
+              <li>FAQ bot answers 80% of questions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 03</div>
+        <div class="section-title">Review & Feedback System</div>
+        <div class="meta-row">
+          <div class="meta-cell">
+            <div class="meta-label">What</div>
+            <div class="meta-val">Collecting social proof automatically</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">How</div>
+            <div class="meta-val">Triggered at the right moment in the client journey</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Where</div>
+            <div class="meta-val">Google, social platforms, internal feedback</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Outcome</div>
+            <div class="meta-val">Constant stream of proof. Trust for new leads.</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Trigger Moment</th>
+                <th>Action</th>
+                <th>Platform</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Deliverable approved by client</td>
+                <td>Auto-request for Google review</td>
+                <td>Google Business</td>
+              </tr>
+              <tr>
+                <td>Project completion</td>
+                <td>Request case study interview</td>
+                <td>Email</td>
+              </tr>
+              <tr>
+                <td>30 days after project</td>
+                <td>NPS survey sent</td>
+                <td>Email</td>
+              </tr>
+              <tr>
+                <td>Positive NPS response</td>
+                <td>Request testimonial + referral</td>
+                <td>Email + WhatsApp</td>
+              </tr>
+              <tr>
+                <td>Negative NPS response</td>
+                <td>Alert human + recovery sequence</td>
+                <td>Internal + Email</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 04</div>
+        <div class="section-title">Nurture & Retention System</div>
+        <div class="cards cards-3">
+          <div class="card">
+            <div class="card-icon">💌</div>
+            <div class="card-title">Nurture Sequences</div>
+            <ul class="card-list">
+              <li>Monthly value email to all past clients</li>
+              <li>Industry news relevant to their niche</li>
+              <li>Case study featuring their results</li>
+              <li>Birthday / anniversary messages</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">🔄</div>
+            <div class="card-title">Retention Triggers</div>
+            <ul class="card-list">
+              <li>Contract ending 30d → renewal offer</li>
+              <li>Inactive 21d → re-engagement</li>
+              <li>New service → first offer to existing</li>
+              <li>Holiday → appreciation message</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">🤝</div>
+            <div class="card-title">Referral System</div>
+            <ul class="card-list">
+              <li>Happy client → referral invite</li>
+              <li>Referral link / code issued</li>
+              <li>Referral reward defined</li>
+              <li>Tracking automated in CRM</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Checklist</div>
+        <div class="section-title">Client Layer Checklist</div>
+        <div class="checklist">
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Onboarding sequence automated (payment → welcome → kick-off)</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Weekly update template + auto-send configured</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Inbox auto-responders live on all channels</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Review request trigger set up</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">NPS survey sequence built</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Nurture email sequence active for past clients</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Referral system + tracking live</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Retention triggers configured in CRM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="big-quote">
+        <div class="big-quote-text">A client who stays and refers is worth<br><span>10 new clients.</span> Build the
+          system that makes leaving feel like a downgrade.</div>
+      </div>
+
+    </div>
+    <div class="page-footer">
+      <div class="footer-layer">Layer 04 of 07 — Client & Relationship</div>
+      <div class="footer-nav">
+        <button class="footer-btn" onclick="showPage('l3')">← Layer 03</button>
+        <button class="footer-btn primary" onclick="showPage('l5')">Layer 05 — Operations →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAYER 5: OPERATIONS -->
+  <div class="page" id="l5">
+    <div class="hero">
+      <div class="layer-tag">Layer 05 — Scale</div>
+      <h1 class="hero-title">Operations<br><span>System</span></h1>
+      <p class="hero-sub">You're serving clients. Now systematise delivery so the quality is consistent whether you're
+        serving 1 or 100. Everything that repeats becomes a system.</p>
+      <div class="law-box">
+        <div class="law-label">The Operations Law</div>
+        <div class="law-text">If a task is repeated more than 3 times, it should never be done manually again. Document
+          it. Template it. Automate it. The founder's job is strategy — not repetition.</div>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="section">
+        <div class="section-num">Part 01</div>
+        <div class="section-title">Project & Task Automation</div>
+        <div class="meta-row">
+          <div class="meta-cell">
+            <div class="meta-label">What</div>
+            <div class="meta-val">Automatic task creation and assignment</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">How</div>
+            <div class="meta-val">Project trigger → template tasks auto-generated</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Where</div>
+            <div class="meta-val">Project management tool (Notion / Asana / Monday)</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Outcome</div>
+            <div class="meta-val">Nothing missed. Every project starts with full task list ready.</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Trigger</th>
+                <th>Auto-Created</th>
+                <th>Assigned To</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>New project signed</td>
+                <td>Full task list from template</td>
+                <td>Team member by role</td>
+              </tr>
+              <tr>
+                <td>Task completed</td>
+                <td>Next task unlocked + notified</td>
+                <td>Next owner</td>
+              </tr>
+              <tr>
+                <td>Deadline in 48h</td>
+                <td>Reminder sent to assignee</td>
+                <td>Responsible person</td>
+              </tr>
+              <tr>
+                <td>Deadline missed</td>
+                <td>Alert to manager + new date set</td>
+                <td>Manager</td>
+              </tr>
+              <tr>
+                <td>Project complete</td>
+                <td>Review + invoice + archive triggered</td>
+                <td>Automated flow</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 02</div>
+        <div class="section-title">Deliverable Templates</div>
+        <div class="section-desc">Never build a deliverable from zero. Templates ensure quality and speed every time.
+        </div>
+        <div class="cards cards-3">
+          <div class="card">
+            <div class="card-icon">🌐</div>
+            <div class="card-title">Web / App</div>
+            <ul class="card-list">
+              <li>Discovery brief template</li>
+              <li>Sitemap template</li>
+              <li>Design handoff checklist</li>
+              <li>QA checklist (100 point)</li>
+              <li>Launch checklist</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">📢</div>
+            <div class="card-title">Marketing</div>
+            <ul class="card-list">
+              <li>Campaign brief template</li>
+              <li>Ad creative brief</li>
+              <li>Campaign report template</li>
+              <li>A/B test tracker</li>
+              <li>Monthly marketing report</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">🎨</div>
+            <div class="card-title">Branding</div>
+            <ul class="card-list">
+              <li>Brand discovery questionnaire</li>
+              <li>Mood board template</li>
+              <li>Brand presentation deck</li>
+              <li>Guidelines document template</li>
+              <li>Approval + revision tracker</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 03</div>
+        <div class="section-title">Quality Assurance System</div>
+        <div class="meta-row">
+          <div class="meta-cell">
+            <div class="meta-label">What</div>
+            <div class="meta-val">Every deliverable reviewed before leaving</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">How</div>
+            <div class="meta-val">QA checklist triggered on every project type</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Where</div>
+            <div class="meta-val">Internal before client sees anything</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Outcome</div>
+            <div class="meta-val">Zero embarrassing mistakes. Consistent quality at scale.</div>
+          </div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-title">QA Rule</div>
+          <div class="highlight-text">No deliverable leaves without a completed QA checklist. The checklist is per
+            project type — web, design, content, ads. If checklist incomplete → system blocks sending.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 04</div>
+        <div class="section-title">Reporting Automation</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Report</th>
+                <th>Frequency</th>
+                <th>Auto-Generated From</th>
+                <th>Sent To</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Project progress report</td>
+                <td>Weekly</td>
+                <td>Project tool data</td>
+                <td>Client</td>
+              </tr>
+              <tr>
+                <td>Campaign performance report</td>
+                <td>Weekly + Monthly</td>
+                <td>Ads + analytics data</td>
+                <td>Client</td>
+              </tr>
+              <tr>
+                <td>Internal team performance</td>
+                <td>Monthly</td>
+                <td>Task completion data</td>
+                <td>Manager</td>
+              </tr>
+              <tr>
+                <td>Client health score</td>
+                <td>Monthly</td>
+                <td>CRM + feedback data</td>
+                <td>Account manager</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Checklist</div>
+        <div class="section-title">Operations Checklist</div>
+        <div class="checklist">
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Project templates built per service type</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Auto task creation on new project trigger</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Deadline monitoring and alerts active</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">QA checklist per project type built</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Deliverable templates library complete</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Reporting templates built and auto-scheduled</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">File organizer and naming system set</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">SOPs documented for every repeating task</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="big-quote">
+        <div class="big-quote-text">Document everything that repeats.<br>Template everything that
+          recurs.<br><span>Automate everything that's documented.</span></div>
+      </div>
+
+    </div>
+    <div class="page-footer">
+      <div class="footer-layer">Layer 05 of 07 — Operations</div>
+      <div class="footer-nav">
+        <button class="footer-btn" onclick="showPage('l4')">← Layer 04</button>
+        <button class="footer-btn primary" onclick="showPage('l6')">Layer 06 — Finance →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAYER 6: FINANCE -->
+  <div class="page" id="l6">
+    <div class="hero">
+      <div class="layer-tag">Layer 06 — Money</div>
+      <h1 class="hero-title">Finance &<br><span>Admin</span></h1>
+      <p class="hero-sub">The system is running. Now make sure every rupee is tracked, every invoice is sent, and every
+        report is ready — with zero manual entry.</p>
+      <div class="law-box">
+        <div class="law-label">The Finance Law</div>
+        <div class="law-text">A brand that doesn't track its money cannot scale. The finance system should run itself —
+          invoice, receive, record, report — all automatic. No spreadsheet chasing.</div>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="section">
+        <div class="section-num">Part 01</div>
+        <div class="section-title">Invoice & Payment Automation</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Currently</th>
+                <th>Automated</th>
+                <th>Tool Direction</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Invoice generation</td>
+                <td>Manual creation</td>
+                <td>Auto from contract data</td>
+                <td>Zoho Books / QuickBooks</td>
+              </tr>
+              <tr>
+                <td>Invoice sending</td>
+                <td>Manual email</td>
+                <td>Auto-sent on trigger</td>
+                <td>CRM integration</td>
+              </tr>
+              <tr>
+                <td>Payment reminder</td>
+                <td>Manual follow-up</td>
+                <td>Auto day 1, 3, 7 overdue</td>
+                <td>Email automation</td>
+              </tr>
+              <tr>
+                <td>Payment received</td>
+                <td>Manual recording</td>
+                <td>Auto-reconciled</td>
+                <td>Razorpay / Stripe webhook</td>
+              </tr>
+              <tr>
+                <td>Receipt</td>
+                <td>Manual creation</td>
+                <td>Auto-sent on payment</td>
+                <td>Payment gateway</td>
+              </tr>
+              <tr>
+                <td>Recurring billing</td>
+                <td>Manual each cycle</td>
+                <td>Fully automated</td>
+                <td>Subscription system</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 02</div>
+        <div class="section-title">Financial Tracking & Reporting</div>
+        <div class="cards cards-3">
+          <div class="card">
+            <div class="card-icon">📊</div>
+            <div class="card-title">Revenue Tracking</div>
+            <ul class="card-list">
+              <li>Monthly revenue dashboard</li>
+              <li>Revenue by client</li>
+              <li>Revenue by service type</li>
+              <li>MRR vs one-time</li>
+              <li>Overdue invoice alerts</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">💸</div>
+            <div class="card-title">Expense Tracking</div>
+            <ul class="card-list">
+              <li>All expenses auto-categorized</li>
+              <li>Budget vs actual monthly</li>
+              <li>Tool subscription tracker</li>
+              <li>Ad spend tracking</li>
+              <li>Budget alert at 80% spend</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">📋</div>
+            <div class="card-title">Tax & Compliance</div>
+            <ul class="card-list">
+              <li>GST calculation automated</li>
+              <li>Monthly GST report ready</li>
+              <li>TDS tracking</li>
+              <li>Year-end P&L auto-generated</li>
+              <li>CA-ready data exports</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 03</div>
+        <div class="section-title">Finance Dashboard — One View</div>
+        <div class="meta-row">
+          <div class="meta-cell">
+            <div class="meta-label">Revenue</div>
+            <div class="meta-val">This month / last month / YTD</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Outstanding</div>
+            <div class="meta-val">Unpaid invoices + overdue</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Expenses</div>
+            <div class="meta-val">Categories + budget vs actual</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Profit</div>
+            <div class="meta-val">Net margin % automatically calculated</div>
+          </div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-title">The Rule</div>
+          <div class="highlight-text">The finance dashboard should tell you 4 things in under 30 seconds: How much came
+            in. How much went out. What's owed to you. What you owe. Everything else is detail.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Checklist</div>
+        <div class="section-title">Finance Checklist</div>
+        <div class="checklist">
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Accounting software connected (Zoho / QuickBooks / Tally)</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Invoice template built + auto-send configured</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Payment gateway active (Razorpay / Stripe)</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Payment reminders automated</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Expense tracking system live</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Budget alerts configured</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">GST compliance automated</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Monthly P&L auto-report scheduled</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="big-quote">
+        <div class="big-quote-text">Invoice → Receive → Record → Report.<br><span>Zero manual steps.</span> Money tracks
+          itself.</div>
+      </div>
+
+    </div>
+    <div class="page-footer">
+      <div class="footer-layer">Layer 06 of 07 — Finance & Admin</div>
+      <div class="footer-nav">
+        <button class="footer-btn" onclick="showPage('l5')">← Layer 05</button>
+        <button class="footer-btn primary" onclick="showPage('l7')">Layer 07 — Intelligence →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAYER 7: INTELLIGENCE -->
+  <div class="page" id="l7">
+    <div class="hero">
+      <div class="layer-tag">Layer 07 — Optimize</div>
+      <h1 class="hero-title">Intelligence<br><span>Hub</span></h1>
+      <p class="hero-sub">Everything is running. Now make sure it all gets smarter every cycle. One view. All data.
+        Automatic insights. The loop that compounds every other layer.</p>
+      <div class="law-box">
+        <div class="law-label">The Intelligence Law</div>
+        <div class="law-text">Data without action is noise. The intelligence system doesn't just report — it surfaces
+          what to do next. Every decision driven by signal, not gut alone.</div>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="section">
+        <div class="section-num">The Loop</div>
+        <div class="section-title">Measure → Insight → Action → Improve</div>
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-num">All Data</div>
+            <div class="flow-label">Collected</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">One View</div>
+            <div class="flow-label">Dashboard</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">AI</div>
+            <div class="flow-label">Summarizes</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">Insights</div>
+            <div class="flow-label">Surface</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">Actions</div>
+            <div class="flow-label">Triggered</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">System</div>
+            <div class="flow-label">Improves</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 01</div>
+        <div class="section-title">Unified Analytics Dashboard</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Data Source</th>
+                <th>What to Track</th>
+                <th>Action It Triggers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Website (GA4)</td>
+                <td>Traffic, pages, sources, conversions</td>
+                <td>Improve low-converting pages</td>
+              </tr>
+              <tr>
+                <td>Instagram</td>
+                <td>Reach, saves, profile visits, DMs</td>
+                <td>Double down on high-save content</td>
+              </tr>
+              <tr>
+                <td>LinkedIn</td>
+                <td>Impressions, clicks, followers</td>
+                <td>Post more of what gets clicks</td>
+              </tr>
+              <tr>
+                <td>YouTube</td>
+                <td>Views, watch time, subs, CTR</td>
+                <td>Replicate high watch-time topics</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>Open rate, click rate, unsubs</td>
+                <td>Test subject lines, remove cold leads</td>
+              </tr>
+              <tr>
+                <td>Google Ads</td>
+                <td>CPC, CTR, conversions, ROAS</td>
+                <td>Kill low ROAS, scale high ROAS</td>
+              </tr>
+              <tr>
+                <td>CRM</td>
+                <td>Leads, conversion rate, deal size</td>
+                <td>Fix leakiest stage in pipeline</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 02</div>
+        <div class="section-title">Brand Intelligence</div>
+        <div class="cards cards-3">
+          <div class="card">
+            <div class="card-icon">👂</div>
+            <div class="card-title">Brand Listening</div>
+            <ul class="card-list">
+              <li>Monitor every brand mention</li>
+              <li>Alert when brand name searched</li>
+              <li>Track sentiment (positive/negative)</li>
+              <li>Respond before crisis forms</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">🔍</div>
+            <div class="card-title">Competitor Tracking</div>
+            <ul class="card-list">
+              <li>Track competitor content cadence</li>
+              <li>Monitor their new offers</li>
+              <li>See what content performs for them</li>
+              <li>Identify gaps to move into</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">📡</div>
+            <div class="card-title">Trend Radar</div>
+            <ul class="card-list">
+              <li>Industry trend alerts weekly</li>
+              <li>Viral content in your niche</li>
+              <li>New platform feature alerts</li>
+              <li>Audience behaviour shifts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 03</div>
+        <div class="section-title">Intelligence → Action Rules</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Signal</th>
+                <th>Automatic Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Content piece gets 3x average reach</td>
+                <td>Flag for ad boost + create follow-up content</td>
+              </tr>
+              <tr>
+                <td>Website traffic drops 20% week-on-week</td>
+                <td>Alert sent + SEO audit triggered</td>
+              </tr>
+              <tr>
+                <td>Lead-to-client conversion drops</td>
+                <td>Sales pipeline review flagged</td>
+              </tr>
+              <tr>
+                <td>Client NPS drops below threshold</td>
+                <td>Human escalation + recovery sequence</td>
+              </tr>
+              <tr>
+                <td>Competitor posts viral content in niche</td>
+                <td>Alert + content response brief triggered</td>
+              </tr>
+              <tr>
+                <td>Ad ROAS drops below target</td>
+                <td>Pause ad + alert to review creative</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Part 04</div>
+        <div class="section-title">What Is NOT Automatable</div>
+        <div class="highlight">
+          <div class="highlight-title">Keep Human Here — Always</div>
+          <div class="highlight-text">
+            <strong style="color:var(--red)">Strategy decisions</strong> — Requires judgment, experience,
+            vision.<br><br>
+            <strong style="color:var(--red)">Crisis management</strong> — Requires emotion, speed, and genuine
+            response.<br><br>
+            <strong style="color:var(--red)">High-value relationship building</strong> — Requires genuine trust and
+            human presence.<br><br>
+            <strong style="color:var(--red)">Creative direction</strong> — Requires original thinking and taste.<br><br>
+            <strong style="color:var(--red)">Ethical decisions</strong> — Requires values, not algorithms.
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Checklist</div>
+        <div class="section-title">Intelligence Hub Checklist</div>
+        <div class="checklist">
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Google Analytics 4 + Search Console connected</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Social media analytics unified (one dashboard)</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Ad platform data connected (Meta, Google)</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Brand mention monitoring active</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Competitor tracking set up</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Weekly automated insight report configured</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Action trigger rules defined and active</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Monthly intelligence review ritual set</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="big-quote">
+        <div class="big-quote-text">Every cycle the system learns.<br>Every lesson makes the next cycle
+          stronger.<br><span>The loop runs forever.</span></div>
+      </div>
+
+    </div>
+    <div class="page-footer">
+      <div class="footer-layer">Layer 07 of 07 — Intelligence</div>
+      <div class="footer-nav">
+        <button class="footer-btn" onclick="showPage('l6')">← Layer 06</button>
+        <button class="footer-btn primary" onclick="showPage('presence')">Presence Guide →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRESENCE GUIDE -->
+  <div class="page" id="presence">
+    <div class="hero">
+      <div class="layer-tag">Guide 01 — Visibility</div>
+      <h1 class="hero-title">Presence<br><span>Guide</span></h1>
+      <p class="hero-sub">Every channel — free and paid, online and offline — where the brand must exist. Prioritised,
+        costed, and sequenced so no presence opportunity is missed.</p>
+      <div class="law-box">
+        <div class="law-label">The Presence Law</div>
+        <div class="law-text">A brand only exists in the mind if it can be found. Presence certainty means no matter
+          where the audience looks — the brand is there. Findable. Consistent. Credible.</div>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="section">
+        <div class="section-num">Tier 1</div>
+        <div class="section-title">Owned Channels — Build First. You Control These Forever.</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Channel</th>
+                <th>Purpose</th>
+                <th>Cost/Year (INR)</th>
+                <th>Priority</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Website (main)</td>
+                <td>HQ — everything points here</td>
+                <td>₹3,000–15,000</td>
+                <td><span class="badge badge-red">CRITICAL</span></td>
+              </tr>
+              <tr>
+                <td>Domain name</td>
+                <td>Brand address online</td>
+                <td>₹700–1,200</td>
+                <td><span class="badge badge-red">CRITICAL</span></td>
+              </tr>
+              <tr>
+                <td>Business email (custom)</td>
+                <td>Trust + professionalism</td>
+                <td>₹500–2,000</td>
+                <td><span class="badge badge-red">CRITICAL</span></td>
+              </tr>
+              <tr>
+                <td>Email list</td>
+                <td>Owned audience — no algorithm</td>
+                <td>Free–₹1,500</td>
+                <td><span class="badge badge-red">CRITICAL</span></td>
+              </tr>
+              <tr>
+                <td>WhatsApp Business</td>
+                <td>Direct community, 95% open rate</td>
+                <td>Free</td>
+                <td><span class="badge badge-red">CRITICAL</span></td>
+              </tr>
+              <tr>
+                <td>Blog / Content hub</td>
+                <td>SEO traffic forever</td>
+                <td>Included in website</td>
+                <td><span class="badge badge-red">CRITICAL</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Tier 2</div>
+        <div class="section-title">Free Social Channels — Organic Reach</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th>Best For</th>
+                <th>Content Type</th>
+                <th>Audience</th>
+                <th>Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Instagram</td>
+                <td>Visual brand, lifestyle, B2C</td>
+                <td>Reels, carousels, stories</td>
+                <td>18–40 urban</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>Facebook Page</td>
+                <td>Community, local, events</td>
+                <td>Posts, videos, groups</td>
+                <td>25–55 all India</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>LinkedIn</td>
+                <td>B2B, professional, hiring</td>
+                <td>Articles, posts, updates</td>
+                <td>Business owners, professionals</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>YouTube</td>
+                <td>Long-form authority, SEO</td>
+                <td>Videos, Shorts</td>
+                <td>All ages, all India</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>Twitter / X</td>
+                <td>Thought leadership, news</td>
+                <td>Threads, tweets</td>
+                <td>News-aware, opinion leaders</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>TikTok</td>
+                <td>Viral reach, young audience</td>
+                <td>Short videos</td>
+                <td>16–30</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>Pinterest</td>
+                <td>Visual discovery, long shelf</td>
+                <td>Pins, boards</td>
+                <td>Planning, design, lifestyle</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>Telegram</td>
+                <td>Community, direct broadcast</td>
+                <td>Posts, files, polls</td>
+                <td>Tech-aware, engaged</td>
+                <td>Free</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Tier 3</div>
+        <div class="section-title">Search Presence — Free Long-Term Traffic</div>
+        <div class="cards cards-2">
+          <div class="card">
+            <div class="card-title">Google Presence</div>
+            <ul class="card-list">
+              <li>Google Business Profile — free, maps + search</li>
+              <li>Google Search Console — track SEO performance</li>
+              <li>Google Knowledge Panel — brand recognition signal</li>
+              <li>Google My Business posts — regular updates</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">Directory & Platform Presence</div>
+            <ul class="card-list">
+              <li>Justdial / Sulekha / IndiaMART (local)</li>
+              <li>Clutch / G2 (agency credibility)</li>
+              <li>Crunchbase (startup / investor visibility)</li>
+              <li>Trustpilot (review trust)</li>
+              <li>Medium / Substack (content authority)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Tier 4</div>
+        <div class="section-title">Paid Channels — Amplify What Works</div>
+        <div class="meta-row">
+          <div class="meta-cell">
+            <div class="meta-label">Rule</div>
+            <div class="meta-val">Never pay to test. Organic proves it. Paid scales it.</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">When</div>
+            <div class="meta-val">Only after organic content shows clear performance</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Order</div>
+            <div class="meta-val">Meta Ads first → Google Ads → YouTube → LinkedIn</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Budget</div>
+            <div class="meta-val">Start ₹5,000/month. Scale only on positive ROAS.</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th>Best Use Case</th>
+                <th>Min Budget/Month</th>
+                <th>When to Start</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Meta Ads (FB + IG)</td>
+                <td>B2C, awareness, lead gen</td>
+                <td>₹5,000</td>
+                <td>Month 2–3</td>
+              </tr>
+              <tr>
+                <td>Google Ads</td>
+                <td>Intent-based, high-ticket</td>
+                <td>₹8,000</td>
+                <td>Month 3–4</td>
+              </tr>
+              <tr>
+                <td>YouTube Ads</td>
+                <td>Brand awareness, video proof</td>
+                <td>₹5,000</td>
+                <td>Month 4–5</td>
+              </tr>
+              <tr>
+                <td>LinkedIn Ads</td>
+                <td>B2B, agency, professional</td>
+                <td>₹15,000</td>
+                <td>Month 5–6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Tier 5</div>
+        <div class="section-title">Offline Presence — Often Ignored, Always Powerful</div>
+        <div class="cards cards-3">
+          <div class="card">
+            <div class="card-icon">🖨️</div>
+            <div class="card-title">Print Assets</div>
+            <ul class="card-list">
+              <li>Business card (physical)</li>
+              <li>Letterhead + envelope</li>
+              <li>Brochure / one-pager</li>
+              <li>Banner / standee</li>
+              <li>Packaging (if product)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">🤝</div>
+            <div class="card-title">Event Presence</div>
+            <ul class="card-list">
+              <li>Industry events + exhibitions</li>
+              <li>Speaking engagements</li>
+              <li>Sponsorships (local events)</li>
+              <li>Networking meetups</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">📰</div>
+            <div class="card-title">PR & Media</div>
+            <ul class="card-list">
+              <li>Press release (launches)</li>
+              <li>Local newspaper features</li>
+              <li>Podcast guest appearances</li>
+              <li>Influencer collaborations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">The Sequence</div>
+        <div class="section-title">Build Presence in This Order</div>
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-num">Month 1</div>
+            <div class="flow-label">Owned + Free</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">Month 2</div>
+            <div class="flow-label">Social + SEO</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">Month 3</div>
+            <div class="flow-label">Directories + Listings</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">Month 4</div>
+            <div class="flow-label">First Paid Channel</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">Month 6+</div>
+            <div class="flow-label">Scale Paid</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Checklist</div>
+        <div class="section-title">Presence Checklist</div>
+        <div class="checklist">
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Website live with custom domain</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Custom business email active</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">All social handles claimed and branded</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Google Business Profile verified</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Google Search Console connected</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">WhatsApp Business set up</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Email list platform live</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Directory listings submitted (5 minimum)</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Print assets designed and ready</div>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this)">
+            <div class="check-box"></div>
+            <div class="check-text">Paid ads planned for month 3+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="big-quote">
+        <div class="big-quote-text">Own first. Earn second. Pay third.<br><span>Be everywhere</span> your audience
+          looks.<br>Before they look for someone else.</div>
+      </div>
+
+    </div>
+    <div class="page-footer">
+      <div class="footer-layer">Guide 01 — Presence</div>
+      <div class="footer-nav">
+        <button class="footer-btn" onclick="showPage('l7')">← Layer 07</button>
+        <button class="footer-btn primary" onclick="showPage('perception')">Perception Guide →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERCEPTION GUIDE -->
+  <div class="page" id="perception">
+    <div class="hero">
+      <div class="layer-tag">Guide 02 — The Final Layer</div>
+      <h1 class="hero-title">Perception<br><span>Guide</span></h1>
+      <p class="hero-sub">All 7 layers. All channels. All content. All systems. They don't exist independently — they
+        cascade into one thing: a permanent, specific perception in the mind of your audience. This guide shows how.</p>
+      <div class="law-box">
+        <div class="law-label">The Perception Law</div>
+        <div class="law-text">The brand doesn't live in your logo. It doesn't live on your website. It lives in their
+          mind. You don't control perception — you manage the signals that create it. Consistently. Over time.
+          Everywhere.</div>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="section">
+        <div class="section-num">First Principle</div>
+        <div class="section-title">What Powers Every Brand</div>
+        <div class="cards cards-2">
+          <div class="card">
+            <div class="card-title">The 3-Part System</div>
+            <div class="card-body">Every brand in existence is the same 3 things — a sender, a medium, and a receiver.
+              The medium is where everything lives or dies.</div>
+            <ul class="card-list">
+              <li><strong style="color:var(--white)">Sender</strong> — The brand. Who you are. Your identity.</li>
+              <li><strong style="color:var(--white)">Medium</strong> — The channels. How you travel to the audience.
+              </li>
+              <li><strong style="color:var(--white)">Receiver</strong> — The audience. Their mind. Their perception.
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">The 4 Gap Types</div>
+            <div class="card-body">Every brand fills one of 4 fundamental human gaps. Know yours before building
+              anything.</div>
+            <ul class="card-list">
+              <li><strong style="color:var(--red)">Belief Gap</strong> — "The world should be different" (political,
+                NGO)</li>
+              <li><strong style="color:var(--red)">Capability Gap</strong> — "I can't do this myself" (agency, service)
+              </li>
+              <li><strong style="color:var(--red)">Utility Gap</strong> — "I have a problem to solve" (product, SaaS)
+              </li>
+              <li><strong style="color:var(--red)">Identity Gap</strong> — "I want to become/belong" (personal,
+                lifestyle)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">The Cascade</div>
+        <div class="section-title">How All Layers Build Perception</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Layer</th>
+                <th>What It Builds in the Mind</th>
+                <th>Perception Outcome</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01 Identity</td>
+                <td>First impression. Visual memory. Voice recognition.</td>
+                <td>"I know who this is"</td>
+              </tr>
+              <tr>
+                <td>02 Content</td>
+                <td>Authority. Value. Consistency. Never silent.</td>
+                <td>"They know their stuff"</td>
+              </tr>
+              <tr>
+                <td>03 Sales</td>
+                <td>Ease. Speed. Professionalism. Trust in process.</td>
+                <td>"They are easy to work with"</td>
+              </tr>
+              <tr>
+                <td>04 Client</td>
+                <td>Care. Reliability. Responsiveness. Experience.</td>
+                <td>"They look after people"</td>
+              </tr>
+              <tr>
+                <td>05 Operations</td>
+                <td>Predictability. Quality. Consistency. No surprises.</td>
+                <td>"They deliver what they promise"</td>
+              </tr>
+              <tr>
+                <td>06 Finance</td>
+                <td>Credibility. Professionalism. Stability.</td>
+                <td>"This is a real, serious company"</td>
+              </tr>
+              <tr>
+                <td>07 Intelligence</td>
+                <td>Growth. Adaptation. Staying relevant.</td>
+                <td>"They keep getting better"</td>
+              </tr>
+              <tr>
+                <td>Presence</td>
+                <td>Ubiquity. Can be found everywhere they look.</td>
+                <td>"They are everywhere"</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">The 3 Certainties</div>
+        <div class="section-title">What the System Must Guarantee</div>
+        <div class="cards cards-3">
+          <div class="card">
+            <div class="card-icon">🎯</div>
+            <div class="card-title">Identity Certainty</div>
+            <div class="card-body">The brand knows exactly what it is, what it says, and how it looks — in every format,
+              every size, every channel. No confusion. No inconsistency.</div>
+          </div>
+          <div class="card">
+            <div class="card-icon">📡</div>
+            <div class="card-title">Presence Certainty</div>
+            <div class="card-body">The brand occupies every medium where its audience exists — owned, earned, and paid.
+              No matter where the receiver looks — the brand is findable.</div>
+          </div>
+          <div class="card">
+            <div class="card-icon">♾️</div>
+            <div class="card-title">Continuity Certainty</div>
+            <div class="card-body">The system doesn't depend on a person showing up every day. It's automated,
+              templated, and self-sustaining. AI keeps the medium active even when humans aren't.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">The Perception Formula</div>
+        <div class="section-title">How Perception Forms in the Mind</div>
+        <div class="code-block">
+          <span class="c-red">HUMAN DESIRE</span><br>
+          ↓<br>
+          Creates a <span class="c-white">GAP</span><br>
+          ↓<br>
+          Brand fills the <span class="c-white">GAP</span> with a consistent <span class="c-yellow">SIGNAL</span><br>
+          ↓<br>
+          Signal enters the mind through a <span class="c-yellow">MEDIUM</span><br>
+          ↓<br>
+          Repeated signal creates a <span class="c-white">PATTERN</span><br>
+          ↓<br>
+          Pattern becomes a <span class="c-red">PERMANENT PERCEPTION</span><br>
+          ↓<br>
+          That perception <span class="c-white">IS</span> the brand
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Perception Killers</div>
+        <div class="section-title">What Destroys Perception — Avoid These</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Mistake</th>
+                <th>What It Destroys in the Mind</th>
+                <th>Fix</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Inconsistent visuals</td>
+                <td>"They're not professional"</td>
+                <td>Locked brand kit on all templates</td>
+              </tr>
+              <tr>
+                <td>Going silent for weeks</td>
+                <td>"Are they still around?"</td>
+                <td>Content engine + scheduler</td>
+              </tr>
+              <tr>
+                <td>Slow response to inquiries</td>
+                <td>"They don't care"</td>
+                <td>Auto-responder + chatbot</td>
+              </tr>
+              <tr>
+                <td>Overpromising, underdelivering</td>
+                <td>"They can't be trusted"</td>
+                <td>Realistic SOPs + QA system</td>
+              </tr>
+              <tr>
+                <td>Different voice on each channel</td>
+                <td>"Who even are they?"</td>
+                <td>Brand voice doc feeds all content</td>
+              </tr>
+              <tr>
+                <td>No social proof / reviews</td>
+                <td>"Is this even real?"</td>
+                <td>Automated review request system</td>
+              </tr>
+              <tr>
+                <td>Unprofessional admin (no invoice/contract)</td>
+                <td>"They're not serious"</td>
+                <td>Finance + ops automation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Perception Builders</div>
+        <div class="section-title">What Compounds Perception Over Time</div>
+        <div class="cards cards-2">
+          <div class="card">
+            <div class="card-title">Short-Term Signals (0–90 days)</div>
+            <ul class="card-list">
+              <li>Consistent visual identity everywhere</li>
+              <li>Fast, professional responses</li>
+              <li>Content posting 3–5x per week</li>
+              <li>Google Business Profile complete</li>
+              <li>Website that answers all questions</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">Long-Term Compounders (90 days+)</div>
+            <ul class="card-list">
+              <li>SEO blog traffic building month-on-month</li>
+              <li>Review count growing constantly</li>
+              <li>Case studies + social proof library</li>
+              <li>Thought leadership content ranking on Google</li>
+              <li>Word-of-mouth from great client experience</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">Future-Ready</div>
+        <div class="section-title">Why This System Never Becomes Obsolete</div>
+        <div class="highlight">
+          <div class="highlight-title">The Pattern Never Changes</div>
+          <div class="highlight-text">
+            Mediums change. TikTok didn't exist 10 years ago. AI didn't exist in marketing 5 years ago. Web3 is coming.
+            New platforms will emerge. Old ones will fade.<br><br>
+            But the pattern <strong style="color:var(--white)">never</strong> changes.<br><br>
+            There will always be a <strong style="color:var(--red)">Sender</strong>. A <strong
+              style="color:var(--red)">Receiver</strong>. And a <strong style="color:var(--red)">Medium</strong> between
+            them.<br><br>
+            If you build your system on the <strong style="color:var(--white)">pattern</strong> — not the platform — it
+            never becomes obsolete. When new mediums emerge, you plug them in. The core never changes. The audience
+            relationship stays intact.<br><br>
+            <strong style="color:var(--white)">Build the core once. Build the medium systematically. Let it reach the
+              audience continuously.</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="big-quote">
+        <div class="big-quote-text">Identity locked. Signal consistent.<br>Presence everywhere. System
+          running.<br><span>Perception compounds. Brand becomes real.</span></div>
+      </div>
+
+      <div
+        style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:40px;margin-top:40px;text-align:center;">
+        <div
+          style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--red);text-transform:uppercase;margin-bottom:16px;">
+          The Complete System</div>
+        <div
+          style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;line-height:1.8;color:var(--white);">
+          Be clear → Speak → Convert → Serve → Scale → Track → Improve
+        </div>
+        <div style="margin-top:24px;font-size:13px;color:var(--gray);">Identity → Content → Sales → Client → Operations
+          → Finance → Intelligence</div>
+        <div style="margin-top:8px;font-size:13px;color:var(--gray);">+ Presence everywhere + Perception in every mind
+        </div>
+      </div>
+
+    </div>
+    <div class="page-footer">
+      <div class="footer-layer">Guide 02 — Perception</div>
+      <div class="footer-nav">
+        <button class="footer-btn" onclick="showPage('presence')">← Presence Guide</button>
+        <button class="footer-btn primary" onclick="showPage('home')">Back to Overview →</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      const map = { home: 0, l1: 1, l2: 2, l3: 3, l4: 4, l5: 5, l6: 6, l7: 7, presence: 8, perception: 9 };
+      document.querySelectorAll('.nav-tab')[map[id]].classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleCheck(el) {
+      el.classList.toggle('done');
+    }
+
+    // Animate on scroll
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section, .card, .big-quote, .highlight').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+
+</html>

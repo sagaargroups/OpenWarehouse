@@ -1,0 +1,56 @@
+# Coding Standards Preferences
+
+# Language (Agent will detect or ask)
+language: ""                  # typescript | javascript
+
+# Naming Conventions (Universal - usually keep defaults)
+naming:
+  components: PascalCase      # MyComponent
+  functions: camelCase        # getUserById
+  constants: UPPER_SNAKE_CASE # MAX_RETRIES
+  files: ""                   # kebab-case | camelCase | PascalCase
+  cssClasses: kebab-case      # my-class-name
+
+# Import Order
+imports:
+  order: []                   # Will be set based on framework
+  grouping: true
+  newlineBetweenGroups: true
+
+# TypeScript (if using TypeScript)
+typescript:
+  strict: true
+  noImplicitAny: true
+  useTypeInference: true
+  preferConst: true
+
+# Code Style
+style:
+  semicolons: true            # true | false
+  quotes: "single"            # single | double
+  trailingComma: "es5"        # none | es5 | all
+  tabWidth: 2
+  printWidth: 80
+
+# Comments
+comments:
+  requireForPublicApi: true
+  requireForComplexLogic: true
+  todoFormat: "// TODO: description"
+
+# Error Handling
+errorHandling:
+  alwaysUseTryCatch: true
+  logErrors: true
+
+# Console
+console:
+  allowInDev: true
+  removeInProd: true
+
+# ---
+# INSTRUCTIONS:
+# 1. Agent will detect language from your project
+# 2. Customize naming/style if you have preferences
+# 3. Defaults follow industry best practices
+# ---

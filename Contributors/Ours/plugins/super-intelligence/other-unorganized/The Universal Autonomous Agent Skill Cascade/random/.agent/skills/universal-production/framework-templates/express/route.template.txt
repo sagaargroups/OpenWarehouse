@@ -1,0 +1,39 @@
+import { Router, Request, Response } from 'express';
+
+const router = Router();
+
+type ApiResponse<T = unknown> = {
+    success: boolean;
+    data?: T;
+    error?: string;
+};
+
+// GET /api/${routeName}
+router.get('/', async (req: Request, res: Response) => {
+    try {
+        // Your logic here
+        const data = {};
+
+        res.json({ success: true, data } as ApiResponse);
+    } catch (error) {
+        console.error('API Error:', error);
+        res.status(500).json({ success: false, error: 'Internal server error' });
+    }
+});
+
+// POST /api/${routeName}
+router.post('/', async (req: Request, res: Response) => {
+    try {
+        const body = req.body;
+
+        // Your logic here
+        const result = {};
+
+        res.status(201).json({ success: true, data: result } as ApiResponse);
+    } catch (error) {
+        console.error('API Error:', error);
+        res.status(500).json({ success: false, error: 'Internal server error' });
+    }
+});
+
+export default router;

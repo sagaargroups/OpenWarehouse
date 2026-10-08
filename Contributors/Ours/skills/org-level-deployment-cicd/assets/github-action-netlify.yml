@@ -1,0 +1,47 @@
+name: Deploy Application to Netlify
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/{{APP_DIVISION}}/{{APP_NAME}}/**'
+      - 'packages/**'
+  tags:
+    - '{{APP_NAME}}@v*'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Build & Deploy to Netlify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm ci
+        working-directory: ./apps/{{APP_DIVISION}}/{{APP_NAME}}
+
+      - name: Build Application
+        run: npm run build
+        working-directory: ./apps/{{APP_DIVISION}}/{{APP_NAME}}
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: './apps/{{APP_DIVISION}}/{{APP_NAME}}/dist'
+          production-deploy: ${{ contains(github.ref, 'refs/tags/') }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Action for {{APP_NAME}}"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          overrides-path-prefix: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

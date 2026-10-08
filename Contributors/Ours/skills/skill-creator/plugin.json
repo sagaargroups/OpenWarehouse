@@ -1,0 +1,5 @@
+{
+  "name": "skill-creator",
+  "description": "Third-party skill creator with templates, references, and scripts for building standard skills.",
+  "skills": ["skill-creator"]
+}

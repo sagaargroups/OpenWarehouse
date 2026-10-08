@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Automation v3 — Ecosystem</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 1st Header: The Ecosystem Pillars (The CEO Vision) -->
+  <header id="header-top">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">Brand<span class="accent">OS</span></span>
+      </div>
+
+      <!-- The 4 Pillars of the Software -->
+      <nav class="pillar-nav" id="pillar-nav">
+        <button class="pillar-btn active" data-pillar="core">
+          <span class="pillar-icon">🤖</span> AI Agents
+        </button>
+        <button class="pillar-btn" data-pillar="private">
+          <span class="pillar-icon">🌍</span> Global Plugins
+        </button>
+        <button class="pillar-btn" data-pillar="public">
+          <span class="pillar-icon">🧩</span> Core Plugins
+        </button>
+        <button class="pillar-btn builder-btn" data-pillar="creator">
+          <span class="pillar-icon">🛠️</span> Plugin Creator
+        </button>
+      </nav>
+
+      <div class="profile-menu">
+        <span class="credits">⚡ 9,240 Credits</span>
+        <div class="avatar">S</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2nd Header: Main Categories (Depends on selected Pillar) -->
+  <header id="header-main">
+    <div class="header-inner">
+      <nav class="main-nav" id="main-nav">
+        <!-- Populated by JS -->
+      </nav>
+    </div>
+  </header>
+
+  <!-- 3rd Header: Sub-Categories -->
+  <header id="header-sub">
+    <div class="header-inner">
+      <nav class="sub-nav" id="sub-nav">
+        <!-- Populated by JS -->
+      </nav>
+
+      <!-- Global Search/Filter in Sub Header -->
+      <div class="sub-actions">
+        <input type="text" class="search-input" placeholder="Search..." id="search-box">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main id="main-content">
+    <div class="hero-glow-bg"></div>
+    <div class="content-wrapper">
+      <div class="content-header">
+        <h1 class="view-title" id="view-title">Loading...</h1>
+        <p class="view-desc" id="view-desc">Initializing Brand OS Ecosystem.</p>
+      </div>
+
+      <!-- Creator View (Hidden by default) -->
+      <div id="creator-view" class="hidden-view">
+        <div class="creator-canvas">
+          <div class="canvas-grid-bg"></div>
+          <div class="creator-placeholder">
+            <span class="creator-icon">➕</span>
+            <h3>Drag & Drop AI Nodes Here</h3>
+            <p>Combine models, logic, and APIs to build a custom skill.</p>
+            <button class="primary-btn">Create New Node</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid View (Default) -->
+      <div class="grid-container" id="grid-container">
+        <!-- Tool Cards Populated by JS -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal for clicking tools -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-icon" id="modal-icon">📸</div>
+      <h3 class="modal-title" id="modal-title">Tool Title</h3>
+
+      <div class="modal-author" id="modal-author-block">
+        <span class="author-avatar" id="modal-author-avatar"></span>
+        <span class="author-name" id="modal-author-name">By BrandOS Official</span>
+      </div>
+
+      <p class="modal-desc" id="modal-desc">Description goes here.</p>
+
+      <div class="modal-stats" id="modal-stats-block" style="display:none;">
+        <div class="modal-stat"><span id="modal-clones">24.5k</span> Clones</div>
+        <div class="modal-stat"><span id="modal-rating">⭐ 4.9</span> Rating</div>
+      </div>
+
+      <div class="modal-meta" id="modal-meta">
+        <span class="meta-tag" id="modal-model">Model</span>
+        <span class="meta-tag status" id="modal-status">Status</span>
+      </div>
+
+      <button class="modal-action-btn" id="modal-action">Launch Tool</button>
+      <button class="modal-secondary-btn" id="modal-action-2" style="display:none;">Clone to Global Plugins</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

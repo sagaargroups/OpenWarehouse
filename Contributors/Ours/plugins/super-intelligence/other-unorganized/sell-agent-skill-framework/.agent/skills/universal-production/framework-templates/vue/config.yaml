@@ -1,0 +1,41 @@
+# Vue 3 Framework Configuration
+
+framework: vue
+version: "3+"
+composition: true             # Use Composition API
+
+# Folder Structure
+folders:
+  src: src
+  components: src/components
+  views: src/views
+  stores: src/stores
+  composables: src/composables
+  styles: src/styles
+
+# File Patterns
+patterns:
+  component: "${ComponentName}.vue"
+  view: "${ViewName}View.vue"
+  store: "${storeName}Store.ts"
+  composable: "use${Name}.ts"
+  test: "${name}.spec.ts"
+
+# Imports
+imports:
+  order:
+    - "vue"
+    - "vue-router"
+    - "pinia"
+    - "@/stores"
+    - "@/composables"
+    - "@/components"
+    - "./relative"
+  alias: "@/"
+  aliasPath: "src/"
+
+# Features
+features:
+  router: "vue-router"
+  stateManagement: "pinia"
+  forms: "vee-validate"

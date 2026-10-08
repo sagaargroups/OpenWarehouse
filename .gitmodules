@@ -1,0 +1,6 @@
+[submodule "Contributors/Anthropic/knowledge-work-plugins"]
+	path = Contributors/Anthropic/knowledge-work-plugins
+	url = https://github.com/anthropics/knowledge-work-plugins.git
+[submodule "Contributors/Community/modelcontextprotocol-servers"]
+	path = Contributors/Community/modelcontextprotocol-servers
+	url = https://github.com/modelcontextprotocol/servers.git

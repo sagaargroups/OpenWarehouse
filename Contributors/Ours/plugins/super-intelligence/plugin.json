@@ -1,0 +1,5 @@
+{
+  "name": "super-intelligence",
+  "description": "Collection of third-party Claude Skills and advanced agent capabilities cloned from Anthropic and community sources.",
+  "skills": ["algorithmic-art", "brand-guidelines", "canvas-design", "doc-coauthoring", "docx", "frontend-design", "internal-comms", "mcp-builder"]
+}

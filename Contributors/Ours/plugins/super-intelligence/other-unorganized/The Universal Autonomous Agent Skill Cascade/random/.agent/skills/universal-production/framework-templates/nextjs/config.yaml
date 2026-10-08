@@ -1,0 +1,41 @@
+# Next.js Framework Configuration
+
+framework: nextjs
+version: "15+"
+router: app                   # app | pages
+
+# Folder Structure
+folders:
+  src: src
+  app: src/app
+  components: src/components
+  lib: src/lib
+  api: src/app/api
+  styles: src/app
+
+# File Patterns
+patterns:
+  component: "${ComponentName}.tsx"
+  page: "page.tsx"
+  layout: "layout.tsx"
+  api: "route.ts"
+  test: "${name}.test.ts"
+
+# Imports
+imports:
+  order:
+    - "react"
+    - "next"
+    - "@/lib"
+    - "@/components"
+    - "./relative"
+  alias: "@/"
+  aliasPath: "src/"
+
+# Features
+features:
+  serverComponents: true
+  clientDirective: "'use client'"
+  serverActions: true
+  apiRoutes: true
+  middleware: true

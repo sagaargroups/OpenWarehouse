@@ -1,0 +1,16 @@
+[
+  {
+    "title": ".gitignore file",
+    "content": "# ----------------------\n# macOS\n# ----------------------\n.DS_Store\n.AppleDouble\n.LSOverride\nIcon?\n._*\n.Spotlight-V100\n.Trashes\nehthumbs.db\nThumbs.db\n\n# ----------------------\n# Python\n# ----------------------\n__pycache__/\n*.py[cod]\n*$py.class\n\n# Virtual environments\nvenv/\nenv/\n.venv/\nENV/\nenv.bak/\n\n# Distribution / packaging\nbuild/\ndist/\n*.egg-info/\n.eggs/\n*.egg\n\n# Jupyter notebooks\n.ipynb_checkpoints\n\n# Test / coverage reports\n.coverage\n.tox/\n.pytest_cache/\n\n# ----------------------\n# Node.js / JavaScript\n# ----------------------\nnode_modules/\nnpm-debug.log*\nyarn-debug.log*\nyarn-error.log*\npnpm-debug.log*\npackage-lock.json\nyarn.lock\n.pnpm-debug.log\n\n# Build outputs\ndist/\nbuild/\n.cache/\n.next/\nout/\n\n# ----------------------\n# VS Code\n# ----------------------\n.vscode/\n.history/\n\n# ----------------------\n# General\n# ----------------------\n*.log\n*.tmp\n*.swp\n*.swo",
+    "icon": "fas fa-heart",
+    "createdAt": "2025-09-07T14:59:55.328Z",
+    "id": 1757257195334
+  },
+  {
+    "title": "git important cmd",
+    "content": "# 🔹 Clone repo\ngit clone <repo-url>\ncd <repo-name>\ncode .                        # open in VS Code\n\n# 🔹 Check branch & status\ngit status\ngit branch\ngit log --oneline --graph --decorate\n\n# 🔹 Create & switch branches\ngit checkout -b feature/my-change\ngit checkout main\n\n# 🔹 Stage & commit changes\ngit add .\ngit commit -m \"Describe what you changed\"\ngit diff                       # see unstaged changes\ngit diff --staged              # see staged changes\n\n# 🔹 Sync with remote\ngit pull origin main           # update local main\ngit push origin feature/my-change\ngit push origin main\n\n# 🔹 Merge workflow\ngit checkout main\ngit pull origin main\ngit merge feature/my-change\ngit push origin main\n\n# 🔹 Cleanup branches\ngit branch -d feature/my-change\ngit push origin --delete feature/my-change",
+    "icon": "fas fa-book",
+    "createdAt": "2025-09-07T14:34:11.734Z",
+    "id": 1757255651755
+  }
+]

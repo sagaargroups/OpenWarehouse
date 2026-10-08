@@ -1,0 +1,39 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+
+interface Props {
+  // Add props here
+}
+
+const props = defineProps<Props>();
+
+const loading = ref(false);
+const error = ref<string | null>(null);
+
+async function handleAction() {
+  try {
+    loading.value = true;
+    error.value = null;
+    
+    // Your action here
+    
+  } catch (err) {
+    error.value = err instanceof Error ? err.message : 'An error occurred';
+  } finally {
+    loading.value = false;
+  }
+}
+</script>
+
+<template>
+  <div>
+    <p v-if="error" class="error">{{ error }}</p>
+    <!-- Your UI here -->
+  </div>
+</template>
+
+<style scoped>
+.error {
+  color: red;
+}
+</style>

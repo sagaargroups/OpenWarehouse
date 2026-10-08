@@ -1,0 +1,39 @@
+name: OpenWarehouse Daily Pulse Sync
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # Every day at 04:00 UTC
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout OpenWarehouse with Submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run OpenWarehouse Sync Engine
+        run: |
+          chmod +x ./warehouse
+          ./warehouse sync --no-push
+
+      - name: Commit & Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if [[ -n $(git status --porcelain) ]]; then
+            git add .
+            git commit -m "chore(sync): automated daily upstream pulse [$(date -u +'%Y-%m-%d')]"
+            git push origin main
+          else
+            echo "No changes to commit. Warehouse is up to date."
+          fi

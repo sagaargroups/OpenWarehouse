@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Enterprise Application Deployment Manifest",
+  "type": "object",
+  "required": [
+    "appName",
+    "organizationArm",
+    "ownerTeam",
+    "targetPlatform",
+    "pathPattern",
+    "environments"
+  ],
+  "properties": {
+    "appName": {
+      "type": "string",
+      "description": "Unique identifier for the app (e.g. studio-app, saas-platform, brand-one)"
+    },
+    "organizationArm": {
+      "type": "string",
+      "enum": ["agency", "d2c", "tech", "corporate"],
+      "description": "The organizational division owning this app"
+    },
+    "ownerTeam": {
+      "type": "string",
+      "description": "GitHub team handle owning this application (e.g. @<org-handle>/team-studio-app)"
+    },
+    "targetPlatform": {
+      "type": "string",
+      "enum": ["vps-docker", "vercel", "netlify", "cloudflare-pages", "aws-s3"],
+      "description": "Deployment hosting target"
+    },
+    "pathPattern": {
+      "type": "string",
+      "description": "Monorepo folder path (e.g. apps/agency/studio-app/**)"
+    },
+    "environments": {
+      "type": "object",
+      "required": ["dev", "staging", "production"],
+      "properties": {
+        "dev": {
+          "type": "object",
+          "properties": {
+            "autoDeployOnPush": { "type": "boolean" },
+            "url": { "type": "string" }
+          }
+        },
+        "staging": {
+          "type": "object",
+          "properties": {
+            "tagPattern": { "type": "string" },
+            "url": { "type": "string" }
+          }
+        },
+        "production": {
+          "type": "object",
+          "properties": {
+            "tagPattern": { "type": "string" },
+            "url": { "type": "string" },
+            "healthCheckEndpoint": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
