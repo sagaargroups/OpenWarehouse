@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D2C With AHrik · Product: Catalog Images (Apparel Edition)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-ink: #111312;
+      --canvas: #FFFFFF;
+      --surface: #F4F4F1;
+      --muted: #6E7270;
+      --rule: #E3E3DE;
+      --radius: 14px;
+      --font-display: 'Gloock', serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0A0B0A;
+      font-family: var(--font-body);
+      color: var(--primary-ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .deck-viewport {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .deck-stage {
+      width: 1920px;
+      height: 1080px;
+      position: relative;
+      background: var(--canvas);
+      border-radius: 8px;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+      overflow: hidden;
+      transform-origin: center center;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      padding: 70px 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) scale(0.99);
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      z-index: 10;
+    }
+
+    /* Reverse Mono-Craft (Dark Theme for Slide 1 & Slide 7) */
+    .slide.dark-slide {
+      background-color: var(--primary-ink);
+      color: var(--canvas);
+    }
+
+    .slide.dark-slide .wordmark__logo {
+      filter: none;
+    }
+
+    .slide.dark-slide .slide-footer {
+      border-top-color: rgba(255, 255, 255, 0.12);
+      color: #9BA19E;
+    }
+
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 56px;
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-decoration: none;
+    }
+
+    .wordmark-link {
+      display: inline-block;
+      text-decoration: none;
+      line-height: 0;
+    }
+
+    .header-logo {
+      width: 280px;
+      max-width: 280px;
+      height: auto;
+      aspect-ratio: 1331 / 118;
+      display: block;
+      border: 0;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .wordmark-link:hover .header-logo {
+      opacity: 0.88;
+      transform: scale(1.015);
+    }
+
+    .brand-sub {
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      font-style: italic;
+      font-weight: bold;
+      color: #111312;
+      margin-top: 6px;
+      line-height: 1.2;
+      letter-spacing: normal;
+      text-transform: none;
+    }
+
+    .slide.dark-slide .brand-sub {
+      color: #FFFFFF;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .header-glyph {
+      width: 44px;
+      max-width: 44px;
+      height: auto;
+      display: block;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .header-glyph:hover {
+      transform: scale(1.06);
+      opacity: 0.92;
+    }
+
+    @media (max-width: 768px) {
+      .header-logo {
+        width: 160px !important;
+        max-width: 160px !important;
+      }
+      .brand-sub {
+        font-size: 11px !important;
+        margin-top: 3px !important;
+      }
+      .header-glyph {
+        width: 30px !important;
+        max-width: 30px !important;
+      }
+      .header-right {
+        gap: 12px !important;
+      }
+    }
+
+    .category-badge {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 8px 18px;
+      border-radius: 100px;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .slide.dark-slide .category-badge {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: #D1D5D3;
+    }
+
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 30px 0;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 80px;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #9BA19E;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      display: block;
+      font-size: 56px;
+      color: #D1D5D3;
+      margin-top: 8px;
+    }
+
+    .hero-tags {
+      display: flex;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-tag {
+      padding: 10px 22px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      white-space: nowrap;
+    }
+
+    .intake-header-wrap {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 36px;
+    }
+
+    .mobile-nav-btn {
+      display: none;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 52px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+
+    .lead-text {
+      font-size: 24px;
+      line-height: 1.5;
+      color: var(--muted);
+      max-width: 1100px;
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
+
+    .slide.dark-slide .lead-text {
+      color: #A6ACA9;
+    }
+
+    /* Grid Layouts */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      width: 100%;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      width: 100%;
+    }
+
+    .deck-card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 16px;
+      position: relative;
+    }
+
+    .card-label {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      line-height: 1.2;
+      color: var(--primary-ink);
+    }
+
+    .card-body {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #4A4E4C;
+      font-weight: 400;
+    }
+
+    /* 5-Shot Sequence Horizontal Cards */
+    .sequence-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      width: 100%;
+    }
+
+    .sequence-card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 380px;
+      transition: var(--transition);
+    }
+
+    .sequence-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+      border-color: #BDBDB5;
+    }
+
+    .sequence-num {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .sequence-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      color: var(--primary-ink);
+    }
+
+    .sequence-desc {
+      font-size: 15px;
+      line-height: 1.55;
+      color: #4A4E4C;
+    }
+
+    .sequence-badge {
+      align-self: flex-start;
+      margin-top: 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: rgba(17, 19, 18, 0.06);
+      border: 1px solid rgba(17, 19, 18, 0.1);
+      color: var(--primary-ink);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Footer */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    .footer-link {
+      color: inherit;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .footer-link:hover {
+      opacity: 0.7;
+    }
+
+    .slide-counter {
+      font-weight: 500;
+    }
+
+    /* Slide 7 Intake Callout */
+    .intake-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .intake-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    .intake-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-4px);
+    }
+
+    .intake-badge {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #9BA19E;
+      margin-bottom: 8px;
+    }
+
+    .intake-title {
+      font-family: var(--font-display);
+      font-size: 30px;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+
+    .intake-desc {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #A6ACA9;
+    }
+
+    .intake-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 100px;
+      background: #FFFFFF;
+      color: var(--primary-ink);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .intake-btn:hover {
+      opacity: 0.92;
+      transform: scale(1.02);
+    }
+
+    /* Deck Navigation HUD */
+    .deck-controls {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(17, 19, 18, 0.88);
+      backdrop-filter: blur(12px);
+      padding: 10px 20px;
+      border-radius: 100px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 100;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 16px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .nav-indicator {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: #9BA19E;
+      min-width: 60px;
+      text-align: center;
+    }
+
+    .fs-btn {
+      margin-left: 8px;
+      font-size: 13px;
+      font-family: var(--font-mono);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 100px;
+      cursor: pointer;
+    }
+
+    /* Horizontal studio strip across desktop */
+    .studio-horizontal-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      padding: 10px 22px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: #D1D5D3;
+      white-space: nowrap;
+    }
+
+    .studio-horizontal-strip strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    /* Address Box: Desktop Horizontal vs Mobile Stacked */
+    .address-desktop {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 15px;
+      line-height: 1.5;
+      color: #A6ACA9;
+    }
+
+    .addr-line-desktop {
+      white-space: nowrap;
+      color: #D1D5D3;
+    }
+
+    .addr-line-desktop strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .address-mobile {
+      display: none;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       COMPREHENSIVE RESPONSIVENESS: TABLET & MOBILE (<= 1024px)
+       Sliding buttons (deck-controls) are strictly hidden on mobile/tablet.
+       Smooth touch swipe enables effortless slide switching.
+       ───────────────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      body {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: auto;
+        display: block;
+      }
+
+      .deck-viewport {
+        width: 100% !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: auto;
+        display: block;
+        position: relative;
+      }
+
+      .deck-stage {
+        width: 100% !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: auto !important;
+        transform: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        position: relative;
+        overflow: visible !important;
+      }
+
+      .slide {
+        position: relative !important;
+        inset: auto !important;
+        width: 100% !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: auto !important;
+        padding: 36px 28px 48px 28px !important;
+        display: none !important;
+        opacity: 0;
+        transform: none !important;
+        transition: opacity 0.3s ease;
+      }
+
+      .slide.active {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* Sliding controls strictly hidden on mobile & tablet */
+      .deck-controls {
+        display: none !important;
+      }
+
+      /* Inline mobile nav buttons in footer for mobile & tablet */
+      .mobile-nav-btn {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(17, 19, 18, 0.08);
+        border: 1px solid rgba(17, 19, 18, 0.15);
+        color: var(--primary-ink);
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.15s ease;
+        padding: 0;
+        line-height: 1;
+        margin: 0 4px;
+      }
+
+      .slide.dark-slide .mobile-nav-btn {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.2);
+        color: #FFFFFF;
+      }
+
+      .mobile-nav-btn:active {
+        transform: scale(0.92);
+        background: rgba(17, 19, 18, 0.18);
+      }
+
+      .slide.dark-slide .mobile-nav-btn:active {
+        background: rgba(255, 255, 255, 0.25);
+      }
+
+      .slide-counter {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+      }
+
+      .studio-horizontal-strip {
+        display: none !important;
+      }
+
+      .address-desktop {
+        display: none !important;
+      }
+
+      .address-mobile {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 4px !important;
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        color: #D1D5D3;
+      }
+
+      .addr-m-line.strong {
+        color: #FFFFFF;
+        font-weight: 600;
+      }
+
+      .top-header {
+        min-height: 52px !important;
+        margin-bottom: 28px !important;
+        gap: 12px !important;
+        width: 100% !important;
+      }
+
+      .header-logo {
+        width: 190px !important;
+        max-width: 190px !important;
+      }
+
+      .brand-sub {
+        font-size: 12px !important;
+        margin-top: 3px !important;
+      }
+
+      .header-glyph {
+        width: 32px !important;
+        max-width: 32px !important;
+      }
+
+      .category-badge {
+        font-size: 11px !important;
+        padding: 5px 12px !important;
+        max-width: 220px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+
+      .slide-body {
+        flex: 1;
+        padding: 16px 0 28px 0 !important;
+        justify-content: center !important;
+      }
+
+      .hero-eyebrow {
+        font-size: 13px !important;
+        letter-spacing: 2px !important;
+        margin-bottom: 14px !important;
+      }
+
+      .hero-title {
+        font-size: clamp(36px, 6.5vw, 54px) !important;
+        line-height: 1.12 !important;
+        margin-bottom: 18px !important;
+      }
+
+      .hero-subtitle {
+        font-size: clamp(24px, 4.5vw, 36px) !important;
+        margin-top: 6px !important;
+      }
+
+      .hero-tags {
+        gap: 10px !important;
+      }
+
+      .hero-tag {
+        font-size: 12px !important;
+        padding: 8px 16px !important;
+        white-space: normal !important;
+        text-align: center !important;
+      }
+
+      .section-title {
+        font-size: clamp(28px, 5.5vw, 42px) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 14px !important;
+      }
+
+      .lead-text {
+        font-size: clamp(16px, 3.5vw, 20px) !important;
+        line-height: 1.55 !important;
+        margin-bottom: 28px !important;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      .sequence-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+
+      .sequence-card {
+        min-height: 240px !important;
+        padding: 22px 18px !important;
+      }
+
+      .deck-card {
+        padding: 24px 20px !important;
+        gap: 12px !important;
+      }
+
+      .card-title {
+        font-size: 22px !important;
+      }
+
+      .card-body {
+        font-size: 16px !important;
+        line-height: 1.55 !important;
+      }
+
+      .intake-header-wrap {
+        margin-bottom: 24px !important;
+      }
+
+      .intake-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      .intake-card {
+        padding: 28px 22px !important;
+        gap: 20px !important;
+      }
+
+      .intake-title {
+        font-size: 26px !important;
+      }
+
+      .intake-btn {
+        width: 100% !important;
+        min-height: 48px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+      }
+
+      .slide-footer {
+        padding-top: 20px !important;
+        font-size: 13px !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .slide {
+        padding: 22px 18px 36px 18px !important;
+      }
+
+      .top-header {
+        margin-bottom: 20px !important;
+        gap: 8px !important;
+      }
+
+      .header-logo {
+        width: 140px !important;
+        max-width: 140px !important;
+      }
+
+      .brand-sub {
+        font-size: 11px !important;
+        margin-top: 2px !important;
+      }
+
+      .category-badge {
+        font-size: 10px !important;
+        padding: 4px 8px !important;
+        max-width: 135px !important;
+        letter-spacing: 0.5px !important;
+      }
+
+      .header-glyph {
+        width: 24px !important;
+        max-width: 24px !important;
+      }
+
+      .hero-eyebrow {
+        font-size: 11px !important;
+        letter-spacing: 1.5px !important;
+        margin-bottom: 10px !important;
+      }
+
+      .hero-title {
+        font-size: clamp(28px, 7.5vw, 36px) !important;
+        line-height: 1.15 !important;
+        margin-bottom: 14px !important;
+      }
+
+      .hero-subtitle {
+        font-size: clamp(18px, 5.5vw, 24px) !important;
+        margin-top: 4px !important;
+      }
+
+      .hero-tags {
+        gap: 8px !important;
+      }
+
+      .hero-tag {
+        font-size: 11px !important;
+        padding: 6px 12px !important;
+      }
+
+      .section-title {
+        font-size: clamp(24px, 6vw, 30px) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 12px !important;
+      }
+
+      .lead-text {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 22px !important;
+      }
+
+      .sequence-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+
+      .sequence-card {
+        min-height: auto !important;
+        padding: 20px 18px !important;
+      }
+
+      .sequence-title {
+        font-size: 20px !important;
+        margin-bottom: 8px !important;
+      }
+
+      .sequence-desc {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+      }
+
+      .sequence-badge {
+        margin-top: 14px !important;
+      }
+
+      .intake-header-wrap {
+        margin-bottom: 20px !important;
+      }
+
+      .intake-card {
+        padding: 22px 18px !important;
+      }
+
+      .intake-title {
+        font-size: 22px !important;
+      }
+
+      .slide-footer {
+        flex-direction: column !important;
+        gap: 8px !important;
+        text-align: center !important;
+        font-size: 11px !important;
+        padding-top: 16px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="deck-viewport">
+    <div class="deck-stage" id="deckStage">
+
+      <!-- SLIDE 1: TITLE & STRATEGIC OVERVIEW (DARK) -->
+      <div class="slide dark-slide active" data-slide="1">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo.png"
+                alt="D2C With AHrik" width="280"
+                style="display: block; border: 0; width: 280px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <div class="category-badge">Product 01.1 · Apparel Edition</div>
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-transparent.png"
+              alt="AHrik Glyph" width="44"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body" style="text-align: center; align-items: center;">
+          <div class="hero-eyebrow">
+            Fashion Drape &amp; Fit E-Commerce Staging
+          </div>
+          <h1 class="hero-title" style="max-width: 1400px;">
+            Catalog Images<span class="hero-subtitle">Apparel &amp; Fashion Edition</span>
+          </h1>
+          <p class="lead-text" style="text-align: center; max-width: 950px;">
+            Transforming flat-lays and ghost mannequins into photorealistic model photoshoots, true-to-life fabric drape galleries, and fit benchmarks in 72 hours.
+          </p>
+          <div class="hero-tags">
+            <span class="hero-tag">01. Dynamic Model Posing</span>
+            <span class="hero-tag">02. Micro-Thread Textile Physics</span>
+            <span class="hero-tag">03. 5-Shot Fit Sequence</span>
+            <span class="hero-tag">04. 72-Hour Free Pilot</span>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <a href="https://d2c-with-ahrik.appmarkit.com" target="_blank" rel="noopener noreferrer" class="footer-link">D2C With AHrik · Product 01.1: Catalog Images (Apparel)</a>
+          <div class="slide-counter">
+            <button class="mobile-nav-btn prev" onclick="prevSlide()" aria-label="Previous Slide">&larr;</button>
+            <span class="slide-counter-num">01 / 07</span>
+            <button class="mobile-nav-btn next" onclick="nextSlide()" aria-label="Next Slide">&rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: THE INDUSTRY BOTTLENECK (LIGHT) -->
+      <div class="slide" data-slide="2">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="280"
+                style="display: block; border: 0; width: 280px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <div class="category-badge">The Fashion Friction</div>
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="44"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">Fashion Photoshoots Are The Greatest Margin Drain</h2>
+          <p class="lead-text">Model casting agency fees, hair/makeup teams, and high e-commerce return rates due to inaccurate garment fit erode fashion profitability.</p>
+          <div class="grid-3">
+            <div class="deck-card">
+              <div class="card-label">FRICTION 01</div>
+              <div class="card-title">Casting &amp; Model Fees</div>
+              <div class="card-body">
+                Booking human models, makeup stylists, and studio space costs $15,000+ per collection. Re-shoots for late-arriving samples or sizing revisions double the expense.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-label">FRICTION 02</div>
+              <div class="card-title">The 30%+ Sizing Return Crisis</div>
+              <div class="card-body">
+                Static ghost mannequin shots fail to show how fabric moves, falls, and fits real human anatomy. Customers buy two sizes and return one, devastating profit margins.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-label">FRICTION 03</div>
+              <div class="card-title">Colorway Explosion Overhead</div>
+              <div class="card-body">
+                Shooting 8 color variants of a linen shirt traditionally requires 8 separate photo setups. Brands either blow their budget or show cheap digital color tints that look fake.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <a href="https://d2c-with-ahrik.appmarkit.com" target="_blank" rel="noopener noreferrer" class="footer-link">D2C With AHrik · Product 01.1: Catalog Images (Apparel)</a>
+          <div class="slide-counter">
+            <button class="mobile-nav-btn prev" onclick="prevSlide()" aria-label="Previous Slide">&larr;</button>
+            <span class="slide-counter-num">02 / 07</span>
+            <button class="mobile-nav-btn next" onclick="nextSlide()" aria-label="Next Slide">&rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: STRATEGIC METHODOLOGY (LIGHT) -->
+      <div class="slide" data-slide="3">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="280"
+                style="display: block; border: 0; width: 280px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <div class="category-badge">Apparel Methodology</div>
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="44"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">The Drape, Fit &amp; Diversity Engine</h2>
+          <p class="lead-text">We combine high-resolution 3D garment mesh extraction with neural diffusion to recreate exact textile drape across diverse model archetypes.</p>
+          <div class="grid-2">
+            <div class="deck-card">
+              <div class="card-label">PILLAR 01</div>
+              <div class="card-title">Diverse Model Posing with Zero Casting Fees</div>
+              <div class="card-body">
+                Generate high-end fashion models across body types, heights, and ethnicities matching your target audience demographics. Complete consistency across seasonal lookbooks and PDP collections with zero recurring talent licensing rights.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-label">PILLAR 02</div>
+              <div class="card-title">Authentic Textile Physics &amp; Wrinkle Flow</div>
+              <div class="card-body">
+                Our rendering pipeline models true weight, stiffness, and elasticity—from heavy 400 GSM loopback cotton fleece to sheer mulberry silk. Creases, stitching tensions, and seam curves conform naturally to movement.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <a href="https://d2c-with-ahrik.appmarkit.com" target="_blank" rel="noopener noreferrer" class="footer-link">D2C With AHrik · Product 01.1: Catalog Images (Apparel)</a>
+          <div class="slide-counter">
+            <button class="mobile-nav-btn prev" onclick="prevSlide()" aria-label="Previous Slide">&larr;</button>
+            <span class="slide-counter-num">03 / 07</span>
+            <button class="mobile-nav-btn next" onclick="nextSlide()" aria-label="Next Slide">&rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 4: THE 5-SHOT SEQUENCE (LIGHT) -->
+      <div class="slide" data-slide="4">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="280"
+                style="display: block; border: 0; width: 280px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <div class="category-badge">Apparel Blueprint</div>
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="44"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">The 5-Shot Apparel PDP Sequence That Cuts Returns</h2>
+          <p class="lead-text">Engineered to answer every buyer question regarding silhouette, stretch, drape, texture, and size proportions before they checkout.</p>
+          <div class="sequence-grid">
+            <div class="sequence-card">
+              <div>
+                <div class="sequence-num">SHOT 01</div>
+                <div class="sequence-title">Full Silhouette Hero</div>
+                <div class="sequence-desc">Front-facing relaxed editorial pose establishing overall garment silhouette, true torso length, and shoulder drape.</div>
+              </div>
+              <div class="sequence-badge">Collection Hero</div>
+            </div>
+            <div class="sequence-card">
+              <div>
+                <div class="sequence-num">SHOT 02</div>
+                <div class="sequence-title">45° Dynamic Turn</div>
+                <div class="sequence-desc">Walking or slight profile posture showcasing garment depth, armhole cut, pocket placement, and hem drop.</div>
+              </div>
+              <div class="sequence-badge">Movement Fit</div>
+            </div>
+            <div class="sequence-card">
+              <div>
+                <div class="sequence-num">SHOT 03</div>
+                <div class="sequence-title">Back Architecture</div>
+                <div class="sequence-desc">Clean rear view highlighting yoke stitching, shoulder blade drape, spine contouring, and back pocket alignment.</div>
+              </div>
+              <div class="sequence-badge">Tailoring Proof</div>
+            </div>
+            <div class="sequence-card">
+              <div>
+                <div class="sequence-num">SHOT 04</div>
+                <div class="sequence-title">4K Fabric &amp; Weave</div>
+                <div class="sequence-desc">Extreme zoom on textile weave, horn buttons, collar interfacing, seam stitching, or embroidery detail.</div>
+              </div>
+              <div class="sequence-badge">Textile Proof</div>
+            </div>
+            <div class="sequence-card">
+              <div>
+                <div class="sequence-num">SHOT 05</div>
+                <div class="sequence-title">Editorial Lookbook</div>
+                <div class="sequence-desc">Complete styled outfit in an architectural setting, boosting average order value through complementary item pairing.</div>
+              </div>
+              <div class="sequence-badge">AOV Elevation</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <a href="https://d2c-with-ahrik.appmarkit.com" target="_blank" rel="noopener noreferrer" class="footer-link">D2C With AHrik · Product 01.1: Catalog Images (Apparel)</a>
+          <div class="slide-counter">
+            <button class="mobile-nav-btn prev" onclick="prevSlide()" aria-label="Previous Slide">&larr;</button>
+            <span class="slide-counter-num">04 / 07</span>
+            <button class="mobile-nav-btn next" onclick="nextSlide()" aria-label="Next Slide">&rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 5: TECHNICAL FIDELITY & STANDARDS (LIGHT) -->
+      <div class="slide" data-slide="5">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="280"
+                style="display: block; border: 0; width: 280px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <div class="category-badge">Textile Rigor</div>
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="44"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">Fabric Rigor &amp; Enterprise Export Standards</h2>
+          <p class="lead-text">Calibrated to capture tactile fabric qualities and true-to-swatch dye tones across all customer screens.</p>
+          <div class="grid-3">
+            <div class="deck-card">
+              <div class="card-label">BENCHMARK 01</div>
+              <div class="card-title">Thread-Level Weave Clarity</div>
+              <div class="card-body">
+                Master rendering at 4000×5000px captures twill angles, rib-knit tension, and raw denim slub with zero edge blurring during customer deep-zoom.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-label">BENCHMARK 02</div>
+              <div class="card-title">Delta-E &lt; 1.0 Dye Accuracy</div>
+              <div class="card-body">
+                Rigorous digital color calibration matching actual physical fabric swatches, preventing "color mismatch" customer disappointment upon delivery.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-label">BENCHMARK 03</div>
+              <div class="card-title">Omnichannel Multi-Crop</div>
+              <div class="card-body">
+                Delivered in synchronized ratios: 1:1 square for Shopify collection grids, 3:4 portrait for PDP galleries, and 9:16 vertical for Meta Instagram lookbooks.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <a href="https://d2c-with-ahrik.appmarkit.com" target="_blank" rel="noopener noreferrer" class="footer-link">D2C With AHrik · Product 01.1: Catalog Images (Apparel)</a>
+          <div class="slide-counter">
+            <button class="mobile-nav-btn prev" onclick="prevSlide()" aria-label="Previous Slide">&larr;</button>
+            <span class="slide-counter-num">05 / 07</span>
+            <button class="mobile-nav-btn next" onclick="nextSlide()" aria-label="Next Slide">&rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 6: THE FREE-WILL TESTING MODEL (LIGHT) -->
+      <div class="slide" data-slide="6">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="280"
+                style="display: block; border: 0; width: 280px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <div class="category-badge">Zero-Risk Trial</div>
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="44"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">The Single-Garment Pilot: Proof Before Contract</h2>
+          <p class="lead-text">Experience the difference on your hero garment before committing to an entire seasonal collection.</p>
+          <div class="grid-3">
+            <div class="deck-card">
+              <div class="card-label">STEP 01</div>
+              <div class="card-title">1 Hero SKU Intake</div>
+              <div class="card-body">
+                Send 1 garment sample (shirt, dress, trouser, or jacket) to our studio, or provide high-res ghost mannequin flat-lay photos with your fabric specs.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-label">STEP 02</div>
+              <div class="card-title">72-Hour Delivery SLA</div>
+              <div class="card-body">
+                Within 72 business hours, receive the complete 5-shot high-resolution PDP sequence staged on the model archetype of your brand's choice.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-label">STEP 03</div>
+              <div class="card-title">Full Commercial IP</div>
+              <div class="card-body">
+                Test the visuals directly on your live Shopify/WooCommerce store. You own 100% of the commercial rights with zero recurring model royalties.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <a href="https://d2c-with-ahrik.appmarkit.com" target="_blank" rel="noopener noreferrer" class="footer-link">D2C With AHrik · Product 01.1: Catalog Images (Apparel)</a>
+          <div class="slide-counter">
+            <button class="mobile-nav-btn prev" onclick="prevSlide()" aria-label="Previous Slide">&larr;</button>
+            <span class="slide-counter-num">06 / 07</span>
+            <button class="mobile-nav-btn next" onclick="nextSlide()" aria-label="Next Slide">&rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 7: INTAKE & ACTION (DARK) -->
+      <div class="slide dark-slide" data-slide="7">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo.png"
+                alt="D2C With AHrik" width="280"
+                style="display: block; border: 0; width: 280px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <div class="category-badge">Direct Intake</div>
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-transparent.png"
+              alt="AHrik Glyph" width="44"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body" style="justify-content: center;">
+          <div class="intake-header-wrap">
+            <div class="hero-eyebrow" style="color: #9BA19E; margin-bottom: 14px;">
+              Ready to Upgrade Your Fashion Storefront?
+            </div>
+            <h2 class="hero-title" style="margin-bottom: 16px;">Dispatch Your Garment Today</h2>
+            <p class="lead-text" style="margin-bottom: 0;">Choose the direct channel that fits your workflow. 72-hour turnaround upon sample receipt.</p>
+            <div class="studio-horizontal-strip">
+              <span style="font-size: 15px;">📍</span>
+              <span><strong>D2C With AHrik Studio</strong> · Vishakha Park Society, Dhiru Bhai Wari · Vijalpor Road, Navsari, 396445 · Surat, Gujarat, India</span>
+            </div>
+          </div>
+
+          <div class="intake-grid">
+            <div class="intake-card">
+              <div>
+                <div class="intake-badge">Option 01 · Physical Sample</div>
+                <div class="intake-title">Studio Dispatch</div>
+                <div class="intake-desc" id="studioAddressApparel">
+                  <div class="address-desktop">
+                    <div class="addr-line-desktop"><strong>D2C With AHrik Studio</strong> · Vishakha Park Society, Dhiru Bhai Wari</div>
+                    <div class="addr-line-desktop">Vijalpor Road, Navsari, 396445 · Surat, Gujarat, India</div>
+                  </div>
+                  <div class="address-mobile">
+                    <div class="addr-m-line strong">D2C With AHrik Studio</div>
+                    <div class="addr-m-line">Vishakha Park Society, Dhiru Bhai Wari</div>
+                    <div class="addr-m-line">Vijalpor Road, Navsari, 396445</div>
+                    <div class="addr-m-line">Surat, Gujarat, India</div>
+                  </div>
+                </div>
+              </div>
+              <button class="intake-btn" id="copyAddrApparelBtn" onclick="copyAddressApparel()">Copy Studio Address</button>
+            </div>
+
+            <div class="intake-card">
+              <div>
+                <div class="intake-badge">Option 02 · WhatsApp Direct</div>
+                <div class="intake-title">Instant Chat</div>
+                <div class="intake-desc">
+                  Send your ghost mannequin photos or phone snapshots directly to our team on WhatsApp for same-day feasibility review.
+                </div>
+              </div>
+              <a href="https://wa.me/919426553015?text=Hi%20AHrik,%20interested%20in%20the%20Apparel%20Catalog%20Images%20Pilot%20[01.1-Apparel]." target="_blank" rel="noopener noreferrer" class="intake-btn">
+                Chat on WhatsApp (+91 94265 53015) &rarr;
+              </a>
+            </div>
+
+            <div class="intake-card">
+              <div>
+                <div class="intake-badge">Option 03 · Digital Upload</div>
+                <div class="intake-title">Email Intake</div>
+                <div class="intake-desc">
+                  Email high-res flat-lay images, tech packs, or lookbook moodboards directly to our production engineers.
+                </div>
+              </div>
+              <a href="mailto:d2cwithahrik@gmail.com?subject=Apparel%20Catalog%20Images%20Pilot%20Intake&body=Hi%20AHrik%20Team,%0A%0AWe%20would%20like%20to%20pilot%201%20apparel%20SKU%20for%20Catalog%20Images.%0A%0ABrand%20Name:%20%0AGarment%20Type:%20%0AStorefront%20URL:%20" class="intake-btn">
+                Email d2cwithahrik@gmail.com &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <a href="https://d2c-with-ahrik.appmarkit.com" target="_blank" rel="noopener noreferrer" class="footer-link">D2C With AHrik · Product 01.1: Catalog Images (Apparel)</a>
+          <div class="slide-counter">
+            <button class="mobile-nav-btn prev" onclick="prevSlide()" aria-label="Previous Slide">&larr;</button>
+            <span class="slide-counter-num">07 / 07</span>
+            <button class="mobile-nav-btn next" onclick="nextSlide()" aria-label="Next Slide">&rarr;</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DECK CONTROLS (HUD - shown only on desktop) -->
+  <div class="deck-controls">
+    <button class="nav-btn" id="prevBtn" title="Previous Slide (Left Arrow)">&larr;</button>
+    <div class="nav-indicator" id="navIndicator">01 / 07</div>
+    <button class="nav-btn" id="nextBtn" title="Next Slide (Right Arrow)">&rarr;</button>
+    <button class="fs-btn" id="fsBtn" title="Toggle Fullscreen (F)">Fullscreen</button>
+  </div>
+
+  <script>
+    (function () {
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const totalSlides = slides.length;
+      let currentIndex = 0;
+      const stage = document.getElementById('deckStage');
+      const indicator = document.getElementById('navIndicator');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const fsBtn = document.getElementById('fsBtn');
+
+      // Auto-scale presentation stage to fit viewport maintaining 16:9 ratio on desktop only
+      function resizeDeck() {
+        if (!stage) return;
+        if (window.innerWidth <= 1024) {
+          stage.style.transform = 'none';
+          return;
+        }
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const targetW = 1920;
+        const targetH = 1080;
+        const scale = Math.min(vw / targetW, vh / targetH) * 0.96;
+        stage.style.transform = `scale(${scale})`;
+      }
+
+      window.addEventListener('resize', resizeDeck);
+      window.addEventListener('DOMContentLoaded', resizeDeck);
+      resizeDeck();
+
+      function showSlide(index) {
+        if (index < 0) index = 0;
+        if (index >= totalSlides) index = totalSlides - 1;
+        currentIndex = index;
+
+        slides.forEach((s, i) => {
+          s.classList.toggle('active', i === currentIndex);
+        });
+
+        const padCurrent = String(currentIndex + 1).padStart(2, '0');
+        const padTotal = String(totalSlides).padStart(2, '0');
+        if (indicator) {
+          indicator.textContent = `${padCurrent} / ${padTotal}`;
+        }
+
+        const allCounterNums = document.querySelectorAll('.slide-counter-num');
+        allCounterNums.forEach(span => {
+          span.textContent = `${padCurrent} / ${padTotal}`;
+        });
+
+        // Smooth reset scroll position on mobile when changing slides
+        if (window.innerWidth <= 1024) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+
+      function nextSlide() {
+        if (currentIndex < totalSlides - 1) {
+          showSlide(currentIndex + 1);
+        }
+      }
+
+      function prevSlide() {
+        if (currentIndex > 0) {
+          showSlide(currentIndex - 1);
+        }
+      }
+
+      window.showSlide = showSlide;
+      window.nextSlide = nextSlide;
+      window.prevSlide = prevSlide;
+
+      if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+      if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+      // Keyboard Navigation
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+          e.preventDefault();
+          nextSlide();
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault();
+          prevSlide();
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          showSlide(0);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          showSlide(totalSlides - 1);
+        } else if (e.key === 'f' || e.key === 'F') {
+          toggleFullscreen();
+        }
+      });
+
+      // Touch / Swipe Navigation for Mobile & Tablet with scroll protection
+      let touchStartX = 0;
+      let touchStartY = 0;
+      window.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+
+      window.addEventListener('touchend', (e) => {
+        const diffX = e.changedTouches[0].screenX - touchStartX;
+        const diffY = e.changedTouches[0].screenY - touchStartY;
+        // Only trigger horizontal slide turn when horizontal gesture dominates vertical scroll
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+          if (diffX < 0) nextSlide();
+          else prevSlide();
+        }
+      }, { passive: true });
+
+      // Fullscreen Toggle
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        } else {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+      if (fsBtn) fsBtn.addEventListener('click', toggleFullscreen);
+
+      window.copyAddressApparel = function() {
+        const addr = "D2C With AHrik Studio, Vishakha Park Society, Dhiru Bhai Wari, Vijalpor Road, Navsari, 396445, Surat, Gujarat, India";
+        navigator.clipboard.writeText(addr).then(() => {
+          const btn = document.getElementById('copyAddrApparelBtn');
+          if (btn) {
+            btn.textContent = "Address Copied!";
+            setTimeout(() => { btn.textContent = "Copy Studio Address"; }, 2500);
+          }
+        });
+      };
+
+      showSlide(0);
+    })();
+  </script>
+</body>
+</html>

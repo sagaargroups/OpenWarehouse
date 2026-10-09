@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D2C With AHrik — Master 16:9 Slide Shell (Light)</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --bg: #F4F4F1;
+      --surface: #FFFFFF;
+      --ink: #111312;
+      --ink-muted: #6E7270;
+      --rule: #E3E3DE;
+      --accent: #111312;
+      --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    body {
+      background: #E8E8E4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: var(--font-display);
+      -webkit-font-smoothing: antialiased;
+      padding: 24px;
+    }
+    .slide-canvas {
+      width: 1280px;
+      height: 720px;
+      aspect-ratio: 16 / 9;
+      background: var(--bg);
+      color: var(--ink);
+      padding: 48px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+      position: relative;
+    }
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 20px;
+    }
+    .brand-lockup {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .brand-logo {
+      height: 28px;
+      width: auto;
+    }
+    .brand-sub {
+      font-size: 13px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--ink-muted);
+    }
+    .slide-category {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 6px 14px;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 100px;
+      color: var(--ink);
+    }
+    .header-glyph {
+      height: 38px;
+      width: auto;
+    }
+    .slide-body {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      padding: 24px 0;
+    }
+    .col-left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .slide-title {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+    }
+    .slide-desc {
+      font-size: 16px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+    .col-right {
+      height: 100%;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 1px;
+      padding: 32px;
+      text-align: center;
+    }
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--rule);
+      padding-top: 16px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide-canvas">
+    <header class="slide-header">
+      <div class="brand-lockup">
+        <img class="brand-logo" src="../../LOGO/assets/header-logo.svg" alt="D2C With AHrik">
+        <span class="brand-sub">Digital Agency</span>
+      </div>
+      <div class="slide-category">Mono-Craft v1 · Master Deck</div>
+      <img class="header-glyph" src="../../../../../public/brand/2d-glyph-dark-transparent.png" alt="AHrik Glyph">
+    </header>
+
+    <main class="slide-body">
+      <div class="col-left">
+        <h1 class="slide-title">Master Presentation Slide Title</h1>
+        <p class="slide-desc">High-impact 16:9 presentation slide layout engineered for commercial boardrooms, investor reviews, and institutional discovery pitches.</p>
+      </div>
+      <div class="col-right">
+        [ MODULAR PRESENTATION ASSET / KPI METRIC CONTAINER ]
+      </div>
+    </main>
+
+    <footer class="slide-footer">
+      <span>D2C With AHrik · Commercial Presentation</span>
+      <span>Confidential & Proprietary</span>
+      <span>Slide 01 / 10</span>
+    </footer>
+  </div>
+</body>
+</html>

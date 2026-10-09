@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>D2C With AHrik — Outreach Template</title>
+
+  <!-- Google Fonts: Gloock (Display) + Outfit (Body) + JetBrains Mono (Code/Badges) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=JetBrains+Mono:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─────────────────────────────────────────────────────────────
+       D2C With AHrik — Mono-Craft Universal Outreach Layout
+       Single-Glance Screen: 16:9 Banner (35%) + Message Body (65%)
+       Fits comfortably on mobile screens without scrolling.
+       ───────────────────────────────────────────────────────────── */
+    :root {
+      --canvas: #ECECE9;
+      --surface: #F4F4F1;
+      --surface-card: #FFFFFF;
+      --ink: #111312;
+      --ink-muted: #6E7270;
+      --rule: #E3E3DE;
+      --radius: 14px;
+      --font-display: "Gloock", Georgia, serif;
+      --font-body: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .outreach-container {
+      width: 100%;
+      max-width: 620px;
+      background: var(--surface-card);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 20px 40px -15px rgba(17, 19, 18, 0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── Top Banner Card ─── */
+    .banner-section {
+      width: 100%;
+      background: var(--surface);
+      border-bottom: 1px solid var(--rule);
+      padding: clamp(24px, 5vw, 36px) clamp(20px, 4vw, 32px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(24px, 5vw, 36px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--ink);
+    }
+
+    .banner-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .banner-meta {
+      display: flex;
+      align-items: center;
+    }
+
+    .direct-tag {
+      font-family: var(--font-mono);
+      font-size: clamp(9.5px, 1.2vw, 11px);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: rgba(17, 19, 18, 0.06);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(17, 19, 18, 0.08);
+      white-space: nowrap;
+    }
+
+    .wordmark-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      line-height: 0;
+    }
+
+    .wordmark__logo {
+      width: clamp(150px, 28vw, 220px);
+      height: auto;
+      aspect-ratio: 1331 / 118;
+      object-fit: contain;
+      display: block;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .wordmark-link:hover .wordmark__logo {
+      opacity: 0.88;
+      transform: scale(1.015);
+    }
+
+    .banner-center-row {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .banner-headline {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 4.4vw, 32px);
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      max-width: 520px;
+    }
+
+    /* ─── Remaining 65%: Clean Outreach Content ─── */
+    .message-section {
+      padding: clamp(20px, 4vw, 32px);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      background: var(--surface-card);
+    }
+
+    .intro-paragraph {
+      font-size: clamp(14px, 2.2vw, 16px);
+      line-height: 1.45;
+      color: var(--ink);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .services-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+
+    .services-header {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: var(--font-mono);
+    }
+
+    .services-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-card {
+      background: var(--surface-card);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .service-card:hover {
+      border-color: rgba(17, 19, 18, 0.22);
+      transform: translateY(-1px);
+    }
+
+    .service-card-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-tag {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--ink);
+      background: var(--surface);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid var(--rule);
+      line-height: 1.2;
+    }
+
+    .service-title {
+      font-size: clamp(13.5px, 2vw, 14.5px);
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    .service-desc {
+      font-size: clamp(12px, 1.8vw, 13px);
+      line-height: 1.4;
+      color: var(--ink-muted);
+      padding-left: 2px;
+    }
+
+    /* ─── Direct Contact & Sales CTA Row ─── */
+    .cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .cta-label {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .cta-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 14px;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.15s ease, border-color 0.15s ease;
+      font-family: var(--font-mono);
+      letter-spacing: -0.01em;
+    }
+
+    .btn-whatsapp {
+      background: var(--ink);
+      color: #FFFFFF;
+      border: 1px solid var(--ink);
+    }
+
+    .btn-whatsapp:hover {
+      background: #232725;
+    }
+
+    .btn-email {
+      background: var(--surface);
+      color: var(--ink);
+      border: 1px solid var(--rule);
+    }
+
+    .btn-email:hover {
+      background: #EAEAE6;
+    }
+
+    @media (max-width: 480px) {
+      .cta-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .cta-links {
+        width: 100%;
+      }
+      .btn-action {
+        flex: 1;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="outreach-container">
+    
+    <!-- Top Banner Card -->
+    <div class="banner-section">
+      <div class="banner-top-row">
+        <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+          <img src="../../LOGO/assets/header-logo.svg" alt="D2C With AHrik" class="wordmark__logo" />
+        </a>
+        <div class="banner-meta">
+          <span class="direct-tag">Digital Agency</span>
+        </div>
+      </div>
+
+      <div class="banner-center-row">
+        <h1 class="banner-headline">Connect your customers direct with our services.</h1>
+      </div>
+    </div>
+
+    <!-- Clean Outreach Content Body -->
+    <div class="message-section">
+      
+      <div class="services-block">
+        <div class="services-header">How we help you grow:</div>
+        <div class="services-cards">
+          <div class="service-card">
+            <div class="service-card-top">
+              <span class="service-tag">01</span>
+              <span class="service-title">Visual Production</span>
+            </div>
+            <p class="service-desc">AI product photo &amp; video shoots for catalogs and ads.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-card-top">
+              <span class="service-tag">02</span>
+              <span class="service-title">Online Presence</span>
+            </div>
+            <p class="service-desc">High-converting websites, platforms &amp; brand presence.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-card-top">
+              <span class="service-tag">03</span>
+              <span class="service-title">Customer Acquisition</span>
+            </div>
+            <p class="service-desc">Targeted ad creatives &amp; direct buyer funnels that convert.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final Call to Action Line -->
+      <div class="cta-row">
+        <span class="cta-label">Talk to Sales (24/7):</span>
+        <div class="cta-links">
+          <a href="https://wa.me/919426553015" target="_blank" rel="noopener noreferrer" class="btn-action btn-whatsapp">WhatsApp</a>
+          <a href="mailto:hello@d2cwith.ahrik.com" class="btn-action btn-email">Email</a>
+        </div>
+      </div>
+
+    </div>
+
+  <!-- Sovereign 1x1 Transparent Open Tracking Pixel -->
+  <img src="https://d2cwith.ahrik.com/api/track/open.png?cid=01-universal-awareness&src=outreach_template" width="1" height="1" border="0" style="display:none;width:1px;height:1px;max-height:1px;opacity:0;" alt="" />
+</body>
+</html>

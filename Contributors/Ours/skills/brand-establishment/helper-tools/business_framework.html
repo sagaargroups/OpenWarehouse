@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Business Decision Framework - Think Tank System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .framework-container {
+            padding: 30px;
+        }
+        
+        .phase-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 20px;
+            margin: 20px 0 10px 0;
+            border-radius: 8px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .phase-header:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .phase-header .toggle {
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+        
+        .phase-header.collapsed .toggle {
+            transform: rotate(-90deg);
+        }
+        
+        .phase-content {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin-left: 10px;
+            margin-bottom: 20px;
+            max-height: 5000px;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+        }
+        
+        .phase-content.collapsed {
+            max-height: 0;
+            opacity: 0;
+        }
+        
+        .strategy-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .strategy-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .strategy-card.strategy1 {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .strategy-card.strategy2 {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        
+        .strategy-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+        }
+        
+        .business-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .business-item:hover {
+            border-left-width: 8px;
+            padding-left: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .business-item h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .business-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .business-details.expanded {
+            max-height: 2000px;
+            margin-top: 10px;
+        }
+        
+        .step-section {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 3px solid #28a745;
+        }
+        
+        .step-section h5 {
+            color: #28a745;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .assessment-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .assessment-item label {
+            display: block;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        
+        .assessment-item input,
+        .assessment-item select,
+        .assessment-item textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .score-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        
+        .priority-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .priority-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 5px solid #ffc107;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .priority-item .number {
+            background: #ffc107;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .connection-map {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px dashed #667eea;
+            margin: 20px 0;
+        }
+        
+        .connection-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            background: #f0f4ff;
+            border-radius: 6px;
+        }
+        
+        .connection-arrow {
+            margin: 0 15px;
+            font-size: 1.5em;
+            color: #667eea;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-add {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        
+        .btn-export {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .input-group {
+            margin: 15px 0;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .input-group input:focus,
+        .input-group textarea:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+            margin: 20px 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 20px 20px 20px 60px;
+            margin: 20px 0;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: -20px;
+            width: 3px;
+            background: #667eea;
+        }
+        
+        .timeline-item::after {
+            content: attr(data-year);
+            position: absolute;
+            left: 0;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .timeline-item:last-child::before {
+            display: none;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .ecosystem-view {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .ecosystem-layer {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #667eea;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 3px;
+        }
+        
+        .tag.strategy1 {
+            background: #11998e;
+        }
+        
+        .tag.strategy2 {
+            background: #f5576c;
+        }
+        
+        .collapse-all-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .collapse-all-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Ultimate Business Decision Framework</h1>
+            <p>Think Tank Department - Strategic Business Ecosystem Builder</p>
+        </div>
+        
+        <div class="framework-container">
+            
+            <!-- PHASE 1: DEEP EXPLORATION -->
+            <div class="phase-header" onclick="togglePhase('phase1')">
+                <span>PHASE 1: DEEP EXPLORATION (Store Knowledge)</span>
+                <span class="toggle">▼</span>
+            </div>
+            <div id="phase1" class="phase-content">
+                <p style="margin: 15px 0; color: #666; font-style: italic;">Research and document all possible business opportunities across both decision strategies. Build comprehensive knowledge base.</p>
+                
+                <div class="strategy-section">
+                    <!-- STRATEGY 1: SERVE EXISTING DEMAND -->
+                    <div class="strategy-card strategy1">
+                        <h3>📊 STRATEGY 1: Serve Existing Demand</h3>
+                        <p style="margin-bottom: 15px; color: #555;">Data-based decisions • Proven markets • Lower risk</p>
+                        
+                        <button class="btn btn-add" onclick="addBusiness('strategy1')">+ Add Business Idea</button>
+                        
+                        <div id="strategy1-businesses">
+                            <!-- Business items will be added here -->
+                        </div>
+                    </div>
+                    
+                    <!-- STRATEGY 2: CREATE NEW MARKET -->
+                    <div class="strategy-card strategy2">
+                        <h3>🚀 STRATEGY 2: Create New Market</h3>
+                        <p style="margin-bottom: 15px; color: #555;">Psychology-based • Market creation • Higher risk</p>
+                        
+                        <button class="btn btn-add" onclick="addBusiness('strategy2')">+ Add Business Idea</button>
+                        
+                        <div id="strategy2-businesses">
+                            <!-- Business items will be added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PHASE 2: SELF-ASSESSMENT -->
+            <div class="phase-header" onclick="togglePhase('phase2')">
+                <span>PHASE 2: SELF-ASSESSMENT (Fold & Assess)</span>
+                <span class="toggle">▼</span>
+            </div>
+            <div id="phase2" class="phase-content">
+                <p style="margin: 15px 0; color: #666; font-style: italic;">Before looking at opportunities, honestly assess your current state. This determines which opportunities are realistic.</p>
+                
+                <div class="assessment-grid">
+                    <div class="assessment-item">
+                        <label>💰 Capital Available</label>
+                        <input type="text" id="capital" placeholder="e.g., ₹5,00,000">
+                    </div>
+                    
+                    <div class="assessment-item">
+                        <label>⏱️ Timeline (months before need income)</label>
+                        <input type="number" id="timeline" placeholder="e.g., 6">
+                    </div>
+                    
+                    <div class="assessment-item">
+                        <label>🎯 Core Skills</label>
+                        <textarea id="skills" rows="3" placeholder="List your actual skills (not what you want to learn)"></textarea>
+                    </div>
+                    
+                    <div class="assessment-item">
+                        <label>⚠️ Risk Tolerance</label>
+                        <select id="risk">
+                            <option value="">Select...</option>
+                            <option value="low">Low - Cannot afford failure</option>
+                            <option value="medium">Medium - Some cushion available</option>
+                            <option value="high">High - Can afford multiple failures</option>
+                        </select>
+                    </div>
+                    
+                    <div class="assessment-item">
+                        <label>🌐 Network Strength</label>
+                        <select id="network">
+                            <option value="">Select...</option>
+                            <option value="weak">Weak - Starting from scratch</option>
+                            <option value="medium">Medium - Some connections</option>
+                            <option value="strong">Strong - Well connected</option>
+                        </select>
+                    </div>
+                    
+                    <div class="assessment-item">
+                        <label>📍 Location</label>
+                        <input type="text" id="location" placeholder="e.g., Bangalore (Tier-1)">
+                    </div>
+                    
+                    <div class="assessment-item">
+                        <label>📈 Experience Stage</label>
+                        <select id="stage">
+                            <option value="">Select...</option>
+                            <option value="beginner">Beginner - No business before</option>
+                            <option value="intermediate">Intermediate - Some experience</option>
+                            <option value="expert">Expert - Multiple businesses</option>
+                        </select>
+                    </div>
+                    
+                    <div class="assessment-item">
+                        <label>💪 Energy/Health State</label>
+                        <select id="energy">
+                            <option value="">Select...</option>
+                            <option value="low">Low - Limited capacity</option>
+                            <option value="medium">Medium - Normal capacity</option>
+                            <option value="high">High - Can work intensely</option>
+                        </select>
+                    </div>
+                    
+                    <div class="assessment-item">
+                        <label>🎯 True Motivation</label>
+                        <textarea id="motivation" rows="3" placeholder="Why are you really doing this? Be honest."></textarea>
+                    </div>
+                    
+                    <div class="assessment-item">
+                        <label>🚧 Constraints/Obligations</label>
+                        <textarea id="constraints" rows="3" placeholder="Family, debt, health issues, etc."></textarea>
+                    </div>
+                </div>
+                
+                <button class="btn" onclick="calculateReadiness()">Calculate Readiness Score</button>
+                
+                <div id="readiness-score" class="score-display" style="display: none;">
+                    <div>Your Readiness Score: <span id="score-value">0</span>/50</div>
+                    <div id="score-interpretation" style="font-size: 0.7em; margin-top: 10px;"></div>
+                </div>
+            </div>
+            
+            <!-- PHASE 3: PRIORITY & DEEP STRUCTURE -->
+            <div class="phase-header" onclick="togglePhase('phase3')">
+                <span>PHASE 3: PRIORITY & KNOWLEDGE STRUCTURE (Per Business)</span>
+                <span class="toggle">▼</span>
+            </div>
+            <div id="phase3" class="phase-content">
+                <p style="margin: 15px 0; color: #666; font-style: italic;">For each prioritized business, build complete operational knowledge in three steps.</p>
+                
+                <div id="priority-businesses">
+                    <p style="text-align: center; color: #999; padding: 40px;">Add business ideas in Phase 1 and complete assessment in Phase 2 to see prioritized structure here.</p>
+                </div>
+            </div>
+            
+            <!-- PHASE 4: LONG-TERM CONSTITUTION -->
+            <div class="phase-header" onclick="togglePhase('phase4')">
+                <span>PHASE 4: LONG-TERM CONSTITUTION (Life Blueprint)</span>
+                <span class="toggle">▼</span>
+            </div>
+            <div id="phase4" class="phase-content">
+                <p style="margin: 15px 0; color: #666; font-style: italic;">Create multi-year plan showing when to execute which business based on chicken-and-egg dependencies and assessment state.</p>
+                
+                <div class="timeline" id="timeline-container">
+                    <!-- Timeline items will be added here -->
+                </div>
+                
+                <button class="btn btn-add" onclick="addTimelineYear()">+ Add Year to Plan</button>
+            </div>
+            
+            <!-- PHASE 5: ECOSYSTEM CONNECTIONS -->
+            <div class="phase-header" onclick="togglePhase('phase5')">
+                <span>PHASE 5: ECOSYSTEM BUILDING (Business Network)</span>
+                <span class="toggle">▼</span>
+            </div>
+            <div id="phase5" class="phase-content">
+                <p style="margin: 15px 0; color: #666; font-style: italic;">Connect businesses to create synergistic ecosystem. Each new business strengthens existing ones. Ultimate goal: capture entire market vertically and horizontally.</p>
+                
+                <div class="ecosystem-view">
+                    <h3 style="margin-bottom: 20px; color: #667eea;">🌐 Business Ecosystem Map</h3>
+                    
+                    <div class="ecosystem-layer">
+                        <h4 style="color: #28a745; margin-bottom: 15px;">Foundation Layer (Year 1-2)</h4>
+                        <p style="color: #666; margin-bottom: 10px;">Cash-generating businesses that fund everything else</p>
+                        <div id="foundation-layer">
+                            <p style="color: #999; font-style: italic;">Add businesses from timeline to see ecosystem structure</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ecosystem-layer">
+                        <h4 style="color: #ffc107; margin-bottom: 15px;">Growth Layer (Year 3-5)</h4>
+                        <p style="color: #666; margin-bottom: 10px;">Scalable businesses that leverage foundation</p>
+                        <div id="growth-layer">
+                            <p style="color: #999; font-style: italic;">Add businesses from timeline to see ecosystem structure</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ecosystem-layer">
+                        <h4 style="color: #f5576c; margin-bottom: 15px;">Innovation Layer (Year 5+)</h4>
+                        <p style="color: #666; margin-bottom: 10px;">Market-creating businesses that dominate categories</p>
+                        <div id="innovation-layer">
+                            <p style="color: #999; font-style: italic;">Add businesses from timeline to see ecosystem structure</p>
+                        </div>
+                    </div>
+                    
+                    <div class="connection-map">
+                        <h4 style="margin-bottom: 15px; color: #667eea;">Business Synergies & Connections</h4>
+                        <div id="synergy-map">
+                            <p style="color: #999; font-style: italic; text-align: center; padding: 20px;">Define business connections to see synergy map</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CONTROL PANEL -->
+            <div style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: center;">
+                <h3 style="margin-bottom: 20px; color: #667eea;">Framework Controls</h3>
+                <button class="btn btn-export" onclick="exportFramework()">📄 Export Complete Framework</button>
+                <button class="btn" onclick="resetFramework()">🔄 Reset All Data</button>
+                <button class="btn" onclick="saveFramework()">💾 Save Progress</button>
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn collapse-all-btn" onclick="collapseAll()">Collapse All ▲</button>
+    
+    <script>
+        // Global state management
+        let frameworkData = {
+            strategy1Businesses: [],
+            strategy2Businesses: [],
+            assessment: {},
+            timeline: [],
+            businessCounter: 0
+        };
+        
+        // Toggle phase visibility
+        function togglePhase(phaseId) {
+            const content = document.getElementById(phaseId);
+            const header = content.previousElementSibling;
+            
+            content.classList.toggle('collapsed');
+            header.classList.toggle('collapsed');
+        }
+        
+        // Collapse all phases
+        function collapseAll() {
+            const phases = document.querySelectorAll('.phase-content');
+            const headers = document.querySelectorAll('.phase-header');
+            
+            phases.forEach(phase => {
+                if (!phase.classList.contains('collapsed')) {
+                    phase.classList.add('collapsed');
+                }
+            });
+            
+            headers.forEach(header => {
+                if (!header.classList.contains('collapsed')) {
+                    header.classList.add('collapsed');
+                }
+            });
+        }
+        
+        // Add business idea
+        function addBusiness(strategy) {
+            frameworkData.businessCounter++;
+            const businessId = `biz-${strategy}-${frameworkData.businessCounter}`;
+            
+            const businessHTML = `
+                <div class="business-item" id="${businessId}" onclick="toggleBusinessDetails('${businessId}')">
+                    <h4>
+                        <span class="business-name" contenteditable="true" onclick="event.stopPropagation()">Business Idea #${frameworkData.businessCounter}</span>
+                        <span class="toggle">▼</span>
+                    </h4>
+                    <div class="business-details" id="${businessId}-details">
+                        <div class="input-group">
+                            <label>Description</label>
+                            <textarea placeholder="What is this business?" rows="2"></textarea>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Target Market</label>
+                            <input type="text" placeholder="Who are the customers?">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Revenue Model</label>
+                            <input type="text" placeholder="How will it make money?">
+                        </div>
+                        
+                        <div class="step-section">
+                            <h5>STEP 1: Ultra-Deep Domain Knowledge</h5>
+                            <div class="input-group">
+                                <label>Core Knowledge Areas</label>
+                                <textarea placeholder="List all knowledge domains needed to master this business" rows="3"></textarea>
+                            </div>
+                            <div class="input-group">
+                                <label>Learning Resources</label>
+                                <textarea placeholder="Books, courses, mentors, case studies" rows="2"></textarea>
+                            </div>
+                            <div class="input-group">
+                                <label>Time to Master</label>
+                                <input type="text" placeholder="e.g., 6 months intensive study">
+                            </div>
+                        </div>
+                        
+                        <div class="step-section">
+                            <h5>STEP 2: Predefined Strategy & SOPs</h5>
+                            <div class="input-group">
+                                <label>Business Strategy Document</label>
+                                <textarea placeholder="Complete strategy: positioning, differentiation, go-to-market" rows="4"></textarea>
+                            </div>
+                            <div class="input-group">
+                                <label>Standard Operating Procedures</label>
+                                <textarea placeholder="Step-by-step processes for all key operations" rows="4"></textarea>
+                            </div>
+                            <div class="input-group">
+                                <label>Key Metrics to Track</label>
+                                <textarea placeholder="What numbers determine success?" rows="2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="step-section" style="border-left-color: #ffc107;">
+                            <h5>STEP 3: Continuous Improvement System</h5>
+                            <div class="input-group">
+                                <label>Current System Version</label>
+                                <input type="text" placeholder="v1.0" value="v1.0">
+                            </div>
+                            <div class="input-group">
+                                <label>Identified Improvements (for v2)</label>
+                                <textarea placeholder="What's working? What's not? What to change?" rows="3"></textarea>
+                            </div>
+                            <div class="input-group">
+                                <label>v2 System Design</label>
+                                <textarea placeholder="Improved processes, strategies, SOPs" rows="3"></textarea>
+                            </div>
+                            <div class="input-group">
+                                <label>Replacement Trigger</label>
+                                <input type="text" placeholder="When to replace v1 with v2? (e.g., after 100 customers)">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #e0e0e0;">
+                            <div class="input-group">
+                                <label>Capital Required</label>
+                                <input type="text" placeholder="e.g., ₹2,00,000">
+                            </div>
+                            <div class="input-group">
+                                <label>Time to Profitability</label>
+                                <input type="text" placeholder="e.g., 8 months">
+                            </div>
+                            <div class="input-group">
+                                <label>Skills Required</label>
+                                <textarea placeholder="List all skills needed" rows="2"></textarea>
+                            </div>
+                            <div class="input-group">
+                                <label>Dependencies (Chicken-Egg)</label>
+                                <textarea placeholder="What must exist before this business can start?" rows="2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <button class="btn" onclick="prioritizeBusiness('${businessId}', '${strategy}'); event.stopPropagation();">Add to Priority Plan</button>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById(`${strategy}-businesses`).insertAdjacentHTML('beforeend', businessHTML);
+        }
+        
+        // Toggle business details
+        function toggleBusinessDetails(businessId) {
+            const details = document.getElementById(`${businessId}-details`);
+            const item = document.getElementById(businessId);
+            const toggle = item.querySelector('h4 .toggle');
+            
+            details.classList.toggle('expanded');
+            toggle.textContent = details.classList.contains('expanded') ? '▲' : '▼';
+        }
+        
+        // Calculate readiness score
+        function calculateReadiness() {
+            let score = 0;
+            let interpretation = '';
+            
+            // Simple scoring logic (can be enhanced)
+            const capital = document.getElementById('capital').value;
+            const timeline = parseInt(document.getElementById('timeline').value) || 0;
+            const skills = document.getElementById('skills').value;
+            const risk = document.getElementById('risk').value;
+            const network = document.getElementById('network').value;
+            const stage = document.getElementById('stage').value;
+            const energy = document.getElementById('energy').value;
+            
+            // Scoring
+            if (capital) score += 8;
+            if (timeline > 6) score += 10;
+            else if (timeline > 3) score += 6;
+            else if (timeline > 0) score += 3;
+            
+            if (skills) score += 8;
+            
+            if (risk === 'high') score += 10;
+            else if (risk === 'medium') score += 6;
+            else if (risk === 'low') score += 3;
+            
+            if (network === 'strong') score += 8;
+            else if (network === 'medium') score += 5;
+            else if (network === 'weak') score += 2;
+            
+            if (stage === 'expert') score += 10;
+            else if (stage === 'intermediate') score += 6;
+            else if (stage === 'beginner') score += 3;
+            
+            if (energy === 'high') score += 6;
+            else if (energy === 'medium') score += 4;
+            else if (energy === 'low') score += 2;
+            
+            // Interpretation
+            if (score < 20) {
+                interpretation = '⚠️ Low Readiness - Focus on Strategy 1 (serve existing demand) with minimal risk. Build capital and skills first.';
+            } else if (score < 35) {
+                interpretation = '✅ Medium Readiness - Can attempt Strategy 1 with moderate risk. Consider hybrid approaches.';
+            } else {
+                interpretation = '🚀 High Readiness - Can attempt Strategy 2 (create markets). Have resources for innovation and risk.';
+            }
+            
+            document.getElementById('score-value').textContent = score;
+            document.getElementById('score-interpretation').textContent = interpretation;
+            document.getElementById('readiness-score').style.display = 'block';
+            
+            frameworkData.assessment.score = score;
+        }
+        
+        // Add timeline year
+        function addTimelineYear() {
+            const yearNum = frameworkData.timeline.length + 1;
+            const yearHTML = `
+                <div class="timeline-item" data-year="Y${yearNum}">
+                    <div class="timeline-content">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">Year ${yearNum}</h4>
+                        
+                        <div class="input-group">
+                            <label>Business Focus</label>
+                            <input type="text" placeholder="Which business to execute?">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Strategy Type</label>
+                            <select>
+                                <option value="">Select...</option>
+                                <option value="strategy1">Strategy 1 - Serve Existing Demand</option>
+                                <option value="strategy2">Strategy 2 - Create New Market</option>
+                                <option value="hybrid">Hybrid Approach</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Why This Business Now?</label>
+                            <textarea placeholder="Based on assessment score, dependencies, market timing..." rows="2"></textarea>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Target Outcome</label>
+                            <textarea placeholder="Revenue, learning, network, positioning goals..." rows="2"></textarea>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Dependencies Met</label>
+                            <textarea placeholder="What from previous years enables this?" rows="2"></textarea>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Enables Future Business</label>
+                            <input type="text" placeholder="What does this unlock for later years?">
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('timeline-container').insertAdjacentHTML('beforeend', yearHTML);
+            frameworkData.timeline.push({ year: yearNum });
+        }
+        
+        // Export framework
+        function exportFramework() {
+            alert('Export functionality would generate a comprehensive PDF report of your entire framework with all data entered.');
+        }
+        
+        // Save framework
+        function saveFramework() {
+            localStorage.setItem('businessFramework', JSON.stringify(frameworkData));
+            alert('Framework saved to browser storage!');
+        }
+        
+        // Reset framework
+        function resetFramework() {
+            if (confirm('Are you sure you want to reset all data? This cannot be undone.')) {
+                frameworkData = {
+                    strategy1Businesses: [],
+                    strategy2Businesses: [],
+                    assessment: {},
+                    timeline: [],
+                    businessCounter: 0
+                };
+                location.reload();
+            }
+        }
+        
+        // Initialize with sample data
+        window.onload = function() {
+            // Load saved data if exists
+            const saved = localStorage.getItem('businessFramework');
+            if (saved) {
+                frameworkData = JSON.parse(saved);
+            }
+            
+            // Add one sample business to show structure
+            addBusiness('strategy1');
+            
+            // Add one timeline year
+            addTimelineYear();
+        };
+    </script>
+</body>
+</html>

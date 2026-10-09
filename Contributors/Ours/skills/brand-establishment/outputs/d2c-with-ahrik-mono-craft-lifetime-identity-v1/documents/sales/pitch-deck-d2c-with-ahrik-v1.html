@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D2C With AHrik — Agency Pitch Deck (Mono-Craft v1)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-ink: #111312;
+      --canvas: #FFFFFF;
+      --surface: #F4F4F1;
+      --muted: #6E7270;
+      --rule: #E3E3DE;
+      --card-bg: #FFFFFF;
+      --radius: 14px;
+      --font-display: 'Gloock', serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #111312;
+      font-family: var(--font-body);
+      color: var(--primary-ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+
+    /* 16:9 Stage Container */
+    .deck-viewport {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .deck-stage {
+      width: 1920px;
+      height: 1080px;
+      position: relative;
+      background: var(--canvas);
+      border-radius: 0;
+      box-shadow: none;
+      overflow: hidden;
+      transform-origin: center center;
+    }
+
+    /* Slide base styling */
+    .slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      padding: 70px 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) scale(0.99);
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      z-index: 10;
+    }
+
+    /* Dark Slide Variant */
+    .slide.dark-slide {
+      background-color: var(--primary-ink);
+      color: var(--canvas);
+    }
+
+    /* Common Header */
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 56px;
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+      z-index: 2;
+    }
+
+    .slide.dark-slide .top-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-decoration: none;
+    }
+
+    .wordmark-link {
+      display: inline-block;
+      text-decoration: none;
+      line-height: 0;
+    }
+
+    .header-logo {
+      width: 340px !important;
+      max-width: 340px !important;
+      height: auto;
+      aspect-ratio: 1331 / 118;
+      display: block;
+      border: 0;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .wordmark-link:hover .header-logo {
+      opacity: 0.88;
+      transform: scale(1.015);
+    }
+
+    .brand-sub {
+      font-family: 'Georgia', serif;
+      font-size: 17px;
+      font-style: italic;
+      font-weight: bold;
+      color: #111312;
+      margin-top: 7px;
+      line-height: 1.2;
+      letter-spacing: normal;
+      text-transform: none;
+    }
+
+    .slide.dark-slide .brand-sub {
+      color: #FFFFFF;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .header-glyph {
+      width: 50px !important;
+      max-width: 50px !important;
+      height: auto;
+      display: block;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .header-glyph:hover {
+      transform: scale(1.06);
+      opacity: 0.92;
+    }
+
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px 0;
+    }
+
+    .slide-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+      font-size: 14px;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      width: 100%;
+    }
+
+    .slide.dark-slide .slide-footer {
+      border-top-color: rgba(255, 255, 255, 0.12);
+      color: #9BA19E;
+    }
+
+    .slide-footer-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-nav-btn {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      color: var(--primary-ink);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      line-height: 1;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .footer-nav-btn:hover {
+      background: #E8E7E2;
+      border-color: #B5B9B7;
+      transform: scale(1.08);
+    }
+
+    .footer-nav-btn:active {
+      transform: scale(0.92);
+    }
+
+    .slide.dark-slide .footer-nav-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.18);
+      color: #FFFFFF;
+    }
+
+    .slide.dark-slide .footer-nav-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: scale(1.08);
+    }
+
+    .slide.dark-slide .footer-nav-btn:active {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .slide-counter {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--muted);
+      min-width: 68px;
+      text-align: center;
+    }
+
+    .slide.dark-slide .slide-counter {
+      color: #9BA19E;
+    }
+
+    /* Typography inside slides */
+    h1.hero-title {
+      font-family: var(--font-display);
+      font-size: 88px;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+    }
+
+    h2.section-title {
+      font-family: var(--font-display);
+      font-size: 56px;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 32px;
+    }
+
+    p.lead-text {
+      font-size: 26px;
+      line-height: 1.5;
+      color: var(--muted);
+      max-width: 1000px;
+      margin-bottom: 40px;
+    }
+
+    .dark-slide p.lead-text {
+      color: #A6ACA9;
+    }
+
+    /* Grids and Cards */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .deck-card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 16px;
+    }
+
+    .dark-slide .deck-card {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .card-num {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      line-height: 1.25;
+    }
+
+    .card-desc {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .dark-slide .card-desc {
+      color: #B5BBB8;
+    }
+
+    /* Table styling for Slide 5 */
+    .comparison-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 18px;
+    }
+
+    .comparison-table th, .comparison-table td {
+      padding: 18px 24px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .comparison-table th {
+      background: rgba(255, 255, 255, 0.08);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #9BA19E;
+    }
+
+    .comparison-table td:last-child {
+      font-weight: 600;
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    /* Metric boxes for Slide 8 */
+    .metric-card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 44px 36px;
+      text-align: center;
+    }
+
+    .metric-value {
+      font-family: var(--font-display);
+      font-size: 68px;
+      color: var(--primary-ink);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .metric-label {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .metric-sub {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    /* Quote Banner */
+    .quote-banner {
+      background: var(--surface);
+      border-left: 4px solid var(--primary-ink);
+      padding: 24px 32px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--primary-ink);
+      margin-bottom: 36px;
+      line-height: 1.5;
+    }
+
+    /* Action Buttons for Slide 9 */
+    .intake-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 24px;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .intake-btn-primary {
+      background: #FFFFFF;
+      color: #111312;
+    }
+
+    .intake-btn-primary:hover {
+      background: #EBEBE6;
+      transform: translateY(-2px);
+    }
+
+    .intake-btn-outline {
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .intake-btn-outline:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       COMPREHENSIVE RESPONSIVENESS: TABLET & MOBILE (<= 1024px)
+       ───────────────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      body {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: auto;
+        display: block;
+      }
+
+      .deck-viewport {
+        width: 100% !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: auto;
+        display: block;
+        position: relative;
+      }
+
+      .deck-stage {
+        width: 100% !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: auto !important;
+        transform: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        position: relative;
+        overflow: visible !important;
+      }
+
+      .slide {
+        position: relative !important;
+        inset: auto !important;
+        width: 100% !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: auto !important;
+        padding: 36px 28px 48px 28px !important;
+        display: none !important;
+        opacity: 0;
+        transform: none !important;
+        transition: opacity 0.3s ease;
+      }
+
+      .slide.active {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      .top-header {
+        min-height: 48px !important;
+        padding-bottom: 16px !important;
+        margin-bottom: 20px !important;
+        gap: 12px !important;
+        width: 100% !important;
+      }
+
+      .header-logo {
+        width: 235px !important;
+        max-width: 235px !important;
+      }
+
+      .brand-sub {
+        font-size: 13.5px !important;
+        margin-top: 4px !important;
+      }
+
+      .header-glyph {
+        width: 38px !important;
+        max-width: 38px !important;
+      }
+
+      .slide-body {
+        flex: 1;
+        padding: 16px 0 28px 0 !important;
+        justify-content: center !important;
+      }
+
+      .hero-title {
+        font-size: clamp(36px, 6.5vw, 54px) !important;
+        line-height: 1.12 !important;
+        margin-bottom: 18px !important;
+      }
+
+      .section-title {
+        font-size: clamp(28px, 5.5vw, 42px) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 14px !important;
+      }
+
+      .lead-text {
+        font-size: clamp(16px, 3.5vw, 20px) !important;
+        line-height: 1.55 !important;
+        margin-bottom: 28px !important;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      .grid-2x2 {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      .grid-4 {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      .comparison-table {
+        display: block;
+        overflow-x: auto;
+        font-size: 14px !important;
+      }
+
+      .comparison-table th, .comparison-table td {
+        padding: 12px 14px !important;
+      }
+
+      .deck-card {
+        padding: 24px 20px !important;
+        gap: 12px !important;
+      }
+
+      .card-title {
+        font-size: 22px !important;
+      }
+
+      .card-desc {
+        font-size: 16px !important;
+        line-height: 1.55 !important;
+      }
+
+      .slide-footer {
+        padding-top: 20px !important;
+        font-size: 13px !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .slide {
+        padding: 22px 18px 36px 18px !important;
+      }
+
+      .top-header {
+        min-height: 38px !important;
+        padding-bottom: 10px !important;
+        margin-bottom: 12px !important;
+        gap: 8px !important;
+      }
+
+      .header-logo {
+        width: 175px !important;
+        max-width: 175px !important;
+      }
+
+      .brand-sub {
+        font-size: 12px !important;
+        margin-top: 3px !important;
+      }
+
+      .header-glyph {
+        width: 30px !important;
+        max-width: 30px !important;
+      }
+
+      .hero-title {
+        font-size: clamp(28px, 7.5vw, 36px) !important;
+        line-height: 1.15 !important;
+        margin-bottom: 14px !important;
+      }
+
+      .section-title {
+        font-size: clamp(24px, 6vw, 30px) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 12px !important;
+      }
+
+      .lead-text {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 22px !important;
+      }
+
+      .slide-footer {
+        padding-top: 16px !important;
+      }
+
+      .quote-banner {
+        font-size: 16px !important;
+        padding: 16px 20px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="deck-viewport">
+    <div class="deck-stage" id="deckStage">
+
+
+      <!-- SLIDE 1 -->
+      <div class="slide dark-slide active" data-slide="1">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo.png"
+                alt="D2C With AHrik" width="340"
+                style="display: block; border: 0; width: 340px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-transparent.png"
+              alt="AHrik Glyph" width="50"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body" style="text-align: center; align-items: center;">
+          <div style="font-family: var(--font-mono); font-size: 16px; letter-spacing: 3px; text-transform: uppercase; color: #9BA19E; margin-bottom: 20px;">
+            The Brand & Growth Infrastructure
+          </div>
+          <h1 class="hero-title" style="max-width: 1400px;">
+            Connect direct.<br>Grow faster.
+          </h1>
+          <p class="lead-text" style="text-align: center; max-width: 860px; margin-bottom: 48px;">
+            We engineer high-craft brand systems, edge static storefronts, and commercial visual production for ambitious direct-to-consumer businesses.
+          </p>
+          <div style="display: flex; gap: 20px; font-family: var(--font-mono); font-size: 14px;">
+            <span style="padding: 10px 24px; border-radius: 100px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">Brand Identity</span>
+            <span style="padding: 10px 24px; border-radius: 100px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">Edge Web Architecture</span>
+            <span style="padding: 10px 24px; border-radius: 100px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">Studio Visuals</span>
+            <span style="padding: 10px 24px; border-radius: 100px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">Sovereign Launch</span>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev-slide-btn" title="Previous Slide">←</button>
+            <span class="slide-counter">01 / 09</span>
+            <button class="footer-nav-btn next-slide-btn" title="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="slide" data-slide="2">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="340"
+                style="display: block; border: 0; width: 340px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="50"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">Traditional Agency Delivery is Broken</h2>
+          <p class="lead-text">Three disconnected vendors, fragile monolith stacks, and endless monthly retainer invoices with zero code ownership.</p>
+          <div class="grid-3">
+            <div class="deck-card">
+              <div class="card-num">01 · FRAGMENTATION</div>
+              <div class="card-title">The 3-Vendor Trap</div>
+              <div class="card-desc">
+                Design shops pass Figma files to dev contractors who blame the designers for scope bloat. Ad agencies blame both for sluggish conversions. No one takes ownership.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-num">02 · STACK FRAGILITY</div>
+              <div class="card-title">The Bloated CMS</div>
+              <div class="card-desc">
+                45+ WooCommerce and WordPress plugins stitched together. 4.2s load times, lost mobile visitors, and vulnerable MySQL databases requiring endless emergency patches.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-num">03 · ASSET CAPTIVITY</div>
+              <div class="card-title">Retainer Hostage</div>
+              <div class="card-desc">
+                Agencies hold domain credentials, hosting dashboards, and source files hostage behind monthly retainers. You pay thousands for meetings, yet own none of your infrastructure.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev-slide-btn" title="Previous Slide">←</button>
+            <span class="slide-counter">02 / 09</span>
+            <button class="footer-nav-btn next-slide-btn" title="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="slide" data-slide="3">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="340"
+                style="display: block; border: 0; width: 340px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="50"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">One Team. One Throughline. Zero Handoffs.</h2>
+          <div class="quote-banner">
+            "We build the parts of a business people actually see. Brand, website, visual, launch. One team, one throughline, no handoff between three agencies who have never spoken."
+          </div>
+          <div class="grid-4">
+            <div class="deck-card">
+              <div class="card-num">STAGE 01 · WEEK 1</div>
+              <div class="card-title">Brand Identity</div>
+              <div class="card-desc">Complete Mono-Craft visual system: vector marks, typography tokens, color harmonies, and brand constitution.</div>
+            </div>
+            <div class="deck-card">
+              <div class="card-num">STAGE 02 · WEEK 2</div>
+              <div class="card-title">Visual Production</div>
+              <div class="card-desc">Commercial studio-grade 3D & AI catalog visuals, packshots, and editorial sets with zero studio overhead.</div>
+            </div>
+            <div class="deck-card">
+              <div class="card-num">STAGE 03 · WEEKS 3–4</div>
+              <div class="card-title">Edge Web Build</div>
+              <div class="card-desc">Custom static architecture built for 100/100 Core Web Vitals, instantaneous transitions, and sub-300ms speed.</div>
+            </div>
+            <div class="deck-card">
+              <div class="card-num">STAGE 04 · WEEK 4</div>
+              <div class="card-title">Sovereign Launch</div>
+              <div class="card-desc">Zero-downtime DNS cutover, complete IP transfer, and full Git repository handover directly to your team.</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev-slide-btn" title="Previous Slide">←</button>
+            <span class="slide-counter">03 / 09</span>
+            <button class="footer-nav-btn next-slide-btn" title="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 4 -->
+      <div class="slide" data-slide="4">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="340"
+                style="display: block; border: 0; width: 340px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="50"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">The Four Non-Negotiable Commitments</h2>
+          <p class="lead-text">We believe in clarity, radical transparency, and absolute client sovereignty across every engagement.</p>
+          <div class="grid-2x2">
+            <div class="deck-card">
+              <div class="card-num">PRINCIPLE 01</div>
+              <div class="card-title">You Own Everything</div>
+              <div class="card-desc">Domains, DNS accounts, Git repositories, hosting setups, and master vector art are registered directly in your name. We hold nothing hostage upon settlement.</div>
+            </div>
+            <div class="deck-card">
+              <div class="card-num">PRINCIPLE 02</div>
+              <div class="card-title">Scope is Written Down</div>
+              <div class="card-desc">Every deliverable, screen, and milestone is explicitly locked in our contract before work starts. Zero surprise invoices, zero ambiguous scope creep.</div>
+            </div>
+            <div class="deck-card">
+              <div class="card-num">PRINCIPLE 03</div>
+              <div class="card-title">We Say When It's a Bad Idea</div>
+              <div class="card-desc">True partnership requires honesty. When a requested feature will degrade mobile speed or harm conversion, we say so directly — even when agreeing would be easier.</div>
+            </div>
+            <div class="deck-card">
+              <div class="card-num">PRINCIPLE 04</div>
+              <div class="card-title">No Invented Proof</div>
+              <div class="card-desc">Zero stock testimonials, zero fake client logos, zero manufactured traction stats. If an area is empty, it remains empty until earned. Truth builds compounding trust.</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev-slide-btn" title="Previous Slide">←</button>
+            <span class="slide-counter">04 / 09</span>
+            <button class="footer-nav-btn next-slide-btn" title="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 5 -->
+      <div class="slide dark-slide" data-slide="5">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo.png"
+                alt="D2C With AHrik" width="340"
+                style="display: block; border: 0; width: 340px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-transparent.png"
+              alt="AHrik Glyph" width="50"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">High-Performance Edge vs. Legacy CMS</h2>
+          <p class="lead-text">Eliminate hosting bloat, security vulnerabilities, and slow page loads with modern edge delivery.</p>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Performance & Architecture Metric</th>
+                <th>Traditional WordPress / CMS</th>
+                <th>D2C With AHrik Edge Stack</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Monthly Hosting Base Cost</td>
+                <td>$150 – $800 / month</td>
+                <td><strong>$0 / month</strong> (Global CDN Edge)</td>
+              </tr>
+              <tr>
+                <td>First Contentful Paint (FCP)</td>
+                <td>2.8s – 4.5s</td>
+                <td><strong>&lt; 300ms</strong> (Instantaneous)</td>
+              </tr>
+              <tr>
+                <td>Google Lighthouse Score</td>
+                <td>42 / 100 (Failing Core Web Vitals)</td>
+                <td><strong>100 / 100</strong> (Perfect Score)</td>
+              </tr>
+              <tr>
+                <td>Security Attack Surface</td>
+                <td>Vulnerable SQL databases & 3rd party plugins</td>
+                <td><strong>Zero Database Attack Surface</strong></td>
+              </tr>
+              <tr>
+                <td>Traffic Surge Resilience</td>
+                <td>Crashes during flash-sales and peak ad spend</td>
+                <td><strong>100,000 req/sec</strong> Edge Concurrency</td>
+              </tr>
+              <tr>
+                <td>Source Code Ownership</td>
+                <td>Tied to proprietary agency plugins</td>
+                <td><strong>100% Clean Sovereign Git Repository</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev-slide-btn" title="Previous Slide">←</button>
+            <span class="slide-counter">05 / 09</span>
+            <button class="footer-nav-btn next-slide-btn" title="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 6 -->
+      <div class="slide" data-slide="6">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="340"
+                style="display: block; border: 0; width: 340px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="50"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">Commercial Visuals Without the Studio Tax</h2>
+          <p class="lead-text">Replace $25,000 multi-week photoshoot setups with precision 3D rendering and generative studio pipelines.</p>
+          <div class="grid-3">
+            <div class="deck-card">
+              <div class="card-num">PRODUCTION 01</div>
+              <div class="card-title">Pure White Packshots</div>
+              <div class="card-desc">
+                Flawless, color-calibrated e-commerce product imagery rendered across every SKU variant. Pixel-crisp shadows and reflections calibrated for high-conversion PDP pages.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-num">PRODUCTION 02</div>
+              <div class="card-title">Macro Texture Details</div>
+              <div class="card-desc">
+                Ultra-high-definition 4K zoom crops showcasing product materiality, bespoke glass finishes, textile weaves, and premium foil embossings.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-num">PRODUCTION 03</div>
+              <div class="card-title">Editorial Lifestyle Sets</div>
+              <div class="card-desc">
+                Dynamic ambient environments generated with perfect lighting, architectural staging, and brand harmony in 48 hours rather than 6 weeks of location scouting.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev-slide-btn" title="Previous Slide">←</button>
+            <span class="slide-counter">06 / 09</span>
+            <button class="footer-nav-btn next-slide-btn" title="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 7 -->
+      <div class="slide" data-slide="7">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="340"
+                style="display: block; border: 0; width: 340px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="50"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">Own Your Audience. Keep Your Margin.</h2>
+          <p class="lead-text">Marketplaces take 25%+ of your revenue and mask your buyer relationships. We build direct sovereign channels.</p>
+          <div class="grid-3">
+            <div class="deck-card">
+              <div class="card-num">CONVERSION 01</div>
+              <div class="card-title">Frictionless Checkout</div>
+              <div class="card-desc">
+                One-tap UPI, Razorpay, Apple Pay, and Stripe checkouts. Zero checkout redirects and instant order confirmation screens that maximize checkout completion.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-num">CONVERSION 02</div>
+              <div class="card-title">100% First-Party Data</div>
+              <div class="card-desc">
+                Capture every buyer's direct phone number, verified email, and browsing behavior directly into your Klaviyo and WhatsApp CRM without third-party gatekeepers.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-num">CONVERSION 03</div>
+              <div class="card-title">Compound Retention Loops</div>
+              <div class="card-desc">
+                Automated post-purchase onboarding, branded PDF invoices with instant re-order links, and private VIP member access that drive high-LTV repurchase cycles.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev-slide-btn" title="Previous Slide">←</button>
+            <span class="slide-counter">07 / 09</span>
+            <button class="footer-nav-btn next-slide-btn" title="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 8 -->
+      <div class="slide" data-slide="8">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="340"
+                style="display: block; border: 0; width: 340px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="50"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">Uncompromising Quality by the Numbers</h2>
+          <p class="lead-text">Every metric is verified against live edge production environments.</p>
+          <div class="grid-4">
+            <div class="metric-card">
+              <div class="metric-value">100</div>
+              <div class="metric-label">Lighthouse Speed</div>
+              <div class="metric-sub">Zero bloat, perfect Core Web Vitals</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">&lt;300ms</div>
+              <div class="metric-label">Contentful Paint</div>
+              <div class="metric-sub">Global edge distribution</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">$0/mo</div>
+              <div class="metric-label">Base Infrastructure</div>
+              <div class="metric-sub">No server maintenance costs</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">100%</div>
+              <div class="metric-label">Client IP Transfer</div>
+              <div class="metric-sub">Full sovereign repository handover</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev-slide-btn" title="Previous Slide">←</button>
+            <span class="slide-counter">08 / 09</span>
+            <button class="footer-nav-btn next-slide-btn" title="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 9 -->
+      <div class="slide dark-slide" data-slide="9">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo.png"
+                alt="D2C With AHrik" width="340"
+                style="display: block; border: 0; width: 340px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-transparent.png"
+              alt="AHrik Glyph" width="50"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body" style="text-align: center; align-items: center;">
+          <div style="font-family: var(--font-mono); font-size: 14px; letter-spacing: 2.5px; text-transform: uppercase; color: #9BA19E; margin-bottom: 16px;">
+            The Next Step · Direct Ingestion
+          </div>
+          <h1 class="hero-title" style="max-width: 1200px; margin-bottom: 16px;">
+            Let's build your sovereign brand.
+          </h1>
+          <p class="lead-text" style="text-align: center; max-width: 820px; margin-bottom: 40px;">
+            No retainers without deliverables. No code you cannot inspect. No proof we didn't earn. Choose your initiation channel below.
+          </p>
+          <div class="grid-3" style="max-width: 1200px; width: 100%;">
+            <!-- Card 1: WhatsApp -->
+            <div class="deck-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.14); padding: 32px 28px; text-align: left;">
+              <div class="card-num">01 · INSTANT COMMERCE</div>
+              <div class="card-title" style="font-size: 24px; color: #FFFFFF;">Chat On WhatsApp</div>
+              <div class="card-desc" style="font-size: 15px; margin-bottom: 12px;">Direct line to our core engineering and visual production leads. Real-time discovery during business hours.</div>
+              <div style="font-family: var(--font-mono); font-size: 14px; color: #FFFFFF; font-weight: 600; margin-bottom: 20px;">+91 93138 29633</div>
+              <a href="https://wa.me/919313829633?text=Hi%20D2C%20With%20AHrik%2C%20let%27s%20discuss%20our%20brand%20throughline." target="_blank" rel="noopener noreferrer" class="intake-btn intake-btn-primary">
+                Start On WhatsApp
+              </a>
+            </div>
+            <!-- Card 2: Written Brief -->
+            <div class="deck-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.14); padding: 32px 28px; text-align: left;">
+              <div class="card-num">02 · WRITTEN BRIEF</div>
+              <div class="card-title" style="font-size: 24px; color: #FFFFFF;">Direct Inquiries</div>
+              <div class="card-desc" style="font-size: 15px; margin-bottom: 12px;">Send your project scope, storefront URL, or request for proposal directly to our lead architect.</div>
+              <div style="font-family: var(--font-mono); font-size: 14px; color: #FFFFFF; font-weight: 600; margin-bottom: 20px;">hello@d2cwith.ahrik.com</div>
+              <a href="mailto:hello@d2cwith.ahrik.com?subject=Brand%20Throughline%20Brief%20-%20D2C%20With%20AHrik" class="intake-btn intake-btn-outline">
+                Send An Email
+              </a>
+            </div>
+            <!-- Card 3: Discovery in 24h & Storefront -->
+            <div class="deck-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.14); padding: 32px 28px; text-align: left;">
+              <div class="card-num">03 · SOVEREIGN SPRINT</div>
+              <div class="card-title" style="font-size: 24px; color: #FFFFFF;">Discovery in 24 Hours</div>
+              <div class="card-desc" style="font-size: 15px; margin-bottom: 12px;">Fixed-scope sprints with 100% repository transfer. Explore our full architecture and verified standards.</div>
+              <div style="font-family: var(--font-mono); font-size: 14px; color: #FFFFFF; font-weight: 600; margin-bottom: 20px;">d2cwith.ahrik.com</div>
+              <a href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" class="intake-btn intake-btn-outline">
+                Visit Web Portal
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev-slide-btn" title="Previous Slide">←</button>
+            <span class="slide-counter">09 / 09</span>
+            <button class="footer-nav-btn next-slide-btn" title="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Responsive Stage Scaling (Unconstrained edge-to-edge)
+    function resizeStage() {
+      const stage = document.getElementById('deckStage');
+      if (!stage) return;
+      if (window.innerWidth <= 1024) {
+        stage.style.transform = 'none';
+        return;
+      }
+      const baseWidth = 1920;
+      const baseHeight = 1080;
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+
+      const scale = Math.min(windowWidth / baseWidth, windowHeight / baseHeight);
+      stage.style.transform = `scale(${scale})`;
+    }
+
+    window.addEventListener('resize', resizeStage);
+    window.addEventListener('DOMContentLoaded', resizeStage);
+    resizeStage();
+
+    // Slide Management
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let currentSlide = 1;
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+      currentSlide = index;
+
+      slides.forEach(slide => {
+        const slideNum = parseInt(slide.getAttribute('data-slide'), 10);
+        if (slideNum === currentSlide) {
+          slide.classList.add('active');
+          if (slide.classList.contains('dark-slide')) {
+            document.body.style.backgroundColor = '#111312';
+          } else {
+            document.body.style.backgroundColor = '#F6F5F1';
+          }
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      const formattedCurrent = currentSlide < 10 ? `0${currentSlide}` : currentSlide;
+      const formattedTotal = totalSlides < 10 ? `0${totalSlides}` : totalSlides;
+      document.querySelectorAll('.slide-counter').forEach(counter => {
+        counter.textContent = `${formattedCurrent} / ${formattedTotal}`;
+      });
+
+      // Smooth reset scroll position on mobile when changing slides
+      if (window.innerWidth <= 1024) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Attach footer button listeners
+    document.querySelectorAll('.prev-slide-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showSlide(currentSlide - 1);
+      });
+    });
+
+    document.querySelectorAll('.next-slide-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showSlide(currentSlide + 1);
+      });
+    });
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown' || e.key === 'PageDown') {
+        e.preventDefault();
+        showSlide(currentSlide + 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
+        e.preventDefault();
+        showSlide(currentSlide - 1);
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      }
+    });
+
+    // Touch / Swipe Navigation for Mobile & Tablet with scroll protection
+    let touchStartX = 0;
+    let touchStartY = 0;
+    window.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      const diffX = e.changedTouches[0].screenX - touchStartX;
+      const diffY = e.changedTouches[0].screenY - touchStartY;
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+        if (diffX < 0) showSlide(currentSlide + 1);
+        else showSlide(currentSlide - 1);
+      }
+    }, { passive: true });
+
+    showSlide(1);
+  </script>
+</body>
+</html>

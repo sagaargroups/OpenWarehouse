@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D2C With AHrik — Master A4 Document Shell (Dark)</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --bg: #000000;
+      --surface: #111312;
+      --ink: #FFFFFF;
+      --ink-muted: #8A908D;
+      --rule: #252A28;
+      --accent: #FFFFFF;
+      --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    body {
+      background: #1A1A1A;
+      display: flex;
+      justify-content: center;
+      padding: 40px 0;
+      font-family: var(--font-display);
+      -webkit-font-smoothing: antialiased;
+    }
+    .a4-page {
+      width: 794px;
+      min-height: 1123px;
+      background: var(--bg);
+      color: var(--ink);
+      padding: 56px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 24px;
+    }
+    .brand-lockup {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .brand-logo {
+      height: 32px;
+      width: auto;
+    }
+    .brand-sub {
+      font-size: 13px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--ink);
+      letter-spacing: 0.5px;
+    }
+    .header-glyph {
+      height: 48px;
+      width: auto;
+    }
+    .doc-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      padding: 16px 20px;
+      margin: 28px 0;
+      border-radius: 4px;
+    }
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .meta-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--ink-muted);
+    }
+    .meta-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .content-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .doc-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    .doc-subtitle {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+    .content-placeholder {
+      border: 1px dashed var(--rule);
+      border-radius: 4px;
+      padding: 32px;
+      text-align: center;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+    .footer {
+      border-top: 1px solid var(--rule);
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="a4-page">
+    <header class="header">
+      <div class="brand-lockup">
+        <img class="brand-logo" src="../../LOGO/assets/header-logo.png" alt="D2C With AHrik">
+        <span class="brand-sub">Digital Agency</span>
+      </div>
+      <img class="header-glyph" src="../../../../../public/brand/2d-glyph-transparent.png" alt="AHrik Glyph">
+    </header>
+
+    <section class="doc-meta">
+      <div class="meta-item">
+        <span class="meta-label">Document ID</span>
+        <span class="meta-value">DOC-2026-001</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Effective Date</span>
+        <span class="meta-value">2026-09-27</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Target Entity</span>
+        <span class="meta-value">Client Organization</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Governance Status</span>
+        <span class="meta-value">Active Production</span>
+      </div>
+    </section>
+
+    <main class="content-body">
+      <h1 class="doc-title">Master Document Title</h1>
+      <p class="doc-subtitle">Executive summary and standardized commercial specification shell.</p>
+      
+      <div class="content-placeholder">
+        [ A4 PRINTABLE DOCUMENT BODY CONTENT CONTAINER ]
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>D2C With AHrik · Mono-Craft v1</span>
+      <span>Confidential & Proprietary</span>
+      <span>Page 1 of 1</span>
+    </footer>
+  </div>
+</body>
+</html>

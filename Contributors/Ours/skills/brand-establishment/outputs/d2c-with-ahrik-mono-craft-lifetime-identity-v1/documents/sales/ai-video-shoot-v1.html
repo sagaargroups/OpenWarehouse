@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D2C With AHrik · Product: AI Video Shoot (Mono-Craft v1)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-ink: #111312;
+      --canvas: #FFFFFF;
+      --surface: #F4F4F1;
+      --muted: #6E7270;
+      --rule: #E3E3DE;
+      --radius: 14px;
+      --font-display: 'Gloock', serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #111312;
+      font-family: var(--font-body);
+      color: var(--primary-ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .deck-viewport {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .deck-stage {
+      width: 1920px;
+      height: 1080px;
+      position: relative;
+      background: var(--canvas);
+      border-radius: 0;
+      box-shadow: none;
+      overflow: hidden;
+      transform-origin: center center;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      padding: 70px 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) scale(0.99);
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      z-index: 10;
+    }
+
+    /* Reverse Mono-Craft (Dark Theme for Slide 1 & Slide 7) */
+    .slide.dark-slide {
+      background-color: var(--primary-ink);
+      color: var(--canvas);
+    }
+
+    .slide.dark-slide .wordmark__logo {
+      filter: none;
+    }
+
+    .slide.dark-slide .slide-footer {
+      border-top-color: rgba(255, 255, 255, 0.12);
+      color: #9BA19E;
+    }
+
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 56px;
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+      z-index: 2;
+    }
+
+    .slide.dark-slide .top-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-decoration: none;
+    }
+
+    .wordmark-link {
+      display: inline-block;
+      text-decoration: none;
+      line-height: 0;
+    }
+
+    .header-logo {
+      width: 340px !important;
+      max-width: 340px !important;
+      height: auto;
+      aspect-ratio: 1331 / 118;
+      display: block;
+      border: 0;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .wordmark-link:hover .header-logo {
+      opacity: 0.88;
+      transform: scale(1.015);
+    }
+
+    .brand-sub {
+      font-family: 'Georgia', serif;
+      font-size: 17px;
+      font-style: italic;
+      font-weight: bold;
+      color: #111312;
+      margin-top: 7px;
+      line-height: 1.2;
+      letter-spacing: normal;
+      text-transform: none;
+    }
+
+    .slide.dark-slide .brand-sub {
+      color: #FFFFFF;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .header-glyph {
+      width: 50px !important;
+      max-width: 50px !important;
+      height: auto;
+      display: block;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .header-glyph:hover {
+      transform: scale(1.06);
+      opacity: 0.92;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 28px;
+      letter-spacing: -0.5px;
+      color: var(--primary-ink);
+    }
+
+    .category-badge {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      color: var(--muted);
+    }
+
+    .dark-slide .category-badge {
+      background: rgba(255, 255, 255, 0.1);
+      color: #D1D5D3;
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px 0;
+    }
+
+    .slide-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+      font-size: 14px;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      width: 100%;
+    }
+
+    .slide-footer-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-nav-btn {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      color: var(--primary-ink);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      line-height: 1;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .footer-nav-btn:hover {
+      background: #E8E7E2;
+      border-color: #B5B9B7;
+      transform: scale(1.08);
+    }
+
+    .footer-nav-btn:active {
+      transform: scale(0.92);
+    }
+
+    .slide.dark-slide .footer-nav-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.18);
+      color: #FFFFFF;
+    }
+
+    .slide.dark-slide .footer-nav-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: scale(1.08);
+    }
+
+    .slide.dark-slide .footer-nav-btn:active {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .slide-counter {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--muted);
+      min-width: 68px;
+      text-align: center;
+    }
+
+    .slide.dark-slide .slide-counter {
+      color: #9BA19E;
+    }
+
+    h1.hero-title {
+      font-family: var(--font-display);
+      font-size: 88px;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+    }
+
+    h2.section-title {
+      font-family: var(--font-display);
+      font-size: 56px;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+
+    p.lead-text {
+      font-size: 26px;
+      line-height: 1.5;
+      color: var(--muted);
+      max-width: 1000px;
+      margin-bottom: 36px;
+    }
+
+    .dark-slide p.lead-text {
+      color: #A6ACA9;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .deck-card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 44px 38px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card-label {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1.25;
+      color: var(--primary-ink);
+    }
+
+    .card-body {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .intake-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 280px;
+      transition: var(--transition);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .intake-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .intake-badge {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #9BA19E;
+      margin-bottom: 12px;
+    }
+
+    .intake-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+
+    .intake-desc {
+      font-size: 15px;
+      color: #B5BBB8;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .intake-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #FFFFFF;
+      color: #111312;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 12px 18px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .intake-btn:hover {
+      background: #E3E3DE;
+    }
+
+    .pilot-grid {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 44px 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .pilot-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pilot-label {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .pilot-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--primary-ink);
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .pilot-desc {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #9BA19E;
+      margin-bottom: 18px;
+    }
+
+    .mobile-swipe-hint {
+      display: none;
+    }
+
+    .hero-tags {
+      display: flex;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-tag {
+      padding: 10px 24px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      white-space: nowrap;
+    }
+
+    /* Horizontal studio strip across desktop */
+    .studio-horizontal-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      padding: 10px 22px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: #D1D5D3;
+      white-space: nowrap;
+    }
+
+    .studio-horizontal-strip strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .pilot-header-wrap {
+      margin-bottom: 26px;
+    }
+
+    .pilot-title-h2 {
+      margin-bottom: 14px;
+      color: #FFFFFF;
+    }
+
+    /* Address Box: Desktop Horizontal vs Mobile Stacked */
+    .address-desktop {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 15px;
+      line-height: 1.5;
+      color: #A6ACA9;
+    }
+
+    .addr-line-desktop {
+      white-space: nowrap;
+      color: #D1D5D3;
+    }
+
+    .addr-line-desktop strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .address-mobile {
+      display: none;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       COMPREHENSIVE RESPONSIVENESS: TABLET & MOBILE (<= 1024px)
+       Sliding buttons (nav-controls) are hidden on mobile/tablet.
+       Smooth touch swipe + thumb footer buttons enable effortless slide switching.
+       ───────────────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      body {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: auto;
+        display: block;
+      }
+
+      .deck-viewport {
+        width: 100% !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: auto;
+        display: block;
+        position: relative;
+      }
+
+      .deck-stage {
+        width: 100% !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: auto !important;
+        transform: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        position: relative;
+        overflow: visible !important;
+      }
+
+      .slide {
+        position: relative !important;
+        inset: auto !important;
+        width: 100% !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        height: auto !important;
+        padding: 32px 24px 40px 24px !important;
+        display: none !important;
+        opacity: 0;
+        transform: none !important;
+        transition: opacity 0.3s ease;
+      }
+
+      .slide.active {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      .slide-footer-nav {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .footer-nav-btn {
+        background: var(--surface);
+        border: 1px solid var(--rule);
+        color: var(--primary-ink);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 17px;
+        line-height: 1;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        transition: transform 0.15s ease, background 0.15s ease;
+      }
+
+      .slide.dark-slide .footer-nav-btn {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.18);
+        color: #FFFFFF;
+      }
+
+      .footer-nav-btn:active {
+        transform: scale(0.9);
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      .slide.dark-slide .footer-nav-btn:active {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .studio-horizontal-strip {
+        display: none !important;
+      }
+
+      .address-desktop {
+        display: none !important;
+      }
+
+      .address-mobile {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 4px !important;
+        font-size: 13.5px !important;
+        line-height: 1.45 !important;
+        color: #D1D5D3;
+      }
+
+      .addr-m-line.strong {
+        color: #FFFFFF;
+        font-weight: 600;
+      }
+
+      .top-header {
+        min-height: 48px !important;
+        padding-bottom: 16px !important;
+        margin-bottom: 20px !important;
+        gap: 12px !important;
+        width: 100% !important;
+      }
+
+      .header-logo {
+        width: 235px !important;
+        max-width: 235px !important;
+      }
+
+      .brand-sub {
+        font-size: 13.5px !important;
+        margin-top: 4px !important;
+      }
+
+      .header-glyph {
+        width: 38px !important;
+        max-width: 38px !important;
+      }
+
+      .category-badge {
+        font-size: 11px !important;
+        padding: 5px 12px !important;
+        max-width: 220px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+
+      .slide-body {
+        flex: 1;
+        padding: 12px 0 20px 0 !important;
+        justify-content: center !important;
+      }
+
+      .hero-title {
+        font-size: clamp(34px, 6.5vw, 50px) !important;
+        line-height: 1.12 !important;
+        margin-bottom: 16px !important;
+      }
+
+      .section-title {
+        font-size: clamp(26px, 5.5vw, 38px) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 10px !important;
+      }
+
+      .lead-text {
+        font-size: clamp(15px, 3.2vw, 18px) !important;
+        line-height: 1.5 !important;
+        margin-bottom: 22px !important;
+      }
+
+      .hero-tags {
+        gap: 10px !important;
+      }
+
+      .hero-tag {
+        font-size: 12px !important;
+        padding: 8px 16px !important;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      .deck-card {
+        padding: 22px 18px !important;
+        gap: 10px !important;
+      }
+
+      .card-title {
+        font-size: 20px !important;
+      }
+
+      .card-body {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+      }
+
+      .pilot-grid {
+        grid-template-columns: 1fr !important;
+        padding: 24px 18px !important;
+        gap: 18px !important;
+      }
+
+      .intake-card {
+        padding: 20px 16px !important;
+        gap: 12px !important;
+        min-height: auto !important;
+      }
+
+      .intake-title {
+        font-size: 24px !important;
+      }
+
+      .intake-btn {
+        width: 100% !important;
+        min-height: 46px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+      }
+
+      .slide-footer {
+        padding-top: 18px !important;
+        font-size: 12px !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .slide {
+        padding: 20px 16px 24px 16px !important;
+      }
+
+      .top-header {
+        min-height: 38px !important;
+        padding-bottom: 10px !important;
+        margin-bottom: 12px !important;
+        gap: 8px !important;
+      }
+
+      .header-logo {
+        width: 175px !important;
+        max-width: 175px !important;
+      }
+
+      .brand-sub {
+        font-size: 12px !important;
+        margin-top: 3px !important;
+      }
+
+      .category-badge {
+        font-size: 9.5px !important;
+        padding: 4px 8px !important;
+        max-width: 135px !important;
+        letter-spacing: 0.5px !important;
+      }
+
+      .header-glyph {
+        width: 30px !important;
+        max-width: 30px !important;
+      }
+
+      .slide-body {
+        padding: 6px 0 16px 0 !important;
+      }
+
+      .hero-eyebrow {
+        font-size: 11px !important;
+        letter-spacing: 1.5px !important;
+        margin-bottom: 10px !important;
+      }
+
+      .hero-title {
+        font-size: clamp(30px, 8.2vw, 40px) !important;
+        line-height: 1.1 !important;
+        margin-bottom: 12px !important;
+      }
+
+      .section-title {
+        font-size: clamp(21px, 5.8vw, 26px) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 8px !important;
+      }
+
+      .lead-text {
+        font-size: 13.5px !important;
+        line-height: 1.45 !important;
+        margin-bottom: 16px !important;
+      }
+
+      .hero-tags {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        margin-top: 10px !important;
+      }
+
+      .hero-tag {
+        font-size: 12px !important;
+        padding: 9px 14px !important;
+        border-radius: 8px !important;
+        text-align: center !important;
+        white-space: nowrap !important;
+        background: rgba(255, 255, 255, 0.06) !important;
+        border: 1px solid rgba(255, 255, 255, 0.16) !important;
+        color: #FFFFFF !important;
+        letter-spacing: 0.3px !important;
+      }
+
+      .mobile-swipe-hint {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #9BA19E;
+        margin-top: 20px;
+        opacity: 0.85;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
+
+      .deck-card {
+        padding: 16px 14px !important;
+        gap: 6px !important;
+        border-radius: 12px !important;
+      }
+
+      .card-label {
+        font-size: 10px !important;
+        letter-spacing: 1px !important;
+      }
+
+      .card-title {
+        font-size: 16.5px !important;
+        line-height: 1.25 !important;
+      }
+
+      .card-body {
+        font-size: 13px !important;
+        line-height: 1.45 !important;
+      }
+
+      .pilot-grid {
+        grid-template-columns: 1fr !important;
+        padding: 16px 14px !important;
+        gap: 12px !important;
+        border-radius: 12px !important;
+      }
+
+      .pilot-col {
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--rule);
+        gap: 3px;
+      }
+
+      .pilot-col:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .pilot-label {
+        font-size: 10px !important;
+      }
+
+      .pilot-title {
+        font-size: 18px !important;
+        margin-bottom: 2px !important;
+      }
+
+      .pilot-desc {
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+      }
+
+      .pilot-header-wrap {
+        margin-bottom: 8px !important;
+      }
+
+      .pilot-title-h2 {
+        font-size: clamp(19px, 5.2vw, 24px) !important;
+        line-height: 1.18 !important;
+        margin-bottom: 0 !important;
+        color: #FFFFFF !important;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+      }
+
+      .intake-card {
+        padding: 9px 12px !important;
+        gap: 5px !important;
+        border-radius: 10px !important;
+        min-height: auto !important;
+      }
+
+      .intake-badge {
+        font-size: 8.5px !important;
+        letter-spacing: 0.8px !important;
+        margin-bottom: 2px !important;
+      }
+
+      .intake-title {
+        font-size: 14.5px !important;
+        margin-bottom: 2px !important;
+        line-height: 1.2 !important;
+      }
+
+      .intake-desc {
+        font-size: 11px !important;
+        line-height: 1.3 !important;
+        margin-bottom: 5px !important;
+      }
+
+      .address-mobile {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1px !important;
+        font-size: 11px !important;
+        line-height: 1.25 !important;
+        color: #D1D5D3;
+      }
+
+      .intake-btn {
+        min-height: 32px !important;
+        padding: 5px 12px !important;
+        font-size: 11px !important;
+        border-radius: 6px !important;
+      }
+
+      .slide-footer {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding-top: 14px !important;
+        font-size: 12px !important;
+      }
+
+      .slide-counter {
+        font-size: 12px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="deck-viewport">
+    <div class="deck-stage" id="deckStage">
+
+      <!-- SLIDE 1: TITLE (REVERSE MONO-CRAFT - DARK) -->
+      <div class="slide dark-slide active" data-slide="1">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo.png"
+                alt="D2C With AHrik" width="280"
+                style="display: block; border: 0; width: 280px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-transparent.png"
+              alt="AHrik Glyph" width="44"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body" style="text-align: center; align-items: center;">
+          <div class="hero-eyebrow">
+            High-Res Commercial Videos & Motion Reels
+          </div>
+          <h1 class="hero-title" style="max-width: 1400px;">
+            AI Video Shoot
+          </h1>
+          <p class="lead-text" style="text-align: center; max-width: 900px; margin-bottom: 36px;">
+            Turn simple phone photos of your products into commercial-grade motion reels and video ads in days.
+          </p>
+          <div class="hero-tags">
+            <span class="hero-tag">01. Catalog Videos</span>
+            <span class="hero-tag">02. Social Media Videos</span>
+            <span class="hero-tag">03. Ad Creative Videos</span>
+            <span class="hero-tag">04. Website Digital Videos</span>
+          </div>
+          <div class="mobile-swipe-hint">Swipe or tap › to explore</div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev" onclick="showSlide(currentSlide - 1)" title="Previous Slide (Left Arrow)" aria-label="Previous Slide">←</button>
+            <span class="slide-counter">01 / 07</span>
+            <button class="footer-nav-btn next" onclick="showSlide(currentSlide + 1)" title="Next Slide (Right Arrow or Space)" aria-label="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: PRODUCT 01 (MONO-CRAFT - LIGHT) -->
+      <div class="slide" data-slide="2">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="280"
+                style="display: block; border: 0; width: 280px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="44"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">01. Catalog Videos</h2>
+          <p class="lead-text">Show your product in motion with realistic models to remove buyer doubt.</p>
+          <div class="grid-2">
+            <div class="deck-card">
+              <div class="card-label">WHAT WE DO</div>
+              <div class="card-title">Realistic Dynamic Scenes</div>
+              <div class="card-body">
+                We place your product into clean catalog backgrounds or realistic motion scenes with models.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-label">HOW IT HELPS YOU</div>
+              <div class="card-title">Instant Purchase Confidence</div>
+              <div class="card-body">
+                Shoppers see how your product moves and fits in real life, giving them confidence to buy.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev" onclick="showSlide(currentSlide - 1)" title="Previous Slide (Left Arrow)" aria-label="Previous Slide">←</button>
+            <span class="slide-counter">02 / 07</span>
+            <button class="footer-nav-btn next" onclick="showSlide(currentSlide + 1)" title="Next Slide (Right Arrow or Space)" aria-label="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: PRODUCT 02 (MONO-CRAFT - LIGHT) -->
+      <div class="slide" data-slide="3">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="280"
+                style="display: block; border: 0; width: 280px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="44"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">02. Social Media Videos</h2>
+          <p class="lead-text">Stop the scroll and turn passive viewers into active customer inquiries.</p>
+          <div class="grid-2">
+            <div class="deck-card">
+              <div class="card-label">WHAT WE DO</div>
+              <div class="card-title">Fast-Paced Vertical Reels</div>
+              <div class="card-body">
+                Striking vertical video reels built for Instagram and TikTok with rhythmic pacing and bold hooks.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-label">HOW IT HELPS YOU</div>
+              <div class="card-title">Stop the Feed Scroll</div>
+              <div class="card-body">
+                Stops people from scrolling past, keeps your brand active, and drives direct messages to your phone.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev" onclick="showSlide(currentSlide - 1)" title="Previous Slide (Left Arrow)" aria-label="Previous Slide">←</button>
+            <span class="slide-counter">03 / 07</span>
+            <button class="footer-nav-btn next" onclick="showSlide(currentSlide + 1)" title="Next Slide (Right Arrow or Space)" aria-label="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 4: PRODUCT 03 (MONO-CRAFT - LIGHT) -->
+      <div class="slide" data-slide="4">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="280"
+                style="display: block; border: 0; width: 280px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="44"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">03. Ad Creative Videos</h2>
+          <p class="lead-text">High-converting promotional video ads built to capture attention and sell.</p>
+          <div class="grid-2">
+            <div class="deck-card">
+              <div class="card-label">WHAT WE DO</div>
+              <div class="card-title">Direct-Response Video Ads</div>
+              <div class="card-body">
+                Video ads with strong 2-second visual hooks, value callouts, and bold contrast across all formats.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-label">HOW IT HELPS YOU</div>
+              <div class="card-title">Maximize Advertising Sales</div>
+              <div class="card-body">
+                Grabs attention in the first 2 seconds, lowering cost-per-click and lifting ad sales.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev" onclick="showSlide(currentSlide - 1)" title="Previous Slide (Left Arrow)" aria-label="Previous Slide">←</button>
+            <span class="slide-counter">04 / 07</span>
+            <button class="footer-nav-btn next" onclick="showSlide(currentSlide + 1)" title="Next Slide (Right Arrow or Space)" aria-label="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 5: PRODUCT 04 (MONO-CRAFT - LIGHT) -->
+      <div class="slide" data-slide="5">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="280"
+                style="display: block; border: 0; width: 280px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="44"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">04. Website Digital Videos</h2>
+          <p class="lead-text">Turn your online store into an established, luxury storefront.</p>
+          <div class="grid-2">
+            <div class="deck-card">
+              <div class="card-label">WHAT WE DO</div>
+              <div class="card-title">Sharp Video Headers &amp; Loops</div>
+              <div class="card-body">
+                Razor-sharp video headers and ambient background loops for web and mobile that load instantly.
+              </div>
+            </div>
+            <div class="deck-card">
+              <div class="card-label">HOW IT HELPS YOU</div>
+              <div class="card-title">Instant Visitor Trust</div>
+              <div class="card-body">
+                Your store looks established and high-end the instant a customer lands on it.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev" onclick="showSlide(currentSlide - 1)" title="Previous Slide (Left Arrow)" aria-label="Previous Slide">←</button>
+            <span class="slide-counter">05 / 07</span>
+            <button class="footer-nav-btn next" onclick="showSlide(currentSlide + 1)" title="Next Slide (Right Arrow or Space)" aria-label="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 6: THE PILOT BATCH (MONO-CRAFT - LIGHT) -->
+      <div class="slide" data-slide="6">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo-dark.png"
+                alt="D2C With AHrik" width="280"
+                style="display: block; border: 0; width: 280px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo-dark.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-dark-transparent.png"
+              alt="AHrik Glyph" width="44"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-dark-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body">
+          <h2 class="section-title">The Zero-Risk Video Pilot Batch</h2>
+          <p class="lead-text">Test our speed, motion craft, and lighting on one single product. Zero retainer lock-in.</p>
+          <div class="pilot-grid">
+            <div class="pilot-col">
+              <div class="pilot-label">DELIVERABLE</div>
+              <div class="pilot-title">3 Commercial Videos</div>
+              <div class="pilot-desc">Across any of the 4 video formats for 1 hero SKU.</div>
+            </div>
+            <div class="pilot-col">
+              <div class="pilot-label">TURNAROUND</div>
+              <div class="pilot-title">5 Business Days</div>
+              <div class="pilot-desc">Private staging gallery delivered within 5 days.</div>
+            </div>
+            <div class="pilot-col">
+              <div class="pilot-label">SOVEREIGNTY</div>
+              <div class="pilot-title">100% IP Ownership</div>
+              <div class="pilot-desc">Master 4K commercial files transferred. Zero royalties.</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev" onclick="showSlide(currentSlide - 1)" title="Previous Slide (Left Arrow)" aria-label="Previous Slide">←</button>
+            <span class="slide-counter">06 / 07</span>
+            <button class="footer-nav-btn next" onclick="showSlide(currentSlide + 1)" title="Next Slide (Right Arrow or Space)" aria-label="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 7: PILOT INTAKE (REVERSE MONO-CRAFT - DARK) -->
+      <div class="slide dark-slide" data-slide="7">
+        <div class="top-header">
+          <div class="brand-lockup">
+            <a class="wordmark-link" href="https://d2cwith.ahrik.com" target="_blank" rel="noopener noreferrer" aria-label="D2C With AHrik">
+              <img
+                class="header-logo"
+                src="https://d2cwith.ahrik.com/brand/header-logo.png"
+                alt="D2C With AHrik" width="280"
+                style="display: block; border: 0; width: 280px; max-width: 100%; height: auto;"
+                onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/header-logo.png';" />
+            </a>
+            <div class="brand-sub">Digital Agency</div>
+          </div>
+          <div class="header-right">
+            <img
+              class="header-glyph"
+              src="https://d2cwith.ahrik.com/brand/2d-glyph-transparent.png"
+              alt="AHrik Glyph" width="44"
+              onerror="this.onerror=null; this.src='https://d2c-with-ahrik.appmarkit.com/brand/2d-glyph-transparent.png';" />
+          </div>
+        </div>
+        <div class="slide-body" style="justify-content: center;">
+          <div class="pilot-header-wrap" style="text-align: center; margin-bottom: 32px;">
+            <h2 class="section-title pilot-title-h2" style="margin-bottom: 0;">
+              Start your pilot video batch.
+            </h2>
+          </div>
+
+          <div class="grid-3">
+            <!-- 01: SHIP PHYSICAL SAMPLE -->
+            <div class="intake-card">
+              <div>
+                <div class="intake-badge">01 · PHYSICAL COURIER</div>
+                <div class="intake-title">Ship 1 Sample Unit</div>
+                <div class="intake-desc" id="studioAddressVideo">
+                  <div class="address-desktop">
+                    <div class="addr-line-desktop"><strong>D2C With AHrik</strong> · Navsari, 396445 · Surat, Gujarat</div>
+                  </div>
+                  <div class="address-mobile">
+                    <div class="addr-m-line strong">D2C With AHrik</div>
+                    <div class="addr-m-line">Navsari, 396445 · Surat, Gujarat</div>
+                  </div>
+                </div>
+              </div>
+              <button class="intake-btn" id="copyAddrVideoBtn" onclick="copyAddress()">Copy Address</button>
+            </div>
+
+            <!-- 02: 1-CLICK WHATSAPP -->
+            <a class="intake-card" href="https://wa.me/919426553015?text=Hi%20D2C%20With%20AHrik,%20here%20is%20my%20product%20link%20for%20the%20pilot%20video%20batch:%20" target="_blank" rel="noopener noreferrer">
+              <div>
+                <div class="intake-badge">02 · 1-CLICK WHATSAPP</div>
+                <div class="intake-title">Send Product Link</div>
+                <div class="intake-desc">
+                  Opens WhatsApp (+91 94265 53015) with pre-drafted message.
+                </div>
+              </div>
+              <span class="intake-btn">Chat on WhatsApp →</span>
+            </a>
+
+            <!-- 03: 1-CLICK PRE-DRAFTED EMAIL -->
+            <a class="intake-card" href="mailto:hello@d2cwith.ahrik.com?subject=Pilot%20Video%20Batch%20Intake%20-%20[Product%20Link]&body=Hi%20D2C%20With%20AHrik%20Team,%0A%0AHere%20is%20the%20link%20to%20our%20product%20for%20the%20pilot%20video%20batch:%0A[PASTE%20YOUR%20LINK%20HERE]%0A%0AOur%20Brand%20Name:%20">
+              <div>
+                <div class="intake-badge">03 · PRE-FILLED EMAIL</div>
+                <div class="intake-title">Email Product Link</div>
+                <div class="intake-desc">
+                  Opens pre-formatted email to hello@d2cwith.ahrik.com.
+                </div>
+              </div>
+              <span class="intake-btn">Open Email Draft →</span>
+            </a>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <div class="slide-footer-nav">
+            <button class="footer-nav-btn prev" onclick="showSlide(currentSlide - 1)" title="Previous Slide (Left Arrow)" aria-label="Previous Slide">←</button>
+            <span class="slide-counter">07 / 07</span>
+            <button class="footer-nav-btn next" onclick="showSlide(currentSlide + 1)" title="Next Slide (Right Arrow or Space)" aria-label="Next Slide">→</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function resizeStage() {
+      const stage = document.getElementById('deckStage');
+      if (!stage) return;
+      if (window.innerWidth <= 1024) {
+        stage.style.transform = 'none';
+        return;
+      }
+      const targetWidth = 1920;
+      const targetHeight = 1080;
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      const scale = Math.min(windowWidth / targetWidth, windowHeight / targetHeight);
+      stage.style.transform = `scale(${scale})`;
+    }
+
+    window.addEventListener('resize', resizeStage);
+    window.addEventListener('DOMContentLoaded', resizeStage);
+
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let currentSlide = 1;
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+      currentSlide = index;
+
+      slides.forEach(slide => {
+        const slideNum = parseInt(slide.getAttribute('data-slide'), 10);
+        if (slideNum === currentSlide) {
+          slide.classList.add('active');
+          if (slide.classList.contains('dark-slide')) {
+            document.body.style.backgroundColor = '#111312';
+          } else {
+            document.body.style.backgroundColor = '#F6F5F1';
+          }
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      const formattedCurrent = currentSlide < 10 ? `0${currentSlide}` : currentSlide;
+      const formattedTotal = totalSlides < 10 ? `0${totalSlides}` : totalSlides;
+      document.querySelectorAll('.slide-counter').forEach(counter => {
+        counter.textContent = `${formattedCurrent} / ${formattedTotal}`;
+      });
+
+      // Smooth reset scroll position on mobile when changing slides
+      if (window.innerWidth <= 1024) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        showSlide(currentSlide + 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        showSlide(currentSlide - 1);
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      }
+    });
+
+    // Touch / Swipe Navigation for Mobile & Tablet with scroll protection
+    let touchStartX = 0;
+    let touchStartY = 0;
+    window.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      const diffX = e.changedTouches[0].screenX - touchStartX;
+      const diffY = e.changedTouches[0].screenY - touchStartY;
+      // Only trigger horizontal slide turn when horizontal gesture dominates vertical scroll
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+        if (diffX < 0) showSlide(currentSlide + 1);
+        else showSlide(currentSlide - 1);
+      }
+    }, { passive: true });
+
+    function copyAddress() {
+      const address = "D2C With AHrik, Vishakha Park Society, Dhiru Bhai Wari, Vijalpor Road, Navsari, 396445, Surat, Gujarat, India";
+      navigator.clipboard.writeText(address).then(() => {
+        const btn = document.getElementById('copyAddrVideoBtn');
+        if (btn) {
+          btn.textContent = "Address Copied!";
+          setTimeout(() => { btn.textContent = "Copy Address"; }, 2500);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
